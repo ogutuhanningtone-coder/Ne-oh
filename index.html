@@ -104,34 +104,30 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 
 <!-- Animation in hero section -->
 <h1 class="text-5xl md:text-7xl font-bold">
-  <span class="typing-line">Hello, I'm</span><br>
-  <span class="typing-line typing-name">Ogutu Neville</span>
+  <span class="typing">Hello, I'm<br>Ogutu Neville</span>
 </h1>
 
 <style>
-.typing-line {
+.typing {
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 2px solid #ffffff; /* cursor */
-  animation: typing 3s steps(10, end) forwards, blink 0.75s step-end infinite;
-}
-
-/* Delay the second line to start right after the first line finishes */
-.typing-name {
-  animation: typing 3s steps(12, end) forwards 3s, blink 0.75s step-end infinite 3s;
-  background: linear-gradient(90deg, #6366f1, #3b82f6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  border-right: 2px solid transparent; /* invisible cursor */
+  animation: typing 4s linear infinite;
+  line-height: 1.2;
 }
 
 @keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
+  0% { width: 0; }
+  50% { width: 100%; }
+  100% { width: 0; }
 }
 
-@keyframes blink {
-  50% { border-color: transparent; }
+/* Optional: gradient for the name only */
+.typing br + span {
+  background: linear-gradient(90deg, #6366f1, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 </style>
 
