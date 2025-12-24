@@ -104,30 +104,43 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 
 <!-- Animation in hero section -->
 <h1 class="text-5xl md:text-7xl font-bold">
-  <span class="typing">Hello, I'm<br>Ogutu Neville</span>
+  <span class="typing-line">Hello, I'm<br></span>
+  <span class="typing-name">Ogutu Neville</span>
 </h1>
 
 <style>
-.typing {
+/* Typing animation for the first line */
+.typing-line {
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 2px solid transparent; /* invisible cursor */
-  animation: typing 4s linear infinite;
+  animation: typing-line 2s steps(12, end) infinite;
   line-height: 1.2;
 }
 
-@keyframes typing {
-  0% { width: 0; }
-  50% { width: 100%; }
-  100% { width: 0; }
-}
-
-/* Optional: gradient for the name only */
-.typing br + span {
-  background: linear-gradient(90deg, #6366f1, #3b82f6);
+/* Typing animation for the name */
+.typing-name {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  background: linear-gradient(90deg, #6366f1, #3b82f6); /* gradient for name */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: typing-name 2s steps(12, end) infinite;
+  animation-delay: 2s; /* starts after "Hello, I'm" */
+  line-height: 1.2;
+}
+
+/* Keyframes for first line */
+@keyframes typing-line {
+  0%, 50% { width: 0; }
+  50%, 100% { width: 100%; }
+}
+
+/* Keyframes for name */
+@keyframes typing-name {
+  0%, 50% { width: 0; }
+  50%, 100% { width: 100%; }
 }
 </style>
 
