@@ -103,23 +103,22 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 </div>
 
 <h1 class="text-5xl md:text-7xl font-bold">
-  Hello, I'm <br>
-  <span class="text-gradient typing">Ogutu Neville</span>
+  <span class="text-gradient typing">Hello, I'm Ogutu Neville</span>
 </h1>
 
 <style>
-/* Typing effect */
+/* Smooth typing effect */
 .typing {
-  border-right: 2px solid #6366f1; /* Cursor color matching your theme */
+  border-right: 2px solid #6366f1; /* Cursor color */
   white-space: nowrap;
   overflow: hidden;
   display: inline-block;
-  animation: typing 2.5s steps(13) infinite alternate, blink 0.75s step-end infinite;
+  animation: typing 3.5s steps(21) infinite alternate, blink 0.75s step-end infinite;
 }
 
 @keyframes typing {
   from { width: 0; }
-  to { width: 13ch; } /* 13 characters in "Ogutu Neville" */
+  to { width: 21ch; } /* 21 characters in "Hello, I'm Ogutu Neville" */
 }
 
 @keyframes blink {
