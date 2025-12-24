@@ -102,26 +102,46 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 <span>Available for web projects, digital solutions, and technical support</span>
 </div>
 
+<!-- Animation in hero section -->
 <h1 class="text-5xl md:text-7xl font-bold">
-  <span class="text-gradient typing">Hello, I'm Ogutu Neville</span>
+  <span class="typing-hello">Hello, I'm</span><br>
+  <span class="text-gradient typing-name">Ogutu Neville</span>
 </h1>
 
 <style>
-/* Smooth typing effect */
-.typing {
-  border-right: 2px solid #6366f1; /* Cursor color */
+/* Hello, I'm typing */
+.typing-hello {
+  border-right: 2px solid #ffffff; /* Same color as text for cursor */
   white-space: nowrap;
   overflow: hidden;
   display: inline-block;
-  animation: typing 3.5s steps(21) infinite alternate, blink 0.75s step-end infinite;
+  animation: typingHello 2.5s steps(10) infinite alternate, blinkHello 0.75s step-end infinite;
 }
 
-@keyframes typing {
+/* Ogutu Neville typing */
+.typing-name {
+  border-right: 2px solid #6366f1; /* Gradient cursor color */
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  animation: typingName 3.5s steps(13) infinite alternate, blinkName 0.75s step-end infinite;
+}
+
+/* Keyframes for Hello */
+@keyframes typingHello {
   from { width: 0; }
-  to { width: 21ch; } /* 21 characters in "Hello, I'm Ogutu Neville" */
+  to { width: 10ch; }
+}
+@keyframes blinkHello {
+  50% { border-color: transparent; }
 }
 
-@keyframes blink {
+/* Keyframes for Ogutu Neville */
+@keyframes typingName {
+  from { width: 0; }
+  to { width: 13ch; }
+}
+@keyframes blinkName {
   50% { border-color: transparent; }
 }
 </style>
