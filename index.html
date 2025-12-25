@@ -12,38 +12,22 @@
 <link rel="stylesheet" href="animation-code.css">
 
 
-<head>
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
-
-  <!-- Global CSS -->
-  <style>
-    /* Global Fonts */
-    body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-    h1.title { font-family: 'Orbitron', sans-serif; font-weight: 700; }
-    h2.heading, h3.heading { font-family: 'Montserrat', sans-serif; font-weight: 600; }
-
-    /* Colors & Gradients */
-    .text-gradient {
-      background: linear-gradient(to right, #6366f1, #a855f7);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .btn-gradient { background: linear-gradient(to right, #6366f1, #a855f7); }
-
-    /* Background Blur Utility */
-    .bg-blur { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-
-    /* Float Animation */
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0); }
-    }
-    .animate-float { animation: float 3s ease-in-out infinite; }
-  </style>
-</head>
-
+<style>
+body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+.bg-blur { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.text-gradient {
+  background: linear-gradient(to right, #6366f1, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.btn-gradient { background: linear-gradient(to right, #6366f1, #a855f7); }
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+.animate-float { animation: float 3s ease-in-out infinite; }
+</style>
 
 
 <style>
