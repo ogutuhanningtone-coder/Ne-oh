@@ -615,25 +615,27 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 
     <!-- Section Header -->
     <div class="text-center max-w-2xl mx-auto mb-12">
-  <span class="text-indigo-400 font-bold uppercase text-sm">My Projects</span>
-  <h2 class="text-4xl md:text-5xl font-bold mt-4">
-    <span class="text-white">Selected Projects</span> 
-    <span class="text-indigo-400">& Tools</span>
-  </h2>
-</div>
+      <span class="text-indigo-400 font-bold uppercase text-sm">My Projects</span>
+      <h2 class="text-4xl md:text-5xl font-bold mt-4">
+        <span class="text-white">Selected Projects</span> 
+        <span class="text-indigo-400">& Tools</span>
+      </h2>
+    </div>
 
     <!-- Project Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-      <!-- Favourite Contractors -->
-      <div class="relative group rounded-3xl overflow-hidden shadow-lg cursor-pointer">
-        <img src="fav contractors srcn.png" alt="Favourite Contractors" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
-        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-all duration-500 flex flex-col justify-end p-6">
+      <!-- Project Card Template -->
+      <div class="relative group rounded-3xl overflow-hidden shadow-lg cursor-pointer h-64">
+        <img src="fav contractors srcn.png" alt="Favourite Contractors" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+
+        <!-- Hover Overlay -->
+        <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
           <span class="text-purple-400 font-bold text-sm">Favourite Contractors</span>
           <h3 class="text-white font-bold text-xl mt-1">Corporate Construction Website</h3>
           <p class="text-gray-200 mt-2 text-sm">Professional construction company website designed with a clean, business-focused layout.</p>
           <div class="mt-3 text-gray-400 text-sm">
-            <h4 class="font-bold text-white mb-1">Tools Used:</h4>
+            <h4 class="font-bold text-indigo-400 mb-1">Tools Used:</h4>
             <ul class="list-disc list-inside">
               <li>WordPress</li>
               <li>Elementor</li>
@@ -644,15 +646,15 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         </div>
       </div>
 
-      <!-- Mideh Farm -->
-      <div class="relative group rounded-3xl overflow-hidden shadow-lg cursor-pointer">
-        <img src="mideh farm srcn.png" alt="Mideh Farm" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
-        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-all duration-500 flex flex-col justify-end p-6">
+      <!-- Repeat Project Cards -->
+      <div class="relative group rounded-3xl overflow-hidden shadow-lg cursor-pointer h-64">
+        <img src="mideh farm srcn.png" alt="Mideh Farm" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
           <span class="text-purple-400 font-bold text-sm">Mideh Farm</span>
           <h3 class="text-white font-bold text-xl mt-1">Agricultural Business Website</h3>
           <p class="text-gray-200 mt-2 text-sm">Agriculture-focused website showcasing farming services, products, and business operations.</p>
           <div class="mt-3 text-gray-400 text-sm">
-            <h4 class="font-bold text-white mb-1">Tools Used:</h4>
+            <h4 class="font-bold text-indigo-400 mb-1">Tools Used:</h4>
             <ul class="list-disc list-inside">
               <li>WordPress</li>
               <li>Elementor</li>
@@ -663,15 +665,14 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         </div>
       </div>
 
-      <!-- FinXpert -->
-      <div class="relative group rounded-3xl overflow-hidden shadow-lg cursor-pointer">
-        <img src="finxpert scrn.png" alt="FinXpert" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
-        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-all duration-500 flex flex-col justify-end p-6">
+      <div class="relative group rounded-3xl overflow-hidden shadow-lg cursor-pointer h-64">
+        <img src="finxpert scrn.png" alt="FinXpert" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
           <span class="text-purple-400 font-bold text-sm">FinXpert</span>
           <h3 class="text-white font-bold text-xl mt-1">Financial Services Website</h3>
           <p class="text-gray-200 mt-2 text-sm">Corporate finance website built with a strong brand identity and trust-driven design.</p>
           <div class="mt-3 text-gray-400 text-sm">
-            <h4 class="font-bold text-white mb-1">Tools Used:</h4>
+            <h4 class="font-bold text-indigo-400 mb-1">Tools Used:</h4>
             <ul class="list-disc list-inside">
               <li>WordPress</li>
               <li>Elementor</li>
@@ -682,15 +683,14 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         </div>
       </div>
 
-      <!-- Foam Blocks Kenya -->
-      <div class="relative group rounded-3xl overflow-hidden shadow-lg cursor-pointer">
-        <img src="foamblock scrn.png" alt="Foam Blocks Kenya" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
-        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-all duration-500 flex flex-col justify-end p-6">
+      <div class="relative group rounded-3xl overflow-hidden shadow-lg cursor-pointer h-64">
+        <img src="foamblock scrn.png" alt="Foam Blocks Kenya" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
           <span class="text-purple-400 font-bold text-sm">Foam Blocks Kenya</span>
           <h3 class="text-white font-bold text-xl mt-1">Manufacturing & Product Website</h3>
           <p class="text-gray-200 mt-2 text-sm">Product-driven manufacturing website optimized for clarity, product presentation, and conversions.</p>
           <div class="mt-3 text-gray-400 text-sm">
-            <h4 class="font-bold text-white mb-1">Tools Used:</h4>
+            <h4 class="font-bold text-indigo-400 mb-1">Tools Used:</h4>
             <ul class="list-disc list-inside">
               <li>WordPress</li>
               <li>Elementor</li>
@@ -701,15 +701,14 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         </div>
       </div>
 
-      <!-- Rayne Integrated -->
-      <div class="relative group rounded-3xl overflow-hidden shadow-lg cursor-pointer">
-        <img src="rayneinter scrn.png" alt="Rayne Integrated" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
-        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-all duration-500 flex flex-col justify-end p-6">
+      <div class="relative group rounded-3xl overflow-hidden shadow-lg cursor-pointer h-64">
+        <img src="rayneinter scrn.png" alt="Rayne Integrated" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
           <span class="text-purple-400 font-bold text-sm">Rayne Integrated</span>
           <h3 class="text-white font-bold text-xl mt-1">Enterprise Business Website</h3>
           <p class="text-gray-200 mt-2 text-sm">Enterprise-oriented website designed for integrated business and professional services.</p>
           <div class="mt-3 text-gray-400 text-sm">
-            <h4 class="font-bold text-white mb-1">Tools Used:</h4>
+            <h4 class="font-bold text-indigo-400 mb-1">Tools Used:</h4>
             <ul class="list-disc list-inside">
               <li>WordPress</li>
               <li>Elementor</li>
