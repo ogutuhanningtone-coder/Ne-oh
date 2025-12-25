@@ -927,6 +927,70 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
     </div>
   </div>
 </section>
+<!-- ================= FOOTER ================= -->
+<footer class="bg-[#0b0c10] py-12 border-t border-white/5">
+  <div class="container mx-auto px-6 max-w-7xl flex flex-col lg:flex-row justify-between items-center gap-8">
+
+    <!-- Brand & Info -->
+    <div class="text-center lg:text-left space-y-4">
+      <h2 class="text-2xl font-bold text-white">Hanningtone Neville Ogutu</h2>
+      <p class="text-gray-400">Crafting digital experiences that blend creativity and technology.</p>
+    </div>
+
+    <!-- Social Links -->
+    <div class="flex items-center gap-4 mt-6">
+      <!-- Email -->
+      <a href="mailto:ogutuhanningtone@gmail.com" aria-label="Email"
+        class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10
+               text-indigo-400 hover:text-white hover:border-indigo-400
+               hover:shadow-[0_0_18px_rgba(99,102,241,0.6)] transition duration-300">
+        <i class="fa-solid fa-envelope text-lg"></i>
+      </a>
+
+      <!-- Phone -->
+      <a href="tel:+254716927955" aria-label="Call"
+        class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10
+               text-indigo-400 hover:text-white hover:border-indigo-400
+               hover:shadow-[0_0_18px_rgba(99,102,241,0.6)] transition duration-300">
+        <i class="fa-solid fa-phone text-lg"></i>
+      </a>
+
+      <!-- WhatsApp -->
+      <a href="https://wa.link/xwh6aa" target="_blank" rel="noopener" aria-label="WhatsApp"
+        class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10
+               text-green-400 hover:text-white hover:border-green-400
+               hover:shadow-[0_0_18px_rgba(34,197,94,0.6)] transition duration-300">
+        <i class="fa-brands fa-whatsapp text-lg"></i>
+      </a>
+
+      <!-- Twitter -->
+      <a href="https://x.com/_NevilleOgutu" target="_blank" rel="noopener" aria-label="Twitter"
+        class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10
+               text-blue-400 hover:text-white hover:border-blue-400
+               hover:shadow-[0_0_18px_rgba(59,130,246,0.6)] transition duration-300">
+        <i class="fa-brands fa-twitter text-lg"></i>
+      </a>
+
+      <!-- TikTok -->
+      <a href="https://www.tiktok.com/@ogutuneville" target="_blank" rel="noopener" aria-label="TikTok"
+        class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10
+               text-pink-400 hover:text-white hover:border-pink-400
+               hover:shadow-[0_0_18px_rgba(236,72,153,0.6)] transition duration-300">
+        <i class="fa-brands fa-tiktok text-lg"></i>
+      </a>
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-gray-500 text-sm text-center lg:text-right mt-6 lg:mt-0">
+      © <span id="year"></span> <span class="text-white font-bold">Hanningtone Neville Ogutu</span>. All Rights Reserved.
+    </div>
+
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
