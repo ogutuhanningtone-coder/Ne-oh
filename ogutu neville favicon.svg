@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="20" fill="#0b0c10"></rect>
+  <text x="50%" y="56%" text-anchor="middle" dominant-baseline="middle" font-size="48" font-family="Inter, Arial, sans-serif" font-weight="700" fill="#6366f1">
+    N
+  </text>
+  <text x="50%" y="78%" text-anchor="middle" font-size="20" font-family="monospace" fill="#22c55e">
+    &lt;/&gt;
+  </text>
+</svg>
