@@ -619,119 +619,67 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
       <h2 class="text-4xl md:text-5xl font-bold mt-4 text-white">Selected Projects & Tools</h2>
     </div>
 
-    <!-- Swiper Slider -->
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
+    <!-- Project Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-        <!-- Slide 1 -->
-        <div class="swiper-slide p-8 bg-white/5 border border-white/10 rounded-3xl flex flex-col lg:flex-row gap-8 items-start">
-          <div class="flex-1">
-            <span class="text-purple-400 font-bold">Favourite Contractors</span>
-            <h3 class="text-xl font-bold mt-2">Corporate Construction Website</h3>
-            <p class="text-gray-400 mt-2">
-              Professional construction company website designed with a clean, business-focused layout.
-            </p>
-            <a href="https://favouritecontractors.co.ke" target="_blank" class="inline-block mt-4 text-indigo-400 font-bold">
-              View Project →
-            </a>
-          </div>
-          <div class="flex-1 text-gray-400">
-            <h4 class="font-bold mb-2">Tools Used:</h4>
-            <ul class="list-disc list-inside">
-              <li>WordPress</li>
-              <li>Elementor</li>
-              <li>HTML & CSS</li>
-            </ul>
-          </div>
+      <!-- Favourite Contractors -->
+      <div class="relative group rounded-3xl overflow-hidden shadow-lg cursor-pointer">
+        <img src="https://via.placeholder.com/600x400" alt="Favourite Contractors" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-all duration-500 flex flex-col justify-end p-6">
+          <span class="text-purple-400 font-bold text-sm">Favourite Contractors</span>
+          <h3 class="text-white font-bold text-xl mt-1">Corporate Construction Website</h3>
+          <p class="text-gray-200 mt-2 text-sm">Professional construction company website designed with a clean, business-focused layout.</p>
+          <a href="https://favouritecontractors.co.ke" target="_blank" class="inline-block mt-4 text-indigo-400 font-bold text-sm">View Project →</a>
         </div>
-
-        <!-- Slide 2 -->
-        <div class="swiper-slide p-8 bg-white/5 border border-white/10 rounded-3xl flex flex-col lg:flex-row gap-8 items-start">
-          <div class="flex-1">
-            <span class="text-purple-400 font-bold">Mideh Farm</span>
-            <h3 class="text-xl font-bold mt-2">Agricultural Business Website</h3>
-            <p class="text-gray-400 mt-2">
-              Agriculture-focused website showcasing farming services, products, and business operations.
-            </p>
-            <a href="https://midehfarm.co.ke" target="_blank" class="inline-block mt-4 text-indigo-400 font-bold">
-              View Project →
-            </a>
-          </div>
-          <div class="flex-1 text-gray-400">
-            <h4 class="font-bold mb-2">Tools Used:</h4>
-            <ul class="list-disc list-inside">
-              <li>WordPress</li>
-              <li>Elementor</li>
-              <li>HTML & CSS</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Slide 3 -->
-        <div class="swiper-slide p-8 bg-white/5 border border-white/10 rounded-3xl flex flex-col lg:flex-row gap-8 items-start">
-          <div class="flex-1">
-            <span class="text-purple-400 font-bold">FinXpert</span>
-            <h3 class="text-xl font-bold mt-2">Financial Services Website</h3>
-            <p class="text-gray-400 mt-2">
-              Corporate finance website built with a strong brand identity and trust-driven design.
-            </p>
-            <a href="https://finxpert.co.ke" target="_blank" class="inline-block mt-4 text-indigo-400 font-bold">
-              View Project →
-            </a>
-          </div>
-          <div class="flex-1 text-gray-400">
-            <h4 class="font-bold mb-2">Tools Used:</h4>
-            <ul class="list-disc list-inside">
-              <li>WordPress</li>
-              <li>Elementor</li>
-              <li>HTML & CSS</li>
-            </ul>
-          </div>
-        </div>
-
       </div>
-      <!-- Add navigation arrows -->
-      <div class="swiper-button-next text-white"></div>
-      <div class="swiper-button-prev text-white"></div>
-      <!-- Add pagination -->
-      <div class="swiper-pagination"></div>
-    </div>
 
+      <!-- Mideh Farm -->
+      <div class="relative group rounded-3xl overflow-hidden shadow-lg cursor-pointer">
+        <img src="https://via.placeholder.com/600x400" alt="Mideh Farm" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-all duration-500 flex flex-col justify-end p-6">
+          <span class="text-purple-400 font-bold text-sm">Mideh Farm</span>
+          <h3 class="text-white font-bold text-xl mt-1">Agricultural Business Website</h3>
+          <p class="text-gray-200 mt-2 text-sm">Agriculture-focused website showcasing farming services, products, and business operations.</p>
+          <a href="https://midehfarm.co.ke" target="_blank" class="inline-block mt-4 text-indigo-400 font-bold text-sm">View Project →</a>
+        </div>
+      </div>
+
+      <!-- FinXpert -->
+      <div class="relative group rounded-3xl overflow-hidden shadow-lg cursor-pointer">
+        <img src="https://via.placeholder.com/600x400" alt="FinXpert" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-all duration-500 flex flex-col justify-end p-6">
+          <span class="text-purple-400 font-bold text-sm">FinXpert</span>
+          <h3 class="text-white font-bold text-xl mt-1">Financial Services Website</h3>
+          <p class="text-gray-200 mt-2 text-sm">Corporate finance website built with a strong brand identity and trust-driven design.</p>
+          <a href="https://finxpert.co.ke" target="_blank" class="inline-block mt-4 text-indigo-400 font-bold text-sm">View Project →</a>
+        </div>
+      </div>
+
+      <!-- Foam Blocks Kenya -->
+      <div class="relative group rounded-3xl overflow-hidden shadow-lg cursor-pointer">
+        <img src="https://via.placeholder.com/600x400" alt="Foam Blocks Kenya" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-all duration-500 flex flex-col justify-end p-6">
+          <span class="text-purple-400 font-bold text-sm">Foam Blocks Kenya</span>
+          <h3 class="text-white font-bold text-xl mt-1">Manufacturing & Product Website</h3>
+          <p class="text-gray-200 mt-2 text-sm">Product-driven manufacturing website optimized for clarity, product presentation, and conversions.</p>
+          <a href="https://foamblockskenya.com" target="_blank" class="inline-block mt-4 text-indigo-400 font-bold text-sm">View Project →</a>
+        </div>
+      </div>
+
+      <!-- Rayne Integrated -->
+      <div class="relative group rounded-3xl overflow-hidden shadow-lg cursor-pointer">
+        <img src="https://via.placeholder.com/600x400" alt="Rayne Integrated" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-all duration-500 flex flex-col justify-end p-6">
+          <span class="text-purple-400 font-bold text-sm">Rayne Integrated</span>
+          <h3 class="text-white font-bold text-xl mt-1">Enterprise Business Website</h3>
+          <p class="text-gray-200 mt-2 text-sm">Enterprise-oriented website designed for integrated business and professional services.</p>
+          <a href="https://rayne-integrated.com" target="_blank" class="inline-block mt-4 text-indigo-400 font-bold text-sm">View Project →</a>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
-
-<!-- Swiper JS & CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
-<script>
-  const swiper = new Swiper(".mySwiper", {
-    slidesPerView: 1,          // Show one slide at a time
-    spaceBetween: 30,
-    loop: true,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    },
-    speed: 1000,               // Slide animation speed
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    grabCursor: true,
-  });
-</script>
-
-<style>
-  .swiper-slide {
-    transition: transform 0.5s ease-in-out;
-  }
-</style>
-
 
 <!-- ================= CONTACT ================= -->
 <section id="contact" class="py-12 bg-[#0b0c10]">
