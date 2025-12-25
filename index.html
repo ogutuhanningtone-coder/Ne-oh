@@ -137,16 +137,16 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 <!-- ================= HERO ================= -->
 <section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
 
-  <!-- Matrix Canvas Background -->
-  <canvas id="matrix-hero"
-    class="absolute inset-0 z-0 opacity-40"></canvas>
+  <!-- Code Waves Background -->
+  <canvas id="code-waves" class="absolute inset-0 z-0"></canvas>
 
-  <!-- Dark overlay for readability -->
-  <div class="absolute inset-0 bg-black/60 z-[1]"></div>
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/70 z-[1]"></div>
 
   <!-- HERO CONTENT -->
   <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
 
+    <!-- LEFT -->
     <div class="space-y-8">
 
       <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-indigo-400 text-sm font-medium animate-bounce">
@@ -157,7 +157,6 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         <span>Available for web projects, digital solutions, and technical support</span>
       </div>
 
-      <!-- Animated Hero Title -->
       <h1 class="text-5xl md:text-7xl font-bold">
         <span class="typing-line">Hello, I'm<br></span>
         <span class="typing-name">Ogutu Neville</span>
@@ -176,60 +175,79 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         </a>
       </div>
 
-      <!-- SOCIAL ICONS -->
+      <!-- ✅ SOCIAL ICONS (RESTORED) -->
       <div class="flex items-center gap-4 mt-6">
+
         <!-- Email -->
         <a href="mailto:ogutuhanningtone@gmail.com"
-           class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10
+           aria-label="Email"
+           class="w-11 h-11 flex items-center justify-center rounded-full
+                  bg-white/5 border border-white/10
                   text-indigo-400 hover:text-white hover:border-indigo-400
-                  hover:shadow-[0_0_18px_rgba(99,102,241,0.6)] transition duration-300">
-          <i class="fa-solid fa-envelope"></i>
+                  hover:shadow-[0_0_18px_rgba(99,102,241,0.6)]
+                  transition duration-300">
+          <i class="fa-solid fa-envelope text-lg"></i>
         </a>
 
         <!-- Phone -->
         <a href="tel:+254716927955"
-           class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10
+           aria-label="Call"
+           class="w-11 h-11 flex items-center justify-center rounded-full
+                  bg-white/5 border border-white/10
                   text-indigo-400 hover:text-white hover:border-indigo-400
-                  hover:shadow-[0_0_18px_rgba(99,102,241,0.6)] transition duration-300">
-          <i class="fa-solid fa-phone"></i>
+                  hover:shadow-[0_0_18px_rgba(99,102,241,0.6)]
+                  transition duration-300">
+          <i class="fa-solid fa-phone text-lg"></i>
         </a>
 
         <!-- WhatsApp -->
-        <a href="https://wa.link/xwh6aa" target="_blank"
-           class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10
+        <a href="https://wa.link/xwh6aa" target="_blank" rel="noopener"
+           aria-label="WhatsApp"
+           class="w-11 h-11 flex items-center justify-center rounded-full
+                  bg-white/5 border border-white/10
                   text-green-400 hover:text-white hover:border-green-400
-                  hover:shadow-[0_0_18px_rgba(34,197,94,0.6)] transition duration-300">
-          <i class="fa-brands fa-whatsapp"></i>
+                  hover:shadow-[0_0_18px_rgba(34,197,94,0.6)]
+                  transition duration-300">
+          <i class="fa-brands fa-whatsapp text-lg"></i>
         </a>
 
         <!-- Twitter -->
-        <a href="https://x.com/_NevilleOgutu" target="_blank"
-           class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10
+        <a href="https://x.com/_NevilleOgutu" target="_blank" rel="noopener"
+           aria-label="Twitter"
+           class="w-11 h-11 flex items-center justify-center rounded-full
+                  bg-white/5 border border-white/10
                   text-blue-400 hover:text-white hover:border-blue-400
-                  hover:shadow-[0_0_18px_rgba(59,130,246,0.6)] transition duration-300">
-          <i class="fa-brands fa-twitter"></i>
+                  hover:shadow-[0_0_18px_rgba(59,130,246,0.6)]
+                  transition duration-300">
+          <i class="fa-brands fa-twitter text-lg"></i>
         </a>
 
         <!-- TikTok -->
         <a href="https://www.tiktok.com/@ogutuneville"
-           target="_blank"
-           class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10
+           target="_blank" rel="noopener"
+           aria-label="TikTok"
+           class="w-11 h-11 flex items-center justify-center rounded-full
+                  bg-white/5 border border-white/10
                   text-pink-400 hover:text-white hover:border-pink-400
-                  hover:shadow-[0_0_18px_rgba(236,72,153,0.6)] transition duration-300">
-          <i class="fa-brands fa-tiktok"></i>
+                  hover:shadow-[0_0_18px_rgba(236,72,153,0.6)]
+                  transition duration-300">
+          <i class="fa-brands fa-tiktok text-lg"></i>
         </a>
+
       </div>
     </div>
 
-    <!-- HERO IMAGE -->
+    <!-- RIGHT -->
     <div class="hidden lg:block animate-float">
-      <img src="Gemini_Generated_Image_8kz7t88kz7t88kz7.webp"
-           class="rounded-3xl border border-white/10 w-full max-h-[420px] object-cover">
+      <img
+        src="Gemini_Generated_Image_8kz7t88kz7t88kz7.webp"
+        class="rounded-3xl border border-white/10 w-full max-h-[420px] object-cover"
+        alt="Hero Image"
+      />
     </div>
 
   </div>
 </section>
-
 
 
 <!-- ================= ABOUT ================= -->
