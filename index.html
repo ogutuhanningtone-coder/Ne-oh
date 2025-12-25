@@ -1005,7 +1005,7 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 
 <!-- Intro Animation -->
 <script>
-const name = "Hanningtone Neville Ogutu";
+const name = "It's Hanningtone Neville Ogutu";
 const typedNameEl = document.getElementById("typedName");
 const taglineEl = document.getElementById("tagline");
 const introEl = document.getElementById("introAnimation");
@@ -1016,7 +1016,7 @@ function typeName() {
   if (i < name.length) {
     typedNameEl.textContent += name[i];
     i++;
-    setTimeout(typeName, 100); // typing speed
+    setTimeout(typeName, 50); // typing speed
   } else {
     // After typing is done, show tagline
     setTimeout(() => {
