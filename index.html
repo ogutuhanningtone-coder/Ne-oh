@@ -40,6 +40,64 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 }
 </style>
 
+<head>
+  <!-- other head content -->
+
+  <style>
+    /* ===== HERO ANIMATED GRADIENT ===== */
+    .hero-gradient {
+      background: linear-gradient(
+        270deg,
+        #000000,
+        #020617,
+        #0b1220,
+        #020617,
+        #000000
+      );
+      background-size: 600% 600%;
+      animation: gradientShift 25s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ===== SOFT AMBIENT GLOWS ===== */
+    .glow {
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.25;
+      animation: floatGlow 18s ease-in-out infinite alternate;
+    }
+
+    .glow-indigo {
+      background: #6366f1;
+      top: 10%;
+      left: 10%;
+    }
+
+    .glow-blue {
+      background: #3b82f6;
+      bottom: 15%;
+      right: 15%;
+    }
+
+    .glow-green {
+      background: #22c55e;
+      bottom: 30%;
+      left: 20%;
+    }
+
+    @keyframes floatGlow {
+      from { transform: translateY(0) translateX(0); }
+      to   { transform: translateY(-40px) translateX(30px); }
+    }
+  </style>
 
 </head>
 
