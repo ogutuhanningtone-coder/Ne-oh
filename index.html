@@ -11,6 +11,16 @@
 <link rel="icon" type="image/svg+xml" href="/ogutu%20neville%20favicon.svg">
 <link rel="stylesheet" href="animation-code.css">
 
+<!-- ================= INTRO ANIMATION ================= -->
+<div id="introAnimation" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0b0c10]">
+  <h1 class="text-5xl md:text-6xl font-bold text-white text-center">
+    <span id="typedName"></span><span class="cursor">|</span>
+  </h1>
+  <p id="tagline" class="mt-4 text-lg md:text-2xl text-gray-400 opacity-0 text-center">
+    Crafting Digital Solutions for Your Success
+  </p>
+</div>
+
 
 <style>
 body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
@@ -987,6 +997,39 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
+<!-- Intro Animation -->
+<script>
+const name = "Hanningtone Neville Ogutu";
+const typedNameEl = document.getElementById("typedName");
+const taglineEl = document.getElementById("tagline");
+const introEl = document.getElementById("introAnimation");
+
+let i = 0;
+
+function typeName() {
+  if (i < name.length) {
+    typedNameEl.textContent += name[i];
+    i++;
+    setTimeout(typeName, 150); // typing speed
+  } else {
+    // After typing is done, show tagline
+    setTimeout(() => {
+      taglineEl.classList.add("fade-in");
+    }, 300);
+
+    // Remove intro overlay after 3s
+    setTimeout(() => {
+      introEl.style.transition = "opacity 1s ease-in-out";
+      introEl.style.opacity = 0;
+      setTimeout(() => {
+        introEl.style.display = "none";
+      }, 1000);
+    }, 3000);
+  }
+}
+
+window.addEventListener("load", typeName);
+</script>
 
 </body>
 </html>
