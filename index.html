@@ -26,6 +26,64 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 .animate-float { animation: float 3s ease-in-out infinite; }
 </style>
 
+<head>
+  <!-- other head content -->
+
+  <style>
+    /* ===== HERO ANIMATED GRADIENT ===== */
+    .hero-gradient {
+      background: linear-gradient(
+        270deg,
+        #000000,
+        #020617,
+        #0b1220,
+        #020617,
+        #000000
+      );
+      background-size: 600% 600%;
+      animation: gradientShift 25s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ===== SOFT AMBIENT GLOWS ===== */
+    .glow {
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.25;
+      animation: floatGlow 18s ease-in-out infinite alternate;
+    }
+
+    .glow-indigo {
+      background: #6366f1;
+      top: 10%;
+      left: 10%;
+    }
+
+    .glow-blue {
+      background: #3b82f6;
+      bottom: 15%;
+      right: 15%;
+    }
+
+    .glow-green {
+      background: #22c55e;
+      bottom: 30%;
+      left: 20%;
+    }
+
+    @keyframes floatGlow {
+      from { transform: translateY(0) translateX(0); }
+      to   { transform: translateY(-40px) translateX(30px); }
+    }
+  </style>
 </head>
 
 <body class="bg-[#0b0c10] text-gray-100">
@@ -92,9 +150,10 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 </script>
 
 <!-- ================= HERO ================= -->
-<section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-black">
+<!-- ================= HERO ================= -->
+<section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden hero-gradient">
 
-  <!-- Ambient Glow Background -->
+  <!-- Ambient Glow Background (optional layer, keep if you like it) -->
   <div class="absolute inset-0 z-0 pointer-events-none">
     <div class="glow glow-indigo"></div>
     <div class="glow glow-green"></div>
@@ -107,6 +166,7 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
     <!-- LEFT -->
     <div class="space-y-8">
 
+      <!-- Availability Badge -->
       <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-indigo-400 text-sm font-medium animate-bounce">
         <span class="relative flex h-2 w-2">
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
@@ -115,15 +175,18 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         <span>Available for web projects, digital solutions, and technical support</span>
       </div>
 
+      <!-- Title -->
       <h1 class="text-5xl md:text-7xl font-bold">
         <span class="typing-line">Hello, I'm<br></span>
         <span class="typing-name">Ogutu Neville</span>
       </h1>
 
+      <!-- Subtitle -->
       <p class="text-xl text-gray-400 max-w-lg">
         Crafting digital solutions with clarity, precision, and purpose.
       </p>
 
+      <!-- Call-to-Action Buttons -->
       <div class="flex gap-4">
         <a href="#contact" class="px-8 py-4 btn-gradient rounded-full font-bold">
           Let's Talk Digital Solutions
@@ -133,79 +196,61 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         </a>
       </div>
 
-      <!-- ✅ SOCIAL ICONS (RESTORED) -->
+      <!-- ✅ SOCIAL ICONS -->
       <div class="flex items-center gap-4 mt-6">
-
         <!-- Email -->
-        <a href="mailto:ogutuhanningtone@gmail.com"
-           aria-label="Email"
-           class="w-11 h-11 flex items-center justify-center rounded-full
-                  bg-white/5 border border-white/10
-                  text-indigo-400 hover:text-white hover:border-indigo-400
-                  hover:shadow-[0_0_18px_rgba(99,102,241,0.6)]
-                  transition duration-300">
+        <a href="mailto:ogutuhanningtone@gmail.com" aria-label="Email"
+          class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10
+                 text-indigo-400 hover:text-white hover:border-indigo-400
+                 hover:shadow-[0_0_18px_rgba(99,102,241,0.6)] transition duration-300">
           <i class="fa-solid fa-envelope text-lg"></i>
         </a>
 
         <!-- Phone -->
-        <a href="tel:+254716927955"
-           aria-label="Call"
-           class="w-11 h-11 flex items-center justify-center rounded-full
-                  bg-white/5 border border-white/10
-                  text-indigo-400 hover:text-white hover:border-indigo-400
-                  hover:shadow-[0_0_18px_rgba(99,102,241,0.6)]
-                  transition duration-300">
+        <a href="tel:+254716927955" aria-label="Call"
+          class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10
+                 text-indigo-400 hover:text-white hover:border-indigo-400
+                 hover:shadow-[0_0_18px_rgba(99,102,241,0.6)] transition duration-300">
           <i class="fa-solid fa-phone text-lg"></i>
         </a>
 
         <!-- WhatsApp -->
-        <a href="https://wa.link/xwh6aa" target="_blank" rel="noopener"
-           aria-label="WhatsApp"
-           class="w-11 h-11 flex items-center justify-center rounded-full
-                  bg-white/5 border border-white/10
-                  text-green-400 hover:text-white hover:border-green-400
-                  hover:shadow-[0_0_18px_rgba(34,197,94,0.6)]
-                  transition duration-300">
+        <a href="https://wa.link/xwh6aa" target="_blank" rel="noopener" aria-label="WhatsApp"
+          class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10
+                 text-green-400 hover:text-white hover:border-green-400
+                 hover:shadow-[0_0_18px_rgba(34,197,94,0.6)] transition duration-300">
           <i class="fa-brands fa-whatsapp text-lg"></i>
         </a>
 
         <!-- Twitter -->
-        <a href="https://x.com/_NevilleOgutu" target="_blank" rel="noopener"
-           aria-label="Twitter"
-           class="w-11 h-11 flex items-center justify-center rounded-full
-                  bg-white/5 border border-white/10
-                  text-blue-400 hover:text-white hover:border-blue-400
-                  hover:shadow-[0_0_18px_rgba(59,130,246,0.6)]
-                  transition duration-300">
+        <a href="https://x.com/_NevilleOgutu" target="_blank" rel="noopener" aria-label="Twitter"
+          class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10
+                 text-blue-400 hover:text-white hover:border-blue-400
+                 hover:shadow-[0_0_18px_rgba(59,130,246,0.6)] transition duration-300">
           <i class="fa-brands fa-twitter text-lg"></i>
         </a>
 
         <!-- TikTok -->
-        <a href="https://www.tiktok.com/@ogutuneville"
-           target="_blank" rel="noopener"
-           aria-label="TikTok"
-           class="w-11 h-11 flex items-center justify-center rounded-full
-                  bg-white/5 border border-white/10
-                  text-pink-400 hover:text-white hover:border-pink-400
-                  hover:shadow-[0_0_18px_rgba(236,72,153,0.6)]
-                  transition duration-300">
+        <a href="https://www.tiktok.com/@ogutuneville" target="_blank" rel="noopener" aria-label="TikTok"
+          class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10
+                 text-pink-400 hover:text-white hover:border-pink-400
+                 hover:shadow-[0_0_18px_rgba(236,72,153,0.6)] transition duration-300">
           <i class="fa-brands fa-tiktok text-lg"></i>
         </a>
-
       </div>
     </div>
 
-    <!-- RIGHT -->
-    <div class="hidden lg:block animate-float">
+    <!-- RIGHT: Image visible on all screens now -->
+    <div class="animate-float mt-10 lg:mt-0">
       <img
         src="Gemini_Generated_Image_8kz7t88kz7t88kz7.webp"
-        class="rounded-3xl border border-white/10 w-full max-h-[420px] object-cover"
+        class="rounded-3xl border border-white/10 w-full max-h-[420px] object-cover mx-auto"
         alt="Hero Image"
       />
     </div>
-
   </div>
 </section>
+<!-- ================= END HERO ================= -->
 
 
 <!-- ================= ABOUT ================= -->
