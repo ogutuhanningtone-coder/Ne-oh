@@ -27,6 +27,48 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 </style>
 </head>
 
+<script>
+(function () {
+  const canvas = document.getElementById("matrix-hero");
+  if (!canvas) return;
+
+  const ctx = canvas.getContext("2d");
+  let width, height;
+
+  function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener("resize", resize);
+
+  const chars = "01";
+  const fontSize = 16;
+  const columns = Math.floor(width / fontSize);
+  const drops = Array(columns).fill(1);
+
+  function draw() {
+    ctx.fillStyle = "rgba(0,0,0,0.08)";
+    ctx.fillRect(0, 0, width, height);
+
+    ctx.fillStyle = "#00ff66";
+    ctx.font = fontSize + "px monospace";
+
+    for (let i = 0; i < drops.length; i++) {
+      const text = chars[Math.floor(Math.random() * chars.length)];
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+      if (drops[i] * fontSize > height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+      drops[i]++;
+    }
+  }
+
+  setInterval(draw, 45);
+})();
+</script>
+
 <body class="bg-[#0b0c10] text-gray-100">
   <!-- ================= STICKY NAVIGATION ================= -->
 <header class="sticky top-0 z-50 bg-[#0b0c10] border-b border-white/10">
@@ -90,151 +132,102 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 </script>
 
 <!-- ================= HERO ================= -->
-<section id="home" class="relative min-h-screen flex items-center pt-20">
-<div class="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+<section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
 
-<div class="space-y-8">
-<div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-indigo-400 text-sm font-medium animate-bounce">
-<span class="relative flex h-2 w-2">
-<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-<span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
-</span>
-<span>Available for web projects, digital solutions, and technical support</span>
-</div>
+  <!-- Matrix Canvas Background -->
+  <canvas id="matrix-hero"
+    class="absolute inset-0 z-0 opacity-40"></canvas>
 
-<!-- Animation in hero section -->
-<h1 class="text-5xl md:text-7xl font-bold">
-  <span class="typing-line">Hello, I'm<br></span>
-  <span class="typing-name">Ogutu Neville</span>
-</h1>
+  <!-- Dark overlay for readability -->
+  <div class="absolute inset-0 bg-black/60 z-[1]"></div>
 
-<style>
-/* Typing animation for the first line */
-.typing-line {
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  animation: typing-line 2s steps(12, end) infinite;
-  line-height: 1.2;
-}
+  <!-- HERO CONTENT -->
+  <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
 
-/* Typing animation for the name */
-.typing-name {
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  background: linear-gradient(90deg, #6366f1, #3b82f6); /* gradient for name */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: typing-name 2s steps(12, end) infinite;
-  animation-delay: 5s; /* starts after "Hello, I'm" */
-  line-height: 1.2;
-}
+    <div class="space-y-8">
 
-/* Keyframes for first line */
-@keyframes typing-line {
-  0%, 50% { width: 0; }
-  50%, 100% { width: 100%; }
-}
+      <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-indigo-400 text-sm font-medium animate-bounce">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+        </span>
+        <span>Available for web projects, digital solutions, and technical support</span>
+      </div>
 
-/* Keyframes for name */
-@keyframes typing-name {
-  0%, 50% { width: 0; }
-  50%, 100% { width: 100%; }
-}
-</style>
+      <!-- Animated Hero Title -->
+      <h1 class="text-5xl md:text-7xl font-bold">
+        <span class="typing-line">Hello, I'm<br></span>
+        <span class="typing-name">Ogutu Neville</span>
+      </h1>
 
-<p class="text-xl text-gray-400 max-w-lg">
-Crafting digital solutions with clarity, precision, and purpose.
-</p>
+      <p class="text-xl text-gray-400 max-w-lg">
+        Crafting digital solutions with clarity, precision, and purpose.
+      </p>
 
-<div class="flex gap-4">
-<a href="#contact" class="px-8 py-4 btn-gradient rounded-full font-bold">Let's Talk Digital Solutions</a>
-<a href="#services" class="px-8 py-4 bg-white/5 border border-white/10 rounded-full font-bold">My Services</a>
-</div>
-<!-- HERO SOCIAL ACTION BUTTONS -->
-<div class="flex items-center gap-4 mt-6">
+      <div class="flex gap-4">
+        <a href="#contact" class="px-8 py-4 btn-gradient rounded-full font-bold">
+          Let's Talk Digital Solutions
+        </a>
+        <a href="#services" class="px-8 py-4 bg-white/5 border border-white/10 rounded-full font-bold">
+          My Services
+        </a>
+      </div>
 
-  <!-- Email Button -->
-  <a href="mailto:ogutuhanningtone@gmail.com"
-     aria-label="Email"
-     class="w-11 h-11 flex items-center justify-center rounded-full
-            bg-white/5 border border-white/10
-            text-indigo-400 hover:text-white hover:border-indigo-400
-            hover:shadow-[0_0_18px_rgba(99,102,241,0.6)]
-            transition duration-300">
-    <i class="fa-solid fa-envelope text-lg"></i>
-  </a>
+      <!-- SOCIAL ICONS -->
+      <div class="flex items-center gap-4 mt-6">
+        <!-- Email -->
+        <a href="mailto:ogutuhanningtone@gmail.com"
+           class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10
+                  text-indigo-400 hover:text-white hover:border-indigo-400
+                  hover:shadow-[0_0_18px_rgba(99,102,241,0.6)] transition duration-300">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
 
-  <!-- Phone Button -->
-  <a href="tel:+254716927955"
-     aria-label="Call"
-     class="w-11 h-11 flex items-center justify-center rounded-full
-            bg-white/5 border border-white/10
-            text-indigo-400 hover:text-white hover:border-indigo-400
-            hover:shadow-[0_0_18px_rgba(99,102,241,0.6)]
-            transition duration-300">
-    <i class="fa-solid fa-phone text-lg"></i>
-  </a>
+        <!-- Phone -->
+        <a href="tel:+254716927955"
+           class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10
+                  text-indigo-400 hover:text-white hover:border-indigo-400
+                  hover:shadow-[0_0_18px_rgba(99,102,241,0.6)] transition duration-300">
+          <i class="fa-solid fa-phone"></i>
+        </a>
 
-  <!-- WhatsApp Button -->
-  <a href="https://wa.link/xwh6aa" target="_blank" rel="noopener"
-     aria-label="WhatsApp"
-     class="w-11 h-11 flex items-center justify-center rounded-full
-            bg-white/5 border border-white/10
-            text-green-400 hover:text-white hover:border-green-400
-            hover:shadow-[0_0_18px_rgba(34,197,94,0.6)]
-            transition duration-300">
-    <i class="fa-brands fa-whatsapp text-lg"></i>
-  </a>
+        <!-- WhatsApp -->
+        <a href="https://wa.link/xwh6aa" target="_blank"
+           class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10
+                  text-green-400 hover:text-white hover:border-green-400
+                  hover:shadow-[0_0_18px_rgba(34,197,94,0.6)] transition duration-300">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
 
-  <!-- Twitter Button -->
-<a href="https://x.com/_NevilleOgutu" target="_blank" rel="noopener"
-   aria-label="Twitter"
-   class="w-11 h-11 flex items-center justify-center rounded-full
-          bg-white/5 border border-white/10
-          text-blue-400 hover:text-white hover:border-blue-400
-          hover:shadow-[0_0_18px_rgba(59,130,246,0.6)]
-          transition duration-300">
-  <i class="fa-brands fa-twitter text-lg"></i>
-</a>
+        <!-- Twitter -->
+        <a href="https://x.com/_NevilleOgutu" target="_blank"
+           class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10
+                  text-blue-400 hover:text-white hover:border-blue-400
+                  hover:shadow-[0_0_18px_rgba(59,130,246,0.6)] transition duration-300">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
 
-  <!-- TikTok Button -->
-  <a href="https://www.tiktok.com/@ogutuneville?_r=1&_t=ZM-92Tbul0MOVv"
-     target="_blank" rel="noopener"
-     aria-label="TikTok"
-     class="w-11 h-11 flex items-center justify-center rounded-full
-            bg-white/5 border border-white/10
-            text-pink-400 hover:text-white hover:border-pink-400
-            hover:shadow-[0_0_18px_rgba(236,72,153,0.6)]
-            transition duration-300">
-    <i class="fa-brands fa-tiktok text-lg"></i>
-  </a>
+        <!-- TikTok -->
+        <a href="https://www.tiktok.com/@ogutuneville"
+           target="_blank"
+           class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10
+                  text-pink-400 hover:text-white hover:border-pink-400
+                  hover:shadow-[0_0_18px_rgba(236,72,153,0.6)] transition duration-300">
+          <i class="fa-brands fa-tiktok"></i>
+        </a>
+      </div>
+    </div>
 
-</div>
-</div>
+    <!-- HERO IMAGE -->
+    <div class="hidden lg:block animate-float">
+      <img src="Gemini_Generated_Image_8kz7t88kz7t88kz7.webp"
+           class="rounded-3xl border border-white/10 w-full max-h-[420px] object-cover">
+    </div>
 
-<!-- Hero Illustration: Mobile & Desktop -->
-<!-- Mobile -->
-<div class="block lg:hidden animate-float">
-  <img
-    src="Gemini_Generated_Image_8kz7t88kz7t88kz7.webp"
-    alt="Hero Illustration"
-    class="rounded-3xl border border-white/10 w-full object-cover mx-auto max-h-[300px]"
-  >
-</div>
-
-<!-- Desktop -->
-<div class="hidden lg:block animate-float">
-  <img
-    src="Gemini_Generated_Image_8kz7t88kz7t88kz7.webp"
-    alt="Hero Illustration"
-    class="rounded-3xl border border-white/10 w-full object-cover mx-auto max-h-[420px]"
-  >
-</div>
-
-</div>
+  </div>
 </section>
+
+
 
 <!-- ================= ABOUT ================= -->
 <section id="about" class="py-16 bg-[#0b0c10]">
