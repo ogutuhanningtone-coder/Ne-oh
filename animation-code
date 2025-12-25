@@ -34,3 +34,24 @@
     }
   </style>
 </head>
+
+
+/* Cursor blinking */
+.cursor {
+  display: inline-block;
+  width: 1ch;
+  background-color: white;
+  animation: blink 0.7s steps(1) infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { background-color: white; }
+  25%, 75% { background-color: transparent; }
+}
+
+/* Fade-in for tagline */
+.fade-in {
+  opacity: 1 !important;
+  transition: opacity 1s ease-in-out;
+}
