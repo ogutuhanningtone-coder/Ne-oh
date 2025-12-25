@@ -28,6 +28,52 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 </head>
 
 <body class="bg-[#0b0c10] text-gray-100">
+
+<script>
+(() => {
+  const canvas = document.getElementById("code-waves");
+  if (!canvas) return;
+
+  const ctx = canvas.getContext("2d");
+  let width, height;
+
+  function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener("resize", resize);
+
+  const fontSize = 18;
+  const chars = ["0", "1"];
+  const rows = Math.floor(height / fontSize);
+
+  let time = 0;
+
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+    ctx.fillStyle = "#00ff66";
+    ctx.font = `${fontSize}px monospace`;
+
+    for (let y = 0; y < rows; y++) {
+      for (let x = 0; x < width; x += 120) {
+        const offset =
+          Math.sin(time * 0.002 + y * 0.6) * 60;
+        const char = chars[Math.floor(Math.random() * chars.length)];
+
+        ctx.globalAlpha = 0.15;
+        ctx.fillText(char, x + offset, y * fontSize);
+      }
+    }
+
+    time += 1;
+    requestAnimationFrame(draw);
+  }
+
+  draw();
+})();
+</script>
+
   <!-- ================= STICKY NAVIGATION ================= -->
 <header class="sticky top-0 z-50 bg-[#0b0c10] border-b border-white/10">
   <div class="container mx-auto px-6 flex items-center justify-between py-4">
@@ -87,51 +133,6 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
   mobileBtn.addEventListener('click', () => {
     mobileMenu.classList.toggle('hidden');
   });
-</script>
-
-<script>
-(() => {
-  const canvas = document.getElementById("code-waves");
-  if (!canvas) return;
-
-  const ctx = canvas.getContext("2d");
-  let width, height;
-
-  function resize() {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-  }
-  resize();
-  window.addEventListener("resize", resize);
-
-  const fontSize = 18;
-  const chars = ["0", "1"];
-  const rows = Math.floor(height / fontSize);
-
-  let time = 0;
-
-  function draw() {
-    ctx.clearRect(0, 0, width, height);
-    ctx.fillStyle = "#00ff66";
-    ctx.font = `${fontSize}px monospace`;
-
-    for (let y = 0; y < rows; y++) {
-      for (let x = 0; x < width; x += 120) {
-        const offset =
-          Math.sin(time * 0.002 + y * 0.6) * 60;
-        const char = chars[Math.floor(Math.random() * chars.length)];
-
-        ctx.globalAlpha = 0.15;
-        ctx.fillText(char, x + offset, y * fontSize);
-      }
-    }
-
-    time += 1;
-    requestAnimationFrame(draw);
-  }
-
-  draw();
-})();
 </script>
 
 <!-- ================= HERO ================= -->
