@@ -143,13 +143,14 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 </script>
 
 <!-- ================= HERO ================= -->
-<section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+<section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-black">
 
-  <!-- Code Waves Background -->
-  <canvas id="code-waves" class="absolute inset-0 z-0"></canvas>
-
-  <!-- Overlay -->
-  <div class="absolute inset-0 bg-black/70 z-[1]"></div>
+  <!-- Ambient Glow Background -->
+  <div class="absolute inset-0 z-0 pointer-events-none">
+    <div class="glow glow-indigo"></div>
+    <div class="glow glow-green"></div>
+    <div class="glow glow-blue"></div>
+  </div>
 
   <!-- HERO CONTENT -->
   <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
