@@ -52,17 +52,6 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 }
 </style>
 
-<script>
-  const slider = document.getElementById("testimonialSlider");
-  const slides = slider.children;
-  let index = 0;
-
-  setInterval(() => {
-    index = (index + 1) % slides.length;
-    slider.style.transform = `translateX(-${index * 100}%)`;
-  }, 3500); // speed between slides
-</script>
-
 <head>
   <!-- other head content -->
 
@@ -160,6 +149,16 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
   });
 </script>
 
+<script>
+  const slider = document.getElementById("testimonialSlider");
+  const slides = slider.children;
+  let index = 0;
+
+  setInterval(() => {
+    index = (index + 1) % slides.length;
+    slider.style.transform = `translateX(-${index * 100}%)`;
+  }, 3500); // speed between slides
+</script>
 
 <body class="bg-[#0b0c10] text-gray-100">
 
