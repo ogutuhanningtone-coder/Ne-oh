@@ -169,7 +169,7 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
           <a href="#hero" class="hover:text-indigo-400 transition-colors">Home</a>
         </li>
         <li>
-          <a href="#services" class="hover:text-indigo-400 transition-colors">Services</a>
+          <a href="#My Expertise" class="hover:text-indigo-400 transition-colors">My Expertise</a>
         </li>
         <li>
           <a href="#projects" class="hover:text-indigo-400 transition-colors">Projects</a>
@@ -196,7 +196,7 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
   <div id="mobileMenu" class="hidden md:hidden bg-[#0b0c10] border-t border-white/10">
     <ul class="flex flex-col gap-4 p-4 text-gray-300 font-semibold">
       <li><a href="#hero" class="hover:text-indigo-400 transition-colors">Home</a></li>
-      <li><a href="#services" class="hover:text-indigo-400 transition-colors">Services</a></li>
+      <li><a href="#My Expertise" class="hover:text-indigo-400 transition-colors">My Expertise</a></li>
       <li><a href="#projects" class="hover:text-indigo-400 transition-colors">Projects</a></li>
       <li><a href="#skills" class="hover:text-indigo-400 transition-colors">Skills</a></li>
       <li><a href="#contact" class="hover:text-indigo-400 transition-colors">Contact</a></li>
@@ -1163,7 +1163,6 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
-<!-- Intro Animation -->
 <script>
 const name = "Hanningtone Neville Ogutu";
 const typedNameEl = document.getElementById("typedName");
@@ -1178,19 +1177,35 @@ function typeName() {
     i++;
     setTimeout(typeName, 50); // typing speed
   } else {
-    // After typing is done, show tagline
+
+    // === Glow twice ===
+    typedNameEl.classList.add("glow-once");
+    setTimeout(() => {
+      typedNameEl.classList.remove("glow-once");
+      setTimeout(() => {
+        typedNameEl.classList.add("glow-once");
+      }, 200);
+    }, 900);
+
+    // Show tagline
     setTimeout(() => {
       taglineEl.classList.add("fade-in");
-    }, 300);
+    }, 500);
 
-    // Remove intro overlay after 1s
+    // Fade out intro
     setTimeout(() => {
       introEl.style.transition = "opacity 1s ease-in-out";
       introEl.style.opacity = 0;
       setTimeout(() => {
         introEl.style.display = "none";
       }, 1000);
-    }, 1500);
+    }, 1000);
+  }
+}
+
+window.addEventListener("load", typeName);
+</script>
+
   }
 }
 
