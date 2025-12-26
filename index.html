@@ -51,6 +51,17 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 }
 </style>
 
+<script>
+  const track = document.getElementById("testimonialTrack");
+  const slides = track.children;
+  let index = 0;
+
+  setInterval(() => {
+    index = (index + 1) % slides.length;
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }, 4000); // autoplay speed
+</script>
+
 <head>
   <!-- other head content -->
 
@@ -780,17 +791,22 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 
     </div>
 
-    <!-- Testimonials Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Testimonials Slider -->
+<div class="relative overflow-hidden">
 
-      <!-- DreamBridge -->
-      <div data-aos="fade-up" data-aos-delay="100"
-        class="relative bg-indigo-900/30 border border-indigo-400/20 rounded-3xl p-8 backdrop-blur
-               hover:border-indigo-400/40 transition duration-500">
+  <div id="testimonialTrack"
+       class="flex transition-transform duration-700 ease-in-out">
 
-        <p class="text-gray-200 leading-relaxed mb-6">
-          “Working with Neville was one of the best decisions we made for DreamBridge Education Africa.
-          He translated our vision into a clean, professional website that truly represents our mission.”
+    <!-- DreamBridge -->
+    <div class="min-w-full px-2">
+      <div class="relative bg-indigo-900/30 border border-indigo-400/20 rounded-3xl p-10 backdrop-blur">
+
+        <!-- Big Quote -->
+        <span class="absolute -top-6 left-6 text-7xl text-indigo-400/30 leading-none">“</span>
+
+        <p class="text-gray-200 text-lg leading-relaxed mb-8">
+          Working with Neville was one of the best decisions we made for DreamBridge Education Africa.
+          He translated our vision into a clean, professional website that truly represents our mission.
         </p>
 
         <div class="flex items-center gap-4">
@@ -802,16 +818,18 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
             <p class="text-gray-300 text-sm">Founder, DreamBridge Education Africa</p>
           </div>
         </div>
+
       </div>
+    </div>
 
-      <!-- Foam Blocks -->
-      <div data-aos="fade-up" data-aos-delay="200"
-        class="relative bg-red-900/25 border border-red-400/20 rounded-3xl p-8 backdrop-blur
-               hover:border-red-400/40 transition duration-500">
+    <!-- Foam Blocks -->
+    <div class="min-w-full px-2">
+      <div class="relative bg-red-900/25 border border-red-400/20 rounded-3xl p-10 backdrop-blur">
+        <span class="absolute -top-6 left-6 text-7xl text-red-400/30 leading-none">“</span>
 
-        <p class="text-gray-200 leading-relaxed mb-6">
-          “Neville delivered exactly what we needed — a modern, product-focused website that improved
-          how customers understand our services. The results were immediate.”
+        <p class="text-gray-200 text-lg leading-relaxed mb-8">
+          Neville delivered exactly what we needed — a modern, product-focused website that improved
+          how customers understand our services. The results were immediate.
         </p>
 
         <div class="flex items-center gap-4">
@@ -824,15 +842,16 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- FinXpert -->
-      <div data-aos="fade-up" data-aos-delay="300"
-        class="relative bg-teal-900/25 border border-teal-400/20 rounded-3xl p-8 backdrop-blur
-               hover:border-teal-400/40 transition duration-500">
+    <!-- FinXpert -->
+    <div class="min-w-full px-2">
+      <div class="relative bg-teal-900/25 border border-teal-400/20 rounded-3xl p-10 backdrop-blur">
+        <span class="absolute -top-6 left-6 text-7xl text-teal-400/30 leading-none">“</span>
 
-        <p class="text-gray-200 leading-relaxed mb-6">
-          “Professional, efficient, and detail-oriented. Our FinXpert website now reflects the trust
-          and credibility required in the financial sector.”
+        <p class="text-gray-200 text-lg leading-relaxed mb-8">
+          Professional, efficient, and detail-oriented. Our FinXpert website now reflects the trust
+          and credibility required in the financial sector.
         </p>
 
         <div class="flex items-center gap-4">
@@ -845,16 +864,16 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- Skillydon -->
-      <div data-aos="fade-up" data-aos-delay="400"
-        class="relative bg-yellow-900/20 border border-yellow-400/20 rounded-3xl p-8 backdrop-blur
-               hover:border-yellow-400/40 transition duration-500">
+    <!-- Skillydon -->
+    <div class="min-w-full px-2">
+      <div class="relative bg-yellow-900/20 border border-yellow-400/20 rounded-3xl p-10 backdrop-blur">
+        <span class="absolute -top-6 left-6 text-7xl text-yellow-400/30 leading-none">“</span>
 
-        <p class="text-gray-200 leading-relaxed mb-6">
-          “Neville is a highly reliable and technically strong professional. As Lead Technician,
-          he consistently delivers solutions with precision, initiative, and a deep understanding
-          of modern systems.”
+        <p class="text-gray-200 text-lg leading-relaxed mb-8">
+          Neville is a highly reliable and technically strong professional. As Lead Technician,
+          he consistently delivers solutions with precision and initiative.
         </p>
 
         <div class="flex items-center gap-4">
@@ -867,9 +886,10 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
           </div>
         </div>
       </div>
-
     </div>
+
   </div>
+</div>
 </section>
 
 <!-- ================= HIRE ME / CTA ================= -->
