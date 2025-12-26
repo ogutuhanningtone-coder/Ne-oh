@@ -34,3 +34,14 @@
     }
   </style>
 </head>
+
+/* Prevent temporary horizontal scroll on page load */
+body, html {
+  overflow-x: hidden;
+}
+
+/* Optional: for sections with animations that scale or translate */
+section {
+  overflow-x: hidden;
+}
+
