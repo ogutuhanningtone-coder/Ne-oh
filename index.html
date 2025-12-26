@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="/ogutu%20neville%20favicon.svg">
 <link rel="stylesheet" href="animation-code.css">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
 <!-- ================= INTRO ANIMATION ================= -->
 <div id="introAnimation" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0b0c10]">
@@ -315,7 +316,7 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 
 
 <!-- ================= ABOUT ================= -->
-<section id="about" class="py-16 bg-[#0b0c10]">
+<section id="about" data-aos="fade-up" class="py-16 bg-[#12141a]">
   <div class="container mx-auto px-6 max-w-3xl text-center">
 
     <span class="text-indigo-400 font-bold uppercase text-sm">About Me</span>
@@ -342,7 +343,7 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 
 
 <!-- ================= SKILLS ================= -->
-<section id="skills" class="py-16 bg-[#0b0c10]">
+<section id="skills" data-aos="fade-right" class="py-16 bg-[#0b0c10]">
   <div class="container mx-auto px-6">
 
     <!-- Section Header -->
@@ -454,7 +455,7 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 </section>
 
       <!-- ================= SERVICES ================= -->
-<section id="services" class="py-12 bg-[#0b0c10]">
+<section id="expertise" data-aos="fade-left" class="py-16 bg-[#12141a]">
   <div class="container mx-auto px-6">
 
     <!-- Section Header -->
@@ -634,7 +635,7 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 </section>
 
 <!-- ================= PROJECTS ================= -->
-<section id="projects" class="py-16 bg-[#0b0c10]">
+<section id="projects" data-aos="fade-up" class="py-16 bg-[#0b0c10]">
   <div class="container mx-auto px-6">
 
     <!-- Section Header -->
@@ -756,7 +757,7 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 </div>
 
 <!-- ================= HIRE ME / CTA ================= -->
-<section id="hire" class="py-20 bg-[#0b0c10]">
+<section id="hire" class="py-20 bg-[#12141a]">
   <div class="container mx-auto px-6 max-w-7xl flex flex-col lg:flex-row items-center gap-12">
 
     <!-- Image on Left -->
@@ -796,7 +797,7 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 </section>
 
 <!-- ================= CONTACT ================= -->
-<section id="contact" class="py-12 bg-[#0b0c10]">
+<section id="contact" data-aos="fade-up" class="py-12 bg-[#0b0c10]">
   <div class="container mx-auto px-6 max-w-7xl">
 
     <!-- Header -->
@@ -1075,6 +1076,16 @@ function typeName() {
 }
 
 window.addEventListener("load", typeName);
+</script>
+
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000, // animation duration in ms
+    once: true,     // animate only once
+    easing: 'ease-out-cubic'
+  });
 </script>
 
 </body>
