@@ -59,7 +59,7 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
   setInterval(() => {
     index = (index + 1) % slides.length;
     track.style.transform = `translateX(-${index * 100}%)`;
-  }, 4000); // autoplay speed
+  }, 3000); // 3s per slide
 </script>
 
 <head>
@@ -794,15 +794,13 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 <!-- Testimonials Slider -->
 <div class="relative overflow-hidden">
 
-  <div id="testimonialTrack"
-       class="flex transition-transform duration-700 ease-in-out">
+  <div id="testimonialTrack" class="flex w-[400%] transition-transform duration-500 ease-in-out">
 
     <!-- DreamBridge -->
-    <div class="min-w-full px-2">
+    <div class="w-full flex-shrink-0 px-2 relative">
       <div class="relative bg-indigo-900/30 border border-indigo-400/20 rounded-3xl p-10 backdrop-blur">
-
         <!-- Big Quote -->
-        <span class="absolute -top-6 left-6 text-7xl text-indigo-400/30 leading-none">“</span>
+        <span class="absolute -top-10 -left-6 text-[8rem] text-indigo-400/20 font-bold">“</span>
 
         <p class="text-gray-200 text-lg leading-relaxed mb-8">
           Working with Neville was one of the best decisions we made for DreamBridge Education Africa.
@@ -818,14 +816,13 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
             <p class="text-gray-300 text-sm">Founder, DreamBridge Education Africa</p>
           </div>
         </div>
-
       </div>
     </div>
 
     <!-- Foam Blocks -->
-    <div class="min-w-full px-2">
+    <div class="w-full flex-shrink-0 px-2 relative">
       <div class="relative bg-red-900/25 border border-red-400/20 rounded-3xl p-10 backdrop-blur">
-        <span class="absolute -top-6 left-6 text-7xl text-red-400/30 leading-none">“</span>
+        <span class="absolute -top-10 -left-6 text-[8rem] text-red-400/20 font-bold">“</span>
 
         <p class="text-gray-200 text-lg leading-relaxed mb-8">
           Neville delivered exactly what we needed — a modern, product-focused website that improved
@@ -845,9 +842,9 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
     </div>
 
     <!-- FinXpert -->
-    <div class="min-w-full px-2">
+    <div class="w-full flex-shrink-0 px-2 relative">
       <div class="relative bg-teal-900/25 border border-teal-400/20 rounded-3xl p-10 backdrop-blur">
-        <span class="absolute -top-6 left-6 text-7xl text-teal-400/30 leading-none">“</span>
+        <span class="absolute -top-10 -left-6 text-[8rem] text-teal-400/20 font-bold">“</span>
 
         <p class="text-gray-200 text-lg leading-relaxed mb-8">
           Professional, efficient, and detail-oriented. Our FinXpert website now reflects the trust
@@ -867,9 +864,9 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
     </div>
 
     <!-- Skillydon -->
-    <div class="min-w-full px-2">
+    <div class="w-full flex-shrink-0 px-2 relative">
       <div class="relative bg-yellow-900/20 border border-yellow-400/20 rounded-3xl p-10 backdrop-blur">
-        <span class="absolute -top-6 left-6 text-7xl text-yellow-400/30 leading-none">“</span>
+        <span class="absolute -top-10 -left-6 text-[8rem] text-yellow-400/20 font-bold">“</span>
 
         <p class="text-gray-200 text-lg leading-relaxed mb-8">
           Neville is a highly reliable and technically strong professional. As Lead Technician,
