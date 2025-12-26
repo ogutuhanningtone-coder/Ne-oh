@@ -52,6 +52,7 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 }
 </style>
 
+
 <head>
   <!-- other head content -->
 
@@ -147,17 +148,6 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
       submitBtn.disabled = false;
     }
   });
-</script>
-
-<script>
-  const track = document.getElementById("testimonialTrack");
-  const slides = track.children;
-  let index = 0;
-
-  setInterval(() => {
-    index = (index + 1) % slides.length;
-    track.style.transform = `translateX(-${index * 100}%)`;
-  }, 4000); // autoplay speed
 </script>
 
 
@@ -769,98 +759,118 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 </div>
 
 <!-- ================= TESTIMONIALS ================= -->
+
 <section id="testimonials" class="py-20 bg-[#12141a] overflow-hidden">
 
-  <div class="container mx-auto px-6 max-w-6xl">
+  <div class="container mx-auto px-6 max-w-7xl">
 
-    <!-- Header -->
+    <!-- Section Header -->
     <div class="text-center max-w-2xl mx-auto mb-16">
-      <p class="inline-flex items-center gap-3 text-[11px] sm:text-[12px] font-semibold tracking-[0.38em] uppercase">
-        <span class="h-px w-10 bg-current/50 hidden sm:block"></span>
-        Client Feedback
-        <span class="h-px w-10 bg-current/50 hidden sm:block"></span>
-      </p>
 
-      <h2 class="mt-4 text-4xl md:text-5xl font-bold leading-tight">
+      <!-- Kicker / Small Label -->
+      <div class="mp2-reveal mp2-delay-1">
+        <p class="inline-flex items-center gap-3 text-[11px] sm:text-[12px] font-semibold tracking-[0.38em] uppercase">
+          <span class="h-px w-10 bg-current/50 hidden sm:block"></span>
+          Client Feedback
+          <span class="h-px w-10 bg-current/50 hidden sm:block"></span>
+        </p>
+      </div>
+
+      <!-- Section Title -->
+      <h2 class="mp2-reveal mp2-delay-2 mt-4 sm:mt-5 text-4xl md:text-5xl font-bold leading-tight">
         Trusted By <span class="text-gradient">Businesses I’ve Worked With</span>
       </h2>
+
     </div>
 
-    <!-- Slider -->
-    <div class="relative overflow-hidden">
+    <!-- Testimonials Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-      <!-- Track -->
-      <div id="testimonialTrack" class="flex transition-transform duration-700 ease-in-out">
+      <!-- DreamBridge -->
+      <div data-aos="fade-up" data-aos-delay="100"
+        class="relative bg-indigo-900/30 border border-indigo-400/20 rounded-3xl p-8 backdrop-blur
+               hover:border-indigo-400/40 transition duration-500">
 
-        <!-- Slide -->
-        <div class="min-w-full px-4">
-          <div class="relative bg-indigo-900/30 border border-indigo-400/20 rounded-3xl p-12">
-            <span class="absolute -top-6 left-8 text-7xl text-indigo-400/30 font-serif">“</span>
-            <p class="text-xl md:text-2xl text-gray-200 leading-relaxed italic">
-              Working with Neville was one of the best decisions we made for DreamBridge Education Africa.
-              He translated our vision into a clean, professional website that truly represents our mission.
-            </p>
-            <p class="mt-6 font-bold text-white">
-              Diana Kafura
-              <span class="block text-sm font-normal text-gray-400">
-                Founder, DreamBridge Education Africa
-              </span>
-            </p>
+        <p class="text-gray-200 leading-relaxed mb-6">
+          “Working with Neville was one of the best decisions we made for DreamBridge Education Africa.
+          He translated our vision into a clean, professional website that truly represents our mission.”
+        </p>
+
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-full bg-indigo-400/20 flex items-center justify-center font-bold text-indigo-300">
+            DK
+          </div>
+          <div>
+            <p class="text-white font-bold">Diana Kafura</p>
+            <p class="text-gray-300 text-sm">Founder, DreamBridge Education Africa</p>
           </div>
         </div>
-
-        <!-- Slide -->
-        <div class="min-w-full px-4">
-          <div class="relative bg-red-900/25 border border-red-400/20 rounded-3xl p-12">
-            <span class="absolute -top-6 left-8 text-7xl text-red-400/30 font-serif">“</span>
-            <p class="text-xl md:text-2xl text-gray-200 leading-relaxed italic">
-              Neville delivered exactly what we needed — a modern, product-focused website that improved
-              how customers understand our services. The results were immediate.
-            </p>
-            <p class="mt-6 font-bold text-white">
-              Evans Wanyama
-              <span class="block text-sm font-normal text-gray-400">
-                Founder, Foam Blocks Kenya
-              </span>
-            </p>
-          </div>
-        </div>
-
-        <!-- Slide -->
-        <div class="min-w-full px-4">
-          <div class="relative bg-teal-900/25 border border-teal-400/20 rounded-3xl p-12">
-            <span class="absolute -top-6 left-8 text-7xl text-teal-400/30 font-serif">“</span>
-            <p class="text-xl md:text-2xl text-gray-200 leading-relaxed italic">
-              Professional, efficient, and detail-oriented. Our FinXpert website now reflects the trust
-              and credibility required in the financial sector.
-            </p>
-            <p class="mt-6 font-bold text-white">
-              Grace Kariuki
-              <span class="block text-sm font-normal text-gray-400">
-                Managing Director, FinXpert
-              </span>
-            </p>
-          </div>
-        </div>
-
-        <!-- Slide -->
-        <div class="min-w-full px-4">
-          <div class="relative bg-yellow-900/20 border border-yellow-400/20 rounded-3xl p-12">
-            <span class="absolute -top-6 left-8 text-7xl text-yellow-400/30 font-serif">“</span>
-            <p class="text-xl md:text-2xl text-gray-200 leading-relaxed italic">
-              Neville is a highly reliable and technically strong professional. As Lead Technician,
-              he consistently delivers solutions with precision and initiative.
-            </p>
-            <p class="mt-6 font-bold text-white">
-              Alexander
-              <span class="block text-sm font-normal text-gray-400">
-                Founder, Skillydon Solutions
-              </span>
-            </p>
-          </div>
-        </div>
-
       </div>
+
+      <!-- Foam Blocks -->
+      <div data-aos="fade-up" data-aos-delay="200"
+        class="relative bg-red-900/25 border border-red-400/20 rounded-3xl p-8 backdrop-blur
+               hover:border-red-400/40 transition duration-500">
+
+        <p class="text-gray-200 leading-relaxed mb-6">
+          “Neville delivered exactly what we needed — a modern, product-focused website that improved
+          how customers understand our services. The results were immediate.”
+        </p>
+
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-full bg-red-400/20 flex items-center justify-center font-bold text-red-300">
+            EW
+          </div>
+          <div>
+            <p class="text-white font-bold">Evans Wanyama</p>
+            <p class="text-gray-300 text-sm">Founder, Foam Blocks Kenya</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FinXpert -->
+      <div data-aos="fade-up" data-aos-delay="300"
+        class="relative bg-teal-900/25 border border-teal-400/20 rounded-3xl p-8 backdrop-blur
+               hover:border-teal-400/40 transition duration-500">
+
+        <p class="text-gray-200 leading-relaxed mb-6">
+          “Professional, efficient, and detail-oriented. Our FinXpert website now reflects the trust
+          and credibility required in the financial sector.”
+        </p>
+
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-full bg-teal-400/20 flex items-center justify-center font-bold text-teal-300">
+            GK
+          </div>
+          <div>
+            <p class="text-white font-bold">Grace Kariuki</p>
+            <p class="text-gray-300 text-sm">Managing Director, FinXpert</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skillydon -->
+      <div data-aos="fade-up" data-aos-delay="400"
+        class="relative bg-yellow-900/20 border border-yellow-400/20 rounded-3xl p-8 backdrop-blur
+               hover:border-yellow-400/40 transition duration-500">
+
+        <p class="text-gray-200 leading-relaxed mb-6">
+          “Neville is a highly reliable and technically strong professional. As Lead Technician,
+          he consistently delivers solutions with precision, initiative, and a deep understanding
+          of modern systems.”
+        </p>
+
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-full bg-yellow-400/20 flex items-center justify-center font-bold text-yellow-300">
+            AK
+          </div>
+          <div>
+            <p class="text-white font-bold">Alexander</p>
+            <p class="text-gray-300 text-sm">Founder, Skillydon Solutions</p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
