@@ -1164,48 +1164,55 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 </script>
 
 <script>
-const name = "Hanningtone Neville Ogutu";
-const typedNameEl = document.getElementById("typedName");
-const taglineEl = document.getElementById("tagline");
-const introEl = document.getElementById("introAnimation");
+document.addEventListener("DOMContentLoaded", () => {
 
-let i = 0;
+  const name = "Hanningtone Neville Ogutu";
+  const typedNameEl = document.getElementById("typedName");
+  const taglineEl = document.getElementById("tagline");
+  const introEl = document.getElementById("introAnimation");
 
-function typeName() {
-  if (i < name.length) {
-    typedNameEl.textContent += name[i];
-    i++;
-    setTimeout(typeName, 50); // typing speed
-  } else {
+  let i = 0;
 
-    // === Glow twice ===
-    typedNameEl.classList.add("glow-once");
-    setTimeout(() => {
-      typedNameEl.classList.remove("glow-once");
+  function typeName() {
+    if (!typedNameEl) return;
+
+    if (i < name.length) {
+      typedNameEl.textContent += name[i];
+      i++;
+      setTimeout(typeName, 50);
+    } else {
+
+      // Glow twice
+      typedNameEl.classList.add("glow-once");
       setTimeout(() => {
-        typedNameEl.classList.add("glow-once");
-      }, 200);
-    }, 900);
+        typedNameEl.classList.remove("glow-once");
+        setTimeout(() => {
+          typedNameEl.classList.add("glow-once");
+        }, 200);
+      }, 900);
 
-    // Show tagline
-    setTimeout(() => {
-      taglineEl.classList.add("fade-in");
-    }, 500);
-
-    // Fade out intro
-    setTimeout(() => {
-      introEl.style.transition = "opacity 1s ease-in-out";
-      introEl.style.opacity = 0;
+      // Show tagline
       setTimeout(() => {
-        introEl.style.display = "none";
-      }, 1000);
-    }, 1000);
+        taglineEl?.classList.add("fade-in");
+      }, 500);
+
+      // Fade out intro
+      setTimeout(() => {
+        introEl.style.transition = "opacity 1s ease-in-out";
+        introEl.style.opacity = 0;
+        setTimeout(() => {
+          introEl.style.display = "none";
+        }, 1000);
+      }, 2200);
+    }
   }
-}
 
-window.addEventListener("load", typeName);
+  // Small intentional delay ensures smooth first render
+  setTimeout(typeName, 200);
+
+});
 </script>
-</script>
+
 
 <!-- AOS JS -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
