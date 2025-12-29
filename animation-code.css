@@ -75,3 +75,30 @@ html, body {
   animation: nameGlow 0.9s ease-in-out;
 }
 
+<style>
+.pricing-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center,
+    rgba(255,255,255,0.25),
+    transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.pricing-btn:hover::after {
+  opacity: 1;
+}
+
+.pricing-btn:hover {
+  box-shadow: 0 0 30px rgba(99,102,241,0.6);
+  transform: translateY(-1px);
+}
+</style>
+
