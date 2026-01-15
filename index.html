@@ -118,6 +118,58 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
     }
   </style>
 
+  <style>
+  .skill-card{
+    background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:20px;
+    padding:26px 18px;
+    text-align:center;
+    backdrop-filter: blur(8px);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+
+  .skill-card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 14px 40px rgba(124,92,255,.28);
+  }
+
+  .icon{
+    width:64px;
+    height:64px;
+    margin:0 auto 12px;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.16);
+  }
+
+  .icon img{
+    width:34px;
+    height:34px;
+  }
+
+  .icon img.is-logo{
+    width:40px;
+    height:40px;
+  }
+
+  .title{
+    font-size:.95rem;
+    font-weight:600;
+    margin-bottom:6px;
+  }
+
+  .percent{
+    font-size:.85rem;
+    color:#c7c7e6;
+    font-weight:600;
+  }
+</style>
+
+
 </head>
 
 <script>
@@ -370,113 +422,79 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 
 
 <!-- ================= SKILLS ================= -->
-<section id="skills" data-aos="fade-up" class="py-16 bg-[#0b0c10]">
+<section id="skills" class="py-16 bg-[#0b0c10] text-white">
   <div class="container mx-auto px-6">
 
-    <!-- Section Header -->
+    <!-- ================= ROW 1: Section Header ================= -->
     <div class="text-center max-w-3xl mx-auto mb-16">
 
-  <!-- Kicker / Small Label -->
-  <div class="mp2-reveal mp2-delay-1">
-    <p class="inline-flex items-center gap-3 text-[11px] sm:text-[12px] font-semibold tracking-[0.38em] uppercase">
-      <span class="h-px w-10 bg-current/50 hidden sm:block"></span>
-      My Skills
-      <span class="h-px w-10 bg-current/50 hidden sm:block"></span>
-    </p>
-  </div>
+      <!-- Kicker -->
+      <p class="inline-flex items-center gap-3 text-[11px] sm:text-[12px] font-semibold tracking-[0.38em] uppercase mb-4">
+        <span class="h-px w-10 bg-white/40 hidden sm:block"></span>
+        My Skills
+        <span class="h-px w-10 bg-white/40 hidden sm:block"></span>
+      </p>
 
-  <!-- Section Title -->
-  <h2 class="mp2-reveal mp2-delay-2 mt-4 sm:mt-5 text-4xl md:text-5xl font-bold leading-tight">
-    Crafting <span class="text-gradient">Technical Excellence</span> Across Domains
-  </h2>
+      <!-- Title -->
+      <h2 class="text-4xl md:text-5xl font-bold leading-tight">
+        Crafting <span class="text-gradient">Technical Excellence</span> Across Domains
+      </h2>
+    </div>
 
-</div>
+    <!-- ================= ROW 2: Platforms & Tools (ICON GRID) ================= -->
+    <div class="max-w-6xl mx-auto">
+      <h3 class="text-3xl font-bold mb-10 text-center">
+        Platforms & Tools
+      </h3>
 
-    <!-- Two-Column Layout -->
-    <div class="grid gap-16 lg:grid-cols-2 mt-12">
+      <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
 
-      <!-- ================= COLUMN 1: Web Technologies ================= -->
-      <div>
-        <h2 class="text-3xl font-bold mb-8">Web Technologies</h2>
-        <div class="space-y-6">
-          <div class="flex justify-between text-sm font-bold">
-            <span>HTML5</span><span class="text-indigo-400">90%</span>
+        <!-- Git & GitHub -->
+        <div class="skill-card">
+          <div class="icon">
+            <img src="https://api.iconify.design/simple-icons/git.svg?color=%23F05032" alt="Git">
           </div>
-          <div class="h-2 bg-white/5 rounded-full">
-            <div class="h-full btn-gradient rounded-full" style="width:90%"></div>
-          </div>
-
-          <div class="flex justify-between text-sm font-bold">
-            <span>CSS3</span><span class="text-indigo-400">90%</span>
-          </div>
-          <div class="h-2 bg-white/5 rounded-full">
-            <div class="h-full btn-gradient rounded-full" style="width:90%"></div>
-          </div>
-
-          <div class="flex justify-between text-sm font-bold">
-            <span>JavaScript (Basic)</span><span class="text-indigo-400">70%</span>
-          </div>
-          <div class="h-2 bg-white/5 rounded-full">
-            <div class="h-full btn-gradient rounded-full" style="width:70%"></div>
-          </div>
-
-          <div class="flex justify-between text-sm font-bold">
-            <span>WordPress / Page Builders</span><span class="text-indigo-400">95%</span>
-          </div>
-          <div class="h-2 bg-white/5 rounded-full">
-            <div class="h-full btn-gradient rounded-full" style="width:95%"></div>
-          </div>
-
-          <div class="flex justify-between text-sm font-bold">
-            <span>UX / UI Fundamentals</span><span class="text-indigo-400">85%</span>
-          </div>
-          <div class="h-2 bg-white/5 rounded-full">
-            <div class="h-full btn-gradient rounded-full" style="width:85%"></div>
-          </div>
+          <div class="title">Git & GitHub</div>
+          <div class="percent">80%</div>
         </div>
-      </div>
 
-      <!-- ================= COLUMN 2: Platforms & Tools ================= -->
-      <div>
-        <h2 class="text-3xl font-bold mb-8">Platforms & Tools</h2>
-        <div class="space-y-6">
-          <div class="flex justify-between text-sm font-bold">
-            <span>Git & GitHub</span><span class="text-purple-400">80%</span>
+        <!-- Google Ads -->
+        <div class="skill-card">
+          <div class="icon">
+            <img class="is-logo" src="https://api.iconify.design/logos/google-ads.svg" alt="Google Ads">
           </div>
-          <div class="h-2 bg-white/5 rounded-full">
-            <div class="h-full bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full" style="width:80%"></div>
-          </div>
-
-          <div class="flex justify-between text-sm font-bold">
-            <span>Google Ads & Merchant Center</span><span class="text-purple-400">85%</span>
-          </div>
-          <div class="h-2 bg-white/5 rounded-full">
-            <div class="h-full bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full" style="width:85%"></div>
-          </div>
-
-          <div class="flex justify-between text-sm font-bold">
-            <span>Windows & Linux OS</span><span class="text-purple-400">90%</span>
-          </div>
-          <div class="h-2 bg-white/5 rounded-full">
-            <div class="h-full bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full" style="width:90%"></div>
-          </div>
-
-          <div class="flex justify-between text-sm font-bold">
-            <span>Microsoft Office Suite</span><span class="text-purple-400">95%</span>
-          </div>
-          <div class="h-2 bg-white/5 rounded-full">
-            <div class="h-full bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full" style="width:95%"></div>
-          </div>
-
-          <div class="flex justify-between text-sm font-bold">
-            <span>Google Workspace</span><span class="text-purple-400">90%</span>
-          </div>
-          <div class="h-2 bg-white/5 rounded-full">
-            <div class="h-full bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full" style="width:90%"></div>
-          </div>
+          <div class="title">Google Ads</div>
+          <div class="percent">85%</div>
         </div>
-      </div>
 
+        <!-- Windows & Linux -->
+        <div class="skill-card">
+          <div class="icon">
+            <img src="https://api.iconify.design/simple-icons/windows11.svg?color=%230078D4" alt="Windows">
+          </div>
+          <div class="title">Windows & Linux</div>
+          <div class="percent">90%</div>
+        </div>
+
+        <!-- Microsoft Office -->
+        <div class="skill-card">
+          <div class="icon">
+            <img src="https://api.iconify.design/simple-icons/microsoftoffice.svg?color=%23D83B01" alt="Microsoft Office">
+          </div>
+          <div class="title">Microsoft Office</div>
+          <div class="percent">95%</div>
+        </div>
+
+        <!-- Google Workspace -->
+        <div class="skill-card">
+          <div class="icon">
+            <img class="is-logo" src="https://api.iconify.design/logos/google.svg" alt="Google Workspace">
+          </div>
+          <div class="title">Google Workspace</div>
+          <div class="percent">90%</div>
+        </div>
+
+      </div>
     </div>
   </div>
 </section>
