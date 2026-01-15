@@ -422,17 +422,17 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 
 
 <!-- ================= SKILLS ================= -->
-<section id="skills" class="py-16 bg-[#0b0c10] text-white">
+<section id="skills" data-aos="fade-up" class="py-16 bg-[#0b0c10] text-white">
   <div class="container mx-auto px-6">
 
-    <!-- ================= ROW 1: Section Header ================= -->
+    <!-- ================= Section Header ================= -->
     <div class="text-center max-w-3xl mx-auto mb-16">
 
       <!-- Kicker -->
       <p class="inline-flex items-center gap-3 text-[11px] sm:text-[12px] font-semibold tracking-[0.38em] uppercase mb-4">
-        <span class="h-px w-10 bg-white/40 hidden sm:block"></span>
+        <span class="h-px w-10 bg-current/50 hidden sm:block"></span>
         My Skills
-        <span class="h-px w-10 bg-white/40 hidden sm:block"></span>
+        <span class="h-px w-10 bg-current/50 hidden sm:block"></span>
       </p>
 
       <!-- Title -->
@@ -442,61 +442,64 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
     </div>
 
     <!-- ================= ROW 1: Web Technologies ================= -->
-<div class="max-w-4xl mx-auto">
-  <h2 class="text-3xl font-bold mb-8 text-center lg:text-left">
-    Web Technologies
-  </h2>
+    <div class="max-w-4xl mx-auto mb-20">
+      <h2 class="text-3xl font-bold mb-8 text-center lg:text-left">
+        Web Technologies
+      </h2>
 
-  <div class="space-y-6">
+      <div class="space-y-6">
 
-    <div class="flex justify-between text-sm font-bold">
-      <span>HTML5</span>
-      <span class="text-indigo-400">90%</span>
-    </div>
-    <div class="h-2 bg-white/5 rounded-full">
-      <div class="h-full btn-gradient rounded-full" style="width:90%"></div>
+        <div class="flex justify-between text-sm font-bold">
+          <span>HTML5</span>
+          <span class="text-indigo-400">90%</span>
+        </div>
+        <div class="h-2 bg-white/5 rounded-full">
+          <div class="h-full btn-gradient rounded-full" style="width:90%"></div>
+        </div>
+
+        <div class="flex justify-between text-sm font-bold">
+          <span>CSS3</span>
+          <span class="text-indigo-400">90%</span>
+        </div>
+        <div class="h-2 bg-white/5 rounded-full">
+          <div class="h-full btn-gradient rounded-full" style="width:90%"></div>
+        </div>
+
+        <div class="flex justify-between text-sm font-bold">
+          <span>JavaScript (Basic)</span>
+          <span class="text-indigo-400">70%</span>
+        </div>
+        <div class="h-2 bg-white/5 rounded-full">
+          <div class="h-full btn-gradient rounded-full" style="width:70%"></div>
+        </div>
+
+        <div class="flex justify-between text-sm font-bold">
+          <span>WordPress / Page Builders</span>
+          <span class="text-indigo-400">95%</span>
+        </div>
+        <div class="h-2 bg-white/5 rounded-full">
+          <div class="h-full btn-gradient rounded-full" style="width:95%"></div>
+        </div>
+
+        <div class="flex justify-between text-sm font-bold">
+          <span>UX / UI Fundamentals</span>
+          <span class="text-indigo-400">85%</span>
+        </div>
+        <div class="h-2 bg-white/5 rounded-full">
+          <div class="h-full btn-gradient rounded-full" style="width:85%"></div>
+        </div>
+
+      </div>
     </div>
 
-    <div class="flex justify-between text-sm font-bold">
-      <span>CSS3</span>
-      <span class="text-indigo-400">90%</span>
-    </div>
-    <div class="h-2 bg-white/5 rounded-full">
-      <div class="h-full btn-gradient rounded-full" style="width:90%"></div>
-    </div>
+    <!-- ================= ROW 2: Platforms & Tools (COLUMNS) ================= -->
+    <div class="max-w-6xl mx-auto">
 
-    <div class="flex justify-between text-sm font-bold">
-      <span>JavaScript (Basic)</span>
-      <span class="text-indigo-400">70%</span>
-    </div>
-    <div class="h-2 bg-white/5 rounded-full">
-      <div class="h-full btn-gradient rounded-full" style="width:70%"></div>
-    </div>
+      <h3 class="text-3xl font-bold mb-10 text-center">
+        Platforms & Tools
+      </h3>
 
-    <div class="flex justify-between text-sm font-bold">
-      <span>WordPress / Page Builders</span>
-      <span class="text-indigo-400">95%</span>
-    </div>
-    <div class="h-2 bg-white/5 rounded-full">
-      <div class="h-full btn-gradient rounded-full" style="width:95%"></div>
-    </div>
-
-    <div class="flex justify-between text-sm font-bold">
-      <span>UX / UI Fundamentals</span>
-      <span class="text-indigo-400">85%</span>
-    </div>
-    <div class="h-2 bg-white/5 rounded-full">
-      <div class="h-full btn-gradient rounded-full" style="width:85%"></div>
-    </div>
-
-  </div>
-</div>
-
-    <!-- ================= ROW 2: Platforms & Tools (ICON GRID) ================= -->
-    <h2 class="text-3xl font-bold mb-10">
-  Platforms &amp; Tools
-</h2>
-<div class="mt-12 space-y-8">
+      <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
 
         <!-- Git & GitHub -->
         <div class="skill-card">
@@ -545,6 +548,7 @@ body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 
       </div>
     </div>
+
   </div>
 </section>
 
