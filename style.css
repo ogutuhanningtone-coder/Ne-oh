@@ -501,6 +501,7 @@ img{ max-width:100%; display:block; }
 .project__overlay{
   position:absolute;
   inset:0;
+  z-index: 3;
   padding: 20px;
   display:flex;
   flex-direction:column;
@@ -518,6 +519,32 @@ img{ max-width:100%; display:block; }
 .project__tools h4{ margin:0 0 6px; color:#a5b4fc; }
 .project__tools ul{ margin:0; padding-left: 18px; }
 .project__link{ margin-top: 10px; font-weight:800; color:#a5b4fc; }
+
+/* DEFAULT VIEW (type label) */
+.project__front{
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  padding: 18px;
+  background: linear-gradient(to top, rgba(0,0,0,.75), rgba(0,0,0,.10), transparent);
+  pointer-events: none;
+}
+
+.project__type{
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: .2px;
+}
+
+/* When you hover: hide the type label and show overlay */
+.project:hover .project__front{
+  opacity: 0;
+  transition: opacity .25s ease;
+}
 
 /* ========== Testimonials ========== */
 .testimonials-grid{
