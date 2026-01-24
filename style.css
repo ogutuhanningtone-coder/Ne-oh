@@ -782,3 +782,68 @@ html, body {
   min-height: 100vh;
   overflow: visible;
 }
+
+/* ===== Tools (Platforms & Tools) cards ===== */
+.tools-grid{
+  margin-top: 22px;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.skill-card{
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 20px;
+  padding: 22px 18px;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-height: 170px;
+  backdrop-filter: blur(8px);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.skill-card:hover{
+  transform: translateY(-6px);
+  border-color: rgba(255,255,255,.22);
+  box-shadow: 0 14px 40px rgba(124,92,255,.28);
+}
+
+.icon{
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.16);
+}
+
+.icon img{
+  width: 34px;
+  height: 34px;
+}
+
+.icon img.is-logo{
+  width: 40px;
+  height: 40px;
+}
+
+.title{
+  font-size: .95rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.percent{
+  font-size: .85rem;
+  font-weight: 700;
+  color: #c7c7e6;
+  margin: 0;
+}
