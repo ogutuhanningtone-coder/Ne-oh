@@ -1249,3 +1249,6 @@ html, body {
 
 .hero__inner{ position:relative; z-index:1; }
 .hero__bg{ position:absolute; inset:0; z-index:0; pointer-events:none; }
+
+/* TEMP: remove hero colored blobs */
+.hero__bg{ display:none !important; }
