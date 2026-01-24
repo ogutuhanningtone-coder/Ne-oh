@@ -526,61 +526,98 @@
     </div>
   </section>
 
-  <!-- ================= TESTIMONIALS ================= -->
-  <section id="testimonials" class="section section--alt">
-    <div class="container">
-      <div class="section-header center">
-        <p class="kicker kicker--rule">Client Feedback</p>
-        <h2 class="h2">Trusted By <span class="text-gradient">Businesses I’ve Worked With</span></h2>
-      </div>
-
-      <div class="testimonials-grid">
-        <article class="testimonial testimonial--indigo" data-aos="fade-up" data-aos-delay="100">
-          <p>“Working with Neville was one of the best decisions we made for DreamBridge Education Africa. He translated our vision into a clean, professional website that truly represents our mission.”</p>
-          <div class="testimonial__who">
-            <div class="initials">DK</div>
-            <div>
-              <div class="name">Diana Kafura</div>
-              <div class="role">Founder, DreamBridge Education Africa</div>
-            </div>
-          </div>
-        </article>
-
-        <article class="testimonial testimonial--red" data-aos="fade-up" data-aos-delay="200">
-          <p>“Neville delivered exactly what we needed — a modern, product-focused website that improved how customers understand our services. The results were immediate.”</p>
-          <div class="testimonial__who">
-            <div class="initials">EW</div>
-            <div>
-              <div class="name">Evans Wanyama</div>
-              <div class="role">Founder, Foam Blocks Kenya</div>
-            </div>
-          </div>
-        </article>
-
-        <article class="testimonial testimonial--teal" data-aos="fade-up" data-aos-delay="300">
-          <p>“Professional, efficient, and detail-oriented. Our FinXpert website now reflects the trust and credibility required in the financial sector.”</p>
-          <div class="testimonial__who">
-            <div class="initials">GK</div>
-            <div>
-              <div class="name">Grace Kariuki</div>
-              <div class="role">Managing Director, FinXpert</div>
-            </div>
-          </div>
-        </article>
-
-        <article class="testimonial testimonial--yellow" data-aos="fade-up" data-aos-delay="400">
-          <p>“Neville is a highly reliable and technically strong professional. As Lead Technician, he consistently delivers solutions with precision, initiative, and a deep understanding of modern systems.”</p>
-          <div class="testimonial__who">
-            <div class="initials">AK</div>
-            <div>
-              <div class="name">Alexander</div>
-              <div class="role">Founder, Skillydon Solutions</div>
-            </div>
-          </div>
-        </article>
-      </div>
+<!-- ================= TESTIMONIALS (SLIDER) ================= -->
+<section id="testimonials" class="section section--alt">
+  <div class="container">
+    <div class="section-header center">
+      <p class="kicker kicker--rule">Client Feedback</p>
+      <h2 class="h2">Trusted By <span class="text-gradient">Businesses I’ve Worked With</span></h2>
     </div>
-  </section>
+
+    <div class="twrap">
+      <button class="tbtn tbtn--prev" type="button" aria-label="Previous testimonial">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+
+      <div class="tviewport" aria-roledescription="carousel">
+        <div class="ttrack" id="tTrack">
+
+          <!-- 1 -->
+          <article class="tcard tcard--indigo">
+            <p class="tquote">
+              Working with Neville was one of the best decisions we made for DreamBridge Education Africa.
+              He translated our vision into a clean, professional website that truly represents our mission.
+            </p>
+
+            <div class="twho">
+              <!-- replace src with your uploaded image path -->
+              <img class="tavatar" src="images/testimonials/diana.jpg" alt="Diana Kafura">
+              <div>
+                <div class="tname">Diana Kafura</div>
+                <div class="trole">Founder, DreamBridge Education Africa</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2 -->
+          <article class="tcard tcard--red">
+            <p class="tquote">
+              Neville delivered exactly what we needed — a modern, product-focused website that improved how
+              customers understand our services. The results were immediate.
+            </p>
+
+            <div class="twho">
+              <img class="tavatar" src="images/testimonials/evans.jpg" alt="Evans Wanyama">
+              <div>
+                <div class="tname">Evans Wanyama</div>
+                <div class="trole">Founder, Foam Blocks Kenya</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3 -->
+          <article class="tcard tcard--teal">
+            <p class="tquote">
+              Professional, efficient, and detail-oriented. Our FinXpert website now reflects the trust
+              and credibility required in the financial sector.
+            </p>
+
+            <div class="twho">
+              <img class="tavatar" src="images/testimonials/grace.jpg" alt="Grace Kariuki">
+              <div>
+                <div class="tname">Grace Kariuki</div>
+                <div class="trole">Managing Director, FinXpert</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4 -->
+          <article class="tcard tcard--yellow">
+            <p class="tquote">
+              Neville is a highly reliable and technically strong professional. He consistently delivers
+              solutions with precision, initiative, and a deep understanding of modern systems.
+            </p>
+
+            <div class="twho">
+              <img class="tavatar" src="images/testimonials/alexander.jpg" alt="Alexander">
+              <div>
+                <div class="tname">Alexander</div>
+                <div class="trole">Founder, Skillydon Solutions</div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <button class="tbtn tbtn--next" type="button" aria-label="Next testimonial">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+
+    <div class="tdots" id="tDots" aria-label="Testimonial pagination"></div>
+  </div>
+</section>
 
   <!-- ================= PRICING ================= -->
   <section id="pricing" class="section section--dark">
