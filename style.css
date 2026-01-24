@@ -205,23 +205,29 @@ img{ max-width:100%; display:block; }
   .services-grid{ grid-template-columns: 1fr; }
 }
 
+/* Base card: NO rounded boundary, NO visible border */
 .service-card{
   padding: 26px;
-  border-radius: 24px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.05);
-  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  border-radius: 0;                /* remove rounding */
+  border: 0;                       /* remove boundary */
+  background: transparent;          /* looks natural */
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
   text-align:center;
 }
+
+/* Keep lift on hover */
 .service-card:hover{
   transform: translateY(-6px);
-  border-color: rgba(255,255,255,.18);
 }
+
+/* Icons: default (will be overridden per type below) */
 .service-card__icon{
   font-size: 2rem;
-  color:#a5b4fc;
   margin-bottom: 16px;
+  opacity: .95;
 }
+
+/* Text */
 .service-card__kicker{
   font-size:.65rem;
   letter-spacing:.3em;
@@ -242,14 +248,45 @@ img{ max-width:100%; display:block; }
   line-height:1.6;
 }
 
-/* colored hover glows */
-.service-card--green:hover{ box-shadow: 0 0 25px rgba(0,167,111,.45); background: linear-gradient(90deg, rgba(0,167,111,.30), rgba(0,194,127,.22)); }
-.service-card--blue:hover{ box-shadow: 0 0 25px rgba(30,144,255,.40); background: linear-gradient(90deg, rgba(30,144,255,.26), rgba(58,160,255,.18)); }
-.service-card--orange:hover{ box-shadow: 0 0 25px rgba(255,127,80,.35); background: linear-gradient(90deg, rgba(255,127,80,.26), rgba(255,159,107,.18)); }
-.service-card--pink:hover{ box-shadow: 0 0 25px rgba(255,105,180,.35); background: linear-gradient(90deg, rgba(255,105,180,.22), rgba(255,133,192,.16)); }
-.service-card--amber:hover{ box-shadow: 0 0 25px rgba(255,165,0,.35); background: linear-gradient(90deg, rgba(255,165,0,.24), rgba(255,193,77,.16)); }
-.service-card--violet:hover{ box-shadow: 0 0 25px rgba(138,43,226,.35); background: linear-gradient(90deg, rgba(138,43,226,.22), rgba(162,79,240,.16)); }
-.service-card--red:hover{ box-shadow: 0 0 25px rgba(255,69,0,.35); background: linear-gradient(90deg, rgba(255,69,0,.22), rgba(255,110,61,.16)); }
+/* ===== Icon colors per card type (different colors, not uniform blue) ===== */
+.service-card--green  .service-card__icon{ color: #34d399; } /* green */
+.service-card--blue   .service-card__icon{ color: #60a5fa; } /* blue */
+.service-card--orange .service-card__icon{ color: #fb923c; } /* orange */
+.service-card--pink   .service-card__icon{ color: #f472b6; } /* pink */
+.service-card--amber  .service-card__icon{ color: #fbbf24; } /* amber */
+.service-card--violet .service-card__icon{ color: #a78bfa; } /* violet */
+.service-card--red    .service-card__icon{ color: #fb7185; } /* red */
+
+/* ===== Hover glows (kept as you had them) ===== */
+.service-card--green:hover{
+  box-shadow: 0 0 25px rgba(0,167,111,.45);
+  background: linear-gradient(90deg, rgba(0,167,111,.30), rgba(0,194,127,.22));
+}
+.service-card--blue:hover{
+  box-shadow: 0 0 25px rgba(30,144,255,.40);
+  background: linear-gradient(90deg, rgba(30,144,255,.26), rgba(58,160,255,.18));
+}
+.service-card--orange:hover{
+  box-shadow: 0 0 25px rgba(255,127,80,.35);
+  background: linear-gradient(90deg, rgba(255,127,80,.26), rgba(255,159,107,.18));
+}
+.service-card--pink:hover{
+  box-shadow: 0 0 25px rgba(255,105,180,.35);
+  background: linear-gradient(90deg, rgba(255,105,180,.22), rgba(255,133,192,.16));
+}
+.service-card--amber:hover{
+  box-shadow: 0 0 25px rgba(255,165,0,.35);
+  background: linear-gradient(90deg, rgba(255,165,0,.24), rgba(255,193,77,.16));
+}
+.service-card--violet:hover{
+  box-shadow: 0 0 25px rgba(138,43,226,.35);
+  background: linear-gradient(90deg, rgba(138,43,226,.22), rgba(162,79,240,.16));
+}
+.service-card--red:hover{
+  box-shadow: 0 0 25px rgba(255,69,0,.35);
+  background: linear-gradient(90deg, rgba(255,69,0,.22), rgba(255,110,61,.16));
+}
+
 
 /* ========== Projects ========== */
 .projects-grid{
