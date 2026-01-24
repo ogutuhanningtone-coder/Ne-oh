@@ -1,7 +1,7 @@
 /* ========== Base ========== */
 :root{
-  --bg:#0b0c10;
-  --panel:#12141a;
+  --bg:#070812;
+  --panel:#0b0d14;
   --text:#f3f4f6;
   --muted:#9ca3af;
   --border: rgba(255,255,255,.10);
@@ -19,9 +19,49 @@ html{ scroll-behavior:smooth; }
 body{
   margin:0;
   font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  background:var(--bg);
   color:var(--text);
   overflow-x:hidden;
+
+  background:
+    radial-gradient(900px 520px at 14% 10%, rgba(99,102,241,.22), transparent 60%),
+    radial-gradient(880px 520px at 88% 18%, rgba(168,85,247,.18), transparent 60%),
+    radial-gradient(1100px 650px at 50% 90%, rgba(59,130,246,.10), transparent 60%),
+    var(--bg);
+  position: relative;
+}
+
+/* Subtle binary “0/1” texture overlay */
+body::before{
+  content:"0101010010010100101001010010100101010010010100101001010010100101010010010100";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 14px;
+
+  color: rgba(110,231,183,.12);
+  white-space: pre-wrap;
+  overflow: hidden;
+
+  transform: rotate(-12deg) scale(1.25);
+  opacity: .22;
+  filter: blur(.25px);
+}
+
+/* Soft grain overlay */
+body::after{
+  content:"";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .06;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
 }
 
 a{ color:inherit; text-decoration:none; }
@@ -48,8 +88,8 @@ img{ max-width:100%; display:block; }
 .container--narrow{ width:min(820px, 100% - 48px); }
 
 .section{ padding: 64px 0; }
-.section--dark{ background: var(--bg); }
-.section--alt{ background: var(--panel); }
+.section--dark{ background: transparent; }
+.section--alt{ background: rgba(255,255,255,.02); }
 
 .section-header{ margin-bottom: 56px; }
 .h2{
