@@ -25,16 +25,6 @@
 
 <body class="page">
 
-  <!-- ================= INTRO ANIMATION ================= -->
-  <div id="introAnimation" class="intro">
-    <h1 class="intro__title">
-      <span id="typedName"></span><span class="cursor">|</span>
-    </h1>
-    <p id="tagline" class="intro__tagline">
-      Crafting Digital Solutions for Your Success
-    </p>
-  </div>
-
   <!-- ================= STICKY NAVIGATION ================= -->
   <header class="site-header">
     <div class="container header__inner">
@@ -849,43 +839,6 @@
     });
   </script>
 
-  <script>
-    // Intro typing
-    document.addEventListener("DOMContentLoaded", () => {
-      const name = "Ogutu Neville | Web Designer & Consultant";
-      const typedNameEl = document.getElementById("typedName");
-      const taglineEl = document.getElementById("tagline");
-      const introEl = document.getElementById("introAnimation");
-
-      let i = 0;
-
-      function typeName() {
-        if (!typedNameEl) return;
-
-        if (i < name.length) {
-          typedNameEl.textContent += name[i];
-          i++;
-          setTimeout(typeName, 50);
-        } else {
-          typedNameEl.classList.add("glow-once");
-          setTimeout(() => {
-            typedNameEl.classList.remove("glow-once");
-            setTimeout(() => typedNameEl.classList.add("glow-once"), 200);
-          }, 900);
-
-          setTimeout(() => taglineEl?.classList.add("fade-in"), 500);
-
-          setTimeout(() => {
-            introEl.style.transition = "opacity 1s ease-in-out";
-            introEl.style.opacity = 0;
-            setTimeout(() => (introEl.style.display = "none"), 1000);
-          }, 2200);
-        }
-      }
-
-      setTimeout(typeName, 200);
-    });
-  </script>
 
   <!-- AOS -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
