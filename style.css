@@ -848,64 +848,26 @@ html, body {
   margin: 0;
 }
 
-/* ===== About polish (card + spacing) ===== */
-#about .container{
-  max-width: 920px;           /* keeps text from stretching too wide */
-  padding: 46px 32px;
-  border-radius: 28px;
-  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-  border: 1px solid rgba(255,255,255,.10);
-  box-shadow: 0 18px 60px rgba(0,0,0,.35);
-  backdrop-filter: blur(10px);
-  position: relative;
-}
-
-/* subtle glow accent */
-#about .container::before{
-  content:"";
-  position:absolute;
-  inset:-1px;
-  border-radius: 28px;
-  background: radial-gradient(circle at 20% 0%,
-    rgba(99,102,241,.20),
-    transparent 55%);
-  pointer-events:none;
-  opacity:.85;
-}
+/* ===== About polish (no card) ===== */
+#about .container{ max-width: 920px; }
 
 #about .kicker{
-  color: #a5b4fc;
-  letter-spacing: .42em;
-  font-weight: 800;
+  color:#a5b4fc;
+  letter-spacing:.45em;
+  font-weight:800;
 }
 
 #about .h2{
-  margin-top: 14px;
+  margin-top: 12px;
   line-height: 1.05;
 }
 
 #about .p{
   max-width: 760px;
-  margin: 20px auto 0;
+  margin: 18px auto 0;
   font-size: 1.05rem;
   line-height: 1.9;
   color: rgba(243,244,246,.78);
 }
 
-/* handles your <br><br> gap better */
-#about .p br + br{
-  display:block;
-  content:"";
-  margin-top: 14px;
-}
-
-@media (max-width: 640px){
-  #about .container{
-    padding: 30px 18px;
-    border-radius: 20px;
-  }
-  #about .p{
-    font-size: 1rem;
-    line-height: 1.85;
-  }
-}
+#about .p br + br{ margin-top: 14px; display:block; }
