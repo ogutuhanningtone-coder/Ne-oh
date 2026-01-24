@@ -473,73 +473,145 @@ img{ max-width:100%; display:block; }
 }
 
 .price{
+  position: relative;
   border-radius: 24px;
   padding: 26px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.05);
-  backdrop-filter: blur(8px);
-  transition: border-color .25s ease, transform .25s ease;
-}
-.price:hover{ transform: translateY(-4px); border-color: rgba(99,102,241,.35); }
-.price h3{ margin:0 0 6px; }
-.price__value{ font-size: 2.1rem; font-weight: 900; margin: 14px 0 16px; }
-.price ul{ margin:0; padding-left: 18px; color:#cbd5e1; line-height:1.7; }
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  overflow: hidden;
 
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+/* gradient accent strip */
+.price__top{
+  position:absolute;
+  left:0; top:0; right:0;
+  height: 4px;
+  background: linear-gradient(to right, var(--indigo), var(--purple));
+  opacity: .9;
+}
+
+/* subtle gradient glow border feel */
+.price::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius: 24px;
+  padding: 1px;
+  background: linear-gradient(to right, rgba(99,102,241,.45), rgba(168,85,247,.35));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: .35;
+  pointer-events:none;
+}
+
+.price:hover{
+  transform: translateY(-4px);
+  border-color: rgba(255,255,255,.16);
+  box-shadow:
+    0 24px 70px rgba(0,0,0,.40),
+    0 0 40px rgba(99,102,241,.10);
+}
+
+.price h3{ margin: 4px 0 6px; }
+.price__value{
+  font-size: 2.1rem;
+  font-weight: 900;
+  margin: 14px 0 16px;
+}
+.price ul{
+  margin:0;
+  padding-left: 18px;
+  color:#cbd5e1;
+  line-height:1.7;
+}
+
+/* Popular */
 .price--popular{
-  border-color: rgba(99,102,241,.45);
-  box-shadow: 0 0 40px rgba(99,102,241,.15);
-  position:relative;
+  box-shadow: 0 0 60px rgba(99,102,241,.12);
 }
 .price__badge{
   position:absolute;
-  top:-12px;
-  right: 18px;
-  background: var(--indigo);
+  top: 14px;
+  right: 14px;
+  background: linear-gradient(to right, var(--indigo), var(--purple));
   color:#fff;
   font-weight:800;
   font-size:.75rem;
-  padding: 6px 10px;
+  padding: 7px 10px;
   border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.16);
 }
 
 /* ===============================
-   Clear buttons (color on hover)
-   Desktop: clear -> gradient on hover
-   Mobile: gradient by default (no hover)
+   Clear buttons + rounded gradient boundary on ACTIVE
    =============================== */
+
+/* your base .btn already exists; we only define btn--clear behavior */
 .btn--clear{
   background: transparent;
-  border: 1px solid rgba(255,255,255,.14);
   color: #e5e7eb;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 999px;              /* rounded boundary */
+  position: relative;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
 }
 
-/* Desktop hover */
+/* Desktop hover -> fill gradient */
 @media (hover: hover) and (pointer: fine){
   .btn--clear:hover{
     border-color: transparent;
     background: linear-gradient(to right, var(--indigo), var(--purple));
     color: #fff;
-    box-shadow: 0 0 26px rgba(99,102,241,.22);
+    box-shadow: 0 0 26px rgba(99,102,241,.20);
   }
 }
 
-/* Mobile/touch: make it gradient by default */
-@media (hover: none) and (pointer: coarse){
-  .btn--clear{
-    border-color: transparent;
-    background: linear-gradient(to right, var(--indigo), var(--purple));
-    color: #fff;
-  }
+/* Active state -> rounded gradient boundary (works on click AND tap) */
+.btn--clear:active{
+  transform: translateY(0); /* feels like a press */
+  border-color: transparent;
+  background: transparent;
+  box-shadow: 0 0 0 3px rgba(99,102,241,.16);
 }
 
-/* Optional: slightly stronger for popular plan */
-.price--popular .btn--clear{
-  border-color: rgba(99,102,241,.35);
+/* Gradient ring on active */
+.btn--clear::before{
+  content:"";
+  position:absolute;
+  inset: -2px;
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--indigo), var(--purple));
+  opacity: 0;
+  pointer-events:none;
+
+  /* make it a ring (not a filled background) */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 2px;
 }
-@media (hover: hover) and (pointer: fine){
-  .price--popular .btn--clear:hover{
-    box-shadow: 0 0 34px rgba(99,102,241,.28);
-  }
+
+/* show ring on active + keyboard focus */
+.btn--clear:active::before,
+.btn--clear:focus-visible::before{
+  opacity: 1;
+}
+
+/* Nice focus for accessibility */
+.btn--clear:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(99,102,241,.18);
 }
 
 /* ========== Hire CTA ========== */
@@ -812,8 +884,6 @@ html, body {
 
 /* =========================================================
    HERO + TERMINAL (FULL OVERRIDE)
-   Paste at the VERY BOTTOM of style.css
-   ========================================================= */
 
 /* Make hero feel bigger, wider, and dominant */
 .hero{
