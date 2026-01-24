@@ -530,6 +530,46 @@ img{ max-width:100%; display:block; }
   border-radius: 999px;
 }
 
+/* ===============================
+   Clear buttons (color on hover)
+   Desktop: clear -> gradient on hover
+   Mobile: gradient by default (no hover)
+   =============================== */
+.btn--clear{
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.14);
+  color: #e5e7eb;
+}
+
+/* Desktop hover */
+@media (hover: hover) and (pointer: fine){
+  .btn--clear:hover{
+    border-color: transparent;
+    background: linear-gradient(to right, var(--indigo), var(--purple));
+    color: #fff;
+    box-shadow: 0 0 26px rgba(99,102,241,.22);
+  }
+}
+
+/* Mobile/touch: make it gradient by default */
+@media (hover: none) and (pointer: coarse){
+  .btn--clear{
+    border-color: transparent;
+    background: linear-gradient(to right, var(--indigo), var(--purple));
+    color: #fff;
+  }
+}
+
+/* Optional: slightly stronger for popular plan */
+.price--popular .btn--clear{
+  border-color: rgba(99,102,241,.35);
+}
+@media (hover: hover) and (pointer: fine){
+  .price--popular .btn--clear:hover{
+    box-shadow: 0 0 34px rgba(99,102,241,.28);
+  }
+}
+
 /* ========== Hire CTA ========== */
 .hire{
   display:grid;
