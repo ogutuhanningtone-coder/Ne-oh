@@ -967,5 +967,102 @@
     typeLine();
   </script>
 
+  <script>
+(() => {
+  const track = document.getElementById("tTrack");
+  const dotsWrap = document.getElementById("tDots");
+  const prevBtn = document.querySelector(".tbtn--prev");
+  const nextBtn = document.querySelector(".tbtn--next");
+  if(!track || !dotsWrap) return;
+
+  const cards = Array.from(track.querySelectorAll(".tcard"));
+  let index = 0; // index of the first visible card
+  let timer = null;
+
+  function visibleCount(){
+    return window.matchMedia("(max-width: 900px)").matches ? 1 : 2;
+  }
+
+  function maxIndex(){
+    return Math.max(0, cards.length - visibleCount());
+  }
+
+  function cardStepPx(){
+    const c = cards[0];
+    if(!c) return 0;
+    const styles = getComputedStyle(track);
+    const gap = parseFloat(styles.gap || "0");
+    return c.getBoundingClientRect().width + gap;
+  }
+
+  function buildDots(){
+    dotsWrap.innerHTML = "";
+    const pages = maxIndex() + 1; // each step slides by 1 card
+    for(let i=0;i<pages;i++){
+      const b = document.createElement("button");
+      b.className = "tdot" + (i === index ? " is-active" : "");
+      b.type = "button";
+      b.addEventListener("click", () => { index = i; apply(); restart(); });
+      dotsWrap.appendChild(b);
+    }
+  }
+
+  function setActiveDot(){
+    const dots = Array.from(dotsWrap.querySelectorAll(".tdot"));
+    dots.forEach((d,i) => d.classList.toggle("is-active", i === index));
+  }
+
+  function apply(){
+    index = Math.min(Math.max(index, 0), maxIndex());
+    const x = cardStepPx() * index;
+    track.style.transform = `translateX(${-x}px)`;
+    setActiveDot();
+  }
+
+  function next(){
+    index = (index >= maxIndex()) ? 0 : index + 1;
+    apply();
+  }
+
+  function prev(){
+    index = (index <= 0) ? maxIndex() : index - 1;
+    apply();
+  }
+
+  function start(){
+    stop();
+    timer = setInterval(next, 3000); // 3 seconds
+  }
+
+  function stop(){
+    if(timer) clearInterval(timer);
+    timer = null;
+  }
+
+  function restart(){
+    start();
+  }
+
+  nextBtn?.addEventListener("click", () => { next(); restart(); });
+  prevBtn?.addEventListener("click", () => { prev(); restart(); });
+
+  // Pause on hover (feels premium)
+  const viewport = document.querySelector(".tviewport");
+  viewport?.addEventListener("mouseenter", stop);
+  viewport?.addEventListener("mouseleave", start);
+
+  window.addEventListener("resize", () => {
+    // when switching between 1/2 visible, rebuild
+    index = Math.min(index, maxIndex());
+    buildDots();
+    apply();
+  });
+
+  buildDots();
+  apply();
+  start();
+})();
+</script>
+
 </body>
 </html>
