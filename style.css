@@ -314,39 +314,68 @@ img{ max-width:100%; display:block; }
 .icon-btn--pink{ color:#f9a8d4; }
 .icon-btn--pink:hover{ border-color: var(--pink); box-shadow: 0 0 18px rgba(236,72,153,.55); }
 
-/* Terminal */
+/* Terminal (more natural / blended) */
 .terminal{
-  border-radius: 16px;
-  overflow:hidden;
-  border: 1px solid #1e1e1e;
-  background:#1e1e1e;
-  box-shadow: 0 20px 60px rgba(0,0,0,.45);
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+
+  /* remove hard border + solid slab */
+  border: 1px solid rgba(255,255,255,.06);
+  background: rgba(18, 20, 26, .28);
+
+  /* blend with hero */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  /* softer ambient shadow (less “card”) */
+  box-shadow:
+    0 18px 55px rgba(0,0,0,.35),
+    0 2px 10px rgba(0,0,0,.22);
 }
+
 .terminal__bar{
   display:flex;
   align-items:center;
   gap: 10px;
   padding: 10px 14px;
-  background:#323233;
-  border-bottom: 1px solid #1e1e1e;
+
+  /* remove hard strip */
+  background: rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255,255,255,.06);
 }
+
 .dot{ width:12px; height:12px; border-radius:999px; display:inline-block; }
 .dot--red{ background:#ff5f56; }
 .dot--yellow{ background:#ffbd2e; }
 .dot--green{ background:#27c93f; }
+
 .terminal__path{
   margin-left: 8px;
   font-size: .75rem;
-  color:#cccccc;
+  color: rgba(255,255,255,.72);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
+
 .terminal__body{
   padding: 22px 18px;
   min-height: 400px;
   font-size: 14px;
   line-height: 1.7;
-  color:#d4d4d4;
+  color: rgba(255,255,255,.82);
+  background: transparent; /* important */
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+/* Optional: subtle film grain to make it feel less "designed" */
+.terminal::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.06;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
 }
 
 /* ========== Kickers ========== */
