@@ -1,1522 +1,859 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ogutu Neville - Web Designer & Consultant</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<!-- SEO Meta Tags -->
-<title>Ogutu Neville Hanningtone | Web Designer & Consultant</title>
-<meta name="description" content="Premium web design and consulting portfolio by Ogutu Neville Hanningtone. Specializing in modern web design, branding, and digital consulting.">
-<meta name="keywords" content="web design, consulting, branding, Ogutu Neville, portfolio, web developer, UI/UX designer">
-<meta name="author" content="Ogutu Neville Hanningtone">
+  <title>Ogutu Neville - Web Designer & Consultant</title>
 
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="icon" type="image/svg+xml" href="/ogutu%20neville%20favicon.svg">
-<link rel="stylesheet" href="animation-code.css">
-<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Premium web design and consulting portfolio by Ogutu Neville Hanningtone. Specializing in modern web design, branding, and digital consulting.">
+  <meta name="keywords" content="web design, consulting, branding, Ogutu Neville, portfolio, web developer, UI/UX designer">
+  <meta name="author" content="Ogutu Neville Hanningtone">
 
-<style>
-body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-.bg-blur { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-.text-gradient {
-  background: linear-gradient(to right, #6366f1, #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.btn-gradient { background: linear-gradient(to right, #6366f1, #a855f7); }
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
-}
-.animate-float { animation: float 3s ease-in-out infinite; }
-</style>
+  <!-- Icons + Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/ogutu%20neville%20favicon.svg">
 
+  <!-- Your extra CSS -->
+  <link rel="stylesheet" href="animation-code.css">
+  <link rel="stylesheet" href="styles.css">
 
-<style>
-@keyframes successPop {
-  0% { opacity: 0; transform: scale(0.9); }
-  100% { opacity: 1; transform: scale(1); }
-}
-.animate-success {
-  animation: successPop 0.6s ease forwards;
-}
-</style>
-
-
-<head>
-
-  <style>
-    /* ===== HERO ANIMATED GRADIENT ===== */
-    .hero-gradient {
-      background: linear-gradient(
-        270deg,
-        #000000,
-        #020617,
-        #0b1220,
-        #020617,
-        #000000
-      );
-      background-size: 600% 600%;
-      animation: gradientShift 25s ease infinite;
-    }
-
-    @keyframes gradientShift {
-      0%   { background-position: 0% 50%; }
-      50%  { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* ===== SOFT AMBIENT GLOWS ===== */
-    .glow {
-      position: absolute;
-      width: 420px;
-      height: 420px;
-      border-radius: 50%;
-      filter: blur(120px);
-      opacity: 0.25;
-      animation: floatGlow 18s ease-in-out infinite alternate;
-    }
-
-    .glow-indigo {
-      background: #6366f1;
-      top: 10%;
-      left: 10%;
-    }
-
-    .glow-blue {
-      background: #3b82f6;
-      bottom: 15%;
-      right: 15%;
-    }
-
-    .glow-green {
-      background: #22c55e;
-      bottom: 30%;
-      left: 20%;
-    }
-
-    @keyframes floatGlow {
-      from { transform: translateY(0) translateX(0); }
-      to   { transform: translateY(-40px) translateX(30px); }
-    }
-  </style>
-
-  <style>
-  .skill-card{
-    background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-    border:1px solid rgba(255,255,255,.12);
-    border-radius:20px;
-    padding:26px 18px;
-    text-align:center;
-    backdrop-filter: blur(8px);
-    transition: transform .25s ease, box-shadow .25s ease;
-  }
-
-  .skill-card:hover{
-    transform: translateY(-6px);
-    box-shadow: 0 14px 40px rgba(124,92,255,.28);
-  }
-
-  .icon{
-    width:64px;
-    height:64px;
-    margin:0 auto 12px;
-    border-radius:18px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background: rgba(255,255,255,.08);
-    border:1px solid rgba(255,255,255,.16);
-  }
-
-  .icon img{
-    width:34px;
-    height:34px;
-  }
-
-  .icon img.is-logo{
-    width:40px;
-    height:40px;
-  }
-
-  .title{
-    font-size:.95rem;
-    font-weight:600;
-    margin-bottom:6px;
-  }
-
-  .percent{
-    font-size:.85rem;
-    color:#c7c7e6;
-    font-weight:600;
-  }
-</style>
-
-
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 
-<script>
-  const form = document.getElementById("contactForm");
-  const btnText = document.getElementById("btnText");
-  const submitBtn = document.getElementById("submitBtn");
-  const successBox = document.getElementById("successBox");
-
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
-
-    btnText.textContent = "Sending...";
-    submitBtn.disabled = true;
-
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch(form.action, {
-        method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" }
-      });
-
-      if (response.ok) {
-        form.reset();
-        form.classList.add("hidden");
-        successBox.classList.remove("hidden");
-      } else {
-        btnText.textContent = "Try Again";
-        submitBtn.disabled = false;
-      }
-    } catch (error) {
-      btnText.textContent = "Error";
-      submitBtn.disabled = false;
-    }
-  });
-</script>
-
-
-<body class="bg-[#0b0c10] text-gray-100 overflow-x-hidden">
+<body class="page">
 
   <!-- ================= INTRO ANIMATION ================= -->
-<div id="introAnimation" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0b0c10]">
-  <h1 class="text-5xl md:text-6xl font-bold text-white text-center">
-    <span id="typedName"></span><span class="cursor">|</span>
-  </h1>
-  <p id="tagline" class="mt-4 text-lg md:text-2xl text-gray-400 opacity-0 text-center">
-    Crafting Digital Solutions for Your Success
-  </p>
-</div>
+  <div id="introAnimation" class="intro">
+    <h1 class="intro__title">
+      <span id="typedName"></span><span class="cursor">|</span>
+    </h1>
+    <p id="tagline" class="intro__tagline">
+      Crafting Digital Solutions for Your Success
+    </p>
+  </div>
 
   <!-- ================= STICKY NAVIGATION ================= -->
-<header class="sticky top-0 z-50 bg-[#0b0c10] border-b border-white/10">
-  <div class="container mx-auto px-6 flex items-center justify-between py-4">
+  <header class="site-header">
+    <div class="container header__inner">
 
-    <!-- Logo / Brand -->
-    <a href="#hero" class="text-2xl font-bold text-white">
-      Ogutu Neville| Web Designer & Consultant
-    </a>
+      <a href="#hero" class="brand">
+        Ogutu Neville | Web Designer &amp; Consultant
+      </a>
 
-    <!-- Navigation Links -->
-    <nav>
-      <ul class="hidden md:flex gap-8 font-semibold text-gray-300">
-        <li>
-          <a href="#hero" class="hover:text-indigo-400 transition-colors">Home</a>
-        </li>
-        <li>
-          <a href="#My Expertise" class="hover:text-indigo-400 transition-colors">My Expertise</a>
-        </li>
-        <li>
-          <a href="#projects" class="hover:text-indigo-400 transition-colors">Projects</a>
-        </li>
-        <li>
-          <a href="#skills" class="hover:text-indigo-400 transition-colors">Skills</a>
-        </li>
-        <li>
-          <a href="#contact" class="hover:text-indigo-400 transition-colors">Contact</a>
-        </li>
-      </ul>
+      <nav class="nav">
+        <ul class="nav__list nav__list--desktop" id="desktopNav">
+          <li><a href="#hero" class="nav__link">Home</a></li>
+          <li><a href="#expertise" class="nav__link">My Expertise</a></li>
+          <li><a href="#projects" class="nav__link">Projects</a></li>
+          <li><a href="#skills" class="nav__link">Skills</a></li>
+          <li><a href="#contact" class="nav__link">Contact</a></li>
+        </ul>
 
-      <!-- Mobile Menu Button -->
-      <div class="md:hidden">
-        <button id="mobileMenuBtn" class="text-gray-300 hover:text-indigo-400">
-          <i class="fa-solid fa-bars text-xl"></i>
+        <button id="mobileMenuBtn" class="nav__mobile-btn" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
         </button>
-      </div>
-    </nav>
-
-  </div>
-
-  <!-- Mobile Menu (hidden by default) -->
-  <div id="mobileMenu" class="hidden md:hidden bg-[#0b0c10] border-t border-white/10">
-    <ul class="flex flex-col gap-4 p-4 text-gray-300 font-semibold">
-      <li><a href="#hero" class="hover:text-indigo-400 transition-colors">Home</a></li>
-      <li><a href="#My Expertise" class="hover:text-indigo-400 transition-colors">My Expertise</a></li>
-      <li><a href="#projects" class="hover:text-indigo-400 transition-colors">Projects</a></li>
-      <li><a href="#skills" class="hover:text-indigo-400 transition-colors">Skills</a></li>
-      <li><a href="#contact" class="hover:text-indigo-400 transition-colors">Contact</a></li>
-    </ul>
-  </div>
-</header>
-
-<!-- ================= MOBILE MENU SCRIPT ================= -->
-<script>
-  const mobileBtn = document.getElementById('mobileMenuBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
-
-  mobileBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-  });
-</script>
-
-<!-- ================= HERO SECTION ================= -->
-<section class="relative min-h-[85vh] bg-[#0b0c10] text-neutral-100 flex items-center justify-center px-6 overflow-hidden">
-  
-  <!-- Background Effects (optional) -->
-  <div class="absolute inset-0 overflow-hidden pointer-events-none">
-    <div class="absolute top-20 left-10 w-72 h-72 bg-indigo-500/10 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
-  </div>
-
-  <div class="container mx-auto px-6 relative z-10">
-    <div class="grid lg:grid-cols-2 gap-12 items-center">
-      
-      <!-- LEFT: Your Original Content -->
-      <div class="space-y-8">
-        <!-- Availability Badge -->
-        <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-indigo-400 text-sm font-medium animate-bounce">
-          <span class="relative flex h-2 w-2">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
-          </span>
-          <span>Available for web projects, digital solutions, and technical support in Kenya</span>
-        </div>
-
-        <!-- Title -->
-        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
-          <span class="block text-gray-300 font-medium text-lg md:text-xl mb-2">
-            Hi, I'm
-          </span>
-
-          <span class="block text-white">
-            Ogutu Neville
-          </span>
-
-          <span class="block mt-3 text-2xl md:text-3xl font-semibold text-indigo-400">
-            Professional Web Developer in Kenya
-          </span>
-        </h1>
-
-        <!-- Subtitle -->
-        <p class="text-xl text-gray-400 max-w-lg">
-          Website Development in Kenya for Growing Businesses.
-        </p>
-
-        <!-- Call-to-Action Buttons -->
-        <div class="flex gap-4">
-          <a href="#contact" class="px-8 py-4 btn-gradient rounded-full font-bold">
-            Let's Talk Digital Solutions
-          </a>
-          <a href="#services" class="px-8 py-4 bg-white/5 border border-white/10 rounded-full font-bold">
-            My Services
-          </a>
-        </div>
-
-        <!-- ✅ SOCIAL ICONS -->
-        <div class="flex items-center gap-4 mt-6">
-          <!-- Email -->
-          <a href="mailto:ogutuhanningtone@gmail.com" aria-label="Email"
-            class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10
-                   text-indigo-400 hover:text-white hover:border-indigo-400
-                   hover:shadow-[0_0_18px_rgba(99,102,241,0.6)] transition duration-300">
-            <i class="fa-solid fa-envelope text-lg"></i>
-          </a>
-
-          <!-- Phone -->
-          <a href="tel:+254716927955" aria-label="Call"
-            class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10
-                   text-indigo-400 hover:text-white hover:border-indigo-400
-                   hover:shadow-[0_0_18px_rgba(99,102,241,0.6)] transition duration-300">
-            <i class="fa-solid fa-phone text-lg"></i>
-          </a>
-
-          <!-- WhatsApp -->
-          <a href="https://wa.link/xwh6aa" target="_blank" rel="noopener" aria-label="WhatsApp"
-            class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10
-                   text-green-400 hover:text-white hover:border-green-400
-                   hover:shadow-[0_0_18px_rgba(34,197,94,0.6)] transition duration-300">
-            <i class="fa-brands fa-whatsapp text-lg"></i>
-          </a>
-
-          <!-- Twitter -->
-          <a href="https://x.com/_NevilleOgutu" target="_blank" rel="noopener" aria-label="Twitter"
-            class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10
-                   text-blue-400 hover:text-white hover:border-blue-400
-                   hover:shadow-[0_0_18px_rgba(59,130,246,0.6)] transition duration-300">
-            <i class="fa-brands fa-twitter text-lg"></i>
-          </a>
-
-          <!-- TikTok -->
-          <a href="https://www.tiktok.com/@ogutuneville" target="_blank" rel="noopener" aria-label="TikTok"
-            class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10
-                   text-pink-400 hover:text-white hover:border-pink-400
-                   hover:shadow-[0_0_18px_rgba(236,72,153,0.6)] transition duration-300">
-            <i class="fa-brands fa-tiktok text-lg"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- RIGHT: Terminal with VS Code Dark Theme -->
-      <div class="mt-10 lg:mt-0">
-        <!-- Terminal Frame -->
-        <div class="rounded-xl border border-[#1e1e1e] bg-[#1e1e1e] shadow-2xl overflow-hidden">
-          <!-- Terminal Title Bar -->
-          <div class="flex items-center gap-2 px-4 py-2 bg-[#323233] border-b border-[#1e1e1e]">
-            <span class="h-3 w-3 rounded-full bg-[#ff5f56]"></span>
-            <span class="h-3 w-3 rounded-full bg-[#ffbd2e]"></span>
-            <span class="h-3 w-3 rounded-full bg-[#27c93f]"></span>
-            <span class="ml-3 text-xs text-[#cccccc] font-mono">Neville ~/Developer</span>
-          </div>
-          <!-- Terminal Body -->
-          <div
-            id="terminal"
-            class="px-6 py-8 font-mono text-[14px] sm:text-[15px] leading-relaxed space-y-1 min-h-[400px] bg-[#1e1e1e]">
-          </div>
-        </div>
-      </div>
-
+      </nav>
     </div>
-  </div>
-</section>
-<!-- ================= END HERO ================= -->
 
+    <div id="mobileMenu" class="mobile-menu hidden">
+      <ul class="mobile-menu__list">
+        <li><a href="#hero" class="nav__link">Home</a></li>
+        <li><a href="#expertise" class="nav__link">My Expertise</a></li>
+        <li><a href="#projects" class="nav__link">Projects</a></li>
+        <li><a href="#skills" class="nav__link">Skills</a></li>
+        <li><a href="#contact" class="nav__link">Contact</a></li>
+      </ul>
+    </div>
+  </header>
 
-<!-- ================= ABOUT ================= -->
-<section id="about" data-aos="fade-up" class="py-16 bg-[#12141a]">
-  <div class="container mx-auto px-6 max-w-3xl text-center">
+  <!-- ================= HERO SECTION ================= -->
+  <section id="hero" class="hero">
+    <div class="hero__bg">
+      <div class="hero__blob hero__blob--indigo"></div>
+      <div class="hero__blob hero__blob--purple"></div>
+    </div>
 
-    <span class="text-indigo-400 font-bold uppercase text-sm">About Me</span>
+    <div class="container hero__inner">
+      <div class="hero__grid">
 
-    <h2 class="text-4xl font-bold mt-4 leading-tight">
-      Transforming Ideas Into <span class="text-gradient">Digital Masterpieces</span>
-    </h2>
+        <div class="hero__left">
+          <div class="badge badge--bouncy">
+            <span class="badge__dot">
+              <span class="badge__ping"></span>
+              <span class="badge__solid"></span>
+            </span>
+            <span>Available for web projects, digital solutions, and technical support in Kenya</span>
+          </div>
 
-    <p class="text-gray-400 mt-6 leading-relaxed space-y-4">
-      I’m a Web Developer with 6 years of hands-on experience delivering,
-      maintaining, and optimizing digital solutions for businesses across
-      multiple industries. I specialize in building professional,
-      high-performance websites and supporting real-world systems that operate
-      in live production environments.
-      <br><br>
-      My work combines clean design, functional development, performance
-      optimization, and practical problem-solving. I’ve collaborated with
-      teams, supported active client websites, and delivered solutions that
-      focus on reliability, clarity, and measurable business impact.
-    </p>
+          <h1 class="hero__title">
+            <span class="hero__hello">Hi, I'm</span>
+            <span class="hero__name">Ogutu Neville</span>
+            <span class="hero__role">Professional Web Developer in Kenya</span>
+          </h1>
 
-  </div>
-</section>
+          <p class="hero__subtitle">Website Development in Kenya for Growing Businesses.</p>
 
+          <div class="hero__cta">
+            <a href="#contact" class="btn btn--gradient btn--pill">Let's Talk Digital Solutions</a>
+            <a href="#services" class="btn btn--ghost btn--pill">My Services</a>
+          </div>
 
-<!-- ================= SKILLS ================= -->
-<section id="skills" data-aos="fade-up" class="py-16 bg-[#0b0c10] text-white">
-  <div class="container mx-auto px-6">
+          <div class="social">
+            <a href="mailto:ogutuhanningtone@gmail.com" aria-label="Email" class="icon-btn icon-btn--indigo">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+            <a href="tel:+254716927955" aria-label="Call" class="icon-btn icon-btn--indigo">
+              <i class="fa-solid fa-phone"></i>
+            </a>
+            <a href="https://wa.link/xwh6aa" target="_blank" rel="noopener" aria-label="WhatsApp" class="icon-btn icon-btn--green">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a href="https://x.com/_NevilleOgutu" target="_blank" rel="noopener" aria-label="Twitter" class="icon-btn icon-btn--blue">
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a href="https://www.tiktok.com/@ogutuneville" target="_blank" rel="noopener" aria-label="TikTok" class="icon-btn icon-btn--pink">
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
+          </div>
+        </div>
 
-    <!-- ================= Section Header ================= -->
-    <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="hero__right">
+          <div class="terminal">
+            <div class="terminal__bar">
+              <span class="dot dot--red"></span>
+              <span class="dot dot--yellow"></span>
+              <span class="dot dot--green"></span>
+              <span class="terminal__path">Neville ~/Developer</span>
+            </div>
+            <div id="terminal" class="terminal__body"></div>
+          </div>
+        </div>
 
-      <!-- Kicker -->
-      <p class="inline-flex items-center gap-3 text-[11px] sm:text-[12px] font-semibold tracking-[0.38em] uppercase mb-4">
-        <span class="h-px w-10 bg-current/50 hidden sm:block"></span>
-        My Skills
-        <span class="h-px w-10 bg-current/50 hidden sm:block"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about" data-aos="fade-up" class="section section--alt">
+    <div class="container container--narrow center">
+      <span class="kicker kicker--indigo">About Me</span>
+
+      <h2 class="h2">
+        Transforming Ideas Into <span class="text-gradient">Digital Masterpieces</span>
+      </h2>
+
+      <p class="p muted p--spaced">
+        I’m a Web Developer with 6 years of hands-on experience delivering,
+        maintaining, and optimizing digital solutions for businesses across
+        multiple industries. I specialize in building professional,
+        high-performance websites and supporting real-world systems that operate
+        in live production environments.
+        <br><br>
+        My work combines clean design, functional development, performance
+        optimization, and practical problem-solving. I’ve collaborated with
+        teams, supported active client websites, and delivered solutions that
+        focus on reliability, clarity, and measurable business impact.
       </p>
-
-      <!-- Title -->
-      <h2 class="text-4xl md:text-5xl font-bold leading-tight">
-        Crafting <span class="text-gradient">Technical Excellence</span> Across Domains
-      </h2>
     </div>
+  </section>
 
-    <!-- ================= ROW 1: Web Technologies ================= -->
-    <div class="max-w-4xl mx-auto mb-20">
-      <h2 class="text-3xl font-bold mb-8 text-center lg:text-left">
-        Web Technologies
-      </h2>
+  <!-- ================= SKILLS ================= -->
+  <section id="skills" data-aos="fade-up" class="section section--dark">
+    <div class="container">
+      <div class="section-header center">
+        <p class="kicker kicker--rule">My Skills</p>
+        <h2 class="h2">
+          Crafting <span class="text-gradient">Technical Excellence</span> Across Domains
+        </h2>
+      </div>
 
-      <div class="space-y-6">
+      <div class="skills-block">
+        <h3 class="h3">Web Technologies</h3>
 
-        <div class="flex justify-between text-sm font-bold">
-          <span>HTML5</span>
-          <span class="text-indigo-400">90%</span>
-        </div>
-        <div class="h-2 bg-white/5 rounded-full">
-          <div class="h-full btn-gradient rounded-full" style="width:90%"></div>
-        </div>
+        <div class="skillbars">
+          <div class="skillbar">
+            <div class="skillbar__row">
+              <span>HTML5</span><span class="skillbar__pct">90%</span>
+            </div>
+            <div class="skillbar__track"><div class="skillbar__fill" style="width:90%"></div></div>
+          </div>
 
-        <div class="flex justify-between text-sm font-bold">
-          <span>CSS3</span>
-          <span class="text-indigo-400">90%</span>
-        </div>
-        <div class="h-2 bg-white/5 rounded-full">
-          <div class="h-full btn-gradient rounded-full" style="width:90%"></div>
-        </div>
+          <div class="skillbar">
+            <div class="skillbar__row">
+              <span>CSS3</span><span class="skillbar__pct">90%</span>
+            </div>
+            <div class="skillbar__track"><div class="skillbar__fill" style="width:90%"></div></div>
+          </div>
 
-        <div class="flex justify-between text-sm font-bold">
-          <span>JavaScript (Basic)</span>
-          <span class="text-indigo-400">70%</span>
-        </div>
-        <div class="h-2 bg-white/5 rounded-full">
-          <div class="h-full btn-gradient rounded-full" style="width:70%"></div>
-        </div>
+          <div class="skillbar">
+            <div class="skillbar__row">
+              <span>JavaScript (Basic)</span><span class="skillbar__pct">70%</span>
+            </div>
+            <div class="skillbar__track"><div class="skillbar__fill" style="width:70%"></div></div>
+          </div>
 
-        <div class="flex justify-between text-sm font-bold">
-          <span>WordPress / Page Builders</span>
-          <span class="text-indigo-400">95%</span>
-        </div>
-        <div class="h-2 bg-white/5 rounded-full">
-          <div class="h-full btn-gradient rounded-full" style="width:95%"></div>
-        </div>
+          <div class="skillbar">
+            <div class="skillbar__row">
+              <span>WordPress / Page Builders</span><span class="skillbar__pct">95%</span>
+            </div>
+            <div class="skillbar__track"><div class="skillbar__fill" style="width:95%"></div></div>
+          </div>
 
-        <div class="flex justify-between text-sm font-bold">
-          <span>UX / UI Fundamentals</span>
-          <span class="text-indigo-400">85%</span>
+          <div class="skillbar">
+            <div class="skillbar__row">
+              <span>UX / UI Fundamentals</span><span class="skillbar__pct">85%</span>
+            </div>
+            <div class="skillbar__track"><div class="skillbar__fill" style="width:85%"></div></div>
+          </div>
         </div>
-        <div class="h-2 bg-white/5 rounded-full">
-          <div class="h-full btn-gradient rounded-full" style="width:85%"></div>
+      </div>
+
+      <div class="tools-block">
+        <h3 class="h3 center">Platforms &amp; Tools</h3>
+
+        <div class="tools-grid">
+          <div class="skill-card">
+            <div class="icon"><img src="https://api.iconify.design/simple-icons/git.svg?color=%23F05032" alt="Git"></div>
+            <div class="title">Git &amp; GitHub</div>
+            <div class="percent">80%</div>
+          </div>
+
+          <div class="skill-card">
+            <div class="icon"><img class="is-logo" src="https://api.iconify.design/logos/google-ads.svg" alt="Google Ads"></div>
+            <div class="title">Google Ads</div>
+            <div class="percent">85%</div>
+          </div>
+
+          <div class="skill-card">
+            <div class="icon"><img src="https://api.iconify.design/simple-icons/windows11.svg?color=%230078D4" alt="Windows"></div>
+            <div class="title">Windows</div>
+            <div class="percent">95%</div>
+          </div>
+
+          <div class="skill-card">
+            <div class="icon"><img src="https://api.iconify.design/simple-icons/linux.svg?color=%23FCC624" alt="Linux"></div>
+            <div class="title">Linux</div>
+            <div class="percent">90%</div>
+          </div>
+
+          <div class="skill-card">
+            <div class="icon"><img src="https://api.iconify.design/simple-icons/microsoftoffice.svg?color=%23D83B01" alt="Microsoft Office"></div>
+            <div class="title">Microsoft Office</div>
+            <div class="percent">99%</div>
+          </div>
+
+          <div class="skill-card">
+            <div class="icon"><img class="is-logo" src="https://api.iconify.design/logos/google.svg" alt="Google Workspace"></div>
+            <div class="title">Google Workspace</div>
+            <div class="percent">90%</div>
+          </div>
         </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SERVICES / EXPERTISE ================= -->
+  <section id="expertise" data-aos="fade-up" class="section section--alt">
+    <div class="container">
+
+      <div class="section-header center">
+        <p class="kicker kicker--rule">My Expertise</p>
+        <h2 class="h2">Specialized Services For <span class="text-gradient">Digital Growth</span></h2>
+      </div>
+
+      <div id="services" class="services-grid">
+
+        <article class="service-card service-card--green">
+          <i class="fa-solid fa-globe service-card__icon"></i>
+          <p class="service-card__kicker">Web Services</p>
+          <h3 class="service-card__title">Web &amp; Digital Solutions</h3>
+          <ul class="service-card__list">
+            <li>Professional website design &amp; development</li>
+            <li>E-commerce website solutions</li>
+            <li>Website redesign, speed &amp; performance optimization</li>
+            <li>Secure website maintenance plans</li>
+          </ul>
+        </article>
+
+        <article class="service-card service-card--blue">
+          <i class="fa-solid fa-chart-line service-card__icon"></i>
+          <p class="service-card__kicker">Marketing</p>
+          <h3 class="service-card__title">Digital Marketing &amp; Search</h3>
+          <ul class="service-card__list">
+            <li>SEO optimization &amp; search engine services</li>
+            <li>Google Ads campaign setup &amp; management</li>
+            <li>Google Merchant Center setup</li>
+            <li>Product feeds &amp; Google Shopping Ads</li>
+          </ul>
+        </article>
+
+        <article class="service-card service-card--orange">
+          <i class="fa-solid fa-robot service-card__icon"></i>
+          <p class="service-card__kicker">AI Solutions</p>
+          <h3 class="service-card__title">Automation &amp; AI Solutions</h3>
+          <ul class="service-card__list">
+            <li>WhatsApp Bots &amp; AI integrations</li>
+            <li>Website chatbots</li>
+            <li>Business process automation</li>
+            <li>AI-powered content generation</li>
+          </ul>
+        </article>
+
+        <article class="service-card service-card--pink">
+          <i class="fa-solid fa-database service-card__icon"></i>
+          <p class="service-card__kicker">Data Services</p>
+          <h3 class="service-card__title">Business &amp; Data Services</h3>
+          <ul class="service-card__list">
+            <li>Data analysis &amp; visualization</li>
+            <li>Reports &amp; presentations (Sheets &amp; Slides)</li>
+            <li>POS &amp; business software setup</li>
+            <li>Database Management &amp; Backup Solutions</li>
+          </ul>
+        </article>
+
+        <article class="service-card service-card--amber">
+          <i class="fa-solid fa-file-lines service-card__icon"></i>
+          <p class="service-card__kicker">Documentation</p>
+          <h3 class="service-card__title">Professional Documentation</h3>
+          <ul class="service-card__list">
+            <li>Professional CVs, résumés &amp; cover letters</li>
+            <li>Professional transcription services</li>
+            <li>Business Proposals &amp; Reports</li>
+            <li>Legal Document Drafting Assistance (Non-Legal Advice)</li>
+          </ul>
+        </article>
+
+        <article class="service-card service-card--violet">
+          <i class="fa-solid fa-screwdriver-wrench service-card__icon"></i>
+          <p class="service-card__kicker">Support</p>
+          <h3 class="service-card__title">Technical Support</h3>
+          <ul class="service-card__list">
+            <li>Windows OS installation &amp; repair</li>
+            <li>Linux installation &amp; dual-boot setup</li>
+            <li>Zorin OS installation &amp; repair</li>
+            <li>General computer troubleshooting &amp; support</li>
+          </ul>
+        </article>
+
+        <article class="service-card service-card--red">
+          <i class="fa-solid fa-file-lines service-card__icon"></i>
+          <p class="service-card__kicker">Productivity</p>
+          <h3 class="service-card__title">Productivity Tools</h3>
+          <ul class="service-card__list">
+            <li>Microsoft Word (Expert)</li>
+            <li>Microsoft Excel (Expert)</li>
+            <li>Microsoft PowerPoint (Expert)</li>
+            <li>Canvas / Google Docs &amp; Sheets</li>
+          </ul>
+        </article>
 
       </div>
     </div>
+  </section>
 
-    <!-- ================= ROW 2: Platforms & Tools (COLUMNS) ================= -->
-<div class="max-w-6xl mx-auto">
+  <!-- ================= PROJECTS ================= -->
+  <section id="projects" data-aos="fade-up" class="section section--dark">
+    <div class="container">
 
-  <h3 class="text-3xl font-bold mb-10 text-center">
-    Platforms & Tools
-  </h3>
-
-  <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
-
-    <!-- Git & GitHub -->
-    <div class="skill-card">
-      <div class="icon">
-        <img src="https://api.iconify.design/simple-icons/git.svg?color=%23F05032" alt="Git">
+      <div class="section-header center">
+        <p class="kicker kicker--rule">My Projects</p>
+        <h2 class="h2">Selected <span class="text-gradient">Completed Tasks &amp; Tools Utilized</span></h2>
       </div>
-      <div class="title">Git & GitHub</div>
-      <div class="percent">80%</div>
-    </div>
 
-    <!-- Google Ads -->
-    <div class="skill-card">
-      <div class="icon">
-        <img class="is-logo" src="https://api.iconify.design/logos/google-ads.svg" alt="Google Ads">
+      <div class="projects-grid">
+
+        <article class="project">
+          <img src="fav contractors srcn.png" alt="Favourite Contractors" class="project__img">
+          <div class="project__overlay">
+            <span class="project__tag">Favourite Contractors</span>
+            <h3 class="project__title">Corporate Construction Website</h3>
+            <p class="project__desc">Professional construction company website designed with a clean, business-focused layout.</p>
+            <div class="project__tools">
+              <h4>Tools Used:</h4>
+              <ul>
+                <li>WordPress</li><li>Elementor</li><li>HTML &amp; CSS</li>
+              </ul>
+            </div>
+            <a href="https://favouritecontractors.co.ke" target="_blank" class="project__link" rel="noopener">View Project →</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <img src="mideh farm srcn.png" alt="Mideh Farm" class="project__img">
+          <div class="project__overlay">
+            <span class="project__tag">Mideh Farm</span>
+            <h3 class="project__title">Agricultural Business Website</h3>
+            <p class="project__desc">Agriculture-focused website showcasing farming services, products, and business operations.</p>
+            <div class="project__tools">
+              <h4>Tools Used:</h4>
+              <ul>
+                <li>WordPress</li><li>Elementor</li><li>HTML &amp; CSS</li>
+              </ul>
+            </div>
+            <a href="https://midehfarm.co.ke" target="_blank" class="project__link" rel="noopener">View Project →</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <img src="finxpert scrn.png" alt="FinXpert" class="project__img">
+          <div class="project__overlay">
+            <span class="project__tag">FinXpert</span>
+            <h3 class="project__title">Financial Services Website</h3>
+            <p class="project__desc">Corporate finance website built with a strong brand identity and trust-driven design.</p>
+            <div class="project__tools">
+              <h4>Tools Used:</h4>
+              <ul>
+                <li>WordPress</li><li>Elementor</li><li>HTML &amp; CSS</li>
+              </ul>
+            </div>
+            <a href="https://finxpert.co.ke" target="_blank" class="project__link" rel="noopener">View Project →</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <img src="foamblock scrn.png" alt="Foam Blocks Kenya" class="project__img">
+          <div class="project__overlay">
+            <span class="project__tag">Foam Blocks Kenya</span>
+            <h3 class="project__title">Manufacturing &amp; Product Website</h3>
+            <p class="project__desc">Product-driven manufacturing website optimized for clarity, product presentation, and conversions.</p>
+            <div class="project__tools">
+              <h4>Tools Used:</h4>
+              <ul>
+                <li>WordPress</li><li>Elementor</li><li>HTML &amp; CSS</li>
+              </ul>
+            </div>
+            <a href="https://foamblockskenya.com" target="_blank" class="project__link" rel="noopener">View Project →</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <img src="rayneinter scrn.png" alt="Rayne Integrated" class="project__img">
+          <div class="project__overlay">
+            <span class="project__tag">Rayne Integrated</span>
+            <h3 class="project__title">Enterprise Business Website</h3>
+            <p class="project__desc">Enterprise-oriented website designed for integrated business and professional services.</p>
+            <div class="project__tools">
+              <h4>Tools Used:</h4>
+              <ul>
+                <li>WordPress</li><li>Elementor</li><li>HTML &amp; CSS</li>
+              </ul>
+            </div>
+            <a href="https://rayne-integrated.com" target="_blank" class="project__link" rel="noopener">View Project →</a>
+          </div>
+        </article>
+
       </div>
-      <div class="title">Google Ads</div>
-      <div class="percent">85%</div>
     </div>
+  </section>
 
-    <!-- Windows -->
-    <div class="skill-card">
-      <div class="icon">
-        <img src="https://api.iconify.design/simple-icons/windows11.svg?color=%230078D4" alt="Windows">
+  <!-- ================= TESTIMONIALS ================= -->
+  <section id="testimonials" class="section section--alt">
+    <div class="container">
+      <div class="section-header center">
+        <p class="kicker kicker--rule">Client Feedback</p>
+        <h2 class="h2">Trusted By <span class="text-gradient">Businesses I’ve Worked With</span></h2>
       </div>
-      <div class="title">Windows</div>
-      <div class="percent">95%</div>
-    </div>
 
-    <!-- Linux -->
-    <div class="skill-card">
-      <div class="icon">
-        <img src="https://api.iconify.design/simple-icons/linux.svg?color=%23FCC624" alt="Linux">
+      <div class="testimonials-grid">
+        <article class="testimonial testimonial--indigo" data-aos="fade-up" data-aos-delay="100">
+          <p>“Working with Neville was one of the best decisions we made for DreamBridge Education Africa. He translated our vision into a clean, professional website that truly represents our mission.”</p>
+          <div class="testimonial__who">
+            <div class="initials">DK</div>
+            <div>
+              <div class="name">Diana Kafura</div>
+              <div class="role">Founder, DreamBridge Education Africa</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial testimonial--red" data-aos="fade-up" data-aos-delay="200">
+          <p>“Neville delivered exactly what we needed — a modern, product-focused website that improved how customers understand our services. The results were immediate.”</p>
+          <div class="testimonial__who">
+            <div class="initials">EW</div>
+            <div>
+              <div class="name">Evans Wanyama</div>
+              <div class="role">Founder, Foam Blocks Kenya</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial testimonial--teal" data-aos="fade-up" data-aos-delay="300">
+          <p>“Professional, efficient, and detail-oriented. Our FinXpert website now reflects the trust and credibility required in the financial sector.”</p>
+          <div class="testimonial__who">
+            <div class="initials">GK</div>
+            <div>
+              <div class="name">Grace Kariuki</div>
+              <div class="role">Managing Director, FinXpert</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial testimonial--yellow" data-aos="fade-up" data-aos-delay="400">
+          <p>“Neville is a highly reliable and technically strong professional. As Lead Technician, he consistently delivers solutions with precision, initiative, and a deep understanding of modern systems.”</p>
+          <div class="testimonial__who">
+            <div class="initials">AK</div>
+            <div>
+              <div class="name">Alexander</div>
+              <div class="role">Founder, Skillydon Solutions</div>
+            </div>
+          </div>
+        </article>
       </div>
-      <div class="title">Linux</div>
-      <div class="percent">90%</div>
     </div>
+  </section>
 
-    <!-- Microsoft Office -->
-    <div class="skill-card">
-      <div class="icon">
-        <img src="https://api.iconify.design/simple-icons/microsoftoffice.svg?color=%23D83B01" alt="Microsoft Office">
-      </div>
-      <div class="title">Microsoft Office</div>
-      <div class="percent">99%</div>
-    </div>
+  <!-- ================= PRICING ================= -->
+  <section id="pricing" class="section section--dark">
+    <div class="container">
 
-    <!-- Google Workspace -->
-    <div class="skill-card">
-      <div class="icon">
-        <img class="is-logo" src="https://api.iconify.design/logos/google.svg" alt="Google Workspace">
-      </div>
-      <div class="title">Google Workspace</div>
-      <div class="percent">90%</div>
-    </div>
-
-      </div>
-    </div>
-
-  </div>
-</section>
-
-      <!-- ================= SERVICES ================= -->
-<section id="my expertise" data-aos="fade-up" class="py-16 bg-[#12141a]">
-  <div class="container mx-auto px-6">
-
-    <!-- Section Header -->
-    <div class="text-center max-w-2xl mx-auto mb-16">
-      <!-- Kicker -->
-      <div class="mp2-reveal mp2-delay-1">
-        <p class="inline-flex items-center gap-3 text-[11px] sm:text-[12px] font-semibold tracking-[0.38em] uppercase">
-          <span class="h-px w-10 bg-current/50 hidden sm:block"></span>
-          My Expertise
-          <span class="h-px w-10 bg-current/50 hidden sm:block"></span>
+      <div class="section-header center">
+        <p class="kicker kicker--rule">Website Plans</p>
+        <h2 class="h2">Simple, Transparent <span class="text-gradient">Pricing</span></h2>
+        <p class="muted maxw">
+          Clear website packages designed for startups, growing businesses, and brands ready to scale.
         </p>
       </div>
-      <!-- Title -->
-      <h2 class="mp2-reveal mp2-delay-2 mt-4 sm:mt-5 text-4xl md:text-5xl font-bold">
-        Specialized Services For <span class="text-gradient">Digital Growth</span>
-      </h2>
+
+      <div class="pricing-grid">
+        <article class="price">
+          <h3>Starter</h3>
+          <p class="muted">Perfect for new &amp; small businesses</p>
+          <div class="price__value">KSh 10,000</div>
+          <ul>
+            <li>✔ 4-page website (Home, About, Services, Contact)</li>
+            <li>✔ Mobile-friendly &amp; fast loading</li>
+            <li>✔ Basic on-page SEO setup</li>
+            <li>✔ Contact form + WhatsApp integration</li>
+            <li>✔ Free SSL &amp; security basics</li>
+          </ul>
+          <a href="#contact" class="btn btn--gradient btn--block">Launch</a>
+        </article>
+
+        <article class="price price--popular">
+          <span class="price__badge">Most Popular</span>
+          <h3>Growth</h3>
+          <p class="muted">For growing businesses needing visibility</p>
+          <div class="price__value">KSh 15,000</div>
+          <ul>
+            <li>✔ 5–10 page website</li>
+            <li>✔ Conversion-focused UI &amp; layout</li>
+            <li>✔ Full on-page SEO optimization</li>
+            <li>✔ Google Business Profile setup</li>
+            <li>✔ Speed optimization + analytics</li>
+          </ul>
+          <a href="#contact" class="btn btn--gradient btn--block btn--pulse">Level Up</a>
+        </article>
+
+        <article class="price">
+          <h3>Scale</h3>
+          <p class="muted">For established &amp; high-growth brands</p>
+          <div class="price__value">KSh 20,000</div>
+          <ul>
+            <li>✔ 10+ page website</li>
+            <li>✔ Custom features &amp; advanced sections</li>
+            <li>✔ Technical SEO + schema markup</li>
+            <li>✔ Performance, security &amp; scalability</li>
+            <li>✔ Priority support &amp; future-ready setup</li>
+          </ul>
+          <a href="#contact" class="btn btn--outline btn--block">Custom Power</a>
+        </article>
+      </div>
+
     </div>
+  </section>
 
-    <!-- Service Cards Grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+  <!-- ================= HIRE ME / CTA ================= -->
+  <section id="hire" class="section section--alt">
+    <div class="container hire">
+      <div class="hire__img">
+        <img src="Gemini_Generated_Image_8kz7t88kz7t88kz7.webp" alt="Hanningtone Neville Ogutu">
+      </div>
 
-      <!-- Web & Digital Solutions -->
-      <div class="p-8 bg-white/5 border border-white/10 rounded-3xl transition-all duration-500 transform hover:scale-105 hover:shadow-[0_0_25px_rgba(0,167,111,0.5)] hover:bg-gradient-to-r hover:from-[#00a76f] hover:to-[#00c27f] hover:border-transparent flex flex-col items-center text-center group">
-        <i class="fa-solid fa-globe text-4xl text-indigo-400 mb-6 group-hover:text-white transition-colors"></i>
-        <div class="mp2-reveal mp2-delay-1">
-          <p class="inline-flex items-center gap-2 text-[10px] font-semibold tracking-[0.3em] uppercase mb-2 group-hover:text-white transition-colors">
-            Web Services
+      <div class="hire__content">
+        <p class="kicker kicker--indigo">Let's Collaborate</p>
+        <h2 class="h2">Ready to <span class="text-gradient">Build Cutting-Edge Digital Experiences</span>?</h2>
+        <p class="muted">
+          I craft sleek, functional, and futuristic websites that elevate your brand and drive engagement.
+          Let’s turn your ideas into high-impact digital solutions.
+        </p>
+        <a href="#contact" class="btn btn--gradient">Hire Me →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact" data-aos="fade-up" class="section section--dark">
+    <div class="container">
+
+      <div class="section-header center">
+        <p class="kicker kicker--rule">Get In Touch</p>
+        <h2 class="h2">Let's <span class="text-gradient">Work Together</span></h2>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-form">
+          <form id="contactForm" action="https://formspree.io/f/meeqjenj" method="POST" class="form">
+            <input type="hidden" name="_subject" value="New Website Contact Message">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_autoresponse" value="Hi 👋 Thanks for reaching out! I’ve received your message and will get back to you shortly. — Ogutu Neville">
+
+            <div class="form__row">
+              <input name="name" required placeholder="Name" class="field">
+              <input type="email" name="email" required placeholder="Email" class="field">
+            </div>
+
+            <input name="subject" required placeholder="Subject" class="field">
+            <textarea name="message" rows="6" required placeholder="Message" class="field field--textarea"></textarea>
+
+            <button id="submitBtn" type="submit" class="btn btn--gradient btn--block">
+              <span id="btnText">Send Message</span>
+            </button>
+          </form>
+
+          <div id="successBox" class="success hidden">
+            <div class="success__icon">
+              <i class="fa-solid fa-check"></i>
+            </div>
+            <h3>Message Sent Successfully!</h3>
+            <p class="muted">Thank you for reaching out. I’ll respond shortly.</p>
+          </div>
+        </div>
+
+        <aside class="contact-info">
+          <p class="muted">
+            Always available for freelance work and consultations 24/7.
+            Feel free to contact me!
           </p>
-        </div>
-        <h3 class="mp2-reveal mp2-delay-2 text-xl font-bold mb-4 group-hover:text-white transition-colors">Web & Digital Solutions</h3>
-        <ul class="text-gray-400 list-disc list-inside text-left group-hover:text-white transition-colors">
-          <li>Professional website design & development</li>
-          <li>E-commerce website solutions</li>
-          <li>Website redesign, speed & performance optimization</li>
-          <li>Secure website maintenance plans</li>
-        </ul>
-      </div>
 
-      <!-- Digital Marketing & Search -->
-      <div class="p-8 bg-white/5 border border-white/10 rounded-3xl transition-all duration-500 transform hover:scale-105 hover:shadow-[0_0_25px_rgba(0,167,111,0.5)] hover:bg-gradient-to-r hover:from-[#1e90ff] hover:to-[#3aa0ff] hover:border-transparent flex flex-col items-center text-center group">
-        <i class="fa-solid fa-chart-line text-4xl text-indigo-400 mb-6 group-hover:text-white transition-colors"></i>
-        <div class="mp2-reveal mp2-delay-1">
-          <p class="inline-flex items-center gap-2 text-[10px] font-semibold tracking-[0.3em] uppercase mb-2 group-hover:text-white transition-colors">Marketing</p>
-        </div>
-        <h3 class="mp2-reveal mp2-delay-2 text-xl font-bold mb-4 group-hover:text-white transition-colors">Digital Marketing & Search</h3>
-        <ul class="text-gray-400 list-disc list-inside text-left group-hover:text-white transition-colors">
-          <li>SEO optimization & search engine services</li>
-          <li>Google Ads campaign setup & management</li>
-          <li>Google Merchant Center setup</li>
-          <li>Product feeds & Google Shopping Ads</li>
-        </ul>
-      </div>
+          <div class="info-list">
+            <div class="info">
+              <span class="info__icon info__icon--indigo"><i class="fa-solid fa-user"></i></span>
+              <div>
+                <div class="info__title">Name</div>
+                <div class="muted">Hanningtone Neville Ogutu</div>
+              </div>
+            </div>
 
-      <!-- Automation & AI Solutions -->
-      <div class="p-8 bg-white/5 border border-white/10 rounded-3xl transition-all duration-500 transform hover:scale-105 hover:shadow-[0_0_25px_rgba(0,167,111,0.5)] hover:bg-gradient-to-r hover:from-[#ff7f50] hover:to-[#ff9f6b] hover:border-transparent flex flex-col items-center text-center group">
-        <i class="fa-solid fa-robot text-4xl text-indigo-400 mb-6 group-hover:text-white transition-colors"></i>
-        <div class="mp2-reveal mp2-delay-1">
-          <p class="inline-flex items-center gap-2 text-[10px] font-semibold tracking-[0.3em] uppercase mb-2 group-hover:text-white transition-colors">AI Solutions</p>
-        </div>
-        <h3 class="mp2-reveal mp2-delay-2 text-xl font-bold mb-4 group-hover:text-white transition-colors">Automation & AI Solutions</h3>
-        <ul class="text-gray-400 list-disc list-inside text-left group-hover:text-white transition-colors">
-          <li>WhatsApp Bots & AI integrations</li>
-          <li>Website chatbots</li>
-          <li>Business process automation</li>
-          <li>AI-powered content generation</li>
-        </ul>
-      </div>
+            <div class="info">
+              <span class="info__icon info__icon--green"><i class="fa-solid fa-location-dot"></i></span>
+              <div>
+                <div class="info__title">Location</div>
+                <div class="muted">Nairobi (Available for remote work)</div>
+              </div>
+            </div>
 
-      <!-- Business & Data Services -->
-      <div class="p-8 bg-white/5 border border-white/10 rounded-3xl transition-all duration-500 transform hover:scale-105 hover:shadow-[0_0_25px_rgba(0,167,111,0.5)] hover:bg-gradient-to-r hover:from-[#ff69b4] hover:to-[#ff85c0] hover:border-transparent flex flex-col items-center text-center group">
-        <i class="fa-solid fa-database text-4xl text-indigo-400 mb-6 group-hover:text-white transition-colors"></i>
-        <div class="mp2-reveal mp2-delay-1">
-          <p class="inline-flex items-center gap-2 text-[10px] font-semibold tracking-[0.3em] uppercase mb-2 group-hover:text-white transition-colors">Data Services</p>
-        </div>
-        <h3 class="mp2-reveal mp2-delay-2 text-xl font-bold mb-4 group-hover:text-white transition-colors">Business & Data Services</h3>
-        <ul class="text-gray-400 list-disc list-inside text-left group-hover:text-white transition-colors">
-          <li>Data analysis & visualization</li>
-          <li>Reports & presentations (Sheets & Slides)</li>
-          <li>POS & business software setup</li>
-          <li>Database Management & Backup Solutions</li>
-        </ul>
-      </div>
+            <div class="info">
+              <span class="info__icon info__icon--yellow"><i class="fa-solid fa-phone"></i></span>
+              <div>
+                <div class="info__title">Call Me</div>
+                <div class="muted">+254 716 927 955</div>
+              </div>
+            </div>
 
-      <!-- Professional Documentation -->
-      <div class="p-8 bg-white/5 border border-white/10 rounded-3xl transition-all duration-500 transform hover:scale-105 hover:shadow-[0_0_25px_rgba(0,167,111,0.5)] hover:bg-gradient-to-r hover:from-[#ffa500] hover:to-[#ffc14d] hover:border-transparent flex flex-col items-center text-center group">
-        <i class="fa-solid fa-file-lines text-4xl text-indigo-400 mb-6 group-hover:text-white transition-colors"></i>
-        <div class="mp2-reveal mp2-delay-1">
-          <p class="inline-flex items-center gap-2 text-[10px] font-semibold tracking-[0.3em] uppercase mb-2 group-hover:text-white transition-colors">Documentation</p>
-        </div>
-        <h3 class="mp2-reveal mp2-delay-2 text-xl font-bold mb-4 group-hover:text-white transition-colors">Professional Documentation</h3>
-        <ul class="text-gray-400 list-disc list-inside text-left group-hover:text-white transition-colors">
-          <li>Professional CVs, résumés & cover letters</li>
-          <li>Professional transcription services</li>
-          <li>Business Proposals & Reports</li>
-          <li>Legal Document Drafting Assistance (Non-Legal Advice)</li>
-        </ul>
-      </div>
+            <div class="info">
+              <span class="info__icon info__icon--pink"><i class="fa-solid fa-envelope"></i></span>
+              <div>
+                <div class="info__title">Email Me</div>
+                <div class="muted">ogutuhanningtone@gmail.com</div>
+              </div>
+            </div>
+          </div>
+        </aside>
 
-      <!-- Technical Support -->
-      <div class="p-8 bg-white/5 border border-white/10 rounded-3xl transition-all duration-500 transform hover:scale-105 hover:shadow-[0_0_25px_rgba(0,167,111,0.5)] hover:bg-gradient-to-r hover:from-[#8a2be2] hover:to-[#a24ff0] hover:border-transparent flex flex-col items-center text-center group">
-        <i class="fa-solid fa-screwdriver-wrench text-4xl text-indigo-400 mb-6 group-hover:text-white transition-colors"></i>
-        <div class="mp2-reveal mp2-delay-1">
-          <p class="inline-flex items-center gap-2 text-[10px] font-semibold tracking-[0.3em] uppercase mb-2 group-hover:text-white transition-colors">Support</p>
-        </div>
-        <h3 class="mp2-reveal mp2-delay-2 text-xl font-bold mb-4 group-hover:text-white transition-colors">Technical Support</h3>
-        <ul class="text-gray-400 list-disc list-inside text-left group-hover:text-white transition-colors">
-          <li>Windows OS installation & repair</li>
-          <li>Linux installation & dual-boot setup</li>
-          <li>Zorin OS installation & repair</li>
-          <li>General computer troubleshooting & support</li>
-        </ul>
-      </div>
-
-      <!-- Productivity Tools -->
-      <div class="p-8 bg-white/5 border border-white/10 rounded-3xl transition-all duration-500 transform hover:scale-105 hover:shadow-[0_0_25px_rgba(0,167,111,0.5)] hover:bg-gradient-to-r hover:from-[#ff4500] hover:to-[#ff6e3d] hover:border-transparent flex flex-col items-center text-center group">
-        <i class="fa-solid fa-file-lines text-4xl text-indigo-400 mb-6 group-hover:text-white transition-colors"></i>
-        <div class="mp2-reveal mp2-delay-1">
-          <p class="inline-flex items-center gap-2 text-[10px] font-semibold tracking-[0.3em] uppercase mb-2 group-hover:text-white transition-colors">Productivity</p>
-        </div>
-        <h3 class="mp2-reveal mp2-delay-2 text-xl font-bold mb-4 group-hover:text-white transition-colors">Productivity Tools</h3>
-        <ul class="text-gray-400 list-disc list-inside text-left group-hover:text-white transition-colors">
-          <li>Microsoft Word (Expert)</li>
-          <li>Microsoft Excel (Expert)</li>
-          <li>Microsoft PowerPoint (Expert)</li>
-          <li>Canvas / Google Docs & Sheets</li>
-        </ul>
       </div>
 
     </div>
-  </div>
+  </section>
 
-  <!-- Scoped animations -->
-  <style>
-    #services .mp2-reveal{
-      opacity:0;
-      transform: translateY(12px);
-      filter: blur(7px);
-      transition: opacity .75s ease, transform .75s ease, filter .75s ease;
-      will-change: opacity, transform, filter;
-    }
-    #services .mp2-reveal.is-in{
-      opacity:1;
-      transform: translateY(0);
-      filter: blur(0);
-    }
-    #services .mp2-delay-1{ transition-delay: .05s; }
-    #services .mp2-delay-2{ transition-delay: .12s; }
-    #services .mp2-delay-3{ transition-delay: .18s; }
-    #services .mp2-delay-4{ transition-delay: .24s; }
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container footer">
+      <div class="footer__copy">
+        © <span id="year"></span> <strong>Hanningtone Neville Ogutu</strong>. All Rights Reserved.
+      </div>
 
-    @media (prefers-reduced-motion: reduce){
-      #services .mp2-reveal{
-        transition:none;
-        opacity:1;
-        transform:none;
-        filter:none;
-      }
-    }
-  </style>
+      <div class="footer__social">
+        <a href="mailto:ogutuhanningtone@gmail.com" aria-label="Email" class="icon-btn icon-btn--indigo"><i class="fa-solid fa-envelope"></i></a>
+        <a href="tel:+254716927955" aria-label="Call" class="icon-btn icon-btn--indigo"><i class="fa-solid fa-phone"></i></a>
+        <a href="https://wa.link/xwh6aa" target="_blank" rel="noopener" aria-label="WhatsApp" class="icon-btn icon-btn--green"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://x.com/_NevilleOgutu" target="_blank" rel="noopener" aria-label="Twitter" class="icon-btn icon-btn--blue"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://www.tiktok.com/@ogutuneville" target="_blank" rel="noopener" aria-label="TikTok" class="icon-btn icon-btn--pink"><i class="fa-brands fa-tiktok"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= SCRIPTS ================= -->
+  <script>
+    // Mobile menu
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
   <script>
-    (function(){
-      const root = document.getElementById('services');
-      if(!root) return;
-      const items = root.querySelectorAll('.mp2-reveal');
-      const io = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-          if(e.isIntersecting){
-            e.target.classList.add('is-in');
-            io.unobserve(e.target);
-          }
+    // Contact form (Formspree)
+    const form = document.getElementById("contactForm");
+    const btnText = document.getElementById("btnText");
+    const submitBtn = document.getElementById("submitBtn");
+    const successBox = document.getElementById("successBox");
+
+    form?.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      btnText.textContent = "Sending...";
+      submitBtn.disabled = true;
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: { Accept: "application/json" }
         });
-      }, { threshold: 0.18 });
-      items.forEach(el => io.observe(el));
-    })();
+
+        if (response.ok) {
+          form.reset();
+          form.classList.add("hidden");
+          successBox.classList.remove("hidden");
+        } else {
+          btnText.textContent = "Try Again";
+          submitBtn.disabled = false;
+        }
+      } catch (error) {
+        btnText.textContent = "Error";
+        submitBtn.disabled = false;
+      }
+    });
   </script>
-</section>
 
-<!-- ================= PROJECTS ================= -->
-<section id="projects" data-aos="fade-up" class="py-16 bg-[#0b0c10]">
-  <div class="container mx-auto px-6">
-
-    <!-- Section Header -->
-    <div class="text-center max-w-2xl mx-auto mb-16">
-
-  <!-- Kicker / Small Label -->
-  <div class="mp2-reveal mp2-delay-1">
-    <p class="inline-flex items-center gap-3 text-[11px] sm:text-[12px] font-semibold tracking-[0.38em] uppercase">
-      <span class="h-px w-10 bg-current/50 hidden sm:block"></span>
-      My Projects
-      <span class="h-px w-10 bg-current/50 hidden sm:block"></span>
-    </p>
-  </div>
-
-  <!-- Section Title -->
-  <h2 class="mp2-reveal mp2-delay-2 mt-4 sm:mt-5 text-4xl md:text-5xl font-bold leading-tight">
-    Selected <span class="text-gradient">Completed Tasks & Tools Utilized</span>
-  </h2>
-
-</div>
-
-    <!-- Project Grid -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-
-  <!-- Project Card Template -->
-  <div class="relative group overflow-hidden shadow-lg cursor-pointer h-64">
-    <img src="fav contractors srcn.png" alt="Favourite Contractors" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-
-    <!-- Hover Overlay -->
-    <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-      <span class="text-purple-400 font-bold text-sm">Favourite Contractors</span>
-      <h3 class="text-white font-bold text-xl mt-1">Corporate Construction Website</h3>
-      <p class="text-gray-200 mt-2 text-sm">Professional construction company website designed with a clean, business-focused layout.</p>
-      <div class="mt-3 text-gray-400 text-sm">
-        <h4 class="font-bold text-indigo-400 mb-1">Tools Used:</h4>
-        <ul class="list-disc list-inside">
-          <li>WordPress</li>
-          <li>Elementor</li>
-          <li>HTML & CSS</li>
-        </ul>
-      </div>
-      <a href="https://favouritecontractors.co.ke" target="_blank" class="inline-block mt-4 text-indigo-400 font-bold text-sm">View Project →</a>
-    </div>
-  </div>
-
-  <!-- Repeat Project Cards -->
-  <div class="relative group overflow-hidden shadow-lg cursor-pointer h-64">
-    <img src="mideh farm srcn.png" alt="Mideh Farm" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-    <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-      <span class="text-purple-400 font-bold text-sm">Mideh Farm</span>
-      <h3 class="text-white font-bold text-xl mt-1">Agricultural Business Website</h3>
-      <p class="text-gray-200 mt-2 text-sm">Agriculture-focused website showcasing farming services, products, and business operations.</p>
-      <div class="mt-3 text-gray-400 text-sm">
-        <h4 class="font-bold text-indigo-400 mb-1">Tools Used:</h4>
-        <ul class="list-disc list-inside">
-          <li>WordPress</li>
-          <li>Elementor</li>
-          <li>HTML & CSS</li>
-        </ul>
-      </div>
-      <a href="https://midehfarm.co.ke" target="_blank" class="inline-block mt-4 text-indigo-400 font-bold text-sm">View Project →</a>
-    </div>
-  </div>
-
-  <div class="relative group overflow-hidden shadow-lg cursor-pointer h-64">
-    <img src="finxpert scrn.png" alt="FinXpert" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-    <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-      <span class="text-purple-400 font-bold text-sm">FinXpert</span>
-      <h3 class="text-white font-bold text-xl mt-1">Financial Services Website</h3>
-      <p class="text-gray-200 mt-2 text-sm">Corporate finance website built with a strong brand identity and trust-driven design.</p>
-      <div class="mt-3 text-gray-400 text-sm">
-        <h4 class="font-bold text-indigo-400 mb-1">Tools Used:</h4>
-        <ul class="list-disc list-inside">
-          <li>WordPress</li>
-          <li>Elementor</li>
-          <li>HTML & CSS</li>
-        </ul>
-      </div>
-      <a href="https://finxpert.co.ke" target="_blank" class="inline-block mt-4 text-indigo-400 font-bold text-sm">View Project →</a>
-    </div>
-  </div>
-
-  <div class="relative group overflow-hidden shadow-lg cursor-pointer h-64">
-    <img src="foamblock scrn.png" alt="Foam Blocks Kenya" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-    <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-      <span class="text-purple-400 font-bold text-sm">Foam Blocks Kenya</span>
-      <h3 class="text-white font-bold text-xl mt-1">Manufacturing & Product Website</h3>
-      <p class="text-gray-200 mt-2 text-sm">Product-driven manufacturing website optimized for clarity, product presentation, and conversions.</p>
-      <div class="mt-3 text-gray-400 text-sm">
-        <h4 class="font-bold text-indigo-400 mb-1">Tools Used:</h4>
-        <ul class="list-disc list-inside">
-          <li>WordPress</li>
-          <li>Elementor</li>
-          <li>HTML & CSS</li>
-        </ul>
-      </div>
-      <a href="https://foamblockskenya.com" target="_blank" class="inline-block mt-4 text-indigo-400 font-bold text-sm">View Project →</a>
-    </div>
-  </div>
-
-  <div class="relative group overflow-hidden shadow-lg cursor-pointer h-64">
-    <img src="rayneinter scrn.png" alt="Rayne Integrated" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-    <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-      <span class="text-purple-400 font-bold text-sm">Rayne Integrated</span>
-      <h3 class="text-white font-bold text-xl mt-1">Enterprise Business Website</h3>
-      <p class="text-gray-200 mt-2 text-sm">Enterprise-oriented website designed for integrated business and professional services.</p>
-      <div class="mt-3 text-gray-400 text-sm">
-        <h4 class="font-bold text-indigo-400 mb-1">Tools Used:</h4>
-        <ul class="list-disc list-inside">
-          <li>WordPress</li>
-          <li>Elementor</li>
-          <li>HTML & CSS</li>
-        </ul>
-      </div>
-      <a href="https://rayne-integrated.com" target="_blank" class="inline-block mt-4 text-indigo-400 font-bold text-sm">View Project →</a>
-    </div>
-  </div>
-
-</div>
-
-<!-- ================= TESTIMONIALS ================= -->
-
-<section id="testimonials" class="py-20 bg-[#12141a] overflow-hidden">
-
-  <div class="container mx-auto px-6 max-w-7xl">
-
-    <!-- Section Header -->
-    <div class="text-center max-w-2xl mx-auto mb-16">
-
-      <!-- Kicker / Small Label -->
-      <div class="mp2-reveal mp2-delay-1">
-        <p class="inline-flex items-center gap-3 text-[11px] sm:text-[12px] font-semibold tracking-[0.38em] uppercase">
-          <span class="h-px w-10 bg-current/50 hidden sm:block"></span>
-          Client Feedback
-          <span class="h-px w-10 bg-current/50 hidden sm:block"></span>
-        </p>
-      </div>
-
-      <!-- Section Title -->
-      <h2 class="mp2-reveal mp2-delay-2 mt-4 sm:mt-5 text-4xl md:text-5xl font-bold leading-tight">
-        Trusted By <span class="text-gradient">Businesses I’ve Worked With</span>
-      </h2>
-
-    </div>
-
-    <!-- Testimonials Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-      <!-- DreamBridge -->
-      <div data-aos="fade-up" data-aos-delay="100"
-        class="relative bg-indigo-900/30 border border-indigo-400/20 rounded-3xl p-8 backdrop-blur
-               hover:border-indigo-400/40 transition duration-500">
-
-        <p class="text-gray-200 leading-relaxed mb-6">
-          “Working with Neville was one of the best decisions we made for DreamBridge Education Africa.
-          He translated our vision into a clean, professional website that truly represents our mission.”
-        </p>
-
-        <div class="flex items-center gap-4">
-          <div class="w-12 h-12 rounded-full bg-indigo-400/20 flex items-center justify-center font-bold text-indigo-300">
-            DK
-          </div>
-          <div>
-            <p class="text-white font-bold">Diana Kafura</p>
-            <p class="text-gray-300 text-sm">Founder, DreamBridge Education Africa</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Foam Blocks -->
-      <div data-aos="fade-up" data-aos-delay="200"
-        class="relative bg-red-900/25 border border-red-400/20 rounded-3xl p-8 backdrop-blur
-               hover:border-red-400/40 transition duration-500">
-
-        <p class="text-gray-200 leading-relaxed mb-6">
-          “Neville delivered exactly what we needed — a modern, product-focused website that improved
-          how customers understand our services. The results were immediate.”
-        </p>
-
-        <div class="flex items-center gap-4">
-          <div class="w-12 h-12 rounded-full bg-red-400/20 flex items-center justify-center font-bold text-red-300">
-            EW
-          </div>
-          <div>
-            <p class="text-white font-bold">Evans Wanyama</p>
-            <p class="text-gray-300 text-sm">Founder, Foam Blocks Kenya</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- FinXpert -->
-      <div data-aos="fade-up" data-aos-delay="300"
-        class="relative bg-teal-900/25 border border-teal-400/20 rounded-3xl p-8 backdrop-blur
-               hover:border-teal-400/40 transition duration-500">
-
-        <p class="text-gray-200 leading-relaxed mb-6">
-          “Professional, efficient, and detail-oriented. Our FinXpert website now reflects the trust
-          and credibility required in the financial sector.”
-        </p>
-
-        <div class="flex items-center gap-4">
-          <div class="w-12 h-12 rounded-full bg-teal-400/20 flex items-center justify-center font-bold text-teal-300">
-            GK
-          </div>
-          <div>
-            <p class="text-white font-bold">Grace Kariuki</p>
-            <p class="text-gray-300 text-sm">Managing Director, FinXpert</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Skillydon -->
-      <div data-aos="fade-up" data-aos-delay="400"
-        class="relative bg-yellow-900/20 border border-yellow-400/20 rounded-3xl p-8 backdrop-blur
-               hover:border-yellow-400/40 transition duration-500">
-
-        <p class="text-gray-200 leading-relaxed mb-6">
-          “Neville is a highly reliable and technically strong professional. As Lead Technician,
-          he consistently delivers solutions with precision, initiative, and a deep understanding
-          of modern systems.”
-        </p>
-
-        <div class="flex items-center gap-4">
-          <div class="w-12 h-12 rounded-full bg-yellow-400/20 flex items-center justify-center font-bold text-yellow-300">
-            AK
-          </div>
-          <div>
-            <p class="text-white font-bold">Alexander</p>
-            <p class="text-gray-300 text-sm">Founder, Skillydon Solutions</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ================= PRICING ================= -->
-<section id="pricing" class="py-20 bg-[#0b0c10]">
-  <div class="container mx-auto px-6 max-w-7xl">
-
-    <!-- Section Header -->
-    <div class="text-center max-w-2xl mx-auto mb-16">
-
-      <!-- Kicker -->
-      <div class="mp2-reveal mp2-delay-1">
-        <p class="inline-flex items-center gap-3 text-[11px] sm:text-[12px] font-semibold tracking-[0.38em] uppercase">
-          <span class="h-px w-10 bg-current/50 hidden sm:block"></span>
-          Website Plans
-          <span class="h-px w-10 bg-current/50 hidden sm:block"></span>
-        </p>
-      </div>
-
-      <!-- Title -->
-      <h2 class="mp2-reveal mp2-delay-2 mt-4 sm:mt-5 text-4xl md:text-5xl font-bold leading-tight">
-        Simple, Transparent <span class="text-gradient">Pricing</span>
-      </h2>
-
-      <p class="mt-4 text-gray-400 max-w-xl mx-auto">
-        Clear website packages designed for startups, growing businesses,
-        and brands ready to scale.
-      </p>
-    </div>
-
-    <!-- Pricing Cards -->
-    <div class="grid md:grid-cols-3 gap-8">
-
-      <!-- Starter -->
-      <div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur
-                  hover:border-indigo-400/40 transition duration-500">
-
-        <h3 class="text-xl font-bold text-white mb-1">Starter</h3>
-        <p class="text-sm text-gray-400 mb-4">Perfect for new & small businesses</p>
-
-        <div class="text-4xl font-extrabold text-white mb-6">
-          KSh 10,000
-        </div>
-
-        <ul class="space-y-3 text-gray-300 text-sm">
-          <li>✔ 4-page website (Home, About, Services, Contact)</li>
-          <li>✔ Mobile-friendly & fast loading</li>
-          <li>✔ Basic on-page SEO setup</li>
-          <li>✔ Contact form + WhatsApp integration</li>
-          <li>✔ Free SSL & security basics</li>
-        </ul>
-
-        <a href="#contact"
-           class="pricing-btn mt-8 inline-flex w-full justify-center py-3 rounded-xl font-bold text-white
-                  bg-gradient-to-r from-indigo-500 to-purple-500">
-          Launch
-        </a>
-      </div>
-
-      <!-- Growth (Popular) -->
-      <div class="relative bg-white/5 border border-indigo-500/40 rounded-3xl p-8 backdrop-blur
-                  hover:border-indigo-400 transition duration-500
-                  shadow-[0_0_40px_rgba(99,102,241,0.15)]">
-
-        <span class="absolute -top-3 right-6 px-3 py-1 text-xs rounded-full
-                     bg-indigo-500 text-white font-semibold">
-          Most Popular
-        </span>
-
-        <h3 class="text-xl font-bold text-white mb-1">Growth</h3>
-        <p class="text-sm text-gray-400 mb-4">For growing businesses needing visibility</p>
-
-        <div class="text-4xl font-extrabold text-white mb-6">
-          KSh 15,000
-        </div>
-
-        <ul class="space-y-3 text-gray-300 text-sm">
-          <li>✔ 5–10 page website</li>
-          <li>✔ Conversion-focused UI & layout</li>
-          <li>✔ Full on-page SEO optimization</li>
-          <li>✔ Google Business Profile setup</li>
-          <li>✔ Speed optimization + analytics</li>
-        </ul>
-
-        <a href="#contact"
-           class="pricing-btn mt-8 inline-flex w-full justify-center py-3 rounded-xl font-bold text-white
-                  bg-gradient-to-r from-indigo-500 to-purple-500 animate-pulse">
-          Level Up
-        </a>
-      </div>
-
-      <!-- Scale -->
-      <div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur
-                  hover:border-indigo-400/40 transition duration-500">
-
-        <h3 class="text-xl font-bold text-white mb-1">Scale</h3>
-        <p class="text-sm text-gray-400 mb-4">For established & high-growth brands</p>
-
-        <div class="text-4xl font-extrabold text-white mb-6">
-          KSh 20,000
-        </div>
-
-        <ul class="space-y-3 text-gray-300 text-sm">
-          <li>✔ 10+ page website</li>
-          <li>✔ Custom features & advanced sections</li>
-          <li>✔ Technical SEO + schema markup</li>
-          <li>✔ Performance, security & scalability</li>
-          <li>✔ Priority support & future-ready setup</li>
-        </ul>
-
-        <a href="#contact"
-           class="pricing-btn mt-8 inline-flex w-full justify-center py-3 rounded-xl font-bold
-                  border border-indigo-400 text-indigo-400 hover:bg-indigo-400 hover:text-white transition">
-          Custom Power
-        </a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ================= HIRE ME / CTA ================= -->
-<section id="hire" class="py-20 bg-[#12141a]">
-  <div class="container mx-auto px-6 max-w-full flex flex-col lg:flex-row items-center gap-6">
-
-    <!-- Image on Left -->
-    <div class="flex-1">
-      <img src="Gemini_Generated_Image_8kz7t88kz7t88kz7.webp" alt="Hanningtone Neville Ogutu" 
-           class="rounded-3xl shadow-xl w-full lg:w-auto lg:max-w-sm mx-auto 
-           transform transition-transform duration-500 hover:scale-105">
-    </div>
-
-    <!-- CTA Text on Right -->
-    <div class="flex-1 text-center lg:text-left space-y-6">
-      <!-- Small Label -->
-      <p class="inline-flex items-center gap-3 text-[11px] sm:text-[12px] font-semibold tracking-[0.38em] uppercase text-indigo-400">
-        Let's Collaborate
-      </p>
-
-      <!-- Title -->
-      <h2 class="text-4xl md:text-5xl font-bold text-white leading-tight">
-        Ready to <span class="text-gradient">Build Cutting-Edge Digital Experiences</span>?
-      </h2>
-
-      <!-- Description -->
-      <p class="text-gray-400 text-lg max-w-lg">
-        I craft sleek, functional, and futuristic websites that elevate your brand and drive engagement. Let’s turn your ideas into high-impact digital solutions.
-      </p>
-
-      <!-- CTA Button -->
-      <a href="#contact" 
-         class="inline-block mt-4 px-8 py-4 font-bold text-white rounded-xl 
-                bg-gradient-to-r from-indigo-500 to-purple-500
-                hover:opacity-90 transition-all shadow-lg">
-        Hire Me →
-      </a>
-    </div>
-    
-  </div>
-</section>
-
-<!-- ================= CONTACT ================= -->
-<section id="contact" data-aos="fade-up" class="py-12 bg-[#0b0c10]">
-  <div class="container mx-auto px-6 max-w-7xl">
-
-    <!-- Header -->
-    <div class="text-center max-w-2xl mx-auto mb-16">
-
-  <!-- Kicker / Small Label -->
-  <div class="mp2-reveal mp2-delay-1">
-    <p class="inline-flex items-center gap-3 text-[11px] sm:text-[12px] font-semibold tracking-[0.38em] uppercase">
-      <span class="h-px w-10 bg-current/50 hidden sm:block"></span>
-      Get In Touch
-      <span class="h-px w-10 bg-current/50 hidden sm:block"></span>
-    </p>
-  </div>
-
-  <!-- Section Title -->
-  <h2 class="mp2-reveal mp2-delay-2 mt-4 sm:mt-5 text-5xl font-bold leading-tight">
-    Let's <span class="text-gradient">Work Together</span>
-  </h2>
-
-</div>
-
-    <!-- GRID -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 mt-12">
-
-      <!-- ================= LEFT: CONTACT FORM ================= -->
-      <div class="lg:col-span-7">
-
-        <form
-          id="contactForm"
-          action="https://formspree.io/f/meeqjenj"
-          method="POST"
-          class="space-y-6"
-        >
-
-          <!-- Formspree Config -->
-          <input type="hidden" name="_subject" value="New Website Contact Message">
-          <input type="hidden" name="_template" value="table">
-          <input
-            type="hidden"
-            name="_autoresponse"
-            value="Hi 👋 Thanks for reaching out! I’ve received your message and will get back to you shortly. — Ogutu Neville"
-          >
-
-          <!-- Name & Email -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <input
-              name="name"
-              required
-              placeholder="Name"
-              class="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 text-white
-                     placeholder:text-gray-500 focus:outline-none focus:border-indigo-500
-                     focus:ring-1 focus:ring-indigo-500 transition-all"
-            />
-
-            <input
-              type="email"
-              name="email"
-              required
-              placeholder="Email"
-              class="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 text-white
-                     placeholder:text-gray-500 focus:outline-none focus:border-indigo-500
-                     focus:ring-1 focus:ring-indigo-500 transition-all"
-            />
-          </div>
-
-          <!-- Subject -->
-          <input
-            name="subject"
-            required
-            placeholder="Subject"
-            class="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 text-white
-                   placeholder:text-gray-500 focus:outline-none focus:border-indigo-500
-                   focus:ring-1 focus:ring-indigo-500 transition-all"
-          />
-
-          <!-- Message -->
-          <textarea
-            name="message"
-            rows="6"
-            required
-            placeholder="Message"
-            class="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 text-white
-                   placeholder:text-gray-500 resize-none focus:outline-none focus:border-indigo-500
-                   focus:ring-1 focus:ring-indigo-500 transition-all"
-          ></textarea>
-
-          <!-- Submit -->
-          <button
-            id="submitBtn"
-            type="submit"
-            class="w-full py-4 rounded-xl font-bold text-white
-                   bg-gradient-to-r from-indigo-500 to-purple-500
-                   hover:opacity-90 transition-all flex items-center justify-center gap-2"
-          >
-            <span id="btnText">Send Message</span>
-          </button>
-
-        </form>
-
-        <!-- Success Message -->
-        <div
-          id="successBox"
-          class="hidden mt-10 p-8 rounded-2xl bg-white/5
-                 border border-green-500/30 text-center animate-success"
-        >
-          <div class="flex justify-center mb-4">
-            <div class="w-14 h-14 rounded-full bg-green-500/20 flex items-center justify-center">
-              <i class="fa-solid fa-check text-green-400 text-2xl"></i>
-            </div>
-          </div>
-          <h3 class="text-green-400 font-bold text-xl mb-2">
-            Message Sent Successfully!
-          </h3>
-          <p class="text-gray-400">
-            Thank you for reaching out. I’ll respond shortly.
-          </p>
-        </div>
-
-      </div>
-
-      <!-- ================= RIGHT: CONTACT INFO ================= -->
-      <div class="lg:col-span-5 text-gray-400 space-y-10">
-
-        <p class="max-w-sm">
-          Always available for freelance work and consultations 24/7.
-          Feel free to contact me!
-        </p>
-
-        <div class="space-y-8">
-
-          <!-- Name -->
-          <div class="flex items-center gap-4">
-            <span class="text-indigo-400 text-xl">
-              <i class="fa-solid fa-user"></i>
-            </span>
-            <div>
-              <h4 class="text-white font-bold text-lg">Name</h4>
-              <p>Hanningtone Neville Ogutu</p>
-            </div>
-          </div>
-
-          <!-- Location -->
-          <div class="flex items-center gap-4">
-            <span class="text-green-400 text-xl">
-              <i class="fa-solid fa-location-dot"></i>
-            </span>
-            <div>
-              <h4 class="text-white font-bold text-lg">Location</h4>
-              <p>Nairobi (Available for remote work)</p>
-            </div>
-          </div>
-
-          <!-- Call -->
-          <div class="flex items-center gap-4">
-            <span class="text-yellow-400 text-xl">
-              <i class="fa-solid fa-phone"></i>
-            </span>
-            <div>
-              <h4 class="text-white font-bold text-lg">Call Me</h4>
-              <p>+254 716 927 955</p>
-            </div>
-          </div>
-
-          <!-- Email -->
-          <div class="flex items-center gap-4">
-            <span class="text-pink-400 text-xl">
-              <i class="fa-solid fa-envelope"></i>
-            </span>
-            <div>
-              <h4 class="text-white font-bold text-lg">Email Me</h4>
-              <p>ogutuhanningtone@gmail.com</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ================= FOOTER ================= -->
-<footer class="bg-[#0b0c10] py-8 border-t border-white/5">
-  <div class="container mx-auto px-6 max-w-7xl flex flex-col sm:flex-row justify-between items-center gap-4">
-
-    <!-- Copyright -->
-    <div class="text-gray-500 text-sm text-center sm:text-left">
-      © <span id="year"></span> <span class="text-white font-bold">Hanningtone Neville Ogutu</span>. All Rights Reserved.
-    </div>
-
-    <!-- Social Links -->
-    <div class="flex items-center gap-4">
-      <!-- Email -->
-      <a href="mailto:ogutuhanningtone@gmail.com" aria-label="Email"
-        class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10
-               text-indigo-400 hover:text-white hover:border-indigo-400
-               hover:shadow-[0_0_18px_rgba(99,102,241,0.6)] transition duration-300">
-        <i class="fa-solid fa-envelope text-lg"></i>
-      </a>
-
-      <!-- Phone -->
-      <a href="tel:+254716927955" aria-label="Call"
-        class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10
-               text-indigo-400 hover:text-white hover:border-indigo-400
-               hover:shadow-[0_0_18px_rgba(99,102,241,0.6)] transition duration-300">
-        <i class="fa-solid fa-phone text-lg"></i>
-      </a>
-
-      <!-- WhatsApp -->
-      <a href="https://wa.link/xwh6aa" target="_blank" rel="noopener" aria-label="WhatsApp"
-        class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10
-               text-green-400 hover:text-white hover:border-green-400
-               hover:shadow-[0_0_18px_rgba(34,197,94,0.6)] transition duration-300">
-        <i class="fa-brands fa-whatsapp text-lg"></i>
-      </a>
-
-      <!-- Twitter -->
-      <a href="https://x.com/_NevilleOgutu" target="_blank" rel="noopener" aria-label="Twitter"
-        class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10
-               text-blue-400 hover:text-white hover:border-blue-400
-               hover:shadow-[0_0_18px_rgba(59,130,246,0.6)] transition duration-300">
-        <i class="fa-brands fa-twitter text-lg"></i>
-      </a>
-
-      <!-- TikTok -->
-      <a href="https://www.tiktok.com/@ogutuneville" target="_blank" rel="noopener" aria-label="TikTok"
-        class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10
-               text-pink-400 hover:text-white hover:border-pink-400
-               hover:shadow-[0_0_18px_rgba(236,72,153,0.6)] transition duration-300">
-        <i class="fa-brands fa-tiktok text-lg"></i>
-      </a>
-    </div>
-
-  </div>
-</footer>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
-</footer>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-
-  const name = "Ogutu Neville| Web Designer & Consultant";
-  const typedNameEl = document.getElementById("typedName");
-  const taglineEl = document.getElementById("tagline");
-  const introEl = document.getElementById("introAnimation");
-
-  let i = 0;
-
-  function typeName() {
-    if (!typedNameEl) return;
-
-    if (i < name.length) {
-      typedNameEl.textContent += name[i];
-      i++;
-      setTimeout(typeName, 50);
-    } else {
-
-      // Glow twice
-      typedNameEl.classList.add("glow-once");
-      setTimeout(() => {
-        typedNameEl.classList.remove("glow-once");
-        setTimeout(() => {
+  <script>
+    // Intro typing
+    document.addEventListener("DOMContentLoaded", () => {
+      const name = "Ogutu Neville | Web Designer & Consultant";
+      const typedNameEl = document.getElementById("typedName");
+      const taglineEl = document.getElementById("tagline");
+      const introEl = document.getElementById("introAnimation");
+
+      let i = 0;
+
+      function typeName() {
+        if (!typedNameEl) return;
+
+        if (i < name.length) {
+          typedNameEl.textContent += name[i];
+          i++;
+          setTimeout(typeName, 50);
+        } else {
           typedNameEl.classList.add("glow-once");
-        }, 200);
-      }, 900);
+          setTimeout(() => {
+            typedNameEl.classList.remove("glow-once");
+            setTimeout(() => typedNameEl.classList.add("glow-once"), 200);
+          }, 900);
 
-      // Show tagline
-      setTimeout(() => {
-        taglineEl?.classList.add("fade-in");
-      }, 500);
+          setTimeout(() => taglineEl?.classList.add("fade-in"), 500);
 
-      // Fade out intro
-      setTimeout(() => {
-        introEl.style.transition = "opacity 1s ease-in-out";
-        introEl.style.opacity = 0;
+          setTimeout(() => {
+            introEl.style.transition = "opacity 1s ease-in-out";
+            introEl.style.opacity = 0;
+            setTimeout(() => (introEl.style.display = "none"), 1000);
+          }, 2200);
+        }
+      }
+
+      setTimeout(typeName, 200);
+    });
+  </script>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true, easing: 'ease-out-cubic' });
+  </script>
+
+  <!-- Terminal typewriter (your original, unchanged) -->
+  <script>
+    const lines = [
+      { text: "// Booting Ogutu Neville — Web Systems Interface", color: "#6A9955" },
+      { text: "systemStatus = 'operational' ✔", color: "#4EC9B0" },
+      { text: "", color: "" },
+      { text: "const services = [", color: "#C586C0" },
+      { text: "  'Web Design & Development',", color: "#CE9178" },
+      { text: "  'WordPress & Page Builder Solutions',", color: "#CE9178" },
+      { text: "  'UI/UX Design & Optimization',", color: "#CE9178" },
+      { text: "  'Digital Branding & Strategy'", color: "#CE9178" },
+      { text: "];", color: "#D4D4D4" },
+      { text: "", color: "" },
+      { text: "const skills = {", color: "#C586C0" },
+      { text: "  frontend: ['HTML5', 'CSS3', 'JavaScript'],", color: "#9CDCFE" },
+      { text: "  cms: ['WordPress', 'Page Builders'],", color: "#9CDCFE" },
+      { text: "  design: ['UX/UI Fundamentals']", color: "#9CDCFE" },
+      { text: "};", color: "#D4D4D4" },
+      { text: "", color: "" },
+      { text: "// Status: Ready to collaborate 🚀", color: "#6A9955" }
+    ];
+
+    const terminal = document.getElementById("terminal");
+    let lineIndex = 0;
+    let charIndex = 0;
+    let currentLineEl;
+    const typingSpeed = 28;
+    const pauseBetweenLines = 350;
+    const restartDelay = 1000;
+
+    function typeLine() {
+      if (!terminal) return;
+
+      if (lineIndex >= lines.length) {
         setTimeout(() => {
-          introEl.style.display = "none";
-        }, 1000);
-      }, 2200);
-    }
-  }
+          terminal.innerHTML = "";
+          lineIndex = 0;
+          charIndex = 0;
+          typeLine();
+        }, restartDelay);
+        return;
+      }
 
-  // Small intentional delay ensures smooth first render
-  setTimeout(typeName, 200);
+      const currentLine = lines[lineIndex];
 
-});
-</script>
+      if (charIndex === 0) {
+        currentLineEl = document.createElement("div");
+        currentLineEl.style.color = currentLine.color || "#D4D4D4";
 
+        const lineNumber = document.createElement("span");
+        lineNumber.textContent = (lineIndex + 1).toString().padStart(2, " ") + "  ";
+        lineNumber.style.color = "#858585";
+        lineNumber.style.userSelect = "none";
+        currentLineEl.appendChild(lineNumber);
 
-<!-- AOS JS -->
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 1000, // animation duration in ms
-    once: true,     // animate only once
-    easing: 'ease-out-cubic'
-  });
-</script>
+        terminal.appendChild(currentLineEl);
+      }
 
-<!-- ================= TERMINAL TYPEWRITER SCRIPT WITH VS CODE COLORS ================= -->
-<script>
-  const lines = [
-    { text: "// Booting Ogutu Neville — Web Systems Interface", color: "#6A9955" },  // Comment green
-    { text: "systemStatus = 'operational' ✔", color: "#4EC9B0" },  // Cyan for keywords
-    { text: "", color: "" },
-    { text: "const services = [", color: "#C586C0" },  // Purple for keywords
-    { text: "  'Web Design & Development',", color: "#CE9178" },  // Orange for strings
-    { text: "  'WordPress & Page Builder Solutions',", color: "#CE9178" },
-    { text: "  'UI/UX Design & Optimization',", color: "#CE9178" },
-    { text: "  'Digital Branding & Strategy'", color: "#CE9178" },
-    { text: "];", color: "#D4D4D4" },  // Default white
-    { text: "", color: "" },
-    { text: "const skills = {", color: "#C586C0" },
-    { text: "  frontend: ['HTML5', 'CSS3', 'JavaScript'],", color: "#9CDCFE" },  // Light blue for properties
-    { text: "  cms: ['WordPress', 'Page Builders'],", color: "#9CDCFE" },
-    { text: "  design: ['UX/UI Fundamentals']", color: "#9CDCFE" },
-    { text: "];", color: "#D4D4D4" },
-    { text: "", color: "" },
-    { text: "// Status: Ready to collaborate 🚀", color: "#6A9955" }
-  ];
-  
-  const terminal = document.getElementById("terminal");
-  let lineIndex = 0;
-  let charIndex = 0;
-  let currentLineEl;
-  const typingSpeed = 28;
-  const pauseBetweenLines = 350;
-  const restartDelay = 1000;
-  
-  function typeLine() {
-    if (lineIndex >= lines.length) {
-      setTimeout(() => {
-        terminal.innerHTML = "";
-        lineIndex = 0;
+      if (charIndex < currentLine.text.length) {
+        const lineNumber = (lineIndex + 1).toString().padStart(2, " ") + "  ";
+        currentLineEl.innerHTML =
+          `<span style="color:#858585;user-select:none;">${lineNumber}</span>` +
+          `<span style="color:${currentLine.color || '#D4D4D4'}">${currentLine.text.substring(0, charIndex + 1)}</span>`;
+        charIndex++;
+        setTimeout(typeLine, typingSpeed);
+      } else {
         charIndex = 0;
-        typeLine();
-      }, restartDelay);
-      return;
+        lineIndex++;
+        setTimeout(typeLine, pauseBetweenLines);
+      }
     }
-    
-    const currentLine = lines[lineIndex];
-    
-    if (charIndex === 0) {
-      currentLineEl = document.createElement("div");
-      currentLineEl.style.color = currentLine.color || "#D4D4D4";
-      
-      // Add line numbers like VS Code
-      const lineNumber = document.createElement("span");
-      lineNumber.textContent = (lineIndex + 1).toString().padStart(2, " ") + "  ";
-      lineNumber.style.color = "#858585";
-      lineNumber.style.userSelect = "none";
-      currentLineEl.appendChild(lineNumber);
-      
-      terminal.appendChild(currentLineEl);
-    }
-    
-    if (charIndex < currentLine.text.length) {
-      currentLineEl.textContent = currentLineEl.textContent + currentLine.text[charIndex];
-      // Re-add line number color since textContent overwrites
-      const lineNumber = (lineIndex + 1).toString().padStart(2, " ") + "  ";
-      currentLineEl.innerHTML = `<span style="color: #858585; user-select: none;">${lineNumber}</span><span style="color: ${currentLine.color || '#D4D4D4'}">${currentLine.text.substring(0, charIndex + 1)}</span>`;
-      charIndex++;
-      setTimeout(typeLine, typingSpeed);
-    } else {
-      charIndex = 0;
-      lineIndex++;
-      setTimeout(typeLine, pauseBetweenLines);
-    }
-  }
-  
-  typeLine();
-</script>
+
+    typeLine();
+  </script>
 
 </body>
 </html>
