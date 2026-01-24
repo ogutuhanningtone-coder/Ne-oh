@@ -513,16 +513,21 @@ img{ max-width:100%; display:block; }
   position: relative;
   border-radius: 24px;
   padding: 26px;
-  border: 1px solid rgba(255,255,255,.10);
+
+  /* REMOVE boundary */
+  border: 0;
+
+  /* Keep it natural / glassy */
   background: rgba(255,255,255,.04);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   overflow: hidden;
 
-  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
 }
 
-/* gradient accent strip */
+/* OPTIONAL: If you feel the top strip looks like a boundary, delete this whole block.
+   If you like it, keep it as an accent. */
 .price__top{
   position:absolute;
   left:0; top:0; right:0;
@@ -531,37 +536,21 @@ img{ max-width:100%; display:block; }
   opacity: .9;
 }
 
-/* subtle gradient glow border feel */
-.price::before{
-  content:"";
-  position:absolute;
-  inset:-1px;
-  border-radius: 24px;
-  padding: 1px;
-  background: linear-gradient(to right, rgba(99,102,241,.45), rgba(168,85,247,.35));
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: .35;
-  pointer-events:none;
-}
+/* REMOVE the gradient border feel completely */
+.price::before{ content:none; }
 
 .price:hover{
   transform: translateY(-4px);
-  border-color: rgba(255,255,255,.16);
   box-shadow:
     0 24px 70px rgba(0,0,0,.40),
     0 0 40px rgba(99,102,241,.10);
+
+  /* subtle hover lift without looking like a "card border" */
+  background: rgba(255,255,255,.06);
 }
 
 .price h3{ margin: 4px 0 6px; }
-.price__value{
-  font-size: 2.1rem;
-  font-weight: 900;
-  margin: 14px 0 16px;
-}
+
 .price ul{
   margin:0;
   padding-left: 18px;
@@ -569,10 +558,24 @@ img{ max-width:100%; display:block; }
   line-height:1.7;
 }
 
+/* ========== Price value gradient (KSh 10,000 etc.) ========== */
+.price__value{
+  font-size: 2.1rem;
+  font-weight: 900;
+  margin: 14px 0 16px;
+
+  background: linear-gradient(to right, var(--indigo), var(--purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 /* Popular */
 .price--popular{
   box-shadow: 0 0 60px rgba(99,102,241,.12);
 }
+
+/* Badge (this is fine to keep) */
 .price__badge{
   position:absolute;
   top: 14px;
@@ -583,30 +586,15 @@ img{ max-width:100%; display:block; }
   font-size:.75rem;
   padding: 7px 10px;
   border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.16);
-}
 
-/* ===============================
-   Clear buttons + rounded gradient boundary on ACTIVE
-   =============================== */
-
-/* ========== Price value gradient (KSh 10,000 etc.) ========== */
-.price__value{
-  font-size: 2.1rem;
-  font-weight: 900;
-  margin: 14px 0 16px;
-
-  /* gradient text */
-  background: linear-gradient(to right, var(--indigo), var(--purple));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  /* reduce "badge boundary" */
+  border: 0;
 }
 
 /* ========== Buttons: transparent border + gradient on hover ========== */
 .btn--clear{
   background: transparent;
-  border: 1px solid rgba(255,255,255,.22);  /* transparent boundary */
+  border: 1px solid rgba(255,255,255,.22);
   color: #e5e7eb;
   border-radius: 999px;
   position: relative;
@@ -625,7 +613,7 @@ img{ max-width:100%; display:block; }
   }
 }
 
-/* Mobile/touch: no hover, so show gradient on tap/active */
+/* Mobile/touch: show gradient on tap/active */
 @media (hover: none) and (pointer: coarse){
   .btn--clear:active{
     border-color: transparent;
@@ -634,7 +622,7 @@ img{ max-width:100%; display:block; }
   }
 }
 
-/* Optional: nicer keyboard focus */
+/* Keyboard focus */
 .btn--clear:focus-visible{
   outline: none;
   border-color: rgba(99,102,241,.55);
