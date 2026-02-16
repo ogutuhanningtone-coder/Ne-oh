@@ -171,6 +171,58 @@ img{ max-width:100%; display:block; }
   color:#cbd5e1;
 }
 
+/* Navigation container with rounded corners and glow */
+.nav {
+  background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+  border-radius: 50px; /* Rounded corners */
+  padding: 12px 30px;
+  box-shadow: 
+    0 0 20px rgba(165, 180, 252, 0.5),
+    0 0 40px rgba(165, 180, 252, 0.3),
+    0 0 60px rgba(165, 180, 252, 0.1);
+}
+
+/* Navigation list */
+.nav__list {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+/* Navigation links */
+.nav__link {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect with purple glow */
+.nav__link:hover {
+  background: rgba(165, 180, 252, 0.2);
+  box-shadow: 0 0 15px rgba(165, 180, 252, 0.6);
+}
+
+/* Mobile menu button */
+.nav__mobile-btn {
+  background: transparent;
+  border: 2px solid #a5b4fc;
+  color: #a5b4fc;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav__mobile-btn:hover {
+  background: rgba(165, 180, 252, 0.2);
+  box-shadow: 0 0 15px rgba(165, 180, 252, 0.6);
+}
+
 /* ========== Kickers ========== */
 .kicker{
   display:inline-block;
