@@ -3,43 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ogutu Neville - Web Designer &amp; Consultant</title>
 
-  <title>Ogutu Neville - Web Designer & Consultant</title>
-
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Premium web design and consulting portfolio by Ogutu Neville Hanningtone. Specializing in modern web design, branding, and digital consulting.">
-  <meta name="keywords" content="web design, consulting, branding, Ogutu Neville, portfolio, web developer, UI/UX designer">
+  <meta name="description" content="website & systems design and consulting portfolio by Ogutu Neville Hanningtone. Specializing in modern web design, branding, and digital consulting.">
+  <meta name="keywords" content="website design, consulting, Systems Designer, Ogutu Neville, portfolio, website developer, UI/UX designer">
   <meta name="author" content="Ogutu Neville Hanningtone">
 
-  <!-- Icons + Fonts -->
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Fonts: Syne (display) + Manrope (body) -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="/ogutu%20neville%20favicon.svg">
-
-  <!-- Your extra CSS -->
   <link rel="stylesheet" href="./style.css">
-
   <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 
 <body class="page">
 
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Custom Cursor (desktop only) -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
   <!-- ================= STICKY NAVIGATION ================= -->
-  <header class="site-header">
+  <header class="site-header" id="siteHeader">
     <div class="container header__inner">
 
       <a href="#hero" class="brand">
-        Ogutu Neville | Web Designer &amp; Consultant
+        Ogutu Neville <span class="brand__sep">|</span> Web Designer &amp; Consultant
       </a>
 
       <nav class="nav">
         <ul class="nav__list nav__list--desktop" id="desktopNav">
-          <li><a href="#hero" class="nav__link">Home</a></li>
-          <li><a href="#expertise" class="nav__link">My Expertise</a></li>
-          <li><a href="#projects" class="nav__link">Projects</a></li>
-          <li><a href="#skills" class="nav__link">Skills</a></li>
-          <li><a href="#contact" class="nav__link">Contact</a></li>
+          <li><a href="#hero"       class="nav__link">Home</a></li>
+          <li><a href="#expertise"  class="nav__link">My Expertise</a></li>
+          <li><a href="#projects"   class="nav__link">Projects</a></li>
+          <li><a href="#skills"     class="nav__link">Skills</a></li>
+          <li><a href="#contact"    class="nav__link">Contact</a></li>
         </ul>
 
         <button id="mobileMenuBtn" class="nav__mobile-btn" aria-label="Open menu">
@@ -50,23 +53,22 @@
 
     <div id="mobileMenu" class="mobile-menu hidden">
       <ul class="mobile-menu__list">
-        <li><a href="#hero" class="nav__link">Home</a></li>
+        <li><a href="#hero"      class="nav__link">Home</a></li>
         <li><a href="#expertise" class="nav__link">My Expertise</a></li>
-        <li><a href="#projects" class="nav__link">Projects</a></li>
-        <li><a href="#skills" class="nav__link">Skills</a></li>
-        <li><a href="#contact" class="nav__link">Contact</a></li>
+        <li><a href="#projects"  class="nav__link">Projects</a></li>
+        <li><a href="#skills"    class="nav__link">Skills</a></li>
+        <li><a href="#contact"   class="nav__link">Contact</a></li>
       </ul>
     </div>
   </header>
 
-  <!-- ================= HERO SECTION ================= -->
+  <!-- ================= HERO ================= -->
   <section id="hero" class="hero">
     <canvas id="binaryBg" class="binary-canvas" aria-hidden="true"></canvas>
-      <div class="hero__bg">
-
-  <div class="hero__blob hero__blob--indigo"></div>
-  <div class="hero__blob hero__blob--purple"></div>
-</div>
+    <div class="hero__bg">
+      <div class="hero__blob hero__blob--indigo"></div>
+      <div class="hero__blob hero__blob--purple"></div>
+    </div>
 
     <div class="container hero__inner">
       <div class="hero__grid">
@@ -126,26 +128,31 @@
 
       </div>
     </div>
+
+    <!-- Scroll down indicator -->
+    <div class="hero__scroll">
+      <div class="hero__scroll-dot"></div>
+    </div>
   </section>
 
   <!-- ================= ABOUT ================= -->
   <section id="about" data-aos="fade-up" class="section section--alt">
     <div class="container container--narrow center">
-     <span class="kicker-line">About Me</span>
+      <span class="kicker-line">About Me</span>
 
       <h2 class="h2">
         Transforming Ideas Into <span class="text-gradient">Digital Masterpieces</span>
       </h2>
 
       <p class="p muted p--spaced">
-        I’m a Web Developer with 6 years of hands-on experience delivering,
+        I'm a Web Developer with 6 years of hands-on experience delivering,
         maintaining, and optimizing digital solutions for businesses across
         multiple industries. I specialize in building professional,
         high-performance websites and supporting real-world systems that operate
         in live production environments.
         <br><br>
         My work combines clean design, functional development, performance
-        optimization, and practical problem-solving. I’ve collaborated with
+        optimization, and practical problem-solving. I've collaborated with
         teams, supported active client websites, and delivered solutions that
         focus on reliability, clarity, and measurable business impact.
       </p>
@@ -207,37 +214,37 @@
         <h3 class="h3 center">Platforms &amp; Tools</h3>
 
         <div class="tools-grid">
-          <div class="skill-card">
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="50">
             <div class="icon"><img src="https://api.iconify.design/simple-icons/git.svg?color=%23F05032" alt="Git"></div>
             <div class="title">Git &amp; GitHub</div>
             <div class="percent">80%</div>
           </div>
 
-          <div class="skill-card">
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
             <div class="icon"><img class="is-logo" src="https://api.iconify.design/logos/google-ads.svg" alt="Google Ads"></div>
             <div class="title">Google Ads</div>
             <div class="percent">80%</div>
           </div>
 
-          <div class="skill-card">
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="150">
             <div class="icon"><img src="https://api.iconify.design/simple-icons/windows11.svg?color=%230078D4" alt="Windows"></div>
             <div class="title">Windows</div>
             <div class="percent">95%</div>
           </div>
 
-          <div class="skill-card">
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
             <div class="icon"><img src="https://api.iconify.design/simple-icons/linux.svg?color=%23FCC624" alt="Linux"></div>
             <div class="title">Linux</div>
             <div class="percent">90%</div>
           </div>
 
-          <div class="skill-card">
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="250">
             <div class="icon"><img src="https://api.iconify.design/simple-icons/microsoftoffice.svg?color=%23D83B01" alt="Microsoft Office"></div>
             <div class="title">Microsoft Office</div>
             <div class="percent">99%</div>
           </div>
 
-          <div class="skill-card">
+          <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
             <div class="icon"><img class="is-logo" src="https://api.iconify.design/logos/google.svg" alt="Google Workspace"></div>
             <div class="title">Google Workspace</div>
             <div class="percent">90%</div>
@@ -259,7 +266,7 @@
 
       <div id="services" class="services-grid">
 
-        <article class="service-card service-card--green">
+        <article class="service-card service-card--green" data-aos="fade-up" data-aos-delay="0">
           <i class="fa-solid fa-globe service-card__icon"></i>
           <p class="service-card__kicker">Web Services</p>
           <h3 class="service-card__title">Web &amp; Digital Solutions</h3>
@@ -271,7 +278,7 @@
           </ul>
         </article>
 
-        <article class="service-card service-card--blue">
+        <article class="service-card service-card--blue" data-aos="fade-up" data-aos-delay="60">
           <i class="fa-solid fa-chart-line service-card__icon"></i>
           <p class="service-card__kicker">Marketing</p>
           <h3 class="service-card__title">Digital Marketing &amp; Search</h3>
@@ -283,7 +290,7 @@
           </ul>
         </article>
 
-        <article class="service-card service-card--orange">
+        <article class="service-card service-card--orange" data-aos="fade-up" data-aos-delay="120">
           <i class="fa-solid fa-robot service-card__icon"></i>
           <p class="service-card__kicker">AI Solutions</p>
           <h3 class="service-card__title">Automation &amp; AI Solutions</h3>
@@ -295,7 +302,7 @@
           </ul>
         </article>
 
-        <article class="service-card service-card--pink">
+        <article class="service-card service-card--pink" data-aos="fade-up" data-aos-delay="180">
           <i class="fa-solid fa-database service-card__icon"></i>
           <p class="service-card__kicker">Data Services</p>
           <h3 class="service-card__title">Business &amp; Data Services</h3>
@@ -307,7 +314,7 @@
           </ul>
         </article>
 
-        <article class="service-card service-card--amber">
+        <article class="service-card service-card--amber" data-aos="fade-up" data-aos-delay="240">
           <i class="fa-solid fa-file-lines service-card__icon"></i>
           <p class="service-card__kicker">Documentation</p>
           <h3 class="service-card__title">Professional Documentation</h3>
@@ -319,7 +326,7 @@
           </ul>
         </article>
 
-        <article class="service-card service-card--violet">
+        <article class="service-card service-card--violet" data-aos="fade-up" data-aos-delay="300">
           <i class="fa-solid fa-screwdriver-wrench service-card__icon"></i>
           <p class="service-card__kicker">Support</p>
           <h3 class="service-card__title">Technical Support</h3>
@@ -331,7 +338,7 @@
           </ul>
         </article>
 
-        <article class="service-card service-card--red">
+        <article class="service-card service-card--red" data-aos="fade-up" data-aos-delay="360">
           <i class="fa-solid fa-file-lines service-card__icon"></i>
           <p class="service-card__kicker">Productivity</p>
           <h3 class="service-card__title">Productivity Tools</h3>
@@ -339,7 +346,7 @@
             <li>Microsoft Word (Expert)</li>
             <li>Microsoft Excel (Expert)</li>
             <li>Microsoft PowerPoint (Expert)</li>
-            <li>Canvas / Google Docs &amp; Sheets</li>
+            <li>Canva / Google Docs &amp; Sheets</li>
           </ul>
         </article>
 
@@ -358,350 +365,261 @@
 
       <div class="projects-grid">
 
-  <!-- 1) Favourite Contractors -->
-  <article class="project">
-    <img src="fav contractors srcn.png" alt="Favourite Contractors" class="project__img">
+        <article class="project" data-aos="fade-up" data-aos-delay="0">
+          <img src="fav contractors srcn.png" alt="Favourite Contractors" class="project__img">
+          <div class="project__front">
+            <h3 class="project__type">Construction Website</h3>
+          </div>
+          <div class="project__overlay">
+            <span class="project__tag">Favourite Contractors</span>
+            <div class="project__tools">
+              <h4>Tools Used:</h4>
+              <ul><li>WordPress</li><li>Elementor</li><li>HTML &amp; CSS</li></ul>
+            </div>
+            <a href="https://favouritecontractors.co.ke" target="_blank" class="project__link" rel="noopener">View Project →</a>
+          </div>
+        </article>
 
-    <!-- DEFAULT VIEW -->
-    <div class="project__front">
-      <h3 class="project__type">Construction Website</h3>
-    </div>
+        <article class="project" data-aos="fade-up" data-aos-delay="80">
+          <img src="mideh farm srcn.png" alt="Mideh Farm" class="project__img">
+          <div class="project__front">
+            <h3 class="project__type">Agriculture Business Website</h3>
+          </div>
+          <div class="project__overlay">
+            <span class="project__tag">Mideh Farm</span>
+            <div class="project__tools">
+              <h4>Tools Used:</h4>
+              <ul><li>WordPress</li><li>Elementor</li><li>HTML &amp; CSS</li></ul>
+            </div>
+            <a href="https://midehfarm.co.ke" target="_blank" class="project__link" rel="noopener">View Project →</a>
+          </div>
+        </article>
 
-    <!-- HOVER VIEW -->
-    <div class="project__overlay">
-      <span class="project__tag">Favourite Contractors</span>
+        <article class="project" data-aos="fade-up" data-aos-delay="160">
+          <img src="finxpert scrn.png" alt="FinXpert" class="project__img">
+          <div class="project__front">
+            <h3 class="project__type">Finance Services Website</h3>
+          </div>
+          <div class="project__overlay">
+            <span class="project__tag">FinXpert</span>
+            <div class="project__tools">
+              <h4>Tools Used:</h4>
+              <ul><li>WordPress</li><li>Elementor</li><li>HTML &amp; CSS</li></ul>
+            </div>
+            <a href="https://finxpert.co.ke" target="_blank" class="project__link" rel="noopener">View Project →</a>
+          </div>
+        </article>
 
-      <div class="project__tools">
-        <h4>Tools Used:</h4>
-        <ul>
-          <li>WordPress</li><li>Elementor</li><li>HTML &amp; CSS</li>
-        </ul>
+        <article class="project" data-aos="fade-up" data-aos-delay="0">
+          <img src="foamblock scrn.png" alt="Foam Blocks Kenya" class="project__img">
+          <div class="project__front">
+            <h3 class="project__type">Manufacturing &amp; Product Website</h3>
+          </div>
+          <div class="project__overlay">
+            <span class="project__tag">Foam Blocks Kenya</span>
+            <div class="project__tools">
+              <h4>Tools Used:</h4>
+              <ul><li>WordPress</li><li>Elementor</li><li>HTML &amp; CSS</li></ul>
+            </div>
+            <a href="https://foamblockskenya.com" target="_blank" class="project__link" rel="noopener">View Project →</a>
+          </div>
+        </article>
+
+        <article class="project" data-aos="fade-up" data-aos-delay="80">
+          <img src="rayneinter scrn.png" alt="Rayne Integrated" class="project__img">
+          <div class="project__front">
+            <h3 class="project__type">Enterprise Business Website</h3>
+          </div>
+          <div class="project__overlay">
+            <span class="project__tag">Rayne Integrated</span>
+            <div class="project__tools">
+              <h4>Tools Used:</h4>
+              <ul><li>WordPress</li><li>Elementor</li><li>HTML &amp; CSS</li></ul>
+            </div>
+            <a href="https://rayne-integrated.com" target="_blank" class="project__link" rel="noopener">View Project →</a>
+          </div>
+        </article>
+
+        <article class="project" data-aos="fade-up" data-aos-delay="160">
+          <img src="kist.webp" alt="Key To Success International" class="project__img">
+          <div class="project__front">
+            <h3 class="project__type">NGO / Women CBO Website</h3>
+          </div>
+          <div class="project__overlay">
+            <span class="project__tag">Key To Success International</span>
+            <div class="project__tools">
+              <h4>Tools Used:</h4>
+              <ul><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+            </div>
+            <a href="https://keytosuccessintl.org/" target="_blank" class="project__link" rel="noopener">View Project →</a>
+          </div>
+        </article>
+
       </div>
-
-      <a href="https://favouritecontractors.co.ke" target="_blank" class="project__link" rel="noopener">
-        View Project →
-      </a>
-    </div>
-  </article>
-
-  <!-- 2) Mideh Farm -->
-  <article class="project">
-    <img src="mideh farm srcn.png" alt="Mideh Farm" class="project__img">
-
-    <!-- DEFAULT VIEW -->
-    <div class="project__front">
-      <h3 class="project__type">Agriculture Business Website</h3>
-    </div>
-
-    <!-- HOVER VIEW -->
-    <div class="project__overlay">
-      <span class="project__tag">Mideh Farm</span>
-
-      <div class="project__tools">
-        <h4>Tools Used:</h4>
-        <ul>
-          <li>WordPress</li><li>Elementor</li><li>HTML &amp; CSS</li>
-        </ul>
-      </div>
-
-      <a href="https://midehfarm.co.ke" target="_blank" class="project__link" rel="noopener">
-        View Project →
-      </a>
-    </div>
-  </article>
-
-  <!-- 3) FinXpert -->
-  <article class="project">
-    <img src="finxpert scrn.png" alt="FinXpert" class="project__img">
-
-    <!-- DEFAULT VIEW -->
-    <div class="project__front">
-      <h3 class="project__type">Finance Services Website</h3>
-    </div>
-
-    <!-- HOVER VIEW -->
-    <div class="project__overlay">
-      <span class="project__tag">FinXpert</span>
-
-      <div class="project__tools">
-        <h4>Tools Used:</h4>
-        <ul>
-          <li>WordPress</li><li>Elementor</li><li>HTML &amp; CSS</li>
-        </ul>
-      </div>
-
-      <a href="https://finxpert.co.ke" target="_blank" class="project__link" rel="noopener">
-        View Project →
-      </a>
-    </div>
-  </article>
-
-  <!-- 4) Foam Blocks Kenya -->
-  <article class="project">
-    <img src="foamblock scrn.png" alt="Foam Blocks Kenya" class="project__img">
-
-    <!-- DEFAULT VIEW -->
-    <div class="project__front">
-      <h3 class="project__type">Manufacturing &amp; Product Website</h3>
-    </div>
-
-    <!-- HOVER VIEW -->
-    <div class="project__overlay">
-      <span class="project__tag">Foam Blocks Kenya</span>
-
-      <div class="project__tools">
-        <h4>Tools Used:</h4>
-        <ul>
-          <li>WordPress</li><li>Elementor</li><li>HTML &amp; CSS</li>
-        </ul>
-      </div>
-
-      <a href="https://foamblockskenya.com" target="_blank" class="project__link" rel="noopener">
-        View Project →
-      </a>
-    </div>
-  </article>
-
-  <!-- 5) Rayne Integrated -->
-  <article class="project">
-    <img src="rayneinter scrn.png" alt="Rayne Integrated" class="project__img">
-
-    <!-- DEFAULT VIEW -->
-    <div class="project__front">
-      <h3 class="project__type">Enterprise Business Website</h3>
-    </div>
-
-    <!-- HOVER VIEW -->
-    <div class="project__overlay">
-      <span class="project__tag">Rayne Integrated</span>
-
-      <div class="project__tools">
-        <h4>Tools Used:</h4>
-        <ul>
-          <li>WordPress</li><li>Elementor</li><li>HTML &amp; CSS</li>
-        </ul>
-      </div>
-
-      <a href="https://rayne-integrated.com" target="_blank" class="project__link" rel="noopener">
-        View Project →
-      </a>
-    </div>
-  </article>
-
-  <!-- 6) Key To Success International (NGO / Women CBO) -->
-  <article class="project">
-    <img src="kist.webp" alt="Key To Success International" class="project__img">
-
-    <!-- DEFAULT VIEW -->
-    <div class="project__front">
-      <h3 class="project__type">NGO / Women CBO Website</h3>
-    </div>
-
-    <!-- HOVER VIEW -->
-    <div class="project__overlay">
-      <span class="project__tag">Key To Success International</span>
-
-      <div class="project__tools">
-        <h4>Tools Used:</h4>
-        <ul>
-          <li>HTML</li><li>CSS</li><li>JavaScript</li>
-        </ul>
-      </div>
-
-      <a href="https://keytosuccessintl.org/" target="_blank" class="project__link" rel="noopener">
-        View Project →
-      </a>
-    </div>
-  </article>
-
-</div>
     </div>
   </section>
 
-<!-- ================= TESTIMONIALS (SLIDER) ================= -->
-<section id="testimonials" class="section section--alt">
-  <div class="container">
-    <div class="section-header center">
-      <p class="kicker kicker--rule">Client Feedback</p>
-      <h2 class="h2">Trusted By <span class="text-gradient">Businesses I’ve Worked With</span></h2>
-    </div>
-
-    <div class="twrap">
-      <button class="tbtn tbtn--prev" type="button" aria-label="Previous testimonial">
-        <i class="fa-solid fa-chevron-left"></i>
-      </button>
-
-      <div class="tviewport" aria-roledescription="carousel">
-        <div class="ttrack" id="tTrack">
-
-          <!-- 1 -->
-          <article class="tcard tcard--indigo">
-            <p class="tquote">
-              Working with Neville was one of the best decisions we made for DreamBridge Education Africa.
-              He translated our vision into a clean, professional website that truly represents our mission.
-            </p>
-
-            <div class="twho">
-              <img class="tavatar" src="Deana.webp" alt="Diana Kafura">
-              <div>
-                <div class="tname">Diana Kafura</div>
-                <div class="trole">Founder, DreamBridge Education Africa</div>
-              </div>
-            </div>
-          </article>
-
-          <!-- 2 -->
-          <article class="tcard tcard--red">
-            <p class="tquote">
-              Neville delivered exactly what we needed — a modern, product-focused website that improved how
-              customers understand our services. The results were immediate.
-            </p>
-
-            <div class="twho">
-              <img class="tavatar" src="evans.webp" alt="Evans Wanyama">
-              <div>
-                <div class="tname">Evans Wanyama</div>
-                <div class="trole">Founder, Foam Blocks Kenya</div>
-              </div>
-            </div>
-          </article>
-
-          <!-- 3 -->
-          <article class="tcard tcard--teal">
-            <p class="tquote">
-              Professional, efficient, and detail-oriented. Our FinXpert website now reflects the trust
-              and credibility required in the financial sector.
-            </p>
-
-            <div class="twho">
-              <img class="tavatar" src="grace.webp" alt="Grace Kariuki">
-              <div>
-                <div class="tname">Grace Kariuki</div>
-                <div class="trole">Managing Director, FinXpert</div>
-              </div>
-            </div>
-          </article>
-
-          <!-- 4 -->
-          <article class="tcard tcard--yellow">
-            <p class="tquote">
-              Neville is a highly reliable and technically strong professional. He consistently delivers
-              solutions with precision, initiative, and a deep understanding of modern systems.
-            </p>
-
-            <div class="twho">
-              <img class="tavatar" src="zander.webp" alt="Alexander">
-              <div>
-                <div class="tname">Alexander</div>
-                <div class="trole">Founder, Skillydon Solutions</div>
-              </div>
-            </div>
-          </article>
-
-        </div>
+  <!-- ================= TESTIMONIALS ================= -->
+  <section id="testimonials" class="section section--alt">
+    <div class="container">
+      <div class="section-header center">
+        <p class="kicker kicker--rule">Client Feedback</p>
+        <h2 class="h2">Trusted By <span class="text-gradient">Businesses I've Worked With</span></h2>
       </div>
 
-      <button class="tbtn tbtn--next" type="button" aria-label="Next testimonial">
-        <i class="fa-solid fa-chevron-right"></i>
-      </button>
-    </div>
+      <div class="twrap">
+        <button class="tbtn tbtn--prev" type="button" aria-label="Previous testimonial">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
 
-    <div class="tdots" id="tDots" aria-label="Testimonial pagination"></div>
-  </div>
-</section>
+        <div class="tviewport" aria-roledescription="carousel">
+          <div class="ttrack" id="tTrack">
+
+            <article class="tcard tcard--indigo">
+              <p class="tquote">
+                Working with Neville was one of the best decisions we made for DreamBridge Education Africa.
+                He translated our vision into a clean, professional website that truly represents our mission.
+              </p>
+              <div class="twho">
+                <img class="tavatar" src="Deana.webp" alt="Diana Kafura">
+                <div>
+                  <div class="tname">Diana Kafura</div>
+                  <div class="trole">Founder, DreamBridge Education Africa</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="tcard tcard--red">
+              <p class="tquote">
+                Neville delivered exactly what we needed — a modern, product-focused website that improved how
+                customers understand our services. The results were immediate.
+              </p>
+              <div class="twho">
+                <img class="tavatar" src="evans.webp" alt="Evans Wanyama">
+                <div>
+                  <div class="tname">Evans Wanyama</div>
+                  <div class="trole">Founder, Foam Blocks Kenya</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="tcard tcard--teal">
+              <p class="tquote">
+                Professional, efficient, and detail-oriented. Our FinXpert website now reflects the trust
+                and credibility required in the financial sector.
+              </p>
+              <div class="twho">
+                <img class="tavatar" src="grace.webp" alt="Grace Kariuki">
+                <div>
+                  <div class="tname">Grace Kariuki</div>
+                  <div class="trole">Managing Director, FinXpert</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="tcard tcard--yellow">
+              <p class="tquote">
+                Neville is a highly reliable and technically strong professional. He consistently delivers
+                solutions with precision, initiative, and a deep understanding of modern systems.
+              </p>
+              <div class="twho">
+                <img class="tavatar" src="zander.webp" alt="Alexander">
+                <div>
+                  <div class="tname">Alexander</div>
+                  <div class="trole">Founder, Skillydon Solutions</div>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <button class="tbtn tbtn--next" type="button" aria-label="Next testimonial">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <div class="tdots" id="tDots" aria-label="Testimonial pagination"></div>
+    </div>
+  </section>
 
   <!-- ================= PRICING ================= -->
-<section id="pricing" class="section section--dark">
-  <div class="container">
+  <section id="pricing" class="section section--dark">
+    <div class="container">
 
-    <div class="section-header center">
-      <p class="kicker kicker--rule">Website Plans</p>
-      <h2 class="h2">Simple, Transparent <span class="text-gradient">Pricing</span></h2>
-      <p class="muted maxw">
-        Clear website packages designed for startups, growing businesses, and brands ready to scale.
-      </p>
+      <div class="section-header center">
+        <p class="kicker kicker--rule">Website Plans</p>
+        <h2 class="h2">Simple, Transparent <span class="text-gradient">Pricing</span></h2>
+        <p class="muted maxw">
+          Clear website packages designed for startups, growing businesses, and brands ready to scale.
+        </p>
+      </div>
+
+      <div class="pricing-grid">
+
+        <article class="price" data-aos="fade-up" data-aos-delay="0">
+          <div class="price__top"></div>
+          <h3>Starter</h3>
+          <p class="muted">Perfect for new &amp; small businesses</p>
+          <div class="price__value">KSh 15,000</div>
+          <ul>
+            <li>✔ 4-page website (Home, About, Services, Contact)</li>
+            <li>✔ Mobile-friendly &amp; fast loading</li>
+            <li>✔ Basic on-page SEO setup</li>
+            <li>✔ Contact form + WhatsApp integration</li>
+            <li>✔ Free SSL &amp; security basics</li>
+          </ul>
+          <a href="#contact" class="btn btn--clear btn--block">Launch</a>
+        </article>
+
+        <article class="price price--popular" data-aos="fade-up" data-aos-delay="100">
+          <div class="price__top"></div>
+          <span class="price__badge">Most Popular</span>
+          <h3>Growth</h3>
+          <p class="muted">For growing businesses needing visibility</p>
+          <div class="price__value">KSh 20,000</div>
+          <ul>
+            <li>✔ 5–10 page website</li>
+            <li>✔ Conversion-focused UI &amp; layout</li>
+            <li>✔ Full on-page SEO optimization</li>
+            <li>✔ Google Business Profile setup</li>
+            <li>✔ Speed optimization + analytics</li>
+          </ul>
+          <a href="#contact" class="btn btn--clear btn--block">Level Up</a>
+        </article>
+
+        <article class="price" data-aos="fade-up" data-aos-delay="200">
+          <div class="price__top"></div>
+          <h3>Scale</h3>
+          <p class="muted">For established &amp; high-growth brands</p>
+          <div class="price__value">KSh 25,000</div>
+          <ul>
+            <li>✔ 10+ page website</li>
+            <li>✔ Custom features &amp; advanced sections</li>
+            <li>✔ Technical SEO + schema markup</li>
+            <li>✔ Performance, security &amp; scalability</li>
+            <li>✔ Priority support &amp; future-ready setup</li>
+          </ul>
+          <a href="#contact" class="btn btn--clear btn--block">Custom Power</a>
+        </article>
+
+      </div>
     </div>
-
-    <div class="pricing-grid">
-
-      <!-- Starter -->
-      <article class="price">
-        <div class="price__top"></div>
-
-        <h3>Starter</h3>
-        <p class="muted">Perfect for new &amp; small businesses</p>
-
-        <div class="price__value">KSh 15,000</div>
-
-        <ul>
-          <li>✔ 4-page website (Home, About, Services, Contact)</li>
-          <li>✔ Mobile-friendly &amp; fast loading</li>
-          <li>✔ Basic on-page SEO setup</li>
-          <li>✔ Contact form + WhatsApp integration</li>
-          <li>✔ Free SSL &amp; security basics</li>
-        </ul>
-
-        <a href="#contact" class="btn btn--clear btn--block">Launch</a>
-      </article>
-
-      <!-- Growth (Popular) -->
-      <article class="price price--popular">
-        <div class="price__top"></div>
-        <span class="price__badge">Most Popular</span>
-
-        <h3>Growth</h3>
-        <p class="muted">For growing businesses needing visibility</p>
-
-        <div class="price__value">KSh 20,000</div>
-
-        <ul>
-          <li>✔ 5–10 page website</li>
-          <li>✔ Conversion-focused UI &amp; layout</li>
-          <li>✔ Full on-page SEO optimization</li>
-          <li>✔ Google Business Profile setup</li>
-          <li>✔ Speed optimization + analytics</li>
-        </ul>
-
-        <a href="#contact" class="btn btn--clear btn--block">Level Up</a>
-      </article>
-
-      <!-- Scale -->
-      <article class="price">
-        <div class="price__top"></div>
-
-        <h3>Scale</h3>
-        <p class="muted">For established &amp; high-growth brands</p>
-
-        <div class="price__value">KSh 25,000</div>
-
-        <ul>
-          <li>✔ 10+ page website</li>
-          <li>✔ Custom features &amp; advanced sections</li>
-          <li>✔ Technical SEO + schema markup</li>
-          <li>✔ Performance, security &amp; scalability</li>
-          <li>✔ Priority support &amp; future-ready setup</li>
-        </ul>
-
-        <a href="#contact" class="btn btn--clear btn--block">Custom Power</a>
-      </article>
-
-    </div>
-  </div>
-</section>
+  </section>
 
   <!-- ================= HIRE ME / CTA ================= -->
   <section id="hire" class="section section--alt">
     <div class="container hire">
-      <div class="hire__img">
+      <div class="hire__img" data-aos="fade-right">
         <img src="Gemini_Generated_Image_8kz7t88kz7t88kz7.webp" alt="Hanningtone Neville Ogutu">
       </div>
 
-      <div class="hire__content">
+      <div class="hire__content" data-aos="fade-left">
         <p class="kicker kicker--rule">Let's Collaborate</p>
         <h2 class="h2">Ready to <span class="text-gradient">Build Cutting-Edge Digital Experiences</span>?</h2>
         <p class="muted">
           I craft sleek, functional, and futuristic websites that elevate your brand and drive engagement.
-          Let’s turn your ideas into high-impact digital solutions.
+          Let's turn your ideas into high-impact digital solutions.
         </p>
         <a href="#contact" class="btn btn--gradient">Hire Me →</a>
       </div>
@@ -723,13 +641,12 @@
           <form id="contactForm" action="https://formspree.io/f/meeqjenj" method="POST" class="form">
             <input type="hidden" name="_subject" value="New Website Contact Message">
             <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_autoresponse" value="Hi 👋 Thanks for reaching out! I’ve received your message and will get back to you shortly. — Ogutu Neville">
+            <input type="hidden" name="_autoresponse" value="Hi 👋 Thanks for reaching out! I've received your message and will get back to you shortly. — Ogutu Neville">
 
             <div class="form__row">
               <input name="name" required placeholder="Name" class="field">
               <input type="email" name="email" required placeholder="Email" class="field">
             </div>
-
             <input name="subject" required placeholder="Subject" class="field">
             <textarea name="message" rows="6" required placeholder="Message" class="field field--textarea"></textarea>
 
@@ -739,11 +656,9 @@
           </form>
 
           <div id="successBox" class="success hidden">
-            <div class="success__icon">
-              <i class="fa-solid fa-check"></i>
-            </div>
+            <div class="success__icon"><i class="fa-solid fa-check"></i></div>
             <h3>Message Sent Successfully!</h3>
-            <p class="muted">Thank you for reaching out. I’ll respond shortly.</p>
+            <p class="muted">Thank you for reaching out. I'll respond shortly.</p>
           </div>
         </div>
 
@@ -789,7 +704,6 @@
         </aside>
 
       </div>
-
     </div>
   </section>
 
@@ -811,38 +725,37 @@
   </footer>
 
   <!-- ================= SCRIPTS ================= -->
+
+  <!-- Mobile menu + footer year -->
   <script>
-    // Mobile menu
     const mobileBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     mobileBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-
-    // Footer year
+    // Close on link click
+    mobileMenu?.querySelectorAll('.nav__link').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 
+  <!-- Contact form (Formspree) -->
   <script>
-    // Contact form (Formspree)
     const form = document.getElementById("contactForm");
     const btnText = document.getElementById("btnText");
     const submitBtn = document.getElementById("submitBtn");
     const successBox = document.getElementById("successBox");
 
-    form?.addEventListener("submit", async function (e) {
+    form?.addEventListener("submit", async function(e) {
       e.preventDefault();
-
       btnText.textContent = "Sending...";
       submitBtn.disabled = true;
-
       const formData = new FormData(form);
-
       try {
         const response = await fetch(form.action, {
           method: "POST",
           body: formData,
           headers: { Accept: "application/json" }
         });
-
         if (response.ok) {
           form.reset();
           form.classList.add("hidden");
@@ -858,14 +771,114 @@
     });
   </script>
 
-
   <!-- AOS -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init({ duration: 800, once: true, easing: 'ease-out-cubic', offset: 60 });</script>
+
+  <!-- =================== ENHANCED ANIMATIONS JS =================== -->
   <script>
-    AOS.init({ duration: 1000, once: true, easing: 'ease-out-cubic' });
+  (() => {
+    // ── 1. Custom Cursor (desktop / pointer: fine only) ──
+    const isFine = window.matchMedia('(pointer: fine)').matches;
+    const cursorDot  = document.getElementById('cursorDot');
+    const cursorRing = document.getElementById('cursorRing');
+
+    if (isFine && cursorDot && cursorRing) {
+      let dotX = 0, dotY = 0;
+      let ringX = 0, ringY = 0;
+      const LERP = 0.11;
+
+      document.addEventListener('mousemove', e => {
+        dotX = e.clientX;
+        dotY = e.clientY;
+        cursorDot.style.left = dotX + 'px';
+        cursorDot.style.top  = dotY + 'px';
+      });
+
+      (function animateRing() {
+        ringX += (dotX - ringX) * LERP;
+        ringY += (dotY - ringY) * LERP;
+        cursorRing.style.left = ringX + 'px';
+        cursorRing.style.top  = ringY + 'px';
+        requestAnimationFrame(animateRing);
+      })();
+
+      // Expand ring on interactive elements
+      const interactives = document.querySelectorAll(
+        'a, button, .project, .service-card, .skill-card, .tcard, .price, .field, .hire__img img, .terminal'
+      );
+      interactives.forEach(el => {
+        el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+        el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+      });
+    } else {
+      // Touch device: remove cursor elements
+      cursorDot?.remove();
+      cursorRing?.remove();
+    }
+
+    // ── 2. Scroll Progress Bar ──
+    const progressBar = document.getElementById('scrollProgress');
+    if (progressBar) {
+      window.addEventListener('scroll', () => {
+        const scrolled   = window.scrollY;
+        const maxScroll  = document.documentElement.scrollHeight - window.innerHeight;
+        const pct        = maxScroll > 0 ? (scrolled / maxScroll) * 100 : 0;
+        progressBar.style.width = pct + '%';
+      }, { passive: true });
+    }
+
+    // ── 3. Nav: frosted glass on scroll + active link ──
+    const header   = document.getElementById('siteHeader');
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+    const navLinks = Array.from(document.querySelectorAll('.nav__link'));
+
+    window.addEventListener('scroll', () => {
+      // Scrolled class
+      header?.classList.toggle('is-scrolled', window.scrollY > 60);
+
+      // Active nav link
+      let current = '';
+      sections.forEach(sec => {
+        const rect = sec.getBoundingClientRect();
+        if (rect.top <= 120 && rect.bottom >= 120) current = sec.id;
+      });
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        link.classList.toggle('is-active', href === '#' + current);
+      });
+    }, { passive: true });
+
+    // ── 4. Skill Bar Animation (IntersectionObserver) ──
+    const skillFills = document.querySelectorAll('.skillbar__fill');
+    skillFills.forEach(fill => {
+      fill.dataset.targetWidth = fill.style.width;
+      fill.style.width = '0';
+      fill.style.transition = 'none';
+    });
+
+    const skillSection = document.getElementById('skills');
+    if (skillSection) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            skillFills.forEach((fill, i) => {
+              setTimeout(() => {
+                fill.style.transition = 'width 1.4s cubic-bezier(0.16, 1, 0.3, 1)';
+                fill.style.width = fill.dataset.targetWidth;
+              }, i * 120);
+            });
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.25 });
+      observer.observe(skillSection);
+    }
+
+  })();
   </script>
 
-  <!-- Terminal typewriter (your original, unchanged) -->
+  <!-- Terminal typewriter -->
   <script>
     const lines = [
       { text: "// Booting Ogutu Neville — Web Systems Interface", color: "#6A9955" },
@@ -888,249 +901,165 @@
     ];
 
     const terminal = document.getElementById("terminal");
-    let lineIndex = 0;
-    let charIndex = 0;
-    let currentLineEl;
-    const typingSpeed = 28;
-    const pauseBetweenLines = 350;
-    const restartDelay = 1000;
+    let lineIndex = 0, charIndex = 0, currentLineEl;
+    const typingSpeed = 26, pauseBetweenLines = 330, restartDelay = 900;
 
     function typeLine() {
       if (!terminal) return;
-
       if (lineIndex >= lines.length) {
         setTimeout(() => {
           terminal.innerHTML = "";
-          lineIndex = 0;
-          charIndex = 0;
+          lineIndex = 0; charIndex = 0;
           typeLine();
         }, restartDelay);
         return;
       }
-
       const currentLine = lines[lineIndex];
-
       if (charIndex === 0) {
         currentLineEl = document.createElement("div");
         currentLineEl.style.color = currentLine.color || "#D4D4D4";
-
         const lineNumber = document.createElement("span");
         lineNumber.textContent = (lineIndex + 1).toString().padStart(2, " ") + "  ";
         lineNumber.style.color = "#858585";
         lineNumber.style.userSelect = "none";
         currentLineEl.appendChild(lineNumber);
-
         terminal.appendChild(currentLineEl);
       }
-
       if (charIndex < currentLine.text.length) {
-        const lineNumber = (lineIndex + 1).toString().padStart(2, " ") + "  ";
+        const lineNum = (lineIndex + 1).toString().padStart(2, " ") + "  ";
         currentLineEl.innerHTML =
-          `<span style="color:#858585;user-select:none;">${lineNumber}</span>` +
+          `<span style="color:#858585;user-select:none;">${lineNum}</span>` +
           `<span style="color:${currentLine.color || '#D4D4D4'}">${currentLine.text.substring(0, charIndex + 1)}</span>`;
         charIndex++;
         setTimeout(typeLine, typingSpeed);
       } else {
-        charIndex = 0;
-        lineIndex++;
+        charIndex = 0; lineIndex++;
         setTimeout(typeLine, pauseBetweenLines);
       }
     }
-
     typeLine();
   </script>
 
+  <!-- Testimonial Slider -->
   <script>
-(() => {
-  const track = document.getElementById("tTrack");
-  const dotsWrap = document.getElementById("tDots");
-  const prevBtn = document.querySelector(".tbtn--prev");
-  const nextBtn = document.querySelector(".tbtn--next");
-  if(!track || !dotsWrap) return;
+  (() => {
+    const track    = document.getElementById("tTrack");
+    const dotsWrap = document.getElementById("tDots");
+    const prevBtn  = document.querySelector(".tbtn--prev");
+    const nextBtn  = document.querySelector(".tbtn--next");
+    if (!track || !dotsWrap) return;
 
-  const cards = Array.from(track.querySelectorAll(".tcard"));
-  let index = 0; // index of the first visible card
-  let timer = null;
+    const cards = Array.from(track.querySelectorAll(".tcard"));
+    let index = 0, timer = null;
 
-  function visibleCount(){
-    return window.matchMedia("(max-width: 900px)").matches ? 1 : 2;
-  }
-
-  function maxIndex(){
-    return Math.max(0, cards.length - visibleCount());
-  }
-
-  function cardStepPx(){
-    const c = cards[0];
-    if(!c) return 0;
-    const styles = getComputedStyle(track);
-    const gap = parseFloat(styles.gap || "0");
-    return c.getBoundingClientRect().width + gap;
-  }
-
-  function buildDots(){
-    dotsWrap.innerHTML = "";
-    const pages = maxIndex() + 1; // each step slides by 1 card
-    for(let i=0;i<pages;i++){
-      const b = document.createElement("button");
-      b.className = "tdot" + (i === index ? " is-active" : "");
-      b.type = "button";
-      b.addEventListener("click", () => { index = i; apply(); restart(); });
-      dotsWrap.appendChild(b);
-    }
-  }
-
-  function setActiveDot(){
-    const dots = Array.from(dotsWrap.querySelectorAll(".tdot"));
-    dots.forEach((d,i) => d.classList.toggle("is-active", i === index));
-  }
-
-  function apply(){
-    index = Math.min(Math.max(index, 0), maxIndex());
-    const x = cardStepPx() * index;
-    track.style.transform = `translateX(${-x}px)`;
-    setActiveDot();
-  }
-
-  function next(){
-    index = (index >= maxIndex()) ? 0 : index + 1;
-    apply();
-  }
-
-  function prev(){
-    index = (index <= 0) ? maxIndex() : index - 1;
-    apply();
-  }
-
-  function start(){
-    stop();
-    timer = setInterval(next, 3000); // 3 seconds
-  }
-
-  function stop(){
-    if(timer) clearInterval(timer);
-    timer = null;
-  }
-
-  function restart(){
-    start();
-  }
-
-  nextBtn?.addEventListener("click", () => { next(); restart(); });
-  prevBtn?.addEventListener("click", () => { prev(); restart(); });
-
-  // Pause on hover (feels premium)
-  const viewport = document.querySelector(".tviewport");
-  viewport?.addEventListener("mouseenter", stop);
-  viewport?.addEventListener("mouseleave", start);
-
-  window.addEventListener("resize", () => {
-    // when switching between 1/2 visible, rebuild
-    index = Math.min(index, maxIndex());
-    buildDots();
-    apply();
-  });
-
-  buildDots();
-  apply();
-  start();
-})();
-</script>
-
-<script>
-(() => {
-  const canvas = document.getElementById("binaryBg");
-  if (!canvas) return;
-
-  const ctx = canvas.getContext("2d", { alpha: true });
-
-  const chars = ["0","1"];
-  let cols = 0;
-  let drops = [];
-  let fontSize = 16;
-  let rafId;
-
-  function getHeroSize() {
-    const hero = document.getElementById("hero");
-    if (!hero) return { w: window.innerWidth, h: window.innerHeight };
-
-    // iOS Safari viewport quirk: use visualViewport if available
-    const vw = window.visualViewport ? window.visualViewport.width : window.innerWidth;
-    const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
-
-    // hero height from layout (more reliable than vh)
-    const rect = hero.getBoundingClientRect();
-    const h = Math.max(rect.height, vh * 0.85);
-
-    return { w: Math.floor(vw), h: Math.floor(h) };
-  }
-
-  function resize() {
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const { w, h } = getHeroSize();
-
-    canvas.width = Math.floor(w * dpr);
-    canvas.height = Math.floor(h * dpr);
-    canvas.style.width = w + "px";
-    canvas.style.height = h + "px";
-
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-    // tune for mobile readability/perf
-    fontSize = w < 520 ? 14 : 16;
-    cols = Math.floor(w / fontSize);
-    drops = Array(cols).fill(1);
-  }
-
-  function draw() {
-    const { w, h } = getHeroSize();
-
-    // fade layer
-    ctx.fillStyle = "rgba(11,12,16,0.10)";
-    ctx.fillRect(0, 0, w, h);
-
-    ctx.font = fontSize + "px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace";
-    ctx.textBaseline = "top";
-
-    for (let i = 0; i < cols; i++) {
-      const char = chars[(Math.random() * chars.length) | 0];
-      const x = i * fontSize;
-      const y = drops[i] * fontSize;
-
-      // soft tech green
-      ctx.fillStyle = "rgba(34,197,94,0.55)";
-      ctx.fillText(char, x, y);
-
-      // reset drop randomly
-      if (y > h && Math.random() > 0.975) drops[i] = 0;
-      drops[i]++;
+    function visibleCount() { return window.matchMedia("(max-width: 900px)").matches ? 1 : 2; }
+    function maxIndex()     { return Math.max(0, cards.length - visibleCount()); }
+    function cardStepPx()   {
+      const c = cards[0];
+      if (!c) return 0;
+      const gap = parseFloat(getComputedStyle(track).gap || "0");
+      return c.getBoundingClientRect().width + gap;
     }
 
-    rafId = requestAnimationFrame(draw);
-  }
+    function buildDots() {
+      dotsWrap.innerHTML = "";
+      const pages = maxIndex() + 1;
+      for (let i = 0; i < pages; i++) {
+        const b = document.createElement("button");
+        b.className = "tdot" + (i === index ? " is-active" : "");
+        b.type = "button";
+        b.addEventListener("click", () => { index = i; apply(); restart(); });
+        dotsWrap.appendChild(b);
+      }
+    }
 
-  // IMPORTANT: ensure canvas sizes AFTER layout
-  window.addEventListener("load", () => {
-    resize();
-    cancelAnimationFrame(rafId);
-    draw();
-  });
+    function setActiveDot() {
+      Array.from(dotsWrap.querySelectorAll(".tdot"))
+        .forEach((d, i) => d.classList.toggle("is-active", i === index));
+    }
 
-  window.addEventListener("resize", () => {
-    resize();
-  });
+    function apply() {
+      index = Math.min(Math.max(index, 0), maxIndex());
+      track.style.transform = `translateX(${-cardStepPx() * index}px)`;
+      setActiveDot();
+    }
 
-  window.addEventListener("orientationchange", () => {
-    setTimeout(resize, 200);
-  });
+    function next()    { index = index >= maxIndex() ? 0 : index + 1; apply(); }
+    function prev()    { index = index <= 0 ? maxIndex() : index - 1; apply(); }
+    function start()   { stop(); timer = setInterval(next, 3000); }
+    function stop()    { if (timer) clearInterval(timer); timer = null; }
+    function restart() { start(); }
 
-  // iOS: viewport changes when address bar shows/hides
-  if (window.visualViewport) {
-    window.visualViewport.addEventListener("resize", resize);
-  }
-})();
-</script>
+    nextBtn?.addEventListener("click", () => { next(); restart(); });
+    prevBtn?.addEventListener("click", () => { prev(); restart(); });
 
-  
+    const viewport = document.querySelector(".tviewport");
+    viewport?.addEventListener("mouseenter", stop);
+    viewport?.addEventListener("mouseleave", start);
+
+    window.addEventListener("resize", () => {
+      index = Math.min(index, maxIndex());
+      buildDots(); apply();
+    });
+
+    buildDots(); apply(); start();
+  })();
+  </script>
+
+  <!-- Binary canvas background -->
+  <script>
+  (() => {
+    const canvas = document.getElementById("binaryBg");
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d", { alpha: true });
+    const chars = ["0","1"];
+    let cols = 0, drops = [], fontSize = 16, rafId;
+
+    function getHeroSize() {
+      const hero = document.getElementById("hero");
+      if (!hero) return { w: window.innerWidth, h: window.innerHeight };
+      const vw = window.visualViewport ? window.visualViewport.width  : window.innerWidth;
+      const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+      const rect = hero.getBoundingClientRect();
+      return { w: Math.floor(vw), h: Math.floor(Math.max(rect.height, vh * 0.85)) };
+    }
+
+    function resize() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const { w, h } = getHeroSize();
+      canvas.width  = Math.floor(w * dpr);
+      canvas.height = Math.floor(h * dpr);
+      canvas.style.width  = w + "px";
+      canvas.style.height = h + "px";
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      fontSize = w < 520 ? 13 : 15;
+      cols  = Math.floor(w / fontSize);
+      drops = Array(cols).fill(1);
+    }
+
+    function draw() {
+      const { w, h } = getHeroSize();
+      ctx.fillStyle = "rgba(7,8,15,0.09)";
+      ctx.fillRect(0, 0, w, h);
+      ctx.font = fontSize + "px ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace";
+      ctx.textBaseline = "top";
+      for (let i = 0; i < cols; i++) {
+        const char = chars[(Math.random() * 2)|0];
+        const x = i * fontSize, y = drops[i] * fontSize;
+        ctx.fillStyle = "rgba(34,197,94,0.5)";
+        ctx.fillText(char, x, y);
+        if (y > h && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      }
+      rafId = requestAnimationFrame(draw);
+    }
+
+    window.addEventListener("load",              () => { resize(); cancelAnimationFrame(rafId); draw(); });
+    window.addEventListener("resize",            resize);
+    window.addEventListener("orientationchange", () => setTimeout(resize, 200));
+    if (window.visualViewport) window.visualViewport.addEventListener("resize", resize);
+  })();
+  </script>
+
 </body>
 </html>
