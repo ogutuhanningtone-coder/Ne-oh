@@ -399,7 +399,7 @@ html, body { overflow-x: hidden; overflow-y: auto; height: auto; }
 }
 
 .hero .container {
-  width : min(1320px, 100% - 56px);
+  width : min(1320px, 100% - 32px);
   margin-inline: auto;
 }
 
@@ -733,6 +733,9 @@ html, body { overflow-x: hidden; overflow-y: auto; height: auto; }
   line-height : 1.85;
   color       : rgba(255,255,255,.85);
   font-family : ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  overflow-x: hidden;      
+  word-break: break-all;    
+}
 }
 .terminal::after {
   content        : "";
