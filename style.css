@@ -196,7 +196,11 @@ body.cursor-hover .cursor-dot {
 .section-header { margin-bottom: 64px; }
 
 /* overflow guard */
-html, body { overflow-x: hidden; overflow-y: auto; height: auto; }
+html, body {
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 .page      { height: auto; min-height: 100vh; overflow: visible; }
 
 /* ─────────────────────  TYPOGRAPHY  ────────────────────── */
