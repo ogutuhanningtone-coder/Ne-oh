@@ -1307,6 +1307,133 @@ html, body {
   .terminal__body    { font-size: 12px; min-height: 280px; }
 }
 
+ /* ============================================================
+   MOBILE OVERFLOW FIXES — paste at the very bottom of style.css
+   ============================================================ */
+
+/* 1. Fix the stray extra closing brace in .terminal__body
+      by resetting overflow handling cleanly */
+.terminal__body {
+  overflow-x : hidden;
+  word-break  : break-word; /* safer than break-all */
+}
+
+/* 2. Hero container — stop it stretching past the viewport */
+.hero .container {
+  width        : min(1120px, 100% - 32px);
+  margin-inline: auto;
+}
+
+/* 3. Prevent the hero section itself from overflowing */
+.hero {
+  overflow-x : hidden;
+}
+
+/* 4. Testimonial cards — clamp flex-basis on very small screens */
+.tcard {
+  min-width : 0;          /* lets flex item shrink below content width */
+  max-width : 100%;
+}
+
+/* 5. Terminal — prevent any internal content from busting out */
+.terminal {
+  min-width  : 0;
+  max-width  : 100%;
+}
+
+/* 6. Projects grid images — guard against unresized images */
+.project__img {
+  width    : 100%;
+  height   : 100%;
+  max-width: none;        /* override the global img max-width reset inside .project */
+}
+
+/* 7. Hire section image — prevent oversized image on mobile */
+.hire__img img {
+  width    : 100%;
+  height   : auto;
+}
+
+/* 8. Services & tools grids — ensure no child overflows */
+.services-grid,
+.tools-grid,
+.projects-grid,
+.pricing-grid {
+  overflow-x : hidden;
+}
+
+/* 9. Form fields — ensure inputs don't push past their parent */
+.field {
+  max-width : 100%;
+  min-width : 0;
+}
+
+/* 10. Mobile-specific tightening */
+@media (max-width: 480px) {
+  /* Containers */
+  .container,
+  .container--narrow {
+    width        : calc(100% - 24px);
+    margin-inline: auto;
+  }
+
+  /* Hero text won't line-break weirdly */
+  .hero__name {
+    font-size  : 2.2rem;
+    word-break : break-word;
+  }
+
+  .hero__role {
+    font-size: 1.1rem;
+  }
+
+  /* Badge text wraps cleanly */
+  .badge {
+    font-size : .8rem;
+    padding   : 8px 14px;
+  }
+
+  /* Terminal path text won't overflow the bar */
+  .terminal__path {
+    max-width    : 140px;
+    overflow     : hidden;
+    text-overflow: ellipsis;
+    white-space  : nowrap;
+  }
+
+  /* Testimonial track */
+  .ttrack {
+    gap: 0;
+  }
+
+  .tcard {
+    flex-basis: 100% !important;
+    padding   : 20px 18px;
+  }
+
+  /* Pricing cards */
+  .price {
+    padding: 24px 18px;
+  }
+
+  /* CTA buttons stack better */
+  .hero__cta {
+    flex-direction: column;
+    align-items   : flex-start;
+  }
+
+  .btn {
+    font-size: .88rem;
+    padding  : 12px 22px;
+  }
+
+  /* Contact grid */
+  .form__row {
+    grid-template-columns: 1fr;
+  }
+}  
+
+   
 /* ─────────────────────  UTILITIES  ─────────────────────── */
 .animate-float { animation: float 3s ease-in-out infinite; }
 .glow-once     { animation: nameGlow .9s ease-in-out; }
