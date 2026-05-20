@@ -38,8 +38,8 @@
   --grad-r    : linear-gradient(115deg, #a5b4fc, #d8b4fe 50%, #f5abe0);
   --grad-tri  : linear-gradient(120deg, #a78bfa, #f0abfc 50%, #67e8f9); /* headings */
 
-  --font-display : 'Syne',    sans-serif;
-  --font-body    : 'Manrope', sans-serif;
+  --font-display : 'Outfit',   sans-serif;
+  --font-body    : 'DM Sans',  sans-serif;
 
   --ease-spring : cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out    : cubic-bezier(0.22, 1, 0.36, 1);
