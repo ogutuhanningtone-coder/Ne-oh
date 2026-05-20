@@ -1021,7 +1021,8 @@
       const vw = window.visualViewport ? window.visualViewport.width  : window.innerWidth;
       const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
       const rect = hero.getBoundingClientRect();
-      return { w: Math.floor(vw), h: Math.floor(Math.max(rect.height, vh * 0.85)) };
+      const safeW = Math.min(vw, document.documentElement.clientWidth);
+return { w: Math.floor(safeW), h: Math.floor(Math.max(rect.height, vh * 0.85)) };
     }
 
     function resize() {
