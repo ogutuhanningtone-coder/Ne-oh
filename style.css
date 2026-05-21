@@ -428,11 +428,11 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
 /* ─────────────────────  TOOLS GRID  ────────────────────── */
 .tools-block { margin-top: 40px; }
 .tools-grid { display: grid; gap: 16px; margin-top: 22px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
-.skill-card { position: relative; background: linear-gradient(180deg, var(--glass-2), var(--glass)); border: 1px solid rgba(196,181,253,.12); border-radius: var(--radius); padding: 22px 16px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; min-height: 170px; min-width: 0; backdrop-filter: blur(8px); overflow: hidden; transition: transform .3s var(--ease-spring), box-shadow .3s ease, border-color .3s ease; }
+.skill-card { position: relative; background: transparent; border: none; border-radius: var(--radius); padding: 22px 16px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; min-height: 170px; min-width: 0; backdrop-filter: blur(8px); overflow: hidden; transition: transform .3s var(--ease-spring), box-shadow .3s ease, border-color .3s ease; }
 .skill-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); opacity: 0; transition: opacity .3s ease; }
 .skill-card:hover { transform: translateY(-8px); border-color: rgba(192,132,252,.32); box-shadow: 0 18px 50px rgba(124,131,255,.2), 0 0 0 1px rgba(124,131,255,.12); }
 .skill-card:hover::before { opacity: 1; }
-.icon { width: 64px; height: 64px; border-radius: 18px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); transition: transform .3s ease; }
+.icon { width: 64px; height: 64px; border-radius: 18px; display: flex; align-items: center; justify-content: center; background: transparent; border: none; transition: transform .3s ease; }
 .skill-card:hover .icon { transform: scale(1.1); }
 .icon img { width: 34px; height: 34px; }
 .icon img.is-logo { width: 40px; height: 40px; }
@@ -517,7 +517,7 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
 
 /* ─────────────────────  HIRE CTA  ──────────────────────── */
 .hire { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 48px); align-items: center; }
-.hire__img img { width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: 0 24px 60px rgba(0,0,0,.4), 0 0 0 1px rgba(196,181,253,.1); transition: transform .4s var(--ease-spring), box-shadow .4s ease; }
+.hire__img img {  width: 100%; max-width: 340px; height: auto; border-radius: var(--radius-lg); box-shadow: 0 24px 60px rgba(0,0,0,.4), 0 0 0 1px rgba(196,181,253,.1); transition: transform .4s var(--ease-spring), box-shadow .4s ease; }
 .hire__img img:hover { transform: scale(1.03) translateY(-5px); box-shadow: 0 36px 80px rgba(0,0,0,.5), 0 0 60px rgba(56,189,248,.18); }
 .hire__content { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
 
