@@ -592,7 +592,6 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
 @media (max-width: 980px) {
   .hero__grid    { grid-template-columns: 1fr; }
   .hero          { min-height: auto; }
-  .hero__scroll  { display: none; }
   .hire          { grid-template-columns: 1fr; text-align: center; }
   .hire__content { align-items: center; }
   .contact-grid  { grid-template-columns: 1fr; }
@@ -641,41 +640,155 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
 }
 
 /* ─────────────────────  DECK (2D Page Grid)  ───────────────── */
+
+/*
+  Layout map:
+    [Hero]   →  [About Me]
+                    ↓
+               [Skills + Tools]
+
+  col 1 / row 1 = #cell-hero
+  col 2 / row 1 = #cell-about
+  col 2 / row 2 = #cell-skills   (col 1 / row 2 is intentionally empty)
+*/
+
 .deck-viewport {
-  position: relative;
   width: 100vw;
   height: 100vh;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   scroll-snap-type: both mandatory;
-  border-bottom: 1px solid rgba(255,255,255,.02);
+  scrollbar-width: none;
 }
+.deck-viewport::-webkit-scrollbar { display: none; }
+
 .deck-grid {
-  width: 200vw; /* 2 columns */
-  height: 300vh; /* 3 rows */
+  width: 200vw;
+  height: 200vh;
   display: grid;
   grid-template-columns: 100vw 100vw;
-  grid-template-rows: 100vh 100vh 100vh;
+  grid-template-rows: 100vh 100vh;
 }
-.deck-cell {
-  width: 100vw; height: 100vh;
-  scroll-snap-align: center;
-  position: relative; overflow: auto; padding: 0; display: block;
-  background: linear-gradient(180deg, rgba(255,255,255,.02), transparent);
-}
-.deck-cell .deck-inner { width: 100%; max-height: 100%; overflow: auto; padding: 22px; border-radius: 18px; background: rgba(11,8,24,.48); backdrop-filter: blur(8px); }
-.deck-cell > section { width: 100%; height: 100%; box-sizing: border-box; overflow: auto; }
-.deck-nav { position: absolute; inset: 0; pointer-events: none; }
-.deck-nav .arrow { pointer-events: auto; position: absolute; background: rgba(255,255,255,.06); color: var(--heading); border: 1px solid rgba(255,255,255,.06); padding: 10px 14px; border-radius: 10px; font-weight: 800; font-size: 1.05rem; backdrop-filter: blur(6px); cursor: pointer; }
-.deck-nav .arrow.left  { left: 18px; top: 50%; transform: translateY(-50%); }
-.deck-nav .arrow.right { right: 18px; top: 50%; transform: translateY(-50%); }
-.deck-nav .arrow.up    { left: 50%; top: 18px; transform: translateX(-50%); }
-.deck-nav .arrow.down  { left: 50%; bottom: 18px; transform: translateX(-50%); }
-.deck-nav .arrow:hover { transform: translateY(-50%) scale(1.03); box-shadow: 0 10px 30px rgba(0,0,0,.45); }
 
-@media (max-width: 980px) {
-  .deck-grid { grid-template-columns: 100vw; grid-template-rows: repeat(4, 100vh); width: 100vw; height: 400vh; }
-  .deck-cell { padding: 18px; }
-  .deck-nav .arrow.left, .deck-nav .arrow.right { display: none; }
+.deck-cell {
+  width: 100vw;
+  height: 100vh;
+  scroll-snap-align: start;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Explicit cell placement */
+#cell-hero   { grid-column: 1; grid-row: 1; }
+#cell-about  { grid-column: 2; grid-row: 1; }
+#cell-skills { grid-column: 2; grid-row: 2; overflow-y: auto; }
+
+/* Hero fills the cell naturally (it's already position:relative, flex) */
+#cell-hero > #hero { width: 100%; height: 100%; }
+
+/* Slide sections for about / skills */
+.hero-slide {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(72px, 8vw, 120px) 0 clamp(56px, 6vw, 80px);
+  position: relative;
+  overflow: visible;
+  isolation: isolate;
+}
+/* re-apply section ambient orbs to hero-slide */
+.hero-slide::before {
+  content:''; position:absolute; inset:-12% -12% auto -12%; height:130%;
+  z-index:0; pointer-events:none; opacity:.42; filter:blur(64px);
+  background:
+    radial-gradient(closest-side circle at 14% 22%, color-mix(in srgb, var(--accent) 42%, transparent), transparent 72%),
+    radial-gradient(closest-side circle at 86% 76%, color-mix(in srgb, var(--accent-2) 34%, transparent), transparent 72%);
+  animation: orbDrift 22s ease-in-out infinite;
+}
+.hero-slide > * { position: relative; z-index: 2; }
+
+/* ── Deck navigation arrows ── */
+.deck-nav {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.deck-arrow {
+  pointer-events: auto;
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(196,181,253,.18);
+  background: rgba(14,12,29,.6);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: .85rem;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  text-decoration: none;
+  transition: background .2s ease, border-color .2s ease, box-shadow .2s ease, transform .2s var(--ease-spring);
+  white-space: nowrap;
+}
+.deck-arrow:hover {
+  background: rgba(124,131,255,.2);
+  border-color: rgba(124,131,255,.5);
+  box-shadow: 0 8px 28px rgba(124,131,255,.25);
+  transform: scale(1.05);
+}
+
+/* Positioning per direction */
+.deck-arrow--right { right: 28px; top: 50%; transform: translateY(-50%); }
+.deck-arrow--right:hover { transform: translateY(-50%) scale(1.05); }
+
+.deck-arrow--left  { left: 28px;  top: 50%; transform: translateY(-50%); }
+.deck-arrow--left:hover  { transform: translateY(-50%) scale(1.05); }
+
+.deck-arrow--up    { top: 28px;    left: 50%; transform: translateX(-50%); }
+.deck-arrow--up:hover    { transform: translateX(-50%) scale(1.05); }
+
+.deck-arrow--down  { bottom: 28px; left: 50%; transform: translateX(-50%); }
+.deck-arrow--down:hover  { transform: translateX(-50%) scale(1.05); }
+
+.deck-arrow--continue {
+  bottom: 28px;
+  right: 28px;
+  background: rgba(124,131,255,.12);
+  border-color: rgba(124,131,255,.3);
+}
+.deck-arrow--continue:hover {
+  background: rgba(124,131,255,.24);
+  border-color: rgba(124,131,255,.6);
+  transform: scale(1.05);
+}
+
+/* Mobile: stack all slides vertically in a single column */
+@media (max-width: 768px) {
+  .deck-grid {
+    grid-template-columns: 100vw;
+    grid-template-rows: 100vh 100vh 100vh;
+    width: 100vw;
+    height: 300vh;
+  }
+  #cell-hero   { grid-column: 1; grid-row: 1; }
+  #cell-about  { grid-column: 1; grid-row: 2; }
+  #cell-skills { grid-column: 1; grid-row: 3; }
+  .deck-viewport { scroll-snap-type: y mandatory; }
+
+  /* Hide horizontal arrows; reposition the hero "right" arrow to bottom-centre */
+  .deck-arrow--right { right: auto; left: 50%; bottom: 28px; top: auto; transform: translateX(-50%); }
+  .deck-arrow--right:hover { transform: translateX(-50%) scale(1.05); }
+  .deck-arrow--left { display: none; }
+
+  /* Show the hero scroll indicator on mobile (useful swipe-down hint) */
+  .hero__scroll { display: flex; }
 }
 

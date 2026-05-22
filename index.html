@@ -9,13 +9,10 @@
   <meta name="keywords" content="website design, consulting, Systems Designer, Ogutu Neville, portfolio, website developer, UI/UX designer">
   <meta name="author" content="Ogutu Neville Hanningtone">
 
-  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Fonts: Syne (display) + Manrope (body) -->
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="/ogutu%20neville%20favicon.svg">
-  <link rel="stylesheet" href="./style.css?v=5">
-  <!-- AOS -->
+  <link rel="stylesheet" href="./style.css?v=6">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 
@@ -24,32 +21,29 @@
   <!-- Scroll Progress Bar -->
   <div class="scroll-progress" id="scrollProgress"></div>
 
-  <!-- Custom Cursor (desktop only) -->
+  <!-- Custom Cursor -->
   <div class="cursor-dot" id="cursorDot"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
   <!-- ================= STICKY NAVIGATION ================= -->
   <header class="site-header" id="siteHeader">
     <div class="container header__inner">
-
       <a href="#hero" class="brand">
-        Ogutu Neville <span class="brand__sep">|</span> Websites & Systems Developer </a>
-
+        Ogutu Neville <span class="brand__sep">|</span> Websites &amp; Systems Developer
+      </a>
       <nav class="nav">
         <ul class="nav__list nav__list--desktop" id="desktopNav">
-          <li><a href="#hero"       class="nav__link">Home</a></li>
-          <li><a href="#expertise"  class="nav__link">My Expertise</a></li>
-          <li><a href="#projects"   class="nav__link">Projects</a></li>
-          <li><a href="#skills"     class="nav__link">Skills</a></li>
-          <li><a href="#contact"    class="nav__link">Contact</a></li>
+          <li><a href="#hero"      class="nav__link">Home</a></li>
+          <li><a href="#expertise" class="nav__link">My Expertise</a></li>
+          <li><a href="#projects"  class="nav__link">Projects</a></li>
+          <li><a href="#skills"    class="nav__link">Skills</a></li>
+          <li><a href="#contact"   class="nav__link">Contact</a></li>
         </ul>
-
         <button id="mobileMenuBtn" class="nav__mobile-btn" aria-label="Open menu">
           <i class="fa-solid fa-bars"></i>
         </button>
       </nav>
     </div>
-
     <div id="mobileMenu" class="mobile-menu hidden">
       <ul class="mobile-menu__list">
         <li><a href="#hero"      class="nav__link">Home</a></li>
@@ -61,277 +55,215 @@
     </div>
   </header>
 
-  <!-- ================= DECK LAYOUT (2D pages) ================= -->
-  <div class="deck-viewport" id="deckViewport" aria-label="Portfolio deck navigation">
+  <!-- ===============================================================
+       DECK VIEWPORT — 2-D slide navigation
+       Layout:
+         [Hero]  →  [About Me]
+                         ↓
+                    [Skills + Tools]
+       =============================================================== -->
+  <div class="deck-viewport" id="deckViewport" aria-label="Portfolio deck">
     <div class="deck-grid" id="deckGrid">
-      <section class="deck-cell" id="cell-hero" data-row="1" data-col="1" data-section="#hero">
-        <div class="deck-inner" aria-hidden="false"></div>
-        <div class="deck-nav">
-          <button class="arrow right" data-target="cell-about" aria-label="Go to About">→</button>
-        </div>
-      </section>
 
-      <section class="deck-cell" id="cell-about" data-row="1" data-col="2" data-section="#about">
-        <div class="deck-inner" aria-hidden="false"></div>
-        <div class="deck-nav">
-          <button class="arrow left" data-target="cell-hero" aria-label="Back to Home">←</button>
-          <button class="arrow down" data-target="cell-skills" aria-label="Go to Skills">↓</button>
-        </div>
-      </section>
+      <!-- ── SLIDE 1 · Hero ── col 1, row 1 ── -->
+      <div class="deck-cell" id="cell-hero">
 
-      <section class="deck-cell" id="cell-skills" data-row="2" data-col="2" data-section="#skills">
-        <div class="deck-inner" aria-hidden="false"></div>
-        <div class="deck-nav">
-          <button class="arrow up" data-target="cell-about" aria-label="Back to About">↑</button>
-          <button class="arrow down" data-target="cell-platforms" aria-label="Go to Platforms">↓</button>
-        </div>
-      </section>
-
-      <section class="deck-cell" id="cell-platforms" data-row="3" data-col="2" data-section="#skills .tools-block">
-        <div class="deck-inner" aria-hidden="false"></div>
-        <div class="deck-nav">
-          <button class="arrow up" data-target="cell-skills" aria-label="Back to Skills">↑</button>
-        </div>
-      </section>
-    </div>
-  </div>
-
-
-  <!-- ================= HERO ================= -->
-  <section id="hero" class="hero">
-    <canvas id="binaryBg" class="binary-canvas" aria-hidden="true"></canvas>
-    <div class="hero__bg">
-      <div class="hero__blob hero__blob--indigo"></div>
-      <div class="hero__blob hero__blob--purple"></div>
-    </div>
-
-    <div class="container hero__inner">
-      <div class="hero__grid">
-
-        <div class="hero__left">
-          <div class="badge badge--bouncy">
-            <span class="badge__dot">
-              <span class="badge__ping"></span>
-              <span class="badge__solid"></span>
-            </span>
-            <span>Websites, System Design & Digital Solutions — Expert Support in Kenya.</span>
+        <section id="hero" class="hero">
+          <canvas id="binaryBg" class="binary-canvas" aria-hidden="true"></canvas>
+          <div class="hero__bg">
+            <div class="hero__blob hero__blob--indigo"></div>
+            <div class="hero__blob hero__blob--purple"></div>
           </div>
 
-          <h1 class="hero__title">
-            <span class="hero__hello">Hi, I'm</span>
-            <span class="hero__name">Ogutu Neville</span>
-            <span class="hero__role">Professional Website & Systems Developer in Kenya</span>
-          </h1>
+          <div class="container hero__inner">
+            <div class="hero__grid">
 
-          <p class="hero__subtitle">Website Development in Kenya for Growing Businesses.</p>
+              <div class="hero__left">
+                <div class="badge badge--bouncy">
+                  <span class="badge__dot">
+                    <span class="badge__ping"></span>
+                    <span class="badge__solid"></span>
+                  </span>
+                  <span>Websites, System Design &amp; Digital Solutions — Expert Support in Kenya.</span>
+                </div>
 
-          <div class="hero__cta">
-            <a href="#contact" class="btn btn--gradient btn--pill">Let's Talk Digital Solutions</a>
-            <a href="#services" class="btn btn--ghost btn--pill">My Services</a>
-          </div>
+                <h1 class="hero__title">
+                  <span class="hero__hello">Hi, I'm</span>
+                  <span class="hero__name">Ogutu Neville</span>
+                  <span class="hero__role">Professional Website &amp; Systems Developer in Kenya</span>
+                </h1>
 
-          <div class="social">
-            <a href="mailto:ogutuhanningtone@gmail.com" aria-label="Email" class="icon-btn icon-btn--indigo">
-              <i class="fa-solid fa-envelope"></i>
-            </a>
-            <a href="tel:+254716927955" aria-label="Call" class="icon-btn icon-btn--indigo">
-              <i class="fa-solid fa-phone"></i>
-            </a>
-            <a href="https://wa.link/xwh6aa" target="_blank" rel="noopener" aria-label="WhatsApp" class="icon-btn icon-btn--green">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
-            <a href="https://x.com/_NevilleOgutu" target="_blank" rel="noopener" aria-label="Twitter" class="icon-btn icon-btn--blue">
-              <i class="fa-brands fa-twitter"></i>
-            </a>
-            <a href="https://www.tiktok.com/@ogutuneville" target="_blank" rel="noopener" aria-label="TikTok" class="icon-btn icon-btn--pink">
-              <i class="fa-brands fa-tiktok"></i>
-            </a>
-          </div>
-        </div>
+                <p class="hero__subtitle">Website Development in Kenya for Growing Businesses.</p>
 
-        <div class="hero__right">
-          <div class="terminal">
-            <div class="terminal__bar">
-              <span class="dot dot--red"></span>
-              <span class="dot dot--yellow"></span>
-              <span class="dot dot--green"></span>
-              <span class="terminal__path">Neville ~/Developer</span>
+                <div class="hero__cta">
+                  <a href="#contact" class="btn btn--gradient btn--pill">Let's Talk Digital Solutions</a>
+                  <a href="#expertise" class="btn btn--ghost btn--pill">My Services</a>
+                </div>
+
+                <div class="social">
+                  <a href="mailto:ogutuhanningtone@gmail.com" aria-label="Email" class="icon-btn icon-btn--indigo">
+                    <i class="fa-solid fa-envelope"></i>
+                  </a>
+                  <a href="tel:+254716927955" aria-label="Call" class="icon-btn icon-btn--indigo">
+                    <i class="fa-solid fa-phone"></i>
+                  </a>
+                  <a href="https://wa.link/xwh6aa" target="_blank" rel="noopener" aria-label="WhatsApp" class="icon-btn icon-btn--green">
+                    <i class="fa-brands fa-whatsapp"></i>
+                  </a>
+                  <a href="https://x.com/_NevilleOgutu" target="_blank" rel="noopener" aria-label="Twitter" class="icon-btn icon-btn--blue">
+                    <i class="fa-brands fa-twitter"></i>
+                  </a>
+                  <a href="https://www.tiktok.com/@ogutuneville" target="_blank" rel="noopener" aria-label="TikTok" class="icon-btn icon-btn--pink">
+                    <i class="fa-brands fa-tiktok"></i>
+                  </a>
+                </div>
+              </div>
+
+              <div class="hero__right">
+                <div class="terminal">
+                  <div class="terminal__bar">
+                    <span class="dot dot--red"></span>
+                    <span class="dot dot--yellow"></span>
+                    <span class="dot dot--green"></span>
+                    <span class="terminal__path">Neville ~/Developer</span>
+                  </div>
+                  <div id="terminal" class="terminal__body"></div>
+                </div>
+              </div>
+
             </div>
-            <div id="terminal" class="terminal__body"></div>
           </div>
-        </div>
+        </section>
 
-      </div>
-    </div>
+        <!-- Deck navigation -->
+        <nav class="deck-nav" aria-label="Slide navigation">
+          <button class="deck-arrow deck-arrow--right" data-target="cell-about" aria-label="Go to About Me">
+            About Me <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </nav>
 
-    <!-- Scroll down indicator -->
-    <div class="hero__scroll">
-      <div class="hero__scroll-dot"></div>
-    </div>
-  </section>
+      </div><!-- /cell-hero -->
 
-  <!-- ================= ABOUT ================= -->
-  <section id="about" data-aos="fade-up" class="section section--alt">
-    <div class="container container--narrow center">
-      <span class="kicker-line">About Me</span>
 
-      <h2 class="h2">
-        Transforming Ideas Into <span class="text-gradient">Digital Masterpieces</span>
-      </h2>
+      <!-- ── SLIDE 2 · About Me ── col 2, row 1 ── -->
+      <div class="deck-cell" id="cell-about">
 
-      <p class="p muted p--spaced">
-        I'm a Web Developer with 6 years of hands-on experience delivering,
-        maintaining, and optimizing digital solutions for businesses across
-        multiple industries. I specialize in building professional,
-        high-performance websites and supporting real-world systems that operate
-        in live production environments.
-        <br><br>
-        My work combines clean design, functional development, performance
-        optimization, and practical problem-solving. I've collaborated with
-        teams, supported active client websites, and delivered solutions that
-        focus on reliability, clarity, and measurable business impact.
-      </p>
-    </div>
-  </section>
+        <section id="about" class="hero-slide section--alt">
+          <div class="container container--narrow center">
+            <span class="kicker-line">About Me</span>
 
-  <!-- ================= SKILLS ================= -->
-  <section id="skills" data-aos="fade-up" class="section section--dark">
-    <div class="container">
-      <div class="section-header center">
-        <p class="kicker kicker--rule">My Skills</p>
-        <h2 class="h2">
-          Crafting <span class="text-gradient">Technical Excellence</span> Across Domains
-        </h2>
-      </div>
+            <h2 class="h2">
+              Transforming Ideas Into <span class="text-gradient">Digital Masterpieces</span>
+            </h2>
 
-      <div class="skills-block">
-        <h3 class="h3">Web Technologies</h3>
+            <p class="p muted p--spaced">
+              I'm a Web Developer with 6 years of hands-on experience delivering,
+              maintaining, and optimizing digital solutions for businesses across
+              multiple industries. I specialize in building professional,
+              high-performance websites and supporting real-world systems that operate
+              in live production environments.
+              <br><br>
+              My work combines clean design, functional development, performance
+              optimization, and practical problem-solving. I've collaborated with
+              teams, supported active client websites, and delivered solutions that
+              focus on reliability, clarity, and measurable business impact.
+            </p>
+          </div>
+        </section>
 
-        <div class="skillbars">
-          <div class="skillbar">
-            <div class="skillbar__row">
-              <span>HTML5</span><span class="skillbar__pct">99%</span>
+        <nav class="deck-nav" aria-label="Slide navigation">
+          <button class="deck-arrow deck-arrow--left" data-target="cell-hero" aria-label="Back to Home">
+            <i class="fa-solid fa-arrow-left"></i> Home
+          </button>
+          <button class="deck-arrow deck-arrow--down" data-target="cell-skills" aria-label="Go to Skills">
+            Skills <i class="fa-solid fa-arrow-down"></i>
+          </button>
+        </nav>
+
+      </div><!-- /cell-about -->
+
+
+      <!-- ── SLIDE 3 · Skills + Tools ── col 2, row 2 ── -->
+      <div class="deck-cell" id="cell-skills">
+
+        <section id="skills" class="hero-slide section--dark">
+          <div class="container">
+
+            <div class="section-header center">
+              <p class="kicker kicker--rule">My Skills &amp; Tools</p>
+              <h2 class="h2">
+                Crafting <span class="text-gradient">Technical Excellence</span>
+              </h2>
             </div>
-            <div class="skillbar__track"><div class="skillbar__fill" style="width:90%"></div></div>
-          </div>
 
-          <div class="skillbar">
-            <div class="skillbar__row">
-              <span>CSS3</span><span class="skillbar__pct">90%</span>
+            <!-- Skill bars -->
+            <div class="skills-block">
+              <h3 class="h3">Web Technologies</h3>
+              <div class="skillbars">
+                <div class="skillbar">
+                  <div class="skillbar__row"><span>HTML5</span><span class="skillbar__pct">99%</span></div>
+                  <div class="skillbar__track"><div class="skillbar__fill" style="width:99%"></div></div>
+                </div>
+                <div class="skillbar">
+                  <div class="skillbar__row"><span>CSS3</span><span class="skillbar__pct">90%</span></div>
+                  <div class="skillbar__track"><div class="skillbar__fill" style="width:90%"></div></div>
+                </div>
+                <div class="skillbar">
+                  <div class="skillbar__row"><span>JavaScript</span><span class="skillbar__pct">95%</span></div>
+                  <div class="skillbar__track"><div class="skillbar__fill" style="width:95%"></div></div>
+                </div>
+                <div class="skillbar">
+                  <div class="skillbar__row"><span>WordPress / Page Builders</span><span class="skillbar__pct">99%</span></div>
+                  <div class="skillbar__track"><div class="skillbar__fill" style="width:99%"></div></div>
+                </div>
+                <div class="skillbar">
+                  <div class="skillbar__row"><span>UX / UI Fundamentals</span><span class="skillbar__pct">97%</span></div>
+                  <div class="skillbar__track"><div class="skillbar__fill" style="width:97%"></div></div>
+                </div>
+              </div>
             </div>
-            <div class="skillbar__track"><div class="skillbar__fill" style="width:90%"></div></div>
-          </div>
 
-          <div class="skillbar">
-            <div class="skillbar__row">
-              <span>JavaScript </span><span class="skillbar__pct">95%</span>
+            <!-- Platforms & Tools -->
+            <div class="tools-block">
+              <h3 class="h3 center">Platforms &amp; Tools</h3>
+              <div class="tools-grid" id="toolsGrid">
+                <div class="skill-card"><div class="icon"><img src="https://api.iconify.design/simple-icons/git.svg?color=%23F05032" alt="Git"></div><div class="title">Git &amp; GitHub</div></div>
+                <div class="skill-card"><div class="icon"><img src="https://api.iconify.design/simple-icons/windows11.svg?color=%230078D4" alt="Windows"></div><div class="title">Windows</div></div>
+                <div class="skill-card"><div class="icon"><img src="https://api.iconify.design/simple-icons/linux.svg?color=%23FCC624" alt="Linux"></div><div class="title">Linux</div></div>
+                <div class="skill-card"><div class="icon"><img src="https://api.iconify.design/simple-icons/microsoftoffice.svg?color=%23D83B01" alt="Microsoft Office"></div><div class="title">Microsoft Office</div></div>
+                <div class="skill-card"><div class="icon"><img src="https://api.iconify.design/simple-icons/html5.svg?color=%23E34F26" alt="HTML5"></div><div class="title">HTML5</div></div>
+                <div class="skill-card"><div class="icon"><img src="https://api.iconify.design/simple-icons/cpanel.svg?color=%23FF6C2C" alt="cPanel"></div><div class="title">cPanel</div></div>
+                <div class="skill-card"><div class="icon"><img src="https://api.iconify.design/simple-icons/visualstudiocode.svg?color=%23007ACC" alt="VS Code"></div><div class="title">VS Code</div></div>
+                <div class="skill-card"><div class="icon"><img src="https://api.iconify.design/simple-icons/wordpress.svg?color=%2321759B" alt="WordPress"></div><div class="title">WordPress</div></div>
+                <div class="skill-card"><div class="icon"><img src="https://api.iconify.design/simple-icons/mysql.svg?color=%234479A1" alt="MySQL"></div><div class="title">MySQL</div></div>
+                <div class="skill-card"><div class="icon"><img src="https://api.iconify.design/simple-icons/php.svg?color=%23777BB4" alt="PHP"></div><div class="title">PHP</div></div>
+                <div class="skill-card"><div class="icon"><img src="https://api.iconify.design/simple-icons/figma.svg?color=%23F24E1E" alt="Figma"></div><div class="title">Figma</div></div>
+                <div class="skill-card"><div class="icon"><img src="https://api.iconify.design/simple-icons/canva.svg?color=%2300C4CC" alt="Canva"></div><div class="title">Canva</div></div>
+                <div class="skill-card"><div class="icon"><img class="is-logo" src="https://api.iconify.design/logos/google.svg" alt="Google Workspace"></div><div class="title">Google Workspace</div></div>
+              </div>
             </div>
-            <div class="skillbar__track"><div class="skillbar__fill" style="width:70%"></div></div>
+
           </div>
+        </section>
 
-          <div class="skillbar">
-            <div class="skillbar__row">
-              <span>WordPress / Page Builders</span><span class="skillbar__pct">99%</span>
-            </div>
-            <div class="skillbar__track"><div class="skillbar__fill" style="width:95%"></div></div>
-          </div>
+        <nav class="deck-nav" aria-label="Slide navigation">
+          <button class="deck-arrow deck-arrow--up" data-target="cell-about" aria-label="Back to About Me">
+            <i class="fa-solid fa-arrow-up"></i> About Me
+          </button>
+          <a class="deck-arrow deck-arrow--continue" href="#expertise" aria-label="View Full Portfolio">
+            Full Portfolio <i class="fa-solid fa-arrow-down"></i>
+          </a>
+        </nav>
 
-          <div class="skillbar">
-            <div class="skillbar__row">
-              <span>UX / UI Fundamentals</span><span class="skillbar__pct">97%</span>
-            </div>
-            <div class="skillbar__track"><div class="skillbar__fill" style="width:85%"></div></div>
-          </div>
-        </div>
-      </div>
+      </div><!-- /cell-skills -->
 
-      <div class="tools-block">
-        <h3 class="h3 center">Platforms &amp; Tools</h3>
+    </div><!-- /deck-grid -->
+  </div><!-- /deck-viewport -->
 
-        <div class="tools-grid">
-          <div class="skill-card" data-aos="fade-up" data-aos-delay="50">
-            <div class="icon"><img src="https://api.iconify.design/simple-icons/git.svg?color=%23F05032" alt="Git"></div>
-            <div class="title">Git &amp; GitHub</div>
-          </div>
-
-
-          <div class="skill-card" data-aos="fade-up" data-aos-delay="150">
-            <div class="icon"><img src="https://api.iconify.design/simple-icons/windows11.svg?color=%230078D4" alt="Windows"></div>
-            <div class="title">Windows</div>
-          </div>
-
-          <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon"><img src="https://api.iconify.design/simple-icons/linux.svg?color=%23FCC624" alt="Linux"></div>
-            <div class="title">Linux</div>
-          </div>
-
-          <div class="skill-card" data-aos="fade-up" data-aos-delay="250">
-            <div class="icon"><img src="https://api.iconify.design/simple-icons/microsoftoffice.svg?color=%23D83B01" alt="Microsoft Office"></div>
-            <div class="title">Microsoft Office</div>
-          </div>
-
-          <!-- HTML5 -->
-<div class="skill-card" data-aos="fade-up" data-aos-delay="350">
-  <div class="icon"><img src="https://api.iconify.design/simple-icons/html5.svg?color=%23E34F26" alt="HTML5"></div>
-  <div class="title">HTML5</div>
-</div>
-
-<!-- cPanel -->
-<div class="skill-card" data-aos="fade-up" data-aos-delay="400">
-  <div class="icon"><img src="https://api.iconify.design/simple-icons/cpanel.svg?color=%23FF6C2C" alt="cPanel"></div>
-  <div class="title">cPanel</div>
-</div>
-
-          <!-- VS Code -->
-<div class="skill-card" data-aos="fade-up" data-aos-delay="450">
-  <div class="icon"><img src="https://api.iconify.design/simple-icons/visualstudiocode.svg?color=%23007ACC" alt="VS Code"></div>
-  <div class="title">VS Code</div>
-</div>
-
-<!-- WordPress -->
-<div class="skill-card" data-aos="fade-up" data-aos-delay="500">
-  <div class="icon"><img src="https://api.iconify.design/simple-icons/wordpress.svg?color=%2321759B" alt="WordPress"></div>
-  <div class="title">WordPress</div>
-</div>
-
-<!-- MySQL -->
-<div class="skill-card" data-aos="fade-up" data-aos-delay="550">
-  <div class="icon"><img src="https://api.iconify.design/simple-icons/mysql.svg?color=%234479A1" alt="MySQL"></div>
-  <div class="title">MySQL</div>
-</div>
-
-<!-- PHP -->
-<div class="skill-card" data-aos="fade-up" data-aos-delay="600">
-  <div class="icon"><img src="https://api.iconify.design/simple-icons/php.svg?color=%23777BB4" alt="PHP"></div>
-  <div class="title">PHP</div>
-</div>
-
-<!-- Figma -->
-<div class="skill-card" data-aos="fade-up" data-aos-delay="650">
-  <div class="icon"><img src="https://api.iconify.design/simple-icons/figma.svg?color=%23F24E1E" alt="Figma"></div>
-  <div class="title">Figma</div>
-</div>
-
-<!-- Canva -->
-<div class="skill-card" data-aos="fade-up" data-aos-delay="700">
-  <div class="icon"><img src="https://api.iconify.design/simple-icons/canva.svg?color=%2300C4CC" alt="Canva"></div>
-  <div class="title">Canva</div>
-</div>
-
-          <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon"><img class="is-logo" src="https://api.iconify.design/logos/google.svg" alt="Google Workspace"></div>
-            <div class="title">Google Workspace</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
 
   <!-- ================= SERVICES / EXPERTISE ================= -->
   <section id="expertise" data-aos="fade-up" class="section section--alt">
     <div class="container">
-
       <div class="section-header center">
         <p class="kicker kicker--rule">My Expertise</p>
         <h2 class="h2">Specialized Services For <span class="text-gradient">Digital Growth</span></h2>
@@ -352,22 +284,22 @@
         </article>
 
         <article class="service-card service-card--blue" data-aos="fade-up" data-aos-delay="60">
-  <i class="fa-solid fa-network-wired service-card__icon"></i>
-  <p class="service-card__kicker">Business Systems</p>
-  <h3 class="service-card__title">Integrated Solutions</h3>
-  <ul class="service-card__list">
-    <li>Pharmacy Management</li>
-    <li>Restaurant Ordering &amp; Reservations</li>
-    <li>POS (General Retail)</li>
-    <li>CRM (Customer Relationship Management)</li>
-    <li>Rental &amp; Property Management</li>
-    <li>School / College Systems</li>
-    <li>Hospital / Clinic Systems</li>
-    <li>HR &amp; Payroll Solutions</li>
-    <li>Hotel / Booking Systems</li>
-    <li>Sacco / Microfinance Platforms</li>
-  </ul>
-</article>
+          <i class="fa-solid fa-network-wired service-card__icon"></i>
+          <p class="service-card__kicker">Business Systems</p>
+          <h3 class="service-card__title">Integrated Solutions</h3>
+          <ul class="service-card__list">
+            <li>Pharmacy Management</li>
+            <li>Restaurant Ordering &amp; Reservations</li>
+            <li>POS (General Retail)</li>
+            <li>CRM (Customer Relationship Management)</li>
+            <li>Rental &amp; Property Management</li>
+            <li>School / College Systems</li>
+            <li>Hospital / Clinic Systems</li>
+            <li>HR &amp; Payroll Solutions</li>
+            <li>Hotel / Booking Systems</li>
+            <li>Sacco / Microfinance Platforms</li>
+          </ul>
+        </article>
 
         <article class="service-card service-card--orange" data-aos="fade-up" data-aos-delay="120">
           <i class="fa-solid fa-robot service-card__icon"></i>
@@ -428,7 +360,6 @@
           </ul>
         </article>
 
-        
         <article class="service-card service-card--blue" data-aos="fade-up" data-aos-delay="60">
           <i class="fa-solid fa-chart-line service-card__icon"></i>
           <p class="service-card__kicker">Marketing</p>
@@ -447,7 +378,6 @@
   <!-- ================= PROJECTS ================= -->
   <section id="projects" data-aos="fade-up" class="section section--dark">
     <div class="container">
-
       <div class="section-header center">
         <p class="kicker kicker--rule">My Projects</p>
         <h2 class="h2">Selected <span class="text-gradient">Completed Tasks &amp; Tools Utilized</span></h2>
@@ -456,110 +386,71 @@
       <div class="projects-grid">
 
         <article class="project" data-aos="fade-up" data-aos-delay="0">
-  <img src="eclat-scrn.webp" alt="Éclat Gift Shop" class="project__img">
-  <div class="project__front">
-    <h3 class="project__type">E-commerce Website</h3>
-  </div>
-  <div class="project__overlay">
-    <span class="project__tag">Éclat Gift Shop</span>
-    <div class="project__tools">
-      <h4>Tools Used:</h4>
-      <ul>
-        <li>HTML &amp; CSS</li>
-        <li>JavaScript</li>
-        <li>PHP &amp; MySQL</li>
-      </ul>
-    </div>
-    <a href="https://eclatgiftshop.co.ke" target="_blank" class="project__link" rel="noopener">View Project →</a>
-  </div>
-</article>
+          <img src="eclat-scrn.webp" alt="Éclat Gift Shop" class="project__img">
+          <div class="project__front"><h3 class="project__type">E-commerce Website</h3></div>
+          <div class="project__overlay">
+            <span class="project__tag">Éclat Gift Shop</span>
+            <div class="project__tools"><h4>Tools Used:</h4><ul><li>HTML &amp; CSS</li><li>JavaScript</li><li>PHP &amp; MySQL</li></ul></div>
+            <a href="https://eclatgiftshop.co.ke" target="_blank" class="project__link" rel="noopener">View Project →</a>
+          </div>
+        </article>
 
         <article class="project" data-aos="fade-up" data-aos-delay="0">
           <img src="fav contractors srcn.png" alt="Favourite Contractors" class="project__img">
-          <div class="project__front">
-            <h3 class="project__type">Construction Website</h3>
-          </div>
+          <div class="project__front"><h3 class="project__type">Construction Website</h3></div>
           <div class="project__overlay">
             <span class="project__tag">Favourite Contractors</span>
-            <div class="project__tools">
-              <h4>Tools Used:</h4>
-              <ul><li>WordPress</li><li>Elementor</li><li>HTML &amp; CSS</li></ul>
-            </div>
+            <div class="project__tools"><h4>Tools Used:</h4><ul><li>WordPress</li><li>Elementor</li><li>HTML &amp; CSS</li></ul></div>
             <a href="https://favouritecontractors.co.ke" target="_blank" class="project__link" rel="noopener">View Project →</a>
           </div>
         </article>
 
         <article class="project" data-aos="fade-up" data-aos-delay="80">
           <img src="mideh farm srcn.png" alt="Mideh Farm" class="project__img">
-          <div class="project__front">
-            <h3 class="project__type">Agriculture Business Website</h3>
-          </div>
+          <div class="project__front"><h3 class="project__type">Agriculture Business Website</h3></div>
           <div class="project__overlay">
             <span class="project__tag">Mideh Farm</span>
-            <div class="project__tools">
-              <h4>Tools Used:</h4>
-              <ul><li>WordPress</li><li>Elementor</li><li>HTML &amp; CSS</li></ul>
-            </div>
+            <div class="project__tools"><h4>Tools Used:</h4><ul><li>WordPress</li><li>Elementor</li><li>HTML &amp; CSS</li></ul></div>
             <a href="https://midehfarm.co.ke" target="_blank" class="project__link" rel="noopener">View Project →</a>
           </div>
         </article>
 
         <article class="project" data-aos="fade-up" data-aos-delay="160">
           <img src="finxpert scrn.png" alt="FinXpert" class="project__img">
-          <div class="project__front">
-            <h3 class="project__type">Finance Services Website</h3>
-          </div>
+          <div class="project__front"><h3 class="project__type">Finance Services Website</h3></div>
           <div class="project__overlay">
             <span class="project__tag">FinXpert</span>
-            <div class="project__tools">
-              <h4>Tools Used:</h4>
-              <ul><li>WordPress</li><li>Elementor</li><li>HTML &amp; CSS</li></ul>
-            </div>
+            <div class="project__tools"><h4>Tools Used:</h4><ul><li>WordPress</li><li>Elementor</li><li>HTML &amp; CSS</li></ul></div>
             <a href="https://finxpert.co.ke" target="_blank" class="project__link" rel="noopener">View Project →</a>
           </div>
         </article>
 
         <article class="project" data-aos="fade-up" data-aos-delay="0">
           <img src="foamblock scrn.png" alt="Foam Blocks Kenya" class="project__img">
-          <div class="project__front">
-            <h3 class="project__type">Manufacturing &amp; Product Website</h3>
-          </div>
+          <div class="project__front"><h3 class="project__type">Manufacturing &amp; Product Website</h3></div>
           <div class="project__overlay">
             <span class="project__tag">Foam Blocks Kenya</span>
-            <div class="project__tools">
-              <h4>Tools Used:</h4>
-              <ul><li>WordPress</li><li>Elementor</li><li>HTML &amp; CSS</li></ul>
-            </div>
+            <div class="project__tools"><h4>Tools Used:</h4><ul><li>WordPress</li><li>Elementor</li><li>HTML &amp; CSS</li></ul></div>
             <a href="https://foamblockskenya.com" target="_blank" class="project__link" rel="noopener">View Project →</a>
           </div>
         </article>
 
         <article class="project" data-aos="fade-up" data-aos-delay="80">
           <img src="rayneinter scrn.png" alt="Rayne Integrated" class="project__img">
-          <div class="project__front">
-            <h3 class="project__type">Enterprise Business Website</h3>
-          </div>
+          <div class="project__front"><h3 class="project__type">Enterprise Business Website</h3></div>
           <div class="project__overlay">
             <span class="project__tag">Rayne Integrated</span>
-            <div class="project__tools">
-              <h4>Tools Used:</h4>
-              <ul><li>WordPress</li><li>Elementor</li><li>HTML &amp; CSS</li></ul>
-            </div>
+            <div class="project__tools"><h4>Tools Used:</h4><ul><li>WordPress</li><li>Elementor</li><li>HTML &amp; CSS</li></ul></div>
             <a href="https://rayne-integrated.com" target="_blank" class="project__link" rel="noopener">View Project →</a>
           </div>
         </article>
 
         <article class="project" data-aos="fade-up" data-aos-delay="160">
           <img src="kist.webp" alt="Key To Success International" class="project__img">
-          <div class="project__front">
-            <h3 class="project__type">NGO / Women CBO Website</h3>
-          </div>
+          <div class="project__front"><h3 class="project__type">NGO / Women CBO Website</h3></div>
           <div class="project__overlay">
             <span class="project__tag">Key To Success International</span>
-            <div class="project__tools">
-              <h4>Tools Used:</h4>
-              <ul><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
-            </div>
+            <div class="project__tools"><h4>Tools Used:</h4><ul><li>HTML</li><li>CSS</li><li>JavaScript</li></ul></div>
             <a href="https://keytosuccessintl.org/" target="_blank" class="project__link" rel="noopener">View Project →</a>
           </div>
         </article>
@@ -585,58 +476,34 @@
           <div class="ttrack" id="tTrack">
 
             <article class="tcard tcard--indigo">
-              <p class="tquote">
-                Working with Neville was one of the best decisions we made for DreamBridge Education Africa.
-                He translated our vision into a clean, professional website that truly represents our mission.
-              </p>
+              <p class="tquote">Working with Neville was one of the best decisions we made for DreamBridge Education Africa. He translated our vision into a clean, professional website that truly represents our mission.</p>
               <div class="twho">
                 <img class="tavatar" src="Deana.webp" alt="Diana Kafura">
-                <div>
-                  <div class="tname">Diana Kafura</div>
-                  <div class="trole">Founder, DreamBridge Education Africa</div>
-                </div>
+                <div><div class="tname">Diana Kafura</div><div class="trole">Founder, DreamBridge Education Africa</div></div>
               </div>
             </article>
 
             <article class="tcard tcard--red">
-              <p class="tquote">
-                Neville delivered exactly what we needed — a modern, product-focused website that improved how
-                customers understand our services. The results were immediate.
-              </p>
+              <p class="tquote">Neville delivered exactly what we needed — a modern, product-focused website that improved how customers understand our services. The results were immediate.</p>
               <div class="twho">
                 <img class="tavatar" src="evans.webp" alt="Evans Wanyama">
-                <div>
-                  <div class="tname">Evans Wanyama</div>
-                  <div class="trole">Founder, Foam Blocks Kenya</div>
-                </div>
+                <div><div class="tname">Evans Wanyama</div><div class="trole">Founder, Foam Blocks Kenya</div></div>
               </div>
             </article>
 
             <article class="tcard tcard--teal">
-              <p class="tquote">
-                Professional, efficient, and detail-oriented. Our FinXpert website now reflects the trust
-                and credibility required in the financial sector.
-              </p>
+              <p class="tquote">Professional, efficient, and detail-oriented. Our FinXpert website now reflects the trust and credibility required in the financial sector.</p>
               <div class="twho">
                 <img class="tavatar" src="grace.webp" alt="Grace Kariuki">
-                <div>
-                  <div class="tname">Grace Kariuki</div>
-                  <div class="trole">Managing Director, FinXpert</div>
-                </div>
+                <div><div class="tname">Grace Kariuki</div><div class="trole">Managing Director, FinXpert</div></div>
               </div>
             </article>
 
             <article class="tcard tcard--yellow">
-              <p class="tquote">
-                Neville is a highly reliable and technically strong professional. He consistently delivers
-                solutions with precision, initiative, and a deep understanding of modern systems.
-              </p>
+              <p class="tquote">Neville is a highly reliable and technically strong professional. He consistently delivers solutions with precision, initiative, and a deep understanding of modern systems.</p>
               <div class="twho">
                 <img class="tavatar" src="zander.webp" alt="Alexander">
-                <div>
-                  <div class="tname">Alexander</div>
-                  <div class="trole">Founder, Skillydon Solutions</div>
-                </div>
+                <div><div class="tname">Alexander</div><div class="trole">Founder, Skillydon Solutions</div></div>
               </div>
             </article>
 
@@ -655,13 +522,10 @@
   <!-- ================= PRICING ================= -->
   <section id="pricing" class="section section--dark">
     <div class="container">
-
       <div class="section-header center">
         <p class="kicker kicker--rule">Website Plans</p>
         <h2 class="h2">Simple, Transparent <span class="text-gradient">Pricing</span></h2>
-        <p class="muted maxw">
-          Clear website packages designed for startups, growing businesses, and brands ready to scale.
-        </p>
+        <p class="muted maxw">Clear website packages designed for startups, growing businesses, and brands ready to scale.</p>
       </div>
 
       <div class="pricing-grid">
@@ -716,20 +580,16 @@
     </div>
   </section>
 
-  <!-- ================= HIRE ME / CTA ================= -->
+  <!-- ================= HIRE ME ================= -->
   <section id="hire" class="section section--alt">
     <div class="container hire">
       <div class="hire__img" data-aos="fade-right">
         <img src="Gemini_Generated_Image_8kz7t88kz7t88kz7.webp" alt="Hanningtone Neville Ogutu">
       </div>
-
       <div class="hire__content" data-aos="fade-left">
         <p class="kicker kicker--rule">Let's Collaborate</p>
         <h2 class="h2">Ready to <span class="text-gradient">Build Cutting-Edge Digital Experiences</span>?</h2>
-        <p class="muted">
-          I craft sleek, functional, and futuristic websites that elevate your brand and drive engagement.
-          Let's turn your ideas into high-impact digital solutions.
-        </p>
+        <p class="muted">I craft sleek, functional, and futuristic websites that elevate your brand and drive engagement. Let's turn your ideas into high-impact digital solutions.</p>
         <a href="#contact" class="btn btn--gradient">Hire Me →</a>
       </div>
     </div>
@@ -738,32 +598,27 @@
   <!-- ================= CONTACT ================= -->
   <section id="contact" data-aos="fade-up" class="section section--dark">
     <div class="container">
-
       <div class="section-header center">
         <p class="kicker kicker--rule">Get In Touch</p>
         <h2 class="h2">Let's <span class="text-gradient">Work Together</span></h2>
       </div>
 
       <div class="contact-grid">
-
         <div class="contact-form">
           <form id="contactForm" action="https://formspree.io/f/meeqjenj" method="POST" class="form">
             <input type="hidden" name="_subject" value="New Website Contact Message">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_autoresponse" value="Hi 👋 Thanks for reaching out! I've received your message and will get back to you shortly. — Ogutu Neville">
-
             <div class="form__row">
               <input name="name" required placeholder="Name" class="field">
               <input type="email" name="email" required placeholder="Email" class="field">
             </div>
             <input name="subject" required placeholder="Subject" class="field">
             <textarea name="message" rows="6" required placeholder="Message" class="field field--textarea"></textarea>
-
             <button id="submitBtn" type="submit" class="btn btn--gradient btn--block">
               <span id="btnText">Send Message</span>
             </button>
           </form>
-
           <div id="successBox" class="success hidden">
             <div class="success__icon"><i class="fa-solid fa-check"></i></div>
             <h3>Message Sent Successfully!</h3>
@@ -772,46 +627,26 @@
         </div>
 
         <aside class="contact-info">
-          <p class="muted">
-            Always available for freelance work and consultations 24/7.
-            Feel free to contact me!
-          </p>
-
+          <p class="muted">Always available for freelance work and consultations 24/7. Feel free to contact me!</p>
           <div class="info-list">
             <div class="info">
               <span class="info__icon info__icon--indigo"><i class="fa-solid fa-user"></i></span>
-              <div>
-                <div class="info__title">Name</div>
-                <div class="muted">Hanningtone Neville Ogutu</div>
-              </div>
+              <div><div class="info__title">Name</div><div class="muted">Hanningtone Neville Ogutu</div></div>
             </div>
-
             <div class="info">
               <span class="info__icon info__icon--green"><i class="fa-solid fa-location-dot"></i></span>
-              <div>
-                <div class="info__title">Location</div>
-                <div class="muted">Nairobi (Available for remote work)</div>
-              </div>
+              <div><div class="info__title">Location</div><div class="muted">Nairobi (Available for remote work)</div></div>
             </div>
-
             <div class="info">
               <span class="info__icon info__icon--yellow"><i class="fa-solid fa-phone"></i></span>
-              <div>
-                <div class="info__title">Call Me</div>
-                <div class="muted">+254 716 927 955</div>
-              </div>
+              <div><div class="info__title">Call Me</div><div class="muted">+254 716 927 955</div></div>
             </div>
-
             <div class="info">
               <span class="info__icon info__icon--pink"><i class="fa-solid fa-envelope"></i></span>
-              <div>
-                <div class="info__title">Email Me</div>
-                <div class="muted">ogutuhanningtone@gmail.com</div>
-              </div>
+              <div><div class="info__title">Email Me</div><div class="muted">ogutuhanningtone@gmail.com</div></div>
             </div>
           </div>
         </aside>
-
       </div>
     </div>
   </section>
@@ -822,7 +657,6 @@
       <div class="footer__copy">
         © <span id="year"></span> <strong>Hanningtone Neville Ogutu</strong>. All Rights Reserved.
       </div>
-
       <div class="footer__social">
         <a href="mailto:ogutuhanningtone@gmail.com" aria-label="Email" class="icon-btn icon-btn--indigo"><i class="fa-solid fa-envelope"></i></a>
         <a href="tel:+254716927955" aria-label="Call" class="icon-btn icon-btn--indigo"><i class="fa-solid fa-phone"></i></a>
@@ -834,108 +668,86 @@
   </footer>
 
   <!-- ================= SCRIPTS ================= -->
-  <!-- Deck cloning + navigation script -->
+
+  <!-- Deck navigation -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const mappings = [
-        { cell: 'cell-hero', src: '#hero' },
-        { cell: 'cell-about', src: '#about' },
-        { cell: 'cell-skills', src: '#skills' },
-        { cell: 'cell-platforms', src: '#skills .tools-block' }
-      ];
+  (() => {
+    const viewport = document.getElementById('deckViewport');
 
-      // Capture original elements first (preserve IDs/anchors), then move them
-      const refs = mappings.map(m => ({ cell: m.cell, el: document.querySelector(m.src) }));
+    function scrollToCell(id) {
+      const el = document.getElementById(id);
+      if (!el || !viewport) return;
+      viewport.scrollTo({ left: el.offsetLeft, top: el.offsetTop, behavior: 'smooth' });
+    }
 
-      refs.forEach(item => {
-        const cell = document.getElementById(item.cell);
-        const inner = cell ? cell.querySelector('.deck-inner') : null;
-        if (inner && item.el) {
-          // remove placeholder and move the original element into the deck cell
-          inner.remove();
-          cell.appendChild(item.el);
-        } else if (inner) {
-          // fallback: keep placeholder empty
-          inner.innerHTML = '';
-        }
-      });
-
-      const viewport = document.getElementById('deckViewport');
-      function scrollToCell(id) {
-        const el = document.getElementById(id);
-        if (!el || !viewport) return;
-        viewport.scrollTo({ left: el.offsetLeft, top: el.offsetTop, behavior: 'smooth' });
-      }
-
-      document.querySelectorAll('.deck-nav .arrow').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const tgt = btn.dataset.target;
-          if (tgt) scrollToCell(tgt);
-        });
-      });
-
-      document.addEventListener('keydown', (e) => {
-        const keys = ['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'];
-        if (!keys.includes(e.key)) return;
-        e.preventDefault();
-        const cx = viewport.scrollLeft + viewport.clientWidth / 2;
-        const cy = viewport.scrollTop  + viewport.clientHeight / 2;
-        let nearest = null, minD = Infinity;
-        document.querySelectorAll('.deck-cell').forEach(c => {
-          const ox = c.offsetLeft + c.offsetWidth/2;
-          const oy = c.offsetTop  + c.offsetHeight/2;
-          const d = Math.hypot(ox - cx, oy - cy);
-          if (d < minD) { minD = d; nearest = c; }
-        });
-        if (!nearest) return;
-        const map = { ArrowLeft: '.arrow.left', ArrowRight: '.arrow.right', ArrowUp: '.arrow.up', ArrowDown: '.arrow.down' };
-        const btn = nearest.querySelector(map[e.key]);
-        if (btn && btn.dataset.target) scrollToCell(btn.dataset.target);
-      });
+    document.querySelectorAll('.deck-arrow[data-target]').forEach(btn => {
+      btn.addEventListener('click', () => scrollToCell(btn.dataset.target));
     });
+
+    // Keyboard arrow navigation
+    document.addEventListener('keydown', e => {
+      const keys = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'];
+      if (!keys.includes(e.key)) return;
+      // Only intercept if focus is not in a form field
+      if (['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)) return;
+      e.preventDefault();
+
+      const cx = viewport.scrollLeft + viewport.clientWidth  / 2;
+      const cy = viewport.scrollTop  + viewport.clientHeight / 2;
+      let nearest = null, minD = Infinity;
+      document.querySelectorAll('.deck-cell').forEach(c => {
+        const ox = c.offsetLeft + c.offsetWidth  / 2;
+        const oy = c.offsetTop  + c.offsetHeight / 2;
+        const d  = Math.hypot(ox - cx, oy - cy);
+        if (d < minD) { minD = d; nearest = c; }
+      });
+      if (!nearest) return;
+
+      const map = {
+        ArrowLeft:  '.deck-arrow--left',
+        ArrowRight: '.deck-arrow--right',
+        ArrowUp:    '.deck-arrow--up',
+        ArrowDown:  '.deck-arrow--down'
+      };
+      const btn = nearest.querySelector(map[e.key]);
+      if (btn && btn.dataset.target) scrollToCell(btn.dataset.target);
+    });
+  })();
   </script>
 
   <!-- Mobile menu + footer year -->
   <script>
-    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileBtn  = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     mobileBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-    // Close on link click
-    mobileMenu?.querySelectorAll('.nav__link').forEach(link => {
-      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
-    });
-    document.getElementById("year").textContent = new Date().getFullYear();
+    mobileMenu?.querySelectorAll('.nav__link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 
   <!-- Contact form (Formspree) -->
   <script>
-    const form = document.getElementById("contactForm");
-    const btnText = document.getElementById("btnText");
-    const submitBtn = document.getElementById("submitBtn");
-    const successBox = document.getElementById("successBox");
+    const form       = document.getElementById('contactForm');
+    const btnText    = document.getElementById('btnText');
+    const submitBtn  = document.getElementById('submitBtn');
+    const successBox = document.getElementById('successBox');
 
-    form?.addEventListener("submit", async function(e) {
+    form?.addEventListener('submit', async e => {
       e.preventDefault();
-      btnText.textContent = "Sending...";
-      submitBtn.disabled = true;
-      const formData = new FormData(form);
+      btnText.textContent  = 'Sending...';
+      submitBtn.disabled   = true;
       try {
-        const response = await fetch(form.action, {
-          method: "POST",
-          body: formData,
-          headers: { Accept: "application/json" }
-        });
-        if (response.ok) {
+        const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+        if (res.ok) {
           form.reset();
-          form.classList.add("hidden");
-          successBox.classList.remove("hidden");
+          form.classList.add('hidden');
+          successBox.classList.remove('hidden');
         } else {
-          btnText.textContent = "Try Again";
-          submitBtn.disabled = false;
+          btnText.textContent = 'Try Again';
+          submitBtn.disabled  = false;
         }
-      } catch (error) {
-        btnText.textContent = "Error";
-        submitBtn.disabled = false;
+      } catch {
+        btnText.textContent = 'Error';
+        submitBtn.disabled  = false;
       }
     });
   </script>
@@ -944,111 +756,84 @@
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>AOS.init({ duration: 800, once: true, easing: 'ease-out-cubic', offset: 60 });</script>
 
-  <!-- =================== ENHANCED ANIMATIONS JS =================== -->
+  <!-- Enhanced animations (cursor, scroll progress, nav, skill bars) -->
   <script>
   (() => {
-    // ── 1. Custom Cursor (desktop / pointer: fine only) ──
-    const isFine = window.matchMedia('(pointer: fine)').matches;
+    // 1. Custom Cursor
+    const isFine    = window.matchMedia('(pointer: fine)').matches;
     const cursorDot  = document.getElementById('cursorDot');
     const cursorRing = document.getElementById('cursorRing');
 
     if (isFine && cursorDot && cursorRing) {
-      let dotX = 0, dotY = 0;
-      let ringX = 0, ringY = 0;
-      const LERP = 0.11;
-
+      let dotX = 0, dotY = 0, ringX = 0, ringY = 0;
       document.addEventListener('mousemove', e => {
-        dotX = e.clientX;
-        dotY = e.clientY;
+        dotX = e.clientX; dotY = e.clientY;
         cursorDot.style.left = dotX + 'px';
         cursorDot.style.top  = dotY + 'px';
       });
-
       (function animateRing() {
-        ringX += (dotX - ringX) * LERP;
-        ringY += (dotY - ringY) * LERP;
+        ringX += (dotX - ringX) * 0.11;
+        ringY += (dotY - ringY) * 0.11;
         cursorRing.style.left = ringX + 'px';
         cursorRing.style.top  = ringY + 'px';
         requestAnimationFrame(animateRing);
       })();
-
-      // Expand ring on interactive elements
-      const interactives = document.querySelectorAll(
-        'a, button, .project, .service-card, .skill-card, .tcard, .price, .field, .hire__img img, .terminal'
-      );
-      interactives.forEach(el => {
+      document.querySelectorAll('a,button,.project,.service-card,.skill-card,.tcard,.price,.field,.hire__img img,.terminal').forEach(el => {
         el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
         el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
       });
     } else {
-      // Touch device: remove cursor elements
-      cursorDot?.remove();
-      cursorRing?.remove();
+      cursorDot?.remove(); cursorRing?.remove();
     }
 
-    // ── 2. Scroll Progress Bar ──
+    // 2. Scroll Progress Bar
     const progressBar = document.getElementById('scrollProgress');
     if (progressBar) {
       window.addEventListener('scroll', () => {
-        const scrolled   = window.scrollY;
-        const maxScroll  = document.documentElement.scrollHeight - window.innerHeight;
-        const pct        = maxScroll > 0 ? (scrolled / maxScroll) * 100 : 0;
+        const pct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
         progressBar.style.width = pct + '%';
       }, { passive: true });
     }
 
-    // ── 3. Nav: frosted glass on scroll + active link ──
+    // 3. Nav active link
     const header   = document.getElementById('siteHeader');
     const sections = Array.from(document.querySelectorAll('section[id]'));
     const navLinks = Array.from(document.querySelectorAll('.nav__link'));
-
     window.addEventListener('scroll', () => {
-      // Scrolled class
       header?.classList.toggle('is-scrolled', window.scrollY > 60);
-
-      // Active nav link
       let current = '';
       sections.forEach(sec => {
         const rect = sec.getBoundingClientRect();
         if (rect.top <= 120 && rect.bottom >= 120) current = sec.id;
       });
-      navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        link.classList.toggle('is-active', href === '#' + current);
-      });
+      navLinks.forEach(l => l.classList.toggle('is-active', l.getAttribute('href') === '#' + current));
     }, { passive: true });
 
-    // ── 4. Skill Bar Animation (IntersectionObserver) ──
+    // 4. Skill Bar Animation — fires when cell-skills scrolls into the deck viewport
     const skillFills = document.querySelectorAll('.skillbar__fill');
-    skillFills.forEach(fill => {
-      fill.dataset.targetWidth = fill.style.width;
-      fill.style.width = '0';
-      fill.style.transition = 'none';
-    });
+    skillFills.forEach(f => { f.dataset.targetWidth = f.style.width; f.style.width = '0'; f.style.transition = 'none'; });
+    let skillsFired = false;
 
-    const skillSection = document.getElementById('skills');
-    if (skillSection) {
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            skillFills.forEach((fill, i) => {
-              setTimeout(() => {
-                fill.style.transition = 'width 1.4s cubic-bezier(0.16, 1, 0.3, 1)';
-                fill.style.width = fill.dataset.targetWidth;
-              }, i * 120);
-            });
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.25 });
-      observer.observe(skillSection);
+    const deckViewport = document.getElementById('deckViewport');
+    const skillsSection = document.getElementById('skills');
+    if (skillsSection && deckViewport) {
+      const obs = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting && !skillsFired) {
+          skillsFired = true;
+          skillFills.forEach((f, i) => setTimeout(() => {
+            f.style.transition = 'width 1.4s cubic-bezier(0.16,1,0.3,1)';
+            f.style.width = f.dataset.targetWidth;
+          }, i * 120));
+        }
+      }, { root: deckViewport, threshold: 0.25 });
+      obs.observe(skillsSection);
     }
-
   })();
   </script>
 
   <!-- Terminal typewriter -->
   <script>
+  (() => {
     const lines = [
       { text: "// Booting Ogutu Neville — Web Systems Interface", color: "#6A9955" },
       { text: "systemStatus = 'operational' ✔", color: "#4EC9B0" },
@@ -1069,203 +854,142 @@
       { text: "// Status: Ready to collaborate 🚀", color: "#6A9955" }
     ];
 
-    const terminal = document.getElementById("terminal");
-    let lineIndex = 0, charIndex = 0, currentLineEl;
-    const typingSpeed = 26, pauseBetweenLines = 330, restartDelay = 900;
+    const terminal = document.getElementById('terminal');
+    let li = 0, ci = 0, lineEl;
+    const speed = 26, pause = 330, restart = 900;
 
-    function typeLine() {
+    function type() {
       if (!terminal) return;
-      if (lineIndex >= lines.length) {
-        setTimeout(() => {
-          terminal.innerHTML = "";
-          lineIndex = 0; charIndex = 0;
-          typeLine();
-        }, restartDelay);
-        return;
+      if (li >= lines.length) {
+        return setTimeout(() => { terminal.innerHTML = ''; li = 0; ci = 0; type(); }, restart);
       }
-      const currentLine = lines[lineIndex];
-      if (charIndex === 0) {
-        currentLineEl = document.createElement("div");
-        currentLineEl.style.color = currentLine.color || "#D4D4D4";
-        const lineNumber = document.createElement("span");
-        lineNumber.textContent = (lineIndex + 1).toString().padStart(2, " ") + "  ";
-        lineNumber.style.color = "#858585";
-        lineNumber.style.userSelect = "none";
-        currentLineEl.appendChild(lineNumber);
-        terminal.appendChild(currentLineEl);
+      const cur = lines[li];
+      if (ci === 0) {
+        lineEl = document.createElement('div');
+        lineEl.style.color = cur.color || '#D4D4D4';
+        terminal.appendChild(lineEl);
       }
-      if (charIndex < currentLine.text.length) {
-        const lineNum = (lineIndex + 1).toString().padStart(2, " ") + "  ";
-        currentLineEl.innerHTML =
-          `<span style="color:#858585;user-select:none;">${lineNum}</span>` +
-          `<span style="color:${currentLine.color || '#D4D4D4'}">${currentLine.text.substring(0, charIndex + 1)}</span>`;
-        charIndex++;
-        setTimeout(typeLine, typingSpeed);
+      if (ci < cur.text.length) {
+        const num = (li + 1).toString().padStart(2, ' ') + '  ';
+        lineEl.innerHTML = `<span style="color:#858585;user-select:none">${num}</span><span style="color:${cur.color||'#D4D4D4'}">${cur.text.substring(0, ++ci)}</span>`;
+        setTimeout(type, speed);
       } else {
-        charIndex = 0; lineIndex++;
-        setTimeout(typeLine, pauseBetweenLines);
+        ci = 0; li++;
+        setTimeout(type, pause);
       }
     }
-    typeLine();
+    type();
+  })();
   </script>
 
-  <!-- Testimonial Slider -->
+  <!-- Testimonial slider -->
   <script>
   (() => {
-    const track    = document.getElementById("tTrack");
-    const dotsWrap = document.getElementById("tDots");
-    const prevBtn  = document.querySelector(".tbtn--prev");
-    const nextBtn  = document.querySelector(".tbtn--next");
-    if (!track || !dotsWrap) return;
+    const track   = document.getElementById('tTrack');
+    const dotsW   = document.getElementById('tDots');
+    const prevBtn = document.querySelector('.tbtn--prev');
+    const nextBtn = document.querySelector('.tbtn--next');
+    if (!track || !dotsW) return;
 
-    const cards = Array.from(track.querySelectorAll(".tcard"));
+    const cards = Array.from(track.querySelectorAll('.tcard'));
     let index = 0, timer = null;
 
-    function visibleCount() { return window.matchMedia("(max-width: 900px)").matches ? 1 : 2; }
-    function maxIndex()     { return Math.max(0, cards.length - visibleCount()); }
-    function cardStepPx()   {
-      const c = cards[0];
-      if (!c) return 0;
-      const gap = parseFloat(getComputedStyle(track).gap || "0");
-      return c.getBoundingClientRect().width + gap;
-    }
+    const visible   = () => window.matchMedia('(max-width: 900px)').matches ? 1 : 2;
+    const maxIdx    = () => Math.max(0, cards.length - visible());
+    const stepPx    = () => { const c = cards[0]; if (!c) return 0; return c.getBoundingClientRect().width + parseFloat(getComputedStyle(track).gap || 0); };
 
     function buildDots() {
-      dotsWrap.innerHTML = "";
-      const pages = maxIndex() + 1;
-      for (let i = 0; i < pages; i++) {
-        const b = document.createElement("button");
-        b.className = "tdot" + (i === index ? " is-active" : "");
-        b.type = "button";
-        b.addEventListener("click", () => { index = i; apply(); restart(); });
-        dotsWrap.appendChild(b);
+      dotsW.innerHTML = '';
+      for (let i = 0; i <= maxIdx(); i++) {
+        const b = document.createElement('button');
+        b.className = 'tdot' + (i === index ? ' is-active' : '');
+        b.type = 'button';
+        b.addEventListener('click', () => { index = i; apply(); restart(); });
+        dotsW.appendChild(b);
       }
     }
-
-    function setActiveDot() {
-      Array.from(dotsWrap.querySelectorAll(".tdot"))
-        .forEach((d, i) => d.classList.toggle("is-active", i === index));
-    }
-
     function apply() {
-      index = Math.min(Math.max(index, 0), maxIndex());
-      track.style.transform = `translateX(${-cardStepPx() * index}px)`;
-      setActiveDot();
+      index = Math.min(Math.max(index, 0), maxIdx());
+      track.style.transform = `translateX(${-stepPx() * index}px)`;
+      dotsW.querySelectorAll('.tdot').forEach((d, i) => d.classList.toggle('is-active', i === index));
     }
+    const next = () => { index = index >= maxIdx() ? 0 : index + 1; apply(); };
+    const prev = () => { index = index <= 0 ? maxIdx() : index - 1; apply(); };
+    const stop = () => { clearInterval(timer); timer = null; };
+    const start = () => { stop(); timer = setInterval(next, 3000); };
+    const restart = () => start();
 
-    function next()    { index = index >= maxIndex() ? 0 : index + 1; apply(); }
-    function prev()    { index = index <= 0 ? maxIndex() : index - 1; apply(); }
-    function start()   { stop(); timer = setInterval(next, 3000); }
-    function stop()    { if (timer) clearInterval(timer); timer = null; }
-    function restart() { start(); }
-
-    nextBtn?.addEventListener("click", () => { next(); restart(); });
-    prevBtn?.addEventListener("click", () => { prev(); restart(); });
-
-    const viewport = document.querySelector(".tviewport");
-    viewport?.addEventListener("mouseenter", stop);
-    viewport?.addEventListener("mouseleave", start);
-
-    window.addEventListener("resize", () => {
-      index = Math.min(index, maxIndex());
-      buildDots(); apply();
-    });
+    nextBtn?.addEventListener('click', () => { next(); restart(); });
+    prevBtn?.addEventListener('click', () => { prev(); restart(); });
+    document.querySelector('.tviewport')?.addEventListener('mouseenter', stop);
+    document.querySelector('.tviewport')?.addEventListener('mouseleave', start);
+    window.addEventListener('resize', () => { index = Math.min(index, maxIdx()); buildDots(); apply(); });
 
     buildDots(); apply(); start();
   })();
   </script>
 
-  <!-- Binary canvas background -->
+  <!-- Binary canvas background (Hero) -->
   <script>
   (() => {
-    const canvas = document.getElementById("binaryBg");
+    const canvas = document.getElementById('binaryBg');
     if (!canvas) return;
-    const ctx = canvas.getContext("2d", { alpha: true });
-    const chars = ["0","1"];
+    const ctx   = canvas.getContext('2d', { alpha: true });
+    const chars = ['0', '1'];
     let cols = 0, drops = [], fontSize = 16, rafId;
 
-    function getHeroSize() {
-      const hero = document.getElementById("hero");
-      if (!hero) return { w: window.innerWidth, h: window.innerHeight };
-      const vw = window.visualViewport ? window.visualViewport.width  : window.innerWidth;
-      const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
-      const rect = hero.getBoundingClientRect();
-      const safeW = Math.min(vw, document.documentElement.clientWidth);
-return { w: Math.floor(safeW), h: Math.floor(Math.max(rect.height, vh * 0.85)) };
+    function size() {
+      return { w: window.innerWidth, h: window.innerHeight };
     }
-
     function resize() {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      const { w, h } = getHeroSize();
+      const { w, h } = size();
       canvas.width  = Math.floor(w * dpr);
       canvas.height = Math.floor(h * dpr);
-      canvas.style.width  = w + "px";
-      canvas.style.height = h + "px";
+      canvas.style.width  = w + 'px';
+      canvas.style.height = h + 'px';
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       fontSize = w < 520 ? 13 : 15;
       cols  = Math.floor(w / fontSize);
       drops = Array(cols).fill(1);
     }
-
     function draw() {
-      const { w, h } = getHeroSize();
-      ctx.fillStyle = "rgba(7,8,15,0.09)";
+      const { w, h } = size();
+      ctx.fillStyle = 'rgba(7,8,15,0.09)';
       ctx.fillRect(0, 0, w, h);
-      ctx.font = fontSize + "px ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace";
-      ctx.textBaseline = "top";
+      ctx.font = fontSize + 'px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace';
+      ctx.textBaseline = 'top';
       for (let i = 0; i < cols; i++) {
-        const char = chars[(Math.random() * 2)|0];
-        const x = i * fontSize, y = drops[i] * fontSize;
-        ctx.fillStyle = "rgba(34,197,94,0.5)";
-        ctx.fillText(char, x, y);
-        if (y > h && Math.random() > 0.975) drops[i] = 0;
+        ctx.fillStyle = 'rgba(34,197,94,0.5)';
+        ctx.fillText(chars[(Math.random() * 2) | 0], i * fontSize, drops[i] * fontSize);
+        if (drops[i] * fontSize > h && Math.random() > 0.975) drops[i] = 0;
         drops[i]++;
       }
       rafId = requestAnimationFrame(draw);
     }
-
-    window.addEventListener("load",              () => { resize(); cancelAnimationFrame(rafId); draw(); });
-    window.addEventListener("resize",            resize);
-    window.addEventListener("orientationchange", () => setTimeout(resize, 200));
-    if (window.visualViewport) window.visualViewport.addEventListener("resize", resize);
+    window.addEventListener('load', () => { resize(); cancelAnimationFrame(rafId); draw(); });
+    window.addEventListener('resize', resize);
+    window.addEventListener('orientationchange', () => setTimeout(resize, 200));
   })();
   </script>
 
+  <!-- Tools grid auto-scroll -->
   <script>
   (() => {
-    const grid = document.querySelector('.tools-grid');
+    const grid = document.getElementById('toolsGrid');
     if (!grid) return;
+    Array.from(grid.children).forEach(c => { const clone = c.cloneNode(true); clone.setAttribute('aria-hidden', 'true'); grid.appendChild(clone); });
 
-    // Clone all cards and append for seamless infinite loop
-    const cards = Array.from(grid.children);
-    cards.forEach(card => {
-      const clone = card.cloneNode(true);
-      clone.setAttribute('aria-hidden', 'true');
-      grid.appendChild(clone);
-    });
-
-    const speed = 0.8; // px per frame — increase for faster
     let rafId;
+    function scroll() { grid.scrollLeft += 0.8; if (grid.scrollLeft >= grid.scrollWidth / 2) grid.scrollLeft = 0; rafId = requestAnimationFrame(scroll); }
 
-    function autoScroll() {
-      grid.scrollLeft += speed;
-      // When we've scrolled through the original set, silently reset
-      if (grid.scrollLeft >= grid.scrollWidth / 2) {
-        grid.scrollLeft = 0;
-      }
-      rafId = requestAnimationFrame(autoScroll);
-    }
-
-    // Pause on hover (desktop)
     grid.addEventListener('mouseenter', () => cancelAnimationFrame(rafId));
-    grid.addEventListener('mouseleave', () => autoScroll());
-
-    // Pause on touch (mobile)
+    grid.addEventListener('mouseleave', () => scroll());
     grid.addEventListener('touchstart', () => cancelAnimationFrame(rafId), { passive: true });
-    grid.addEventListener('touchend',   () => autoScroll(), { passive: true });
-
-    autoScroll();
+    grid.addEventListener('touchend',   () => scroll(), { passive: true });
+    scroll();
   })();
-</script>
+  </script>
+
 </body>
 </html>
