@@ -876,36 +876,64 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
     scroll-snap-align: start;
   }
 
-  /* Content wrapper: tighter padding on mobile */
+  /* Bigger, higher-contrast arrows on mobile */
+  .deck-arrow {
+    padding: 14px 30px;
+    font-size: .92rem;
+    font-weight: 800;
+    border: 2px solid rgba(196,181,253,.55);
+    background: rgba(6,4,18,.93);
+    box-shadow: 0 0 0 1px rgba(255,255,255,.07), 0 8px 28px rgba(0,0,0,.75), 0 0 24px rgba(124,131,255,.12);
+    min-width: 130px;
+    justify-content: center;
+  }
+
+  /* Deck-nav always above section content */
+  .deck-nav { z-index: 30; }
+
+  /* Content wrapper: top pad = room above back arrow, bottom pad = room below forward arrow */
   .deck-cell > .hero-slide {
     height: 100%;
-    padding: clamp(16px,3vh,28px) clamp(20px,5vw,36px) clamp(48px,7vh,64px);
+    padding: 62px clamp(20px,5vw,36px) 76px;
     justify-content: flex-start;
+    overflow: hidden;
   }
 
-  /* Hero padding-bottom leaves room for the down-pointing arrow */
-  #cell-hero > #hero { padding-bottom: 64px; }
+  /* Hero cell: same breathing room */
+  #cell-hero > #hero { padding-top: 20px; padding-bottom: 76px; }
 
-  /* ── On mobile ALL arrows are either top-centre or bottom-centre ── */
-  /* "right" = forward = bottom-centre */
+  /* ── ALL mobile arrows: back = top-centre, forward = bottom-centre ── */
   .deck-arrow--right {
+    position: absolute;
     right: auto; left: 50%; top: auto;
-    bottom: 14px;
+    bottom: 22px;
     transform: translateX(-50%);
   }
-  .deck-arrow--right:hover { transform: translateX(-50%) scale(1.06); }
+  .deck-arrow--right:hover { transform: translateX(-50%) scale(1.05); }
 
-  /* "left" = backward = top-centre */
   .deck-arrow--left {
+    position: absolute;
     left: 50%; right: auto; bottom: auto;
-    top: 14px;
+    top: 10px;
     transform: translateX(-50%);
   }
-  .deck-arrow--left:hover { transform: translateX(-50%) scale(1.06); }
+  .deck-arrow--left:hover { transform: translateX(-50%) scale(1.05); }
 
-  /* Vertical arrows stay top/bottom centre */
-  .deck-arrow--up   { top: 14px; }
-  .deck-arrow--down { bottom: 14px; }
+  .deck-arrow--up {
+    position: absolute;
+    top: 10px; bottom: auto;
+    left: 50%; right: auto;
+    transform: translateX(-50%);
+  }
+  .deck-arrow--up:hover { transform: translateX(-50%) scale(1.05); }
+
+  .deck-arrow--down {
+    position: absolute;
+    bottom: 22px; top: auto;
+    left: 50%; right: auto;
+    transform: translateX(-50%);
+  }
+  .deck-arrow--down:hover { transform: translateX(-50%) scale(1.05); }
 
   /* ── Section-specific mobile compacts ── */
   /* Expertise: 2 columns on mobile */

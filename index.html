@@ -710,11 +710,16 @@
   (() => {
     const vp = document.getElementById('deckViewport');
 
-    // ── Lock the deck: ONLY arrow buttons may navigate.
-    //    Block wheel + touch so the 500vw×400vh grid can't be freely scrolled.
+    // ── Lock the deck: block free-scroll so only arrow buttons navigate.
+    //    For touchmove: allow it when the touch STARTED on a button/link so that
+    //    a slight finger wiggle while tapping still registers as a click.
     if (vp) {
-      vp.addEventListener('wheel',     e => e.preventDefault(), { passive: false });
-      vp.addEventListener('touchmove', e => e.preventDefault(), { passive: false });
+      vp.addEventListener('wheel', e => e.preventDefault(), { passive: false });
+      vp.addEventListener('touchmove', e => {
+        if (!e.target.closest('button, a, input, select, textarea')) {
+          e.preventDefault();
+        }
+      }, { passive: false });
     }
 
     function scrollToCell(id) {
