@@ -1134,5 +1134,31 @@ return { w: Math.floor(safeW), h: Math.floor(Math.max(rect.height, vh * 0.85)) }
     if (window.visualViewport) window.visualViewport.addEventListener("resize", resize);
   })();
   </script>
+
+  <script>
+  (() => {
+    const grid = document.querySelector('.tools-grid');
+    if (!grid) return;
+    let scrolling = true;
+    const speed = 0.6;
+
+    function autoScroll() {
+      if (!scrolling) return;
+      grid.scrollLeft += speed;
+      if (grid.scrollLeft >= grid.scrollWidth - grid.clientWidth) {
+        grid.scrollLeft = 0;
+      }
+      requestAnimationFrame(autoScroll);
+    }
+
+    // Pause on hover (desktop) and touch (mobile)
+    grid.addEventListener('mouseenter', () => { scrolling = false; });
+    grid.addEventListener('mouseleave', () => { scrolling = true; autoScroll(); });
+    grid.addEventListener('touchstart', () => { scrolling = false; });
+    grid.addEventListener('touchend',   () => { scrolling = true; autoScroll(); });
+
+    autoScroll();
+  })();
+</script>
 </body>
 </html>
