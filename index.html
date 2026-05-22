@@ -720,15 +720,25 @@
   (() => {
     const vp = document.getElementById('deckViewport');
 
-    // ── Lock the deck: block free-scroll so only arrow buttons navigate.
-    //    For touchmove: allow it when the touch STARTED on a button/link so that
-    //    a slight finger wiggle while tapping still registers as a click.
+    // ── Lock the deck: block free-scroll so only the bottom nav buttons navigate.
+    //    Allow touchmove when it started on: interactive elements (buttons/links/inputs)
+    //    OR any scrollable inner container (so expertise/plans/contact inner scroll works
+    //    and the projects horizontal strip can be swiped).
     if (vp) {
       vp.addEventListener('wheel', e => e.preventDefault(), { passive: false });
+      let _touchOrigin = null;
+      vp.addEventListener('touchstart', e => { _touchOrigin = e.target; }, { passive: true });
       vp.addEventListener('touchmove', e => {
-        if (!e.target.closest('button, a, input, select, textarea')) {
-          e.preventDefault();
+        let el = _touchOrigin;
+        while (el && el !== vp) {
+          const tag = el.tagName;
+          if (tag === 'BUTTON' || tag === 'A' || tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA') return;
+          const s = getComputedStyle(el);
+          if ((s.overflowY === 'auto' || s.overflowY === 'scroll') && el.scrollHeight > el.clientHeight + 1) return;
+          if ((s.overflowX === 'auto' || s.overflowX === 'scroll') && el.scrollWidth  > el.clientWidth  + 1) return;
+          el = el.parentElement;
         }
+        e.preventDefault();
       }, { passive: false });
     }
 
