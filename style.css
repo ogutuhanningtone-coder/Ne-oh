@@ -961,17 +961,29 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
   #cell-expertise .service-card__list    { font-size: .7rem; line-height: 1.45; }
   #cell-expertise .service-card__list li { margin-bottom: 2px; }
 
-  /* ───────────────── PROJECTS — horizontal swipe strip ───────────────── */
+  /* ───────────────── PROJECTS — 2-column scrollable grid ───────────────── */
+  #cell-projects > .hero-slide {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+  }
   #cell-projects .section-header       { margin-bottom: 10px; }
   #cell-projects .section-header .h2  { font-size: 1.15rem; }
   #cell-projects .projects-grid {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-x: contain;
-    padding-bottom: 6px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
+    overflow-x: visible;
+    overflow-y: visible;
+    cursor: default;
+    padding-bottom: 4px;
   }
-  #cell-projects .project { flex: 0 0 150px; min-width: 150px; height: 150px; }
+  #cell-projects .project {
+    flex: none;
+    width: 100%;
+    min-width: 0;
+    height: 155px;
+  }
 
   /* ───────────────── PLANS — vertical stack, full features, scrollable ───────────────── */
   #cell-plans > .hero-slide {
@@ -1028,10 +1040,33 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
   #cell-contact .section-header      { margin-bottom: 12px; }
   #cell-contact .section-header .h2 { font-size: 1.2rem; }
   #cell-contact .contact-grid        { grid-template-columns: 1fr; gap: 14px; }
-  #cell-contact .contact-info        { display: block; }  /* restore info on mobile */
+  #cell-contact .contact-info        { display: block; }
   #cell-contact .info-list           { gap: 10px; }
   #cell-contact .field               { padding: 11px 14px; font-size: .84rem; }
   #cell-contact .field--textarea     { min-height: 80px; }
-  .deck-footer                       { padding: 14px 16px; }
+
+  /* Footer — visually distinct so it reads clearly at the bottom of the contact cell */
+  .deck-footer {
+    padding: 20px 18px;
+    background: rgba(10,8,24,.95);
+    border-top: 1px solid rgba(196,181,253,.2);
+    margin-top: 8px;
+  }
+  .deck-footer .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+  }
+  .deck-footer .footer__copy {
+    font-size: .78rem;
+    color: rgba(255,255,255,.55);
+  }
+  .deck-footer .footer__social {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
 }
 

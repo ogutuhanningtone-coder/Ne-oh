@@ -703,10 +703,10 @@
   <!-- Mobile-only fixed bottom navigation bar -->
   <nav class="mob-nav" id="mobNav" aria-label="Slide navigation">
     <button class="mob-nav__btn mob-nav__btn--back" id="mobBack" disabled>
-      <i class="fa-solid fa-chevron-left"></i> Back
+      <i class="fa-solid fa-chevron-left"></i>
     </button>
     <button class="mob-nav__btn mob-nav__btn--next" id="mobNext">
-      Next <i class="fa-solid fa-chevron-right"></i>
+      About Me <i class="fa-solid fa-chevron-right"></i>
     </button>
   </nav>
 
@@ -803,7 +803,17 @@
     }, { passive: true });
 
     // ── Mobile fixed bottom nav bar ──
-    const slidePath = ['cell-hero','cell-about','cell-skills','cell-expertise','cell-projects','cell-plans','cell-collaborate','cell-contact'];
+    const slidePath  = ['cell-hero','cell-about','cell-skills','cell-expertise','cell-projects','cell-plans','cell-collaborate','cell-contact'];
+    const slideNames = {
+      'cell-hero':        'Home',
+      'cell-about':       'About Me',
+      'cell-skills':      'Skills',
+      'cell-expertise':   'Expertise',
+      'cell-projects':    'Projects',
+      'cell-plans':       'Website Plans',
+      'cell-collaborate': 'Collaborate',
+      'cell-contact':     'Contact'
+    };
     const mobBack = document.getElementById('mobBack');
     const mobNext = document.getElementById('mobNext');
 
@@ -817,6 +827,8 @@
       mobNext.disabled = !nextId;
       mobBack.onclick = prevId ? () => scrollToCell(prevId) : null;
       mobNext.onclick = nextId ? () => scrollToCell(nextId) : null;
+      mobBack.innerHTML = `<i class="fa-solid fa-chevron-left"></i>${prevId ? ' ' + slideNames[prevId] : ''}`;
+      mobNext.innerHTML = `${nextId ? slideNames[nextId] + ' ' : ''}<i class="fa-solid fa-chevron-right"></i>`;
     }
 
     if (mobBack && mobNext) {
