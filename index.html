@@ -700,6 +700,16 @@
     </div><!-- /deck-grid -->
   </div><!-- /deck-viewport -->
 
+  <!-- Mobile-only fixed bottom navigation bar -->
+  <nav class="mob-nav" id="mobNav" aria-label="Slide navigation">
+    <button class="mob-nav__btn mob-nav__btn--back" id="mobBack" disabled>
+      <i class="fa-solid fa-chevron-left"></i> Back
+    </button>
+    <button class="mob-nav__btn mob-nav__btn--next" id="mobNext">
+      Next <i class="fa-solid fa-chevron-right"></i>
+    </button>
+  </nav>
+
 
   <!-- ================================================================
        SCRIPTS
@@ -781,6 +791,28 @@
       const cell = nearestCell();
       navLinks.forEach(l => l.classList.toggle('is-active', l.dataset.cell === cell?.id));
     }, { passive: true });
+
+    // ── Mobile fixed bottom nav bar ──
+    const slidePath = ['cell-hero','cell-about','cell-skills','cell-expertise','cell-projects','cell-plans','cell-collaborate','cell-contact'];
+    const mobBack = document.getElementById('mobBack');
+    const mobNext = document.getElementById('mobNext');
+
+    function syncMobNav() {
+      if (!mobBack || !mobNext) return;
+      const cur = nearestCell();
+      const idx = cur ? slidePath.indexOf(cur.id) : 0;
+      const prevId = idx > 0 ? slidePath[idx - 1] : null;
+      const nextId = idx < slidePath.length - 1 ? slidePath[idx + 1] : null;
+      mobBack.disabled = !prevId;
+      mobNext.disabled = !nextId;
+      mobBack.onclick = prevId ? () => scrollToCell(prevId) : null;
+      mobNext.onclick = nextId ? () => scrollToCell(nextId) : null;
+    }
+
+    if (mobBack && mobNext) {
+      vp.addEventListener('scroll', syncMobNav, { passive: true });
+      syncMobNav();
+    }
   })();
   </script>
 

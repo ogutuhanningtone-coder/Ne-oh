@@ -847,16 +847,68 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
 .deck-arrow--down  { bottom: 16px; left: 50%; transform: translateX(-50%); }
 .deck-arrow--down:hover  { transform: translateX(-50%) scale(1.06); }
 
+/* ── Mobile fixed bottom nav bar (hidden on desktop) ── */
+.mob-nav { display: none; }
+
 /* ═══════════════════════════════════════════════════════════════
-   MOBILE  ≤ 768px  —  single vertical column, no inner scroll
-   ═══════════════════════════════════════════════════════════════
-   Same principle: each cell is exactly (100vh - --hdr) tall,
-   hard-clipped.  Grid resets to one column of 8 rows.
-   Horizontal arrows reflow to top/bottom centre.
+   MOBILE  ≤ 768px
+   Each cell fills exactly the space between header and bottom nav.
+   Per-cell arrows are replaced by a fixed bottom nav bar.
    ═══════════════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
 
+  /* ── Bottom nav bar ── */
+  :root { --mob-nav: 66px; }
+
+  .mob-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 50;
+    height: var(--mob-nav);
+    padding: 10px 14px;
+    padding-bottom: max(10px, env(safe-area-inset-bottom));
+    background: rgba(6,4,18,.97);
+    border-top: 1px solid rgba(196,181,253,.18);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    gap: 10px;
+    align-items: center;
+  }
+
+  .mob-nav__btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 18px;
+    border-radius: 999px;
+    border: 1.5px solid rgba(196,181,253,.32);
+    background: rgba(255,255,255,.05);
+    color: #fff;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: .88rem;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: background .18s ease, border-color .18s ease, opacity .18s ease;
+  }
+
+  .mob-nav__btn--next {
+    background: rgba(124,131,255,.18);
+    border-color: rgba(196,181,253,.5);
+  }
+
+  .mob-nav__btn:active  { background: rgba(124,131,255,.32); border-color: rgba(196,181,253,.8); }
+  .mob-nav__btn:disabled { opacity: .22; pointer-events: none; }
+
+  /* Per-cell arrows: hidden on mobile (replaced by bottom bar) */
+  .deck-nav { display: none; }
+
+  /* ── Deck layout ── */
   .deck-viewport {
+    height: calc(100vh - var(--hdr) - var(--mob-nav));
     overflow-x: hidden;
     overflow-y: auto;
   }
@@ -870,100 +922,54 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
 
   .deck-cell {
     width: 100vw;
-    height: calc(100vh - var(--hdr));
-    min-height: calc(100vh - var(--hdr));
+    height: calc(100vh - var(--hdr) - var(--mob-nav));
+    min-height: calc(100vh - var(--hdr) - var(--mob-nav));
     overflow: hidden;
-    scroll-snap-align: start;
   }
 
-  /* Bigger, higher-contrast arrows on mobile */
-  .deck-arrow {
-    padding: 14px 30px;
-    font-size: .92rem;
-    font-weight: 800;
-    border: 2px solid rgba(196,181,253,.55);
-    background: rgba(6,4,18,.93);
-    box-shadow: 0 0 0 1px rgba(255,255,255,.07), 0 8px 28px rgba(0,0,0,.75), 0 0 24px rgba(124,131,255,.12);
-    min-width: 130px;
-    justify-content: center;
-  }
-
-  /* Deck-nav always above section content */
-  .deck-nav { z-index: 30; }
-
-  /* Content wrapper: top pad = room above back arrow, bottom pad = room below forward arrow */
+  /* ── Content: natural padding, no arrow gaps needed ── */
   .deck-cell > .hero-slide {
     height: 100%;
-    padding: 62px clamp(20px,5vw,36px) 76px;
+    padding: clamp(20px,3vh,36px) clamp(18px,5vw,32px);
     justify-content: flex-start;
     overflow: hidden;
   }
 
-  /* Hero cell: same breathing room */
-  #cell-hero > #hero { padding-top: 20px; padding-bottom: 76px; }
+  /* ── Section-specific compacts ── */
 
-  /* ── ALL mobile arrows: back = top-centre, forward = bottom-centre ── */
-  .deck-arrow--right {
-    position: absolute;
-    right: auto; left: 50%; top: auto;
-    bottom: 22px;
-    transform: translateX(-50%);
-  }
-  .deck-arrow--right:hover { transform: translateX(-50%) scale(1.05); }
+  /* Hero: hide terminal, show content cleanly */
+  .hero__right { display: none; }
 
-  .deck-arrow--left {
-    position: absolute;
-    left: 50%; right: auto; bottom: auto;
-    top: 10px;
-    transform: translateX(-50%);
-  }
-  .deck-arrow--left:hover { transform: translateX(-50%) scale(1.05); }
+  /* Skills: tighter skill bars */
+  #cell-skills .skillbar        { margin-bottom: 10px; }
+  #cell-skills .skills-block    { margin-bottom: 16px; }
+  #cell-skills .tools-block h3  { margin-bottom: 8px; }
+  .terminal__body               { min-height: 120px; }
 
-  .deck-arrow--up {
-    position: absolute;
-    top: 10px; bottom: auto;
-    left: 50%; right: auto;
-    transform: translateX(-50%);
-  }
-  .deck-arrow--up:hover { transform: translateX(-50%) scale(1.05); }
-
-  .deck-arrow--down {
-    position: absolute;
-    bottom: 22px; top: auto;
-    left: 50%; right: auto;
-    transform: translateX(-50%);
-  }
-  .deck-arrow--down:hover { transform: translateX(-50%) scale(1.05); }
-
-  /* ── Section-specific mobile compacts ── */
-  /* Expertise: 2 columns on mobile */
+  /* Expertise: 2-column grid */
   #cell-expertise .services-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  #cell-expertise .service-card  { padding: 12px 10px; }
+  #cell-expertise .section-header { margin-bottom: 12px; }
 
   /* Projects: narrower cards */
-  #cell-projects .project { flex: 0 0 180px; min-width: 180px; height: 180px; }
+  #cell-projects .project { flex: 0 0 165px; min-width: 165px; height: 165px; }
 
-  /* Plans: stack vertically, very compact */
-  #cell-plans .pricing-grid       { grid-template-columns: 1fr; gap: 8px; }
-  #cell-plans .price              { padding: 14px 14px; }
-  #cell-plans .price h3           { font-size: 1rem; }
-  #cell-plans .price__value       { font-size: 1.4rem; margin: 6px 0 8px; }
-  #cell-plans .price ul           { display: none; }  /* hide list, keep price + CTA */
-  #cell-plans .pricing-grid       { display: flex; flex-flow: row nowrap; overflow-x: auto; }
-  #cell-plans .price              { flex: 0 0 200px; min-width: 200px; }
+  /* Plans: horizontal scroll strip */
+  #cell-plans .pricing-grid  { display: flex; flex-flow: row nowrap; overflow-x: auto; gap: 10px; padding-bottom: 6px; }
+  #cell-plans .price         { flex: 0 0 185px; min-width: 185px; padding: 16px 14px; }
+  #cell-plans .price h3      { font-size: .95rem; }
+  #cell-plans .price__value  { font-size: 1.4rem; margin: 6px 0 8px; }
+  #cell-plans .price ul      { display: none; }
 
-  /* Collaborate: single column */
+  /* Collaborate */
   #cell-collaborate .hire         { grid-template-columns: 1fr; text-align: center; }
   #cell-collaborate .hire__img    { display: none; }
   #cell-collaborate .hire__content{ align-items: center; }
   .collab-testimonials            { margin-top: 10px; }
 
-  /* Contact: tighter */
-  #cell-contact .contact-grid     { grid-template-columns: 1fr; gap: 10px; }
-  #cell-contact .contact-info     { display: none; } /* hide on mobile to save space */
-  #cell-contact .field--textarea  { min-height: 70px; }
-
-  /* Shrink terminal on phones */
-  .terminal__body { min-height: 140px; }
-  .hero__right    { display: none; } /* hide terminal on very small screens */
+  /* Contact */
+  #cell-contact .contact-grid   { grid-template-columns: 1fr; gap: 10px; }
+  #cell-contact .contact-info   { display: none; }
+  #cell-contact .field--textarea { min-height: 70px; }
 }
 
