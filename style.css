@@ -639,18 +639,16 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
   .hero__left > *, .hero__right { opacity: 1 !important; }
 }
 
-/* ─────────────────────  DECK (2D Page Grid)  ───────────────── */
-
-/*
-  Layout map:
-    [Hero]   →  [About Me]
-                    ↓
-               [Skills + Tools]
-
-  col 1 / row 1 = #cell-hero
-  col 2 / row 1 = #cell-about
-  col 2 / row 2 = #cell-skills   (col 1 / row 2 is intentionally empty)
-*/
+/* ─────────────────────  DECK (2D Portfolio)  ──────────────────
+   Full snake-path layout (col, row):
+     (1,1) Hero  →  (2,1) About
+                         ↓
+     (3,2) Expertise  ←  (2,2) Skills
+          ↓
+     (3,3) Projects  →  (4,3) Plans
+                             ↓
+     (5,4) Contact  ←  (4,4) Collaborate
+   ─────────────────────────────────────────────────────────────── */
 
 .deck-viewport {
   width: 100vw;
@@ -663,12 +661,22 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
 .deck-viewport::-webkit-scrollbar { display: none; }
 
 .deck-grid {
-  width: 200vw;
-  height: 200vh;
+  width:  500vw;
+  height: 400vh;
   display: grid;
-  grid-template-columns: 100vw 100vw;
-  grid-template-rows: 100vh 100vh;
+  grid-template-columns: repeat(5, 100vw);
+  grid-template-rows:    repeat(4, 100vh);
 }
+
+/* ── Cell placement ── */
+#cell-hero        { grid-column: 1; grid-row: 1; }
+#cell-about       { grid-column: 2; grid-row: 1; }
+#cell-skills      { grid-column: 2; grid-row: 2; }
+#cell-expertise   { grid-column: 3; grid-row: 2; }
+#cell-projects    { grid-column: 3; grid-row: 3; }
+#cell-plans       { grid-column: 4; grid-row: 3; }
+#cell-collaborate { grid-column: 4; grid-row: 4; }
+#cell-contact     { grid-column: 5; grid-row: 4; }
 
 .deck-cell {
   width: 100vw;
@@ -678,15 +686,26 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
   overflow: hidden;
 }
 
-/* Explicit cell placement */
-#cell-hero   { grid-column: 1; grid-row: 1; }
-#cell-about  { grid-column: 2; grid-row: 1; }
-#cell-skills { grid-column: 2; grid-row: 2; overflow-y: auto; }
+/* Cells whose content may exceed viewport height */
+.deck-cell--scroll {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
 
-/* Hero fills the cell naturally (it's already position:relative, flex) */
+/* Closing slide: contact + footer stacked */
+.deck-cell--closing { display: flex; flex-direction: column; }
+.deck-cell--closing > #contact { flex: 1 0 auto; }
+.deck-footer {
+  border-top: 1px solid var(--border2);
+  background: var(--bg);
+  padding: 20px 0;
+  flex-shrink: 0;
+}
+
+/* Hero section fills the cell */
 #cell-hero > #hero { width: 100%; height: 100%; }
 
-/* Slide sections for about / skills */
+/* Shared slide wrapper (all non-hero cells) */
 .hero-slide {
   width: 100%;
   min-height: 100%;
@@ -698,7 +717,6 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
   overflow: visible;
   isolation: isolate;
 }
-/* re-apply section ambient orbs to hero-slide */
 .hero-slide::before {
   content:''; position:absolute; inset:-12% -12% auto -12%; height:130%;
   z-index:0; pointer-events:none; opacity:.42; filter:blur(64px);
@@ -708,6 +726,23 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
   animation: orbDrift 22s ease-in-out infinite;
 }
 .hero-slide > * { position: relative; z-index: 2; }
+
+/* Per-slide accent colours */
+#cell-about     #about      { --accent:#8b8fff; --accent-2:#c4b5fd; }
+#cell-skills    #skills     { --accent:#74e0ff; --accent-2:#60a5fa; }
+#cell-expertise #expertise  { --accent:#34d399; --accent-2:#5eead4; }
+#cell-projects  #projects   { --accent:#fb923c; --accent-2:#fbbf24; }
+#cell-plans     #pricing    { --accent:#c084fc; --accent-2:#a9b4ff; }
+#cell-collaborate #hire     { --accent:#38bdf8; --accent-2:#7dd3fc; }
+#cell-contact   #contact    { --accent:#a9b4ff; --accent-2:#c084fc; }
+
+/* Collaborate slide: re-use hire layout */
+#cell-collaborate .hero-slide { padding: clamp(60px, 6vw, 96px) 0; }
+#cell-collaborate .hire { grid-template-columns: .55fr 1fr; gap: clamp(24px, 3vw, 40px); align-items: start; }
+.collab-testimonials { margin-top: 28px; }
+.twrap--mini { gap: 10px; }
+.twrap--mini .tcard { min-height: auto; padding: 18px 20px; }
+.twrap--mini .tquote { font-size: .88rem; }
 
 /* ── Deck navigation arrows ── */
 .deck-nav {
@@ -723,72 +758,67 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 11px 22px;
+  padding: 10px 20px;
   border-radius: 999px;
   border: 1px solid rgba(196,181,253,.18);
-  background: rgba(14,12,29,.6);
+  background: rgba(14,12,29,.65);
   color: var(--text);
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: .85rem;
+  font-size: .84rem;
   cursor: pointer;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   text-decoration: none;
-  transition: background .2s ease, border-color .2s ease, box-shadow .2s ease, transform .2s var(--ease-spring);
   white-space: nowrap;
+  transition: background .2s ease, border-color .2s ease, box-shadow .2s ease, transform .2s var(--ease-spring);
 }
 .deck-arrow:hover {
-  background: rgba(124,131,255,.2);
-  border-color: rgba(124,131,255,.5);
-  box-shadow: 0 8px 28px rgba(124,131,255,.25);
-  transform: scale(1.05);
+  background: rgba(124,131,255,.22);
+  border-color: rgba(124,131,255,.52);
+  box-shadow: 0 8px 28px rgba(124,131,255,.28);
 }
 
-/* Positioning per direction */
 .deck-arrow--right { right: 28px; top: 50%; transform: translateY(-50%); }
 .deck-arrow--right:hover { transform: translateY(-50%) scale(1.05); }
 
 .deck-arrow--left  { left: 28px;  top: 50%; transform: translateY(-50%); }
 .deck-arrow--left:hover  { transform: translateY(-50%) scale(1.05); }
 
-.deck-arrow--up    { top: 28px;    left: 50%; transform: translateX(-50%); }
+.deck-arrow--up    { top: 28px;   left: 50%; transform: translateX(-50%); }
 .deck-arrow--up:hover    { transform: translateX(-50%) scale(1.05); }
 
 .deck-arrow--down  { bottom: 28px; left: 50%; transform: translateX(-50%); }
 .deck-arrow--down:hover  { transform: translateX(-50%) scale(1.05); }
 
-.deck-arrow--continue {
-  bottom: 28px;
-  right: 28px;
-  background: rgba(124,131,255,.12);
-  border-color: rgba(124,131,255,.3);
-}
-.deck-arrow--continue:hover {
-  background: rgba(124,131,255,.24);
-  border-color: rgba(124,131,255,.6);
-  transform: scale(1.05);
-}
-
-/* Mobile: stack all slides vertically in a single column */
+/* ── Mobile: single vertical column, 8 rows ── */
 @media (max-width: 768px) {
-  .deck-grid {
-    grid-template-columns: 100vw;
-    grid-template-rows: 100vh 100vh 100vh;
-    width: 100vw;
-    height: 300vh;
-  }
-  #cell-hero   { grid-column: 1; grid-row: 1; }
-  #cell-about  { grid-column: 1; grid-row: 2; }
-  #cell-skills { grid-column: 1; grid-row: 3; }
   .deck-viewport { scroll-snap-type: y mandatory; }
+  .deck-grid {
+    width:  100vw;
+    height: 800vh;
+    grid-template-columns: 100vw;
+    grid-template-rows: repeat(8, 100vh);
+  }
+  #cell-hero        { grid-column: 1; grid-row: 1; }
+  #cell-about       { grid-column: 1; grid-row: 2; }
+  #cell-skills      { grid-column: 1; grid-row: 3; }
+  #cell-expertise   { grid-column: 1; grid-row: 4; }
+  #cell-projects    { grid-column: 1; grid-row: 5; }
+  #cell-plans       { grid-column: 1; grid-row: 6; }
+  #cell-collaborate { grid-column: 1; grid-row: 7; }
+  #cell-contact     { grid-column: 1; grid-row: 8; }
 
-  /* Hide horizontal arrows; reposition the hero "right" arrow to bottom-centre */
-  .deck-arrow--right { right: auto; left: 50%; bottom: 28px; top: auto; transform: translateX(-50%); }
+  /* All horizontal arrows become down arrows on mobile */
+  .deck-arrow--right { right: auto; left: 50%; top: auto; bottom: 28px; transform: translateX(-50%); }
   .deck-arrow--right:hover { transform: translateX(-50%) scale(1.05); }
-  .deck-arrow--left { display: none; }
+  /* Left arrows become up arrows on mobile */
+  .deck-arrow--left  { left: 50%; top: 28px; bottom: auto; transform: translateX(-50%); }
+  .deck-arrow--left:hover  { transform: translateX(-50%) scale(1.05); }
 
-  /* Show the hero scroll indicator on mobile (useful swipe-down hint) */
+  #cell-collaborate .hire { grid-template-columns: 1fr; }
+  .hire__img { display: none; }
+
   .hero__scroll { display: flex; }
 }
 

@@ -12,32 +12,29 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="/ogutu%20neville%20favicon.svg">
-  <link rel="stylesheet" href="./style.css?v=6">
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css?v=7">
 </head>
 
 <body class="page">
 
-  <!-- Scroll Progress Bar -->
   <div class="scroll-progress" id="scrollProgress"></div>
-
-  <!-- Custom Cursor -->
-  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-dot"  id="cursorDot"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
-  <!-- ================= STICKY NAVIGATION ================= -->
+  <!-- ── NAVIGATION ── -->
   <header class="site-header" id="siteHeader">
     <div class="container header__inner">
-      <a href="#hero" class="brand">
+      <a href="#hero" class="brand" data-cell="cell-hero">
         Ogutu Neville <span class="brand__sep">|</span> Websites &amp; Systems Developer
       </a>
       <nav class="nav">
-        <ul class="nav__list nav__list--desktop" id="desktopNav">
-          <li><a href="#hero"      class="nav__link">Home</a></li>
-          <li><a href="#expertise" class="nav__link">My Expertise</a></li>
-          <li><a href="#projects"  class="nav__link">Projects</a></li>
-          <li><a href="#skills"    class="nav__link">Skills</a></li>
-          <li><a href="#contact"   class="nav__link">Contact</a></li>
+        <ul class="nav__list nav__list--desktop">
+          <li><a href="#hero"       class="nav__link" data-cell="cell-hero">Home</a></li>
+          <li><a href="#about"      class="nav__link" data-cell="cell-about">About</a></li>
+          <li><a href="#skills"     class="nav__link" data-cell="cell-skills">Skills</a></li>
+          <li><a href="#expertise"  class="nav__link" data-cell="cell-expertise">Expertise</a></li>
+          <li><a href="#projects"   class="nav__link" data-cell="cell-projects">Projects</a></li>
+          <li><a href="#contact"    class="nav__link" data-cell="cell-contact">Contact</a></li>
         </ul>
         <button id="mobileMenuBtn" class="nav__mobile-btn" aria-label="Open menu">
           <i class="fa-solid fa-bars"></i>
@@ -46,26 +43,34 @@
     </div>
     <div id="mobileMenu" class="mobile-menu hidden">
       <ul class="mobile-menu__list">
-        <li><a href="#hero"      class="nav__link">Home</a></li>
-        <li><a href="#expertise" class="nav__link">My Expertise</a></li>
-        <li><a href="#projects"  class="nav__link">Projects</a></li>
-        <li><a href="#skills"    class="nav__link">Skills</a></li>
-        <li><a href="#contact"   class="nav__link">Contact</a></li>
+        <li><a href="#hero"      class="nav__link" data-cell="cell-hero">Home</a></li>
+        <li><a href="#about"     class="nav__link" data-cell="cell-about">About</a></li>
+        <li><a href="#skills"    class="nav__link" data-cell="cell-skills">Skills</a></li>
+        <li><a href="#expertise" class="nav__link" data-cell="cell-expertise">Expertise</a></li>
+        <li><a href="#projects"  class="nav__link" data-cell="cell-projects">Projects</a></li>
+        <li><a href="#contact"   class="nav__link" data-cell="cell-contact">Contact</a></li>
       </ul>
     </div>
   </header>
 
-  <!-- ===============================================================
-       DECK VIEWPORT — 2-D slide navigation
-       Layout:
-         [Hero]  →  [About Me]
-                         ↓
-                    [Skills + Tools]
-       =============================================================== -->
-  <div class="deck-viewport" id="deckViewport" aria-label="Portfolio deck">
+  <!-- ================================================================
+       DECK VIEWPORT — full 2-D portfolio
+       Snake path (col, row):
+         (1,1)Hero  →  (2,1)About
+                            ↓
+       (3,2)Expertise ←  (2,2)Skills
+            ↓
+       (3,3)Projects  →  (4,3)Plans
+                              ↓
+       (5,4)Contact   ←  (4,4)Collaborate
+  ================================================================ -->
+  <div class="deck-viewport" id="deckViewport">
     <div class="deck-grid" id="deckGrid">
 
-      <!-- ── SLIDE 1 · Hero ── col 1, row 1 ── -->
+
+      <!-- ══════════════════════════════════════
+           SLIDE 1 · Hero  (col 1, row 1)
+      ══════════════════════════════════════ -->
       <div class="deck-cell" id="cell-hero">
 
         <section id="hero" class="hero">
@@ -96,26 +101,16 @@
                 <p class="hero__subtitle">Website Development in Kenya for Growing Businesses.</p>
 
                 <div class="hero__cta">
-                  <a href="#contact" class="btn btn--gradient btn--pill">Let's Talk Digital Solutions</a>
-                  <a href="#expertise" class="btn btn--ghost btn--pill">My Services</a>
+                  <a href="#contact" class="btn btn--gradient btn--pill" data-cell="cell-contact">Let's Talk Digital Solutions</a>
+                  <a href="#expertise" class="btn btn--ghost btn--pill" data-cell="cell-expertise">My Services</a>
                 </div>
 
                 <div class="social">
-                  <a href="mailto:ogutuhanningtone@gmail.com" aria-label="Email" class="icon-btn icon-btn--indigo">
-                    <i class="fa-solid fa-envelope"></i>
-                  </a>
-                  <a href="tel:+254716927955" aria-label="Call" class="icon-btn icon-btn--indigo">
-                    <i class="fa-solid fa-phone"></i>
-                  </a>
-                  <a href="https://wa.link/xwh6aa" target="_blank" rel="noopener" aria-label="WhatsApp" class="icon-btn icon-btn--green">
-                    <i class="fa-brands fa-whatsapp"></i>
-                  </a>
-                  <a href="https://x.com/_NevilleOgutu" target="_blank" rel="noopener" aria-label="Twitter" class="icon-btn icon-btn--blue">
-                    <i class="fa-brands fa-twitter"></i>
-                  </a>
-                  <a href="https://www.tiktok.com/@ogutuneville" target="_blank" rel="noopener" aria-label="TikTok" class="icon-btn icon-btn--pink">
-                    <i class="fa-brands fa-tiktok"></i>
-                  </a>
+                  <a href="mailto:ogutuhanningtone@gmail.com" aria-label="Email" class="icon-btn icon-btn--indigo"><i class="fa-solid fa-envelope"></i></a>
+                  <a href="tel:+254716927955" aria-label="Call" class="icon-btn icon-btn--indigo"><i class="fa-solid fa-phone"></i></a>
+                  <a href="https://wa.link/xwh6aa" target="_blank" rel="noopener" aria-label="WhatsApp" class="icon-btn icon-btn--green"><i class="fa-brands fa-whatsapp"></i></a>
+                  <a href="https://x.com/_NevilleOgutu" target="_blank" rel="noopener" aria-label="Twitter" class="icon-btn icon-btn--blue"><i class="fa-brands fa-twitter"></i></a>
+                  <a href="https://www.tiktok.com/@ogutuneville" target="_blank" rel="noopener" aria-label="TikTok" class="icon-btn icon-btn--pink"><i class="fa-brands fa-tiktok"></i></a>
                 </div>
               </div>
 
@@ -135,27 +130,22 @@
           </div>
         </section>
 
-        <!-- Deck navigation -->
-        <nav class="deck-nav" aria-label="Slide navigation">
-          <button class="deck-arrow deck-arrow--right" data-target="cell-about" aria-label="Go to About Me">
+        <nav class="deck-nav">
+          <button class="deck-arrow deck-arrow--right" data-target="cell-about">
             About Me <i class="fa-solid fa-arrow-right"></i>
           </button>
         </nav>
-
       </div><!-- /cell-hero -->
 
 
-      <!-- ── SLIDE 2 · About Me ── col 2, row 1 ── -->
+      <!-- ══════════════════════════════════════
+           SLIDE 2 · About Me  (col 2, row 1)
+      ══════════════════════════════════════ -->
       <div class="deck-cell" id="cell-about">
-
         <section id="about" class="hero-slide section--alt">
           <div class="container container--narrow center">
             <span class="kicker-line">About Me</span>
-
-            <h2 class="h2">
-              Transforming Ideas Into <span class="text-gradient">Digital Masterpieces</span>
-            </h2>
-
+            <h2 class="h2">Transforming Ideas Into <span class="text-gradient">Digital Masterpieces</span></h2>
             <p class="p muted p--spaced">
               I'm a Web Developer with 6 years of hands-on experience delivering,
               maintaining, and optimizing digital solutions for businesses across
@@ -171,32 +161,29 @@
           </div>
         </section>
 
-        <nav class="deck-nav" aria-label="Slide navigation">
-          <button class="deck-arrow deck-arrow--left" data-target="cell-hero" aria-label="Back to Home">
+        <nav class="deck-nav">
+          <button class="deck-arrow deck-arrow--left" data-target="cell-hero">
             <i class="fa-solid fa-arrow-left"></i> Home
           </button>
-          <button class="deck-arrow deck-arrow--down" data-target="cell-skills" aria-label="Go to Skills">
+          <button class="deck-arrow deck-arrow--down" data-target="cell-skills">
             Skills <i class="fa-solid fa-arrow-down"></i>
           </button>
         </nav>
-
       </div><!-- /cell-about -->
 
 
-      <!-- ── SLIDE 3 · Skills + Tools ── col 2, row 2 ── -->
-      <div class="deck-cell" id="cell-skills">
-
+      <!-- ══════════════════════════════════════
+           SLIDE 3 · Skills + Tools  (col 2, row 2)
+      ══════════════════════════════════════ -->
+      <div class="deck-cell deck-cell--scroll" id="cell-skills">
         <section id="skills" class="hero-slide section--dark">
           <div class="container">
 
             <div class="section-header center">
-              <p class="kicker kicker--rule">My Skills &amp; Tools</p>
-              <h2 class="h2">
-                Crafting <span class="text-gradient">Technical Excellence</span>
-              </h2>
+              <p class="kicker kicker--rule">My Skills</p>
+              <h2 class="h2">Crafting <span class="text-gradient">Technical Excellence</span></h2>
             </div>
 
-            <!-- Skill bars -->
             <div class="skills-block">
               <h3 class="h3">Web Technologies</h3>
               <div class="skillbars">
@@ -223,14 +210,13 @@
               </div>
             </div>
 
-            <!-- Platforms & Tools -->
             <div class="tools-block">
               <h3 class="h3 center">Platforms &amp; Tools</h3>
               <div class="tools-grid" id="toolsGrid">
                 <div class="skill-card"><div class="icon"><img src="https://api.iconify.design/simple-icons/git.svg?color=%23F05032" alt="Git"></div><div class="title">Git &amp; GitHub</div></div>
                 <div class="skill-card"><div class="icon"><img src="https://api.iconify.design/simple-icons/windows11.svg?color=%230078D4" alt="Windows"></div><div class="title">Windows</div></div>
                 <div class="skill-card"><div class="icon"><img src="https://api.iconify.design/simple-icons/linux.svg?color=%23FCC624" alt="Linux"></div><div class="title">Linux</div></div>
-                <div class="skill-card"><div class="icon"><img src="https://api.iconify.design/simple-icons/microsoftoffice.svg?color=%23D83B01" alt="Microsoft Office"></div><div class="title">Microsoft Office</div></div>
+                <div class="skill-card"><div class="icon"><img src="https://api.iconify.design/simple-icons/microsoftoffice.svg?color=%23D83B01" alt="MS Office"></div><div class="title">Microsoft Office</div></div>
                 <div class="skill-card"><div class="icon"><img src="https://api.iconify.design/simple-icons/html5.svg?color=%23E34F26" alt="HTML5"></div><div class="title">HTML5</div></div>
                 <div class="skill-card"><div class="icon"><img src="https://api.iconify.design/simple-icons/cpanel.svg?color=%23FF6C2C" alt="cPanel"></div><div class="title">cPanel</div></div>
                 <div class="skill-card"><div class="icon"><img src="https://api.iconify.design/simple-icons/visualstudiocode.svg?color=%23007ACC" alt="VS Code"></div><div class="title">VS Code</div></div>
@@ -246,472 +232,535 @@
           </div>
         </section>
 
-        <nav class="deck-nav" aria-label="Slide navigation">
-          <button class="deck-arrow deck-arrow--up" data-target="cell-about" aria-label="Back to About Me">
+        <nav class="deck-nav">
+          <button class="deck-arrow deck-arrow--up" data-target="cell-about">
             <i class="fa-solid fa-arrow-up"></i> About Me
           </button>
-          <a class="deck-arrow deck-arrow--continue" href="#expertise" aria-label="View Full Portfolio">
-            Full Portfolio <i class="fa-solid fa-arrow-down"></i>
-          </a>
+          <button class="deck-arrow deck-arrow--right" data-target="cell-expertise">
+            My Expertise <i class="fa-solid fa-arrow-right"></i>
+          </button>
         </nav>
-
       </div><!-- /cell-skills -->
+
+
+      <!-- ══════════════════════════════════════
+           SLIDE 4 · My Expertise  (col 3, row 2)
+      ══════════════════════════════════════ -->
+      <div class="deck-cell deck-cell--scroll" id="cell-expertise">
+        <section id="expertise" class="hero-slide section--alt">
+          <div class="container">
+
+            <div class="section-header center">
+              <p class="kicker kicker--rule">My Expertise</p>
+              <h2 class="h2">Specialized Services For <span class="text-gradient">Digital Growth</span></h2>
+            </div>
+
+            <div id="services" class="services-grid">
+
+              <article class="service-card service-card--green">
+                <i class="fa-solid fa-globe service-card__icon"></i>
+                <p class="service-card__kicker">Web Services</p>
+                <h3 class="service-card__title">Web &amp; Digital Solutions</h3>
+                <ul class="service-card__list">
+                  <li>Professional website design &amp; development</li>
+                  <li>E-commerce website solutions</li>
+                  <li>Website redesign, speed &amp; performance optimization</li>
+                  <li>Secure website maintenance plans</li>
+                </ul>
+              </article>
+
+              <article class="service-card service-card--blue">
+                <i class="fa-solid fa-network-wired service-card__icon"></i>
+                <p class="service-card__kicker">Business Systems</p>
+                <h3 class="service-card__title">Integrated Solutions</h3>
+                <ul class="service-card__list">
+                  <li>Pharmacy, Restaurant &amp; POS Systems</li>
+                  <li>CRM &amp; Rental Management</li>
+                  <li>School / Hospital Systems</li>
+                  <li>HR, Payroll &amp; Hotel Booking</li>
+                  <li>Sacco / Microfinance Platforms</li>
+                </ul>
+              </article>
+
+              <article class="service-card service-card--orange">
+                <i class="fa-solid fa-robot service-card__icon"></i>
+                <p class="service-card__kicker">AI Solutions</p>
+                <h3 class="service-card__title">Automation &amp; AI</h3>
+                <ul class="service-card__list">
+                  <li>WhatsApp Bots &amp; AI integrations</li>
+                  <li>Website chatbots</li>
+                  <li>Business process automation</li>
+                  <li>AI-powered content generation</li>
+                </ul>
+              </article>
+
+              <article class="service-card service-card--pink">
+                <i class="fa-solid fa-database service-card__icon"></i>
+                <p class="service-card__kicker">Data Services</p>
+                <h3 class="service-card__title">Business &amp; Data</h3>
+                <ul class="service-card__list">
+                  <li>Data analysis &amp; visualization</li>
+                  <li>Reports &amp; presentations</li>
+                  <li>Database management &amp; backups</li>
+                </ul>
+              </article>
+
+              <article class="service-card service-card--amber">
+                <i class="fa-solid fa-file-lines service-card__icon"></i>
+                <p class="service-card__kicker">Documentation</p>
+                <h3 class="service-card__title">Professional Docs</h3>
+                <ul class="service-card__list">
+                  <li>CVs, résumés &amp; cover letters</li>
+                  <li>Transcription services</li>
+                  <li>Business Proposals &amp; Reports</li>
+                </ul>
+              </article>
+
+              <article class="service-card service-card--violet">
+                <i class="fa-solid fa-screwdriver-wrench service-card__icon"></i>
+                <p class="service-card__kicker">Support</p>
+                <h3 class="service-card__title">Technical Support</h3>
+                <ul class="service-card__list">
+                  <li>Windows OS installation &amp; repair</li>
+                  <li>Linux &amp; dual-boot setup</li>
+                  <li>General computer troubleshooting</li>
+                </ul>
+              </article>
+
+              <article class="service-card service-card--red">
+                <i class="fa-solid fa-file-lines service-card__icon"></i>
+                <p class="service-card__kicker">Productivity</p>
+                <h3 class="service-card__title">Productivity Tools</h3>
+                <ul class="service-card__list">
+                  <li>Microsoft Word, Excel, PowerPoint</li>
+                  <li>Canva / Google Docs &amp; Sheets</li>
+                </ul>
+              </article>
+
+              <article class="service-card service-card--blue">
+                <i class="fa-solid fa-chart-line service-card__icon"></i>
+                <p class="service-card__kicker">Marketing</p>
+                <h3 class="service-card__title">Digital Marketing</h3>
+                <ul class="service-card__list">
+                  <li>SEO optimization</li>
+                  <li>Google Merchant Center setup</li>
+                  <li>Product feeds &amp; Google Shopping Ads</li>
+                </ul>
+              </article>
+
+            </div>
+          </div>
+        </section>
+
+        <nav class="deck-nav">
+          <button class="deck-arrow deck-arrow--left" data-target="cell-skills">
+            <i class="fa-solid fa-arrow-left"></i> Skills
+          </button>
+          <button class="deck-arrow deck-arrow--down" data-target="cell-projects">
+            My Projects <i class="fa-solid fa-arrow-down"></i>
+          </button>
+        </nav>
+      </div><!-- /cell-expertise -->
+
+
+      <!-- ══════════════════════════════════════
+           SLIDE 5 · My Projects  (col 3, row 3)
+      ══════════════════════════════════════ -->
+      <div class="deck-cell deck-cell--scroll" id="cell-projects">
+        <section id="projects" class="hero-slide section--dark">
+          <div class="container">
+
+            <div class="section-header center">
+              <p class="kicker kicker--rule">My Projects</p>
+              <h2 class="h2">Selected <span class="text-gradient">Work &amp; Tools Utilized</span></h2>
+            </div>
+
+            <div class="projects-grid">
+
+              <article class="project">
+                <img src="eclat-scrn.webp" alt="Éclat Gift Shop" class="project__img">
+                <div class="project__front"><h3 class="project__type">E-commerce Website</h3></div>
+                <div class="project__overlay">
+                  <span class="project__tag">Éclat Gift Shop</span>
+                  <div class="project__tools"><h4>Tools:</h4><ul><li>HTML &amp; CSS</li><li>JavaScript</li><li>PHP &amp; MySQL</li></ul></div>
+                  <a href="https://eclatgiftshop.co.ke" target="_blank" class="project__link" rel="noopener">View →</a>
+                </div>
+              </article>
+
+              <article class="project">
+                <img src="fav contractors srcn.png" alt="Favourite Contractors" class="project__img">
+                <div class="project__front"><h3 class="project__type">Construction Website</h3></div>
+                <div class="project__overlay">
+                  <span class="project__tag">Favourite Contractors</span>
+                  <div class="project__tools"><h4>Tools:</h4><ul><li>WordPress</li><li>Elementor</li></ul></div>
+                  <a href="https://favouritecontractors.co.ke" target="_blank" class="project__link" rel="noopener">View →</a>
+                </div>
+              </article>
+
+              <article class="project">
+                <img src="mideh farm srcn.png" alt="Mideh Farm" class="project__img">
+                <div class="project__front"><h3 class="project__type">Agriculture Website</h3></div>
+                <div class="project__overlay">
+                  <span class="project__tag">Mideh Farm</span>
+                  <div class="project__tools"><h4>Tools:</h4><ul><li>WordPress</li><li>Elementor</li></ul></div>
+                  <a href="https://midehfarm.co.ke" target="_blank" class="project__link" rel="noopener">View →</a>
+                </div>
+              </article>
+
+              <article class="project">
+                <img src="finxpert scrn.png" alt="FinXpert" class="project__img">
+                <div class="project__front"><h3 class="project__type">Finance Services</h3></div>
+                <div class="project__overlay">
+                  <span class="project__tag">FinXpert</span>
+                  <div class="project__tools"><h4>Tools:</h4><ul><li>WordPress</li><li>Elementor</li></ul></div>
+                  <a href="https://finxpert.co.ke" target="_blank" class="project__link" rel="noopener">View →</a>
+                </div>
+              </article>
+
+              <article class="project">
+                <img src="foamblock scrn.png" alt="Foam Blocks Kenya" class="project__img">
+                <div class="project__front"><h3 class="project__type">Manufacturing Website</h3></div>
+                <div class="project__overlay">
+                  <span class="project__tag">Foam Blocks Kenya</span>
+                  <div class="project__tools"><h4>Tools:</h4><ul><li>WordPress</li><li>Elementor</li></ul></div>
+                  <a href="https://foamblockskenya.com" target="_blank" class="project__link" rel="noopener">View →</a>
+                </div>
+              </article>
+
+              <article class="project">
+                <img src="rayneinter scrn.png" alt="Rayne Integrated" class="project__img">
+                <div class="project__front"><h3 class="project__type">Enterprise Website</h3></div>
+                <div class="project__overlay">
+                  <span class="project__tag">Rayne Integrated</span>
+                  <div class="project__tools"><h4>Tools:</h4><ul><li>WordPress</li><li>Elementor</li></ul></div>
+                  <a href="https://rayne-integrated.com" target="_blank" class="project__link" rel="noopener">View →</a>
+                </div>
+              </article>
+
+              <article class="project">
+                <img src="kist.webp" alt="Key To Success International" class="project__img">
+                <div class="project__front"><h3 class="project__type">NGO Website</h3></div>
+                <div class="project__overlay">
+                  <span class="project__tag">Key To Success Intl</span>
+                  <div class="project__tools"><h4>Tools:</h4><ul><li>HTML</li><li>CSS</li><li>JavaScript</li></ul></div>
+                  <a href="https://keytosuccessintl.org/" target="_blank" class="project__link" rel="noopener">View →</a>
+                </div>
+              </article>
+
+            </div>
+          </div>
+        </section>
+
+        <nav class="deck-nav">
+          <button class="deck-arrow deck-arrow--up" data-target="cell-expertise">
+            <i class="fa-solid fa-arrow-up"></i> Expertise
+          </button>
+          <button class="deck-arrow deck-arrow--right" data-target="cell-plans">
+            Website Plans <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </nav>
+      </div><!-- /cell-projects -->
+
+
+      <!-- ══════════════════════════════════════
+           SLIDE 6 · Website Plans  (col 4, row 3)
+      ══════════════════════════════════════ -->
+      <div class="deck-cell deck-cell--scroll" id="cell-plans">
+        <section id="pricing" class="hero-slide section--alt">
+          <div class="container">
+
+            <div class="section-header center">
+              <p class="kicker kicker--rule">Website Plans</p>
+              <h2 class="h2">Simple, Transparent <span class="text-gradient">Pricing</span></h2>
+              <p class="muted maxw">Clear packages designed for startups, growing businesses, and brands ready to scale.</p>
+            </div>
+
+            <div class="pricing-grid">
+
+              <article class="price">
+                <div class="price__top"></div>
+                <h3>Starter</h3>
+                <p class="muted">Perfect for new &amp; small businesses</p>
+                <div class="price__value">KSh 15,000</div>
+                <ul>
+                  <li>✔ 4-page website</li>
+                  <li>✔ Mobile-friendly &amp; fast loading</li>
+                  <li>✔ Basic on-page SEO setup</li>
+                  <li>✔ Contact form + WhatsApp integration</li>
+                  <li>✔ Free SSL &amp; security basics</li>
+                </ul>
+                <a href="#contact" class="btn btn--clear btn--block" data-cell="cell-contact">Launch</a>
+              </article>
+
+              <article class="price price--popular">
+                <div class="price__top"></div>
+                <span class="price__badge">Most Popular</span>
+                <h3>Growth</h3>
+                <p class="muted">For growing businesses needing visibility</p>
+                <div class="price__value">KSh 20,000</div>
+                <ul>
+                  <li>✔ 5–10 page website</li>
+                  <li>✔ Conversion-focused UI &amp; layout</li>
+                  <li>✔ Full on-page SEO optimization</li>
+                  <li>✔ Google Business Profile setup</li>
+                  <li>✔ Speed optimization + analytics</li>
+                </ul>
+                <a href="#contact" class="btn btn--clear btn--block" data-cell="cell-contact">Level Up</a>
+              </article>
+
+              <article class="price">
+                <div class="price__top"></div>
+                <h3>Scale</h3>
+                <p class="muted">For established &amp; high-growth brands</p>
+                <div class="price__value">KSh 25,000</div>
+                <ul>
+                  <li>✔ 10+ page website</li>
+                  <li>✔ Custom features &amp; advanced sections</li>
+                  <li>✔ Technical SEO + schema markup</li>
+                  <li>✔ Performance, security &amp; scalability</li>
+                  <li>✔ Priority support &amp; future-ready setup</li>
+                </ul>
+                <a href="#contact" class="btn btn--clear btn--block" data-cell="cell-contact">Custom Power</a>
+              </article>
+
+            </div>
+          </div>
+        </section>
+
+        <nav class="deck-nav">
+          <button class="deck-arrow deck-arrow--left" data-target="cell-projects">
+            <i class="fa-solid fa-arrow-left"></i> Projects
+          </button>
+          <button class="deck-arrow deck-arrow--down" data-target="cell-collaborate">
+            Let's Collaborate <i class="fa-solid fa-arrow-down"></i>
+          </button>
+        </nav>
+      </div><!-- /cell-plans -->
+
+
+      <!-- ══════════════════════════════════════
+           SLIDE 7 · Let's Collaborate  (col 4, row 4)
+      ══════════════════════════════════════ -->
+      <div class="deck-cell" id="cell-collaborate">
+        <section id="hire" class="hero-slide section--dark">
+          <div class="container hire">
+            <div class="hire__img">
+              <img src="Gemini_Generated_Image_8kz7t88kz7t88kz7.webp" alt="Hanningtone Neville Ogutu">
+            </div>
+            <div class="hire__content">
+              <p class="kicker kicker--rule">Let's Collaborate</p>
+              <h2 class="h2">Ready to <span class="text-gradient">Build Cutting-Edge Digital Experiences</span>?</h2>
+              <p class="muted">
+                I craft sleek, functional, and futuristic websites that elevate your brand
+                and drive engagement. Let's turn your ideas into high-impact digital solutions.
+              </p>
+              <a href="#contact" class="btn btn--gradient" data-cell="cell-contact">Hire Me →</a>
+
+              <!-- Testimonials mini-strip -->
+              <div class="collab-testimonials">
+                <div class="twrap twrap--mini">
+                  <button class="tbtn tbtn--prev" type="button" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+                  <div class="tviewport">
+                    <div class="ttrack" id="tTrack">
+                      <article class="tcard tcard--indigo">
+                        <p class="tquote">Working with Neville was one of the best decisions we made. He translated our vision into a clean, professional website that truly represents our mission.</p>
+                        <div class="twho">
+                          <img class="tavatar" src="Deana.webp" alt="Diana Kafura">
+                          <div><div class="tname">Diana Kafura</div><div class="trole">Founder, DreamBridge Education Africa</div></div>
+                        </div>
+                      </article>
+                      <article class="tcard tcard--red">
+                        <p class="tquote">Neville delivered exactly what we needed — a modern, product-focused website. The results were immediate.</p>
+                        <div class="twho">
+                          <img class="tavatar" src="evans.webp" alt="Evans Wanyama">
+                          <div><div class="tname">Evans Wanyama</div><div class="trole">Founder, Foam Blocks Kenya</div></div>
+                        </div>
+                      </article>
+                      <article class="tcard tcard--teal">
+                        <p class="tquote">Professional, efficient, and detail-oriented. Our website now reflects the trust and credibility required in our sector.</p>
+                        <div class="twho">
+                          <img class="tavatar" src="grace.webp" alt="Grace Kariuki">
+                          <div><div class="tname">Grace Kariuki</div><div class="trole">Managing Director, FinXpert</div></div>
+                        </div>
+                      </article>
+                      <article class="tcard tcard--yellow">
+                        <p class="tquote">Neville is highly reliable and technically strong. He delivers with precision and deep understanding of modern systems.</p>
+                        <div class="twho">
+                          <img class="tavatar" src="zander.webp" alt="Alexander">
+                          <div><div class="tname">Alexander</div><div class="trole">Founder, Skillydon Solutions</div></div>
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+                  <button class="tbtn tbtn--next" type="button" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <div class="tdots" id="tDots"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <nav class="deck-nav">
+          <button class="deck-arrow deck-arrow--up" data-target="cell-plans">
+            <i class="fa-solid fa-arrow-up"></i> Plans
+          </button>
+          <button class="deck-arrow deck-arrow--right" data-target="cell-contact">
+            Get In Touch <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </nav>
+      </div><!-- /cell-collaborate -->
+
+
+      <!-- ══════════════════════════════════════
+           SLIDE 8 · Contact + Footer  (col 5, row 4)
+      ══════════════════════════════════════ -->
+      <div class="deck-cell deck-cell--scroll deck-cell--closing" id="cell-contact">
+
+        <section id="contact" class="hero-slide section--alt">
+          <div class="container">
+
+            <div class="section-header center">
+              <p class="kicker kicker--rule">Get In Touch</p>
+              <h2 class="h2">Let's <span class="text-gradient">Work Together</span></h2>
+            </div>
+
+            <div class="contact-grid">
+              <div class="contact-form">
+                <form id="contactForm" action="https://formspree.io/f/meeqjenj" method="POST" class="form">
+                  <input type="hidden" name="_subject" value="New Website Contact Message">
+                  <input type="hidden" name="_template" value="table">
+                  <input type="hidden" name="_autoresponse" value="Hi 👋 Thanks for reaching out! — Ogutu Neville">
+                  <div class="form__row">
+                    <input name="name" required placeholder="Name" class="field">
+                    <input type="email" name="email" required placeholder="Email" class="field">
+                  </div>
+                  <input name="subject" required placeholder="Subject" class="field">
+                  <textarea name="message" rows="5" required placeholder="Message" class="field field--textarea"></textarea>
+                  <button id="submitBtn" type="submit" class="btn btn--gradient btn--block">
+                    <span id="btnText">Send Message</span>
+                  </button>
+                </form>
+                <div id="successBox" class="success hidden">
+                  <div class="success__icon"><i class="fa-solid fa-check"></i></div>
+                  <h3>Message Sent!</h3>
+                  <p class="muted">Thank you for reaching out. I'll respond shortly.</p>
+                </div>
+              </div>
+
+              <aside class="contact-info">
+                <p class="muted">Always available for freelance work and consultations 24/7.</p>
+                <div class="info-list">
+                  <div class="info">
+                    <span class="info__icon info__icon--indigo"><i class="fa-solid fa-user"></i></span>
+                    <div><div class="info__title">Name</div><div class="muted">Hanningtone Neville Ogutu</div></div>
+                  </div>
+                  <div class="info">
+                    <span class="info__icon info__icon--green"><i class="fa-solid fa-location-dot"></i></span>
+                    <div><div class="info__title">Location</div><div class="muted">Nairobi (Remote available)</div></div>
+                  </div>
+                  <div class="info">
+                    <span class="info__icon info__icon--yellow"><i class="fa-solid fa-phone"></i></span>
+                    <div><div class="info__title">Call Me</div><div class="muted">+254 716 927 955</div></div>
+                  </div>
+                  <div class="info">
+                    <span class="info__icon info__icon--pink"><i class="fa-solid fa-envelope"></i></span>
+                    <div><div class="info__title">Email Me</div><div class="muted">ogutuhanningtone@gmail.com</div></div>
+                  </div>
+                </div>
+              </aside>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Closing footer inside last slide -->
+        <footer class="deck-footer">
+          <div class="container footer">
+            <div class="footer__copy">
+              © <span id="year"></span> <strong>Hanningtone Neville Ogutu</strong>. All Rights Reserved.
+            </div>
+            <div class="footer__social">
+              <a href="mailto:ogutuhanningtone@gmail.com" aria-label="Email" class="icon-btn icon-btn--indigo"><i class="fa-solid fa-envelope"></i></a>
+              <a href="tel:+254716927955" aria-label="Call" class="icon-btn icon-btn--indigo"><i class="fa-solid fa-phone"></i></a>
+              <a href="https://wa.link/xwh6aa" target="_blank" rel="noopener" aria-label="WhatsApp" class="icon-btn icon-btn--green"><i class="fa-brands fa-whatsapp"></i></a>
+              <a href="https://x.com/_NevilleOgutu" target="_blank" rel="noopener" aria-label="Twitter" class="icon-btn icon-btn--blue"><i class="fa-brands fa-twitter"></i></a>
+              <a href="https://www.tiktok.com/@ogutuneville" target="_blank" rel="noopener" aria-label="TikTok" class="icon-btn icon-btn--pink"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+          </div>
+        </footer>
+
+        <nav class="deck-nav">
+          <button class="deck-arrow deck-arrow--left" data-target="cell-collaborate">
+            <i class="fa-solid fa-arrow-left"></i> Collaborate
+          </button>
+        </nav>
+      </div><!-- /cell-contact -->
+
 
     </div><!-- /deck-grid -->
   </div><!-- /deck-viewport -->
 
 
-  <!-- ================= SERVICES / EXPERTISE ================= -->
-  <section id="expertise" data-aos="fade-up" class="section section--alt">
-    <div class="container">
-      <div class="section-header center">
-        <p class="kicker kicker--rule">My Expertise</p>
-        <h2 class="h2">Specialized Services For <span class="text-gradient">Digital Growth</span></h2>
-      </div>
+  <!-- ================================================================
+       SCRIPTS
+  ================================================================ -->
 
-      <div id="services" class="services-grid">
-
-        <article class="service-card service-card--green" data-aos="fade-up" data-aos-delay="0">
-          <i class="fa-solid fa-globe service-card__icon"></i>
-          <p class="service-card__kicker">Web Services</p>
-          <h3 class="service-card__title">Web &amp; Digital Solutions</h3>
-          <ul class="service-card__list">
-            <li>Professional website design &amp; development</li>
-            <li>E-commerce website solutions</li>
-            <li>Website redesign, speed &amp; performance optimization</li>
-            <li>Secure website maintenance plans</li>
-          </ul>
-        </article>
-
-        <article class="service-card service-card--blue" data-aos="fade-up" data-aos-delay="60">
-          <i class="fa-solid fa-network-wired service-card__icon"></i>
-          <p class="service-card__kicker">Business Systems</p>
-          <h3 class="service-card__title">Integrated Solutions</h3>
-          <ul class="service-card__list">
-            <li>Pharmacy Management</li>
-            <li>Restaurant Ordering &amp; Reservations</li>
-            <li>POS (General Retail)</li>
-            <li>CRM (Customer Relationship Management)</li>
-            <li>Rental &amp; Property Management</li>
-            <li>School / College Systems</li>
-            <li>Hospital / Clinic Systems</li>
-            <li>HR &amp; Payroll Solutions</li>
-            <li>Hotel / Booking Systems</li>
-            <li>Sacco / Microfinance Platforms</li>
-          </ul>
-        </article>
-
-        <article class="service-card service-card--orange" data-aos="fade-up" data-aos-delay="120">
-          <i class="fa-solid fa-robot service-card__icon"></i>
-          <p class="service-card__kicker">AI Solutions</p>
-          <h3 class="service-card__title">Automation &amp; AI Solutions</h3>
-          <ul class="service-card__list">
-            <li>WhatsApp Bots &amp; AI integrations</li>
-            <li>Website chatbots</li>
-            <li>Business process automation</li>
-            <li>AI-powered content generation</li>
-          </ul>
-        </article>
-
-        <article class="service-card service-card--pink" data-aos="fade-up" data-aos-delay="180">
-          <i class="fa-solid fa-database service-card__icon"></i>
-          <p class="service-card__kicker">Data Services</p>
-          <h3 class="service-card__title">Business &amp; Data Services</h3>
-          <ul class="service-card__list">
-            <li>Data analysis &amp; visualization</li>
-            <li>Reports &amp; presentations (Sheets &amp; Slides)</li>
-            <li>Database Management &amp; Backup Solutions</li>
-          </ul>
-        </article>
-
-        <article class="service-card service-card--amber" data-aos="fade-up" data-aos-delay="240">
-          <i class="fa-solid fa-file-lines service-card__icon"></i>
-          <p class="service-card__kicker">Documentation</p>
-          <h3 class="service-card__title">Professional Documentation</h3>
-          <ul class="service-card__list">
-            <li>Professional CVs, résumés &amp; cover letters</li>
-            <li>Professional transcription services</li>
-            <li>Business Proposals &amp; Reports</li>
-            <li>Legal Document Drafting Assistance (Non-Legal Advice)</li>
-          </ul>
-        </article>
-
-        <article class="service-card service-card--violet" data-aos="fade-up" data-aos-delay="300">
-          <i class="fa-solid fa-screwdriver-wrench service-card__icon"></i>
-          <p class="service-card__kicker">Support</p>
-          <h3 class="service-card__title">Technical Support</h3>
-          <ul class="service-card__list">
-            <li>Windows OS installation &amp; repair</li>
-            <li>Linux installation &amp; dual-boot setup</li>
-            <li>Zorin OS installation &amp; repair</li>
-            <li>General computer troubleshooting &amp; support</li>
-          </ul>
-        </article>
-
-        <article class="service-card service-card--red" data-aos="fade-up" data-aos-delay="360">
-          <i class="fa-solid fa-file-lines service-card__icon"></i>
-          <p class="service-card__kicker">Productivity</p>
-          <h3 class="service-card__title">Productivity Tools</h3>
-          <ul class="service-card__list">
-            <li>Microsoft Word (Expert)</li>
-            <li>Microsoft Excel (Expert)</li>
-            <li>Microsoft PowerPoint (Expert)</li>
-            <li>Canva / Google Docs &amp; Sheets</li>
-          </ul>
-        </article>
-
-        <article class="service-card service-card--blue" data-aos="fade-up" data-aos-delay="60">
-          <i class="fa-solid fa-chart-line service-card__icon"></i>
-          <p class="service-card__kicker">Marketing</p>
-          <h3 class="service-card__title">Digital Marketing &amp; Search</h3>
-          <ul class="service-card__list">
-            <li>SEO optimization &amp; search engine services</li>
-            <li>Google Merchant Center setup</li>
-            <li>Product feeds &amp; Google Shopping Ads</li>
-          </ul>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= PROJECTS ================= -->
-  <section id="projects" data-aos="fade-up" class="section section--dark">
-    <div class="container">
-      <div class="section-header center">
-        <p class="kicker kicker--rule">My Projects</p>
-        <h2 class="h2">Selected <span class="text-gradient">Completed Tasks &amp; Tools Utilized</span></h2>
-      </div>
-
-      <div class="projects-grid">
-
-        <article class="project" data-aos="fade-up" data-aos-delay="0">
-          <img src="eclat-scrn.webp" alt="Éclat Gift Shop" class="project__img">
-          <div class="project__front"><h3 class="project__type">E-commerce Website</h3></div>
-          <div class="project__overlay">
-            <span class="project__tag">Éclat Gift Shop</span>
-            <div class="project__tools"><h4>Tools Used:</h4><ul><li>HTML &amp; CSS</li><li>JavaScript</li><li>PHP &amp; MySQL</li></ul></div>
-            <a href="https://eclatgiftshop.co.ke" target="_blank" class="project__link" rel="noopener">View Project →</a>
-          </div>
-        </article>
-
-        <article class="project" data-aos="fade-up" data-aos-delay="0">
-          <img src="fav contractors srcn.png" alt="Favourite Contractors" class="project__img">
-          <div class="project__front"><h3 class="project__type">Construction Website</h3></div>
-          <div class="project__overlay">
-            <span class="project__tag">Favourite Contractors</span>
-            <div class="project__tools"><h4>Tools Used:</h4><ul><li>WordPress</li><li>Elementor</li><li>HTML &amp; CSS</li></ul></div>
-            <a href="https://favouritecontractors.co.ke" target="_blank" class="project__link" rel="noopener">View Project →</a>
-          </div>
-        </article>
-
-        <article class="project" data-aos="fade-up" data-aos-delay="80">
-          <img src="mideh farm srcn.png" alt="Mideh Farm" class="project__img">
-          <div class="project__front"><h3 class="project__type">Agriculture Business Website</h3></div>
-          <div class="project__overlay">
-            <span class="project__tag">Mideh Farm</span>
-            <div class="project__tools"><h4>Tools Used:</h4><ul><li>WordPress</li><li>Elementor</li><li>HTML &amp; CSS</li></ul></div>
-            <a href="https://midehfarm.co.ke" target="_blank" class="project__link" rel="noopener">View Project →</a>
-          </div>
-        </article>
-
-        <article class="project" data-aos="fade-up" data-aos-delay="160">
-          <img src="finxpert scrn.png" alt="FinXpert" class="project__img">
-          <div class="project__front"><h3 class="project__type">Finance Services Website</h3></div>
-          <div class="project__overlay">
-            <span class="project__tag">FinXpert</span>
-            <div class="project__tools"><h4>Tools Used:</h4><ul><li>WordPress</li><li>Elementor</li><li>HTML &amp; CSS</li></ul></div>
-            <a href="https://finxpert.co.ke" target="_blank" class="project__link" rel="noopener">View Project →</a>
-          </div>
-        </article>
-
-        <article class="project" data-aos="fade-up" data-aos-delay="0">
-          <img src="foamblock scrn.png" alt="Foam Blocks Kenya" class="project__img">
-          <div class="project__front"><h3 class="project__type">Manufacturing &amp; Product Website</h3></div>
-          <div class="project__overlay">
-            <span class="project__tag">Foam Blocks Kenya</span>
-            <div class="project__tools"><h4>Tools Used:</h4><ul><li>WordPress</li><li>Elementor</li><li>HTML &amp; CSS</li></ul></div>
-            <a href="https://foamblockskenya.com" target="_blank" class="project__link" rel="noopener">View Project →</a>
-          </div>
-        </article>
-
-        <article class="project" data-aos="fade-up" data-aos-delay="80">
-          <img src="rayneinter scrn.png" alt="Rayne Integrated" class="project__img">
-          <div class="project__front"><h3 class="project__type">Enterprise Business Website</h3></div>
-          <div class="project__overlay">
-            <span class="project__tag">Rayne Integrated</span>
-            <div class="project__tools"><h4>Tools Used:</h4><ul><li>WordPress</li><li>Elementor</li><li>HTML &amp; CSS</li></ul></div>
-            <a href="https://rayne-integrated.com" target="_blank" class="project__link" rel="noopener">View Project →</a>
-          </div>
-        </article>
-
-        <article class="project" data-aos="fade-up" data-aos-delay="160">
-          <img src="kist.webp" alt="Key To Success International" class="project__img">
-          <div class="project__front"><h3 class="project__type">NGO / Women CBO Website</h3></div>
-          <div class="project__overlay">
-            <span class="project__tag">Key To Success International</span>
-            <div class="project__tools"><h4>Tools Used:</h4><ul><li>HTML</li><li>CSS</li><li>JavaScript</li></ul></div>
-            <a href="https://keytosuccessintl.org/" target="_blank" class="project__link" rel="noopener">View Project →</a>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= TESTIMONIALS ================= -->
-  <section id="testimonials" class="section section--alt">
-    <div class="container">
-      <div class="section-header center">
-        <p class="kicker kicker--rule">Client Feedback</p>
-        <h2 class="h2">Trusted By <span class="text-gradient">Businesses I've Worked With</span></h2>
-      </div>
-
-      <div class="twrap">
-        <button class="tbtn tbtn--prev" type="button" aria-label="Previous testimonial">
-          <i class="fa-solid fa-chevron-left"></i>
-        </button>
-
-        <div class="tviewport" aria-roledescription="carousel">
-          <div class="ttrack" id="tTrack">
-
-            <article class="tcard tcard--indigo">
-              <p class="tquote">Working with Neville was one of the best decisions we made for DreamBridge Education Africa. He translated our vision into a clean, professional website that truly represents our mission.</p>
-              <div class="twho">
-                <img class="tavatar" src="Deana.webp" alt="Diana Kafura">
-                <div><div class="tname">Diana Kafura</div><div class="trole">Founder, DreamBridge Education Africa</div></div>
-              </div>
-            </article>
-
-            <article class="tcard tcard--red">
-              <p class="tquote">Neville delivered exactly what we needed — a modern, product-focused website that improved how customers understand our services. The results were immediate.</p>
-              <div class="twho">
-                <img class="tavatar" src="evans.webp" alt="Evans Wanyama">
-                <div><div class="tname">Evans Wanyama</div><div class="trole">Founder, Foam Blocks Kenya</div></div>
-              </div>
-            </article>
-
-            <article class="tcard tcard--teal">
-              <p class="tquote">Professional, efficient, and detail-oriented. Our FinXpert website now reflects the trust and credibility required in the financial sector.</p>
-              <div class="twho">
-                <img class="tavatar" src="grace.webp" alt="Grace Kariuki">
-                <div><div class="tname">Grace Kariuki</div><div class="trole">Managing Director, FinXpert</div></div>
-              </div>
-            </article>
-
-            <article class="tcard tcard--yellow">
-              <p class="tquote">Neville is a highly reliable and technically strong professional. He consistently delivers solutions with precision, initiative, and a deep understanding of modern systems.</p>
-              <div class="twho">
-                <img class="tavatar" src="zander.webp" alt="Alexander">
-                <div><div class="tname">Alexander</div><div class="trole">Founder, Skillydon Solutions</div></div>
-              </div>
-            </article>
-
-          </div>
-        </div>
-
-        <button class="tbtn tbtn--next" type="button" aria-label="Next testimonial">
-          <i class="fa-solid fa-chevron-right"></i>
-        </button>
-      </div>
-
-      <div class="tdots" id="tDots" aria-label="Testimonial pagination"></div>
-    </div>
-  </section>
-
-  <!-- ================= PRICING ================= -->
-  <section id="pricing" class="section section--dark">
-    <div class="container">
-      <div class="section-header center">
-        <p class="kicker kicker--rule">Website Plans</p>
-        <h2 class="h2">Simple, Transparent <span class="text-gradient">Pricing</span></h2>
-        <p class="muted maxw">Clear website packages designed for startups, growing businesses, and brands ready to scale.</p>
-      </div>
-
-      <div class="pricing-grid">
-
-        <article class="price" data-aos="fade-up" data-aos-delay="0">
-          <div class="price__top"></div>
-          <h3>Starter</h3>
-          <p class="muted">Perfect for new &amp; small businesses</p>
-          <div class="price__value">KSh 15,000</div>
-          <ul>
-            <li>✔ 4-page website (Home, About, Services, Contact)</li>
-            <li>✔ Mobile-friendly &amp; fast loading</li>
-            <li>✔ Basic on-page SEO setup</li>
-            <li>✔ Contact form + WhatsApp integration</li>
-            <li>✔ Free SSL &amp; security basics</li>
-          </ul>
-          <a href="#contact" class="btn btn--clear btn--block">Launch</a>
-        </article>
-
-        <article class="price price--popular" data-aos="fade-up" data-aos-delay="100">
-          <div class="price__top"></div>
-          <span class="price__badge">Most Popular</span>
-          <h3>Growth</h3>
-          <p class="muted">For growing businesses needing visibility</p>
-          <div class="price__value">KSh 20,000</div>
-          <ul>
-            <li>✔ 5–10 page website</li>
-            <li>✔ Conversion-focused UI &amp; layout</li>
-            <li>✔ Full on-page SEO optimization</li>
-            <li>✔ Google Business Profile setup</li>
-            <li>✔ Speed optimization + analytics</li>
-          </ul>
-          <a href="#contact" class="btn btn--clear btn--block">Level Up</a>
-        </article>
-
-        <article class="price" data-aos="fade-up" data-aos-delay="200">
-          <div class="price__top"></div>
-          <h3>Scale</h3>
-          <p class="muted">For established &amp; high-growth brands</p>
-          <div class="price__value">KSh 25,000</div>
-          <ul>
-            <li>✔ 10+ page website</li>
-            <li>✔ Custom features &amp; advanced sections</li>
-            <li>✔ Technical SEO + schema markup</li>
-            <li>✔ Performance, security &amp; scalability</li>
-            <li>✔ Priority support &amp; future-ready setup</li>
-          </ul>
-          <a href="#contact" class="btn btn--clear btn--block">Custom Power</a>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= HIRE ME ================= -->
-  <section id="hire" class="section section--alt">
-    <div class="container hire">
-      <div class="hire__img" data-aos="fade-right">
-        <img src="Gemini_Generated_Image_8kz7t88kz7t88kz7.webp" alt="Hanningtone Neville Ogutu">
-      </div>
-      <div class="hire__content" data-aos="fade-left">
-        <p class="kicker kicker--rule">Let's Collaborate</p>
-        <h2 class="h2">Ready to <span class="text-gradient">Build Cutting-Edge Digital Experiences</span>?</h2>
-        <p class="muted">I craft sleek, functional, and futuristic websites that elevate your brand and drive engagement. Let's turn your ideas into high-impact digital solutions.</p>
-        <a href="#contact" class="btn btn--gradient">Hire Me →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= CONTACT ================= -->
-  <section id="contact" data-aos="fade-up" class="section section--dark">
-    <div class="container">
-      <div class="section-header center">
-        <p class="kicker kicker--rule">Get In Touch</p>
-        <h2 class="h2">Let's <span class="text-gradient">Work Together</span></h2>
-      </div>
-
-      <div class="contact-grid">
-        <div class="contact-form">
-          <form id="contactForm" action="https://formspree.io/f/meeqjenj" method="POST" class="form">
-            <input type="hidden" name="_subject" value="New Website Contact Message">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_autoresponse" value="Hi 👋 Thanks for reaching out! I've received your message and will get back to you shortly. — Ogutu Neville">
-            <div class="form__row">
-              <input name="name" required placeholder="Name" class="field">
-              <input type="email" name="email" required placeholder="Email" class="field">
-            </div>
-            <input name="subject" required placeholder="Subject" class="field">
-            <textarea name="message" rows="6" required placeholder="Message" class="field field--textarea"></textarea>
-            <button id="submitBtn" type="submit" class="btn btn--gradient btn--block">
-              <span id="btnText">Send Message</span>
-            </button>
-          </form>
-          <div id="successBox" class="success hidden">
-            <div class="success__icon"><i class="fa-solid fa-check"></i></div>
-            <h3>Message Sent Successfully!</h3>
-            <p class="muted">Thank you for reaching out. I'll respond shortly.</p>
-          </div>
-        </div>
-
-        <aside class="contact-info">
-          <p class="muted">Always available for freelance work and consultations 24/7. Feel free to contact me!</p>
-          <div class="info-list">
-            <div class="info">
-              <span class="info__icon info__icon--indigo"><i class="fa-solid fa-user"></i></span>
-              <div><div class="info__title">Name</div><div class="muted">Hanningtone Neville Ogutu</div></div>
-            </div>
-            <div class="info">
-              <span class="info__icon info__icon--green"><i class="fa-solid fa-location-dot"></i></span>
-              <div><div class="info__title">Location</div><div class="muted">Nairobi (Available for remote work)</div></div>
-            </div>
-            <div class="info">
-              <span class="info__icon info__icon--yellow"><i class="fa-solid fa-phone"></i></span>
-              <div><div class="info__title">Call Me</div><div class="muted">+254 716 927 955</div></div>
-            </div>
-            <div class="info">
-              <span class="info__icon info__icon--pink"><i class="fa-solid fa-envelope"></i></span>
-              <div><div class="info__title">Email Me</div><div class="muted">ogutuhanningtone@gmail.com</div></div>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= FOOTER ================= -->
-  <footer class="site-footer">
-    <div class="container footer">
-      <div class="footer__copy">
-        © <span id="year"></span> <strong>Hanningtone Neville Ogutu</strong>. All Rights Reserved.
-      </div>
-      <div class="footer__social">
-        <a href="mailto:ogutuhanningtone@gmail.com" aria-label="Email" class="icon-btn icon-btn--indigo"><i class="fa-solid fa-envelope"></i></a>
-        <a href="tel:+254716927955" aria-label="Call" class="icon-btn icon-btn--indigo"><i class="fa-solid fa-phone"></i></a>
-        <a href="https://wa.link/xwh6aa" target="_blank" rel="noopener" aria-label="WhatsApp" class="icon-btn icon-btn--green"><i class="fa-brands fa-whatsapp"></i></a>
-        <a href="https://x.com/_NevilleOgutu" target="_blank" rel="noopener" aria-label="Twitter" class="icon-btn icon-btn--blue"><i class="fa-brands fa-twitter"></i></a>
-        <a href="https://www.tiktok.com/@ogutuneville" target="_blank" rel="noopener" aria-label="TikTok" class="icon-btn icon-btn--pink"><i class="fa-brands fa-tiktok"></i></a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ================= SCRIPTS ================= -->
-
-  <!-- Deck navigation -->
+  <!-- Deck navigation (arrows + keyboard + nav links) -->
   <script>
   (() => {
-    const viewport = document.getElementById('deckViewport');
+    const vp = document.getElementById('deckViewport');
 
     function scrollToCell(id) {
       const el = document.getElementById(id);
-      if (!el || !viewport) return;
-      viewport.scrollTo({ left: el.offsetLeft, top: el.offsetTop, behavior: 'smooth' });
+      if (!el || !vp) return;
+      vp.scrollTo({ left: el.offsetLeft, top: el.offsetTop, behavior: 'smooth' });
     }
 
-    document.querySelectorAll('.deck-arrow[data-target]').forEach(btn => {
-      btn.addEventListener('click', () => scrollToCell(btn.dataset.target));
+    // Arrow buttons
+    document.querySelectorAll('.deck-arrow[data-target]').forEach(btn =>
+      btn.addEventListener('click', () => scrollToCell(btn.dataset.target))
+    );
+
+    // Nav links and any [data-cell] links
+    document.querySelectorAll('[data-cell]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        scrollToCell(a.dataset.cell);
+      });
     });
 
-    // Keyboard arrow navigation
+    // Keyboard navigation
     document.addEventListener('keydown', e => {
-      const keys = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'];
-      if (!keys.includes(e.key)) return;
-      // Only intercept if focus is not in a form field
+      if (!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key)) return;
       if (['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)) return;
       e.preventDefault();
 
-      const cx = viewport.scrollLeft + viewport.clientWidth  / 2;
-      const cy = viewport.scrollTop  + viewport.clientHeight / 2;
+      const cx = vp.scrollLeft + vp.clientWidth  / 2;
+      const cy = vp.scrollTop  + vp.clientHeight / 2;
       let nearest = null, minD = Infinity;
       document.querySelectorAll('.deck-cell').forEach(c => {
-        const ox = c.offsetLeft + c.offsetWidth  / 2;
-        const oy = c.offsetTop  + c.offsetHeight / 2;
-        const d  = Math.hypot(ox - cx, oy - cy);
+        const d = Math.hypot(c.offsetLeft + c.offsetWidth/2 - cx, c.offsetTop + c.offsetHeight/2 - cy);
         if (d < minD) { minD = d; nearest = c; }
       });
       if (!nearest) return;
-
-      const map = {
-        ArrowLeft:  '.deck-arrow--left',
-        ArrowRight: '.deck-arrow--right',
-        ArrowUp:    '.deck-arrow--up',
-        ArrowDown:  '.deck-arrow--down'
-      };
+      const map = { ArrowLeft: '.deck-arrow--left', ArrowRight: '.deck-arrow--right', ArrowUp: '.deck-arrow--up', ArrowDown: '.deck-arrow--down' };
       const btn = nearest.querySelector(map[e.key]);
-      if (btn && btn.dataset.target) scrollToCell(btn.dataset.target);
+      if (btn?.dataset.target) scrollToCell(btn.dataset.target);
     });
+
+    // Track active nav link by visible cell
+    const cells = Array.from(document.querySelectorAll('.deck-cell'));
+    const navLinks = Array.from(document.querySelectorAll('.nav__link[data-cell]'));
+    vp.addEventListener('scroll', () => {
+      const cx = vp.scrollLeft + vp.clientWidth/2;
+      const cy = vp.scrollTop  + vp.clientHeight/2;
+      let nearest = null, minD = Infinity;
+      cells.forEach(c => {
+        const d = Math.hypot(c.offsetLeft + c.offsetWidth/2 - cx, c.offsetTop + c.offsetHeight/2 - cy);
+        if (d < minD) { minD = d; nearest = c; }
+      });
+      navLinks.forEach(l => l.classList.toggle('is-active', l.dataset.cell === nearest?.id));
+    }, { passive: true });
   })();
   </script>
 
@@ -720,113 +769,82 @@
     const mobileBtn  = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     mobileBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-    mobileMenu?.querySelectorAll('.nav__link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+    mobileMenu?.querySelectorAll('[data-cell]').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 
-  <!-- Contact form (Formspree) -->
+  <!-- Contact form -->
   <script>
-    const form       = document.getElementById('contactForm');
-    const btnText    = document.getElementById('btnText');
-    const submitBtn  = document.getElementById('submitBtn');
-    const successBox = document.getElementById('successBox');
-
+    const form      = document.getElementById('contactForm');
+    const btnText   = document.getElementById('btnText');
+    const submitBtn = document.getElementById('submitBtn');
+    const successBox= document.getElementById('successBox');
     form?.addEventListener('submit', async e => {
       e.preventDefault();
-      btnText.textContent  = 'Sending...';
-      submitBtn.disabled   = true;
+      btnText.textContent = 'Sending…'; submitBtn.disabled = true;
       try {
-        const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
-        if (res.ok) {
-          form.reset();
-          form.classList.add('hidden');
-          successBox.classList.remove('hidden');
-        } else {
-          btnText.textContent = 'Try Again';
-          submitBtn.disabled  = false;
-        }
-      } catch {
-        btnText.textContent = 'Error';
-        submitBtn.disabled  = false;
-      }
+        const res = await fetch(form.action, { method:'POST', body: new FormData(form), headers:{ Accept:'application/json' } });
+        if (res.ok) { form.reset(); form.classList.add('hidden'); successBox.classList.remove('hidden'); }
+        else { btnText.textContent = 'Try Again'; submitBtn.disabled = false; }
+      } catch { btnText.textContent = 'Error'; submitBtn.disabled = false; }
     });
   </script>
 
-  <!-- AOS -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>AOS.init({ duration: 800, once: true, easing: 'ease-out-cubic', offset: 60 });</script>
-
-  <!-- Enhanced animations (cursor, scroll progress, nav, skill bars) -->
+  <!-- Custom cursor, scroll-progress, skill bars -->
   <script>
   (() => {
-    // 1. Custom Cursor
-    const isFine    = window.matchMedia('(pointer: fine)').matches;
-    const cursorDot  = document.getElementById('cursorDot');
-    const cursorRing = document.getElementById('cursorRing');
-
-    if (isFine && cursorDot && cursorRing) {
-      let dotX = 0, dotY = 0, ringX = 0, ringY = 0;
-      document.addEventListener('mousemove', e => {
-        dotX = e.clientX; dotY = e.clientY;
-        cursorDot.style.left = dotX + 'px';
-        cursorDot.style.top  = dotY + 'px';
-      });
-      (function animateRing() {
-        ringX += (dotX - ringX) * 0.11;
-        ringY += (dotY - ringY) * 0.11;
-        cursorRing.style.left = ringX + 'px';
-        cursorRing.style.top  = ringY + 'px';
-        requestAnimationFrame(animateRing);
-      })();
+    // Cursor
+    const isFine = window.matchMedia('(pointer: fine)').matches;
+    const dot  = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+    if (isFine && dot && ring) {
+      let dx=0,dy=0,rx=0,ry=0;
+      document.addEventListener('mousemove', e => { dx=e.clientX; dy=e.clientY; dot.style.left=dx+'px'; dot.style.top=dy+'px'; });
+      (function loop(){ rx+=(dx-rx)*.11; ry+=(dy-ry)*.11; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(loop); })();
       document.querySelectorAll('a,button,.project,.service-card,.skill-card,.tcard,.price,.field,.hire__img img,.terminal').forEach(el => {
         el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
         el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
       });
-    } else {
-      cursorDot?.remove(); cursorRing?.remove();
-    }
+    } else { dot?.remove(); ring?.remove(); }
 
-    // 2. Scroll Progress Bar
-    const progressBar = document.getElementById('scrollProgress');
-    if (progressBar) {
-      window.addEventListener('scroll', () => {
-        const pct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-        progressBar.style.width = pct + '%';
+    // Scroll progress (deck scroll)
+    const bar = document.getElementById('scrollProgress');
+    const vp  = document.getElementById('deckViewport');
+    if (bar && vp) {
+      vp.addEventListener('scroll', () => {
+        const maxX = vp.scrollWidth  - vp.clientWidth;
+        const maxY = vp.scrollHeight - vp.clientHeight;
+        const pct  = maxX > 0 || maxY > 0
+          ? ((vp.scrollLeft / (maxX||1)) + (vp.scrollTop / (maxY||1))) / 2 * 100
+          : 0;
+        bar.style.width = Math.min(pct, 100) + '%';
       }, { passive: true });
     }
 
-    // 3. Nav active link
-    const header   = document.getElementById('siteHeader');
-    const sections = Array.from(document.querySelectorAll('section[id]'));
-    const navLinks = Array.from(document.querySelectorAll('.nav__link'));
-    window.addEventListener('scroll', () => {
-      header?.classList.toggle('is-scrolled', window.scrollY > 60);
-      let current = '';
-      sections.forEach(sec => {
-        const rect = sec.getBoundingClientRect();
-        if (rect.top <= 120 && rect.bottom >= 120) current = sec.id;
-      });
-      navLinks.forEach(l => l.classList.toggle('is-active', l.getAttribute('href') === '#' + current));
-    }, { passive: true });
+    // Nav frosted glass on body scroll
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => header?.classList.toggle('is-scrolled', window.scrollY > 10), { passive: true });
 
-    // 4. Skill Bar Animation — fires when cell-skills scrolls into the deck viewport
-    const skillFills = document.querySelectorAll('.skillbar__fill');
-    skillFills.forEach(f => { f.dataset.targetWidth = f.style.width; f.style.width = '0'; f.style.transition = 'none'; });
-    let skillsFired = false;
-
-    const deckViewport = document.getElementById('deckViewport');
-    const skillsSection = document.getElementById('skills');
-    if (skillsSection && deckViewport) {
-      const obs = new IntersectionObserver(entries => {
-        if (entries[0].isIntersecting && !skillsFired) {
-          skillsFired = true;
+    // Skill bars — fire when cell-skills becomes the centred cell
+    const skillFills = Array.from(document.querySelectorAll('.skillbar__fill'));
+    skillFills.forEach(f => { f.dataset.w = f.style.width; f.style.width = '0'; f.style.transition = 'none'; });
+    let fired = false;
+    const skillCell = document.getElementById('cell-skills');
+    if (vp && skillCell) {
+      vp.addEventListener('scroll', () => {
+        if (fired) return;
+        const cx = vp.scrollLeft + vp.clientWidth/2;
+        const cy = vp.scrollTop  + vp.clientHeight/2;
+        const sx = skillCell.offsetLeft + skillCell.offsetWidth/2;
+        const sy = skillCell.offsetTop  + skillCell.offsetHeight/2;
+        if (Math.abs(cx - sx) < vp.clientWidth * 0.5 && Math.abs(cy - sy) < vp.clientHeight * 0.5) {
+          fired = true;
           skillFills.forEach((f, i) => setTimeout(() => {
             f.style.transition = 'width 1.4s cubic-bezier(0.16,1,0.3,1)';
-            f.style.width = f.dataset.targetWidth;
+            f.style.width = f.dataset.w;
           }, i * 120));
         }
-      }, { root: deckViewport, threshold: 0.25 });
-      obs.observe(skillsSection);
+      }, { passive: true });
     }
   })();
   </script>
@@ -835,48 +853,36 @@
   <script>
   (() => {
     const lines = [
-      { text: "// Booting Ogutu Neville — Web Systems Interface", color: "#6A9955" },
-      { text: "systemStatus = 'operational' ✔", color: "#4EC9B0" },
-      { text: "", color: "" },
-      { text: "const services = [", color: "#C586C0" },
-      { text: "  'Web Design & Development',", color: "#CE9178" },
-      { text: "  'WordPress & Page Builder Solutions',", color: "#CE9178" },
-      { text: "  'UI/UX Design & Optimization',", color: "#CE9178" },
-      { text: "  'Digital Branding & Strategy'", color: "#CE9178" },
-      { text: "];", color: "#D4D4D4" },
-      { text: "", color: "" },
-      { text: "const skills = {", color: "#C586C0" },
-      { text: "  frontend: ['HTML5', 'CSS3', 'JavaScript'],", color: "#9CDCFE" },
-      { text: "  cms: ['WordPress', 'Page Builders'],", color: "#9CDCFE" },
-      { text: "  design: ['UX/UI Fundamentals']", color: "#9CDCFE" },
-      { text: "};", color: "#D4D4D4" },
-      { text: "", color: "" },
-      { text: "// Status: Ready to collaborate 🚀", color: "#6A9955" }
+      { text:"// Booting Ogutu Neville — Web Systems Interface", color:"#6A9955" },
+      { text:"systemStatus = 'operational' ✔", color:"#4EC9B0" },
+      { text:"", color:"" },
+      { text:"const services = [", color:"#C586C0" },
+      { text:"  'Web Design & Development',", color:"#CE9178" },
+      { text:"  'WordPress & Page Builder Solutions',", color:"#CE9178" },
+      { text:"  'UI/UX Design & Optimization',", color:"#CE9178" },
+      { text:"  'Digital Branding & Strategy'", color:"#CE9178" },
+      { text:"];", color:"#D4D4D4" },
+      { text:"", color:"" },
+      { text:"const skills = {", color:"#C586C0" },
+      { text:"  frontend: ['HTML5','CSS3','JavaScript'],", color:"#9CDCFE" },
+      { text:"  cms: ['WordPress','Page Builders'],", color:"#9CDCFE" },
+      { text:"  design: ['UX/UI Fundamentals']", color:"#9CDCFE" },
+      { text:"};", color:"#D4D4D4" },
+      { text:"", color:"" },
+      { text:"// Status: Ready to collaborate 🚀", color:"#6A9955" }
     ];
-
-    const terminal = document.getElementById('terminal');
-    let li = 0, ci = 0, lineEl;
-    const speed = 26, pause = 330, restart = 900;
-
+    const t = document.getElementById('terminal');
+    let li=0, ci=0, el;
     function type() {
-      if (!terminal) return;
-      if (li >= lines.length) {
-        return setTimeout(() => { terminal.innerHTML = ''; li = 0; ci = 0; type(); }, restart);
-      }
+      if (!t) return;
+      if (li >= lines.length) return setTimeout(() => { t.innerHTML=''; li=0; ci=0; type(); }, 900);
       const cur = lines[li];
-      if (ci === 0) {
-        lineEl = document.createElement('div');
-        lineEl.style.color = cur.color || '#D4D4D4';
-        terminal.appendChild(lineEl);
-      }
+      if (ci === 0) { el = document.createElement('div'); el.style.color = cur.color||'#D4D4D4'; t.appendChild(el); }
       if (ci < cur.text.length) {
-        const num = (li + 1).toString().padStart(2, ' ') + '  ';
-        lineEl.innerHTML = `<span style="color:#858585;user-select:none">${num}</span><span style="color:${cur.color||'#D4D4D4'}">${cur.text.substring(0, ++ci)}</span>`;
-        setTimeout(type, speed);
-      } else {
-        ci = 0; li++;
-        setTimeout(type, pause);
-      }
+        const n = (li+1).toString().padStart(2,' ')+'  ';
+        el.innerHTML = `<span style="color:#858585;user-select:none">${n}</span><span style="color:${cur.color||'#D4D4D4'}">${cur.text.substring(0,++ci)}</span>`;
+        setTimeout(type, 26);
+      } else { ci=0; li++; setTimeout(type, 330); }
     }
     type();
   })();
@@ -885,91 +891,65 @@
   <!-- Testimonial slider -->
   <script>
   (() => {
-    const track   = document.getElementById('tTrack');
-    const dotsW   = document.getElementById('tDots');
-    const prevBtn = document.querySelector('.tbtn--prev');
-    const nextBtn = document.querySelector('.tbtn--next');
+    const track  = document.getElementById('tTrack');
+    const dotsW  = document.getElementById('tDots');
+    const prev   = document.querySelector('.tbtn--prev');
+    const next   = document.querySelector('.tbtn--next');
     if (!track || !dotsW) return;
-
     const cards = Array.from(track.querySelectorAll('.tcard'));
-    let index = 0, timer = null;
-
-    const visible   = () => window.matchMedia('(max-width: 900px)').matches ? 1 : 2;
-    const maxIdx    = () => Math.max(0, cards.length - visible());
-    const stepPx    = () => { const c = cards[0]; if (!c) return 0; return c.getBoundingClientRect().width + parseFloat(getComputedStyle(track).gap || 0); };
-
+    let idx=0, timer=null;
+    const vis  = () => window.matchMedia('(max-width:900px)').matches ? 1 : 1;
+    const maxI = () => Math.max(0, cards.length - vis());
+    const step = () => { const c=cards[0]; if(!c) return 0; return c.getBoundingClientRect().width + parseFloat(getComputedStyle(track).gap||0); };
     function buildDots() {
-      dotsW.innerHTML = '';
-      for (let i = 0; i <= maxIdx(); i++) {
-        const b = document.createElement('button');
-        b.className = 'tdot' + (i === index ? ' is-active' : '');
-        b.type = 'button';
-        b.addEventListener('click', () => { index = i; apply(); restart(); });
-        dotsW.appendChild(b);
+      dotsW.innerHTML='';
+      for (let i=0; i<=maxI(); i++) {
+        const b=document.createElement('button'); b.className='tdot'+(i===idx?' is-active':''); b.type='button';
+        b.addEventListener('click',()=>{idx=i;apply();restart();}); dotsW.appendChild(b);
       }
     }
-    function apply() {
-      index = Math.min(Math.max(index, 0), maxIdx());
-      track.style.transform = `translateX(${-stepPx() * index}px)`;
-      dotsW.querySelectorAll('.tdot').forEach((d, i) => d.classList.toggle('is-active', i === index));
-    }
-    const next = () => { index = index >= maxIdx() ? 0 : index + 1; apply(); };
-    const prev = () => { index = index <= 0 ? maxIdx() : index - 1; apply(); };
-    const stop = () => { clearInterval(timer); timer = null; };
-    const start = () => { stop(); timer = setInterval(next, 3000); };
-    const restart = () => start();
-
-    nextBtn?.addEventListener('click', () => { next(); restart(); });
-    prevBtn?.addEventListener('click', () => { prev(); restart(); });
+    function apply() { idx=Math.min(Math.max(idx,0),maxI()); track.style.transform=`translateX(${-step()*idx}px)`; dotsW.querySelectorAll('.tdot').forEach((d,i)=>d.classList.toggle('is-active',i===idx)); }
+    const goNext = () => { idx = idx>=maxI()?0:idx+1; apply(); };
+    const goPrev = () => { idx = idx<=0?maxI():idx-1; apply(); };
+    const stop   = () => { clearInterval(timer); timer=null; };
+    const start  = () => { stop(); timer=setInterval(goNext, 3500); };
+    const restart= () => start();
+    next?.addEventListener('click', ()=>{goNext();restart();});
+    prev?.addEventListener('click', ()=>{goPrev();restart();});
     document.querySelector('.tviewport')?.addEventListener('mouseenter', stop);
     document.querySelector('.tviewport')?.addEventListener('mouseleave', start);
-    window.addEventListener('resize', () => { index = Math.min(index, maxIdx()); buildDots(); apply(); });
-
+    window.addEventListener('resize', ()=>{ idx=Math.min(idx,maxI()); buildDots(); apply(); });
     buildDots(); apply(); start();
   })();
   </script>
 
-  <!-- Binary canvas background (Hero) -->
+  <!-- Binary canvas -->
   <script>
   (() => {
-    const canvas = document.getElementById('binaryBg');
-    if (!canvas) return;
-    const ctx   = canvas.getContext('2d', { alpha: true });
-    const chars = ['0', '1'];
-    let cols = 0, drops = [], fontSize = 16, rafId;
-
-    function size() {
-      return { w: window.innerWidth, h: window.innerHeight };
-    }
+    const c = document.getElementById('binaryBg');
+    if (!c) return;
+    const ctx = c.getContext('2d',{alpha:true});
+    let cols=0, drops=[], fs=16, raf;
     function resize() {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      const { w, h } = size();
-      canvas.width  = Math.floor(w * dpr);
-      canvas.height = Math.floor(h * dpr);
-      canvas.style.width  = w + 'px';
-      canvas.style.height = h + 'px';
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      fontSize = w < 520 ? 13 : 15;
-      cols  = Math.floor(w / fontSize);
-      drops = Array(cols).fill(1);
+      const dpr=Math.min(window.devicePixelRatio||1,2), w=window.innerWidth, h=window.innerHeight;
+      c.width=Math.floor(w*dpr); c.height=Math.floor(h*dpr);
+      c.style.width=w+'px'; c.style.height=h+'px';
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+      fs=w<520?13:15; cols=Math.floor(w/fs); drops=Array(cols).fill(1);
     }
     function draw() {
-      const { w, h } = size();
-      ctx.fillStyle = 'rgba(7,8,15,0.09)';
-      ctx.fillRect(0, 0, w, h);
-      ctx.font = fontSize + 'px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace';
-      ctx.textBaseline = 'top';
-      for (let i = 0; i < cols; i++) {
-        ctx.fillStyle = 'rgba(34,197,94,0.5)';
-        ctx.fillText(chars[(Math.random() * 2) | 0], i * fontSize, drops[i] * fontSize);
-        if (drops[i] * fontSize > h && Math.random() > 0.975) drops[i] = 0;
+      ctx.fillStyle='rgba(7,8,15,0.09)'; ctx.fillRect(0,0,window.innerWidth,window.innerHeight);
+      ctx.font=fs+'px ui-monospace,Menlo,Consolas,monospace'; ctx.textBaseline='top';
+      for (let i=0;i<cols;i++) {
+        ctx.fillStyle='rgba(34,197,94,0.5)';
+        ctx.fillText(Math.random()<.5?'0':'1', i*fs, drops[i]*fs);
+        if (drops[i]*fs > window.innerHeight && Math.random()>.975) drops[i]=0;
         drops[i]++;
       }
-      rafId = requestAnimationFrame(draw);
+      raf=requestAnimationFrame(draw);
     }
-    window.addEventListener('load', () => { resize(); cancelAnimationFrame(rafId); draw(); });
+    window.addEventListener('load',()=>{resize();cancelAnimationFrame(raf);draw();});
     window.addEventListener('resize', resize);
-    window.addEventListener('orientationchange', () => setTimeout(resize, 200));
   })();
   </script>
 
@@ -978,15 +958,13 @@
   (() => {
     const grid = document.getElementById('toolsGrid');
     if (!grid) return;
-    Array.from(grid.children).forEach(c => { const clone = c.cloneNode(true); clone.setAttribute('aria-hidden', 'true'); grid.appendChild(clone); });
-
-    let rafId;
-    function scroll() { grid.scrollLeft += 0.8; if (grid.scrollLeft >= grid.scrollWidth / 2) grid.scrollLeft = 0; rafId = requestAnimationFrame(scroll); }
-
-    grid.addEventListener('mouseenter', () => cancelAnimationFrame(rafId));
-    grid.addEventListener('mouseleave', () => scroll());
-    grid.addEventListener('touchstart', () => cancelAnimationFrame(rafId), { passive: true });
-    grid.addEventListener('touchend',   () => scroll(), { passive: true });
+    Array.from(grid.children).forEach(c=>{ const cl=c.cloneNode(true); cl.setAttribute('aria-hidden','true'); grid.appendChild(cl); });
+    let raf;
+    function scroll() { grid.scrollLeft+=0.8; if (grid.scrollLeft>=grid.scrollWidth/2) grid.scrollLeft=0; raf=requestAnimationFrame(scroll); }
+    grid.addEventListener('mouseenter',()=>cancelAnimationFrame(raf));
+    grid.addEventListener('mouseleave',()=>scroll());
+    grid.addEventListener('touchstart',()=>cancelAnimationFrame(raf),{passive:true});
+    grid.addEventListener('touchend',()=>scroll(),{passive:true});
     scroll();
   })();
   </script>
