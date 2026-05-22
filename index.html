@@ -31,8 +31,7 @@
 <body class="page">
 
   <div class="scroll-progress" id="scrollProgress"></div>
-  <div class="cursor-dot"  id="cursorDot"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
   <div class="slide-counter" aria-live="polite" aria-label="Current slide">
     <span class="slide-counter__num" id="slideNum">01</span>
     <span class="slide-counter__sep">/</span>
@@ -953,19 +952,19 @@
   <!-- Custom cursor, scroll-progress, skill bars -->
   <script>
   (() => {
-    // Cursor
+    // Cursor — single sharp dot, exact position, no lag
     const isFine = window.matchMedia('(pointer: fine)').matches;
-    const dot  = document.getElementById('cursorDot');
-    const ring = document.getElementById('cursorRing');
-    if (isFine && dot && ring) {
-      let dx=0,dy=0,rx=0,ry=0;
-      document.addEventListener('mousemove', e => { dx=e.clientX; dy=e.clientY; dot.style.left=dx+'px'; dot.style.top=dy+'px'; });
-      (function loop(){ rx+=(dx-rx)*.11; ry+=(dy-ry)*.11; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(loop); })();
+    const dot = document.getElementById('cursorDot');
+    if (isFine && dot) {
+      document.addEventListener('mousemove', e => {
+        dot.style.left = e.clientX + 'px';
+        dot.style.top  = e.clientY + 'px';
+      });
       document.querySelectorAll('a,button,.project,.service-card,.skill-card,.tcard,.price,.field,.hire__img img,.terminal').forEach(el => {
         el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
         el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
       });
-    } else { dot?.remove(); ring?.remove(); }
+    } else { dot?.remove(); }
 
     // Scroll progress (deck scroll)
     const bar = document.getElementById('scrollProgress');
