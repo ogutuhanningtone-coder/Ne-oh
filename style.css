@@ -318,12 +318,13 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
 .nav__link:hover { color: #fff; }
 .nav__link:hover::after, .nav__link.is-active::after { width: 100%; }
 .nav__link.is-active { color: var(--violet-light); }
-.nav__mobile-btn { display: none; background: transparent; border: 0; color: #cdd2e6; font-size: 1.2rem; padding: 8px 10px; border-radius: 10px; transition: color .2s, background .2s; }
+.nav__mobile-btn { display: none; background: transparent; border: 0; color: #cdd2e6; font-size: 1.2rem; padding: 8px 10px; border-radius: 10px; transition: color .2s, background .2s; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .nav__mobile-btn:hover { color: var(--violet-light); background: rgba(124,131,255,.12); }
 .mobile-menu { overflow: hidden; max-height: 0; transition: max-height .4s var(--ease-spring); border-top: 1px solid var(--border); background: rgba(14,12,29,.98); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
 .mobile-menu.hidden { display: block !important; max-height: 0 !important; overflow: hidden; }
 .mobile-menu:not(.hidden) { max-height: 340px; }
 .mobile-menu__list { list-style: none; margin: 0; padding: 20px 24px; display: flex; flex-direction: column; gap: 18px; font-weight: 600; color: #cdd2e6; }
+.mobile-menu__list .nav__link { touch-action: manipulation; -webkit-tap-highlight-color: transparent; display: block; padding: 4px 0; }
 
 /* ─────────────────────  HERO  ──────────────────────────── */
 .hero {
@@ -889,6 +890,7 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
     font-size: .88rem;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
     transition: background .18s, border-color .18s, opacity .18s;
   }
   .mob-nav__btn--next { background: rgba(124,131,255,.18); border-color: rgba(196,181,253,.5); }
@@ -930,11 +932,19 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
 
   /* ───────────────── HERO ───────────────── */
   .hero__right { display: none; }
-  #cell-hero .hero__title   { margin-bottom: 8px; }
-  #cell-hero .hero__subtitle { margin-bottom: 12px; }
+  #cell-hero .hero__left    { gap: 14px; }
+  #cell-hero .hero__title   { margin-bottom: 0; }
+  #cell-hero .hero__subtitle { margin-bottom: 0; }
   #cell-hero .hero__cta      { flex-wrap: wrap; gap: 8px; }
+  #cell-hero .icon-btn       { width: 40px; height: 40px; font-size: .92rem; }
 
   /* ───────────────── ABOUT ───────────────── */
+  #cell-about > .hero-slide {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+    padding-bottom: 24px;
+  }
   #cell-about .h2   { font-size: 1.3rem; }
   #cell-about .p    { font-size: .85rem; line-height: 1.65; }
 
@@ -943,6 +953,7 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-y: contain;
+    padding-bottom: 32px;
   }
   #cell-skills .skillbar       { margin-bottom: 8px; }
   #cell-skills .skills-block   { margin-bottom: 10px; }
@@ -972,6 +983,7 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-y: contain;
+    padding-bottom: 32px;
   }
   #cell-projects .section-header       { margin-bottom: 10px; }
   #cell-projects .section-header .h2  { font-size: 1.15rem; }

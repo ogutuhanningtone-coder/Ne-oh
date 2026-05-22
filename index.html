@@ -863,15 +863,20 @@
     const mobileMenu = document.getElementById('mobileMenu');
     if (!mobileBtn || !mobileMenu) return;
 
+    // Keep the same <i> element in the DOM — only swap its class.
+    // This ensures mobileBtn.contains(e.target) stays true for burger taps
+    // even after the icon changes, so the outside-click handler never mis-fires.
+    const btnIcon = mobileBtn.querySelector('i');
+
     function openMenu() {
       mobileMenu.classList.remove('hidden');
       mobileBtn.setAttribute('aria-label', 'Close menu');
-      mobileBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+      if (btnIcon) btnIcon.className = 'fa-solid fa-xmark';
     }
     function closeMenu() {
       mobileMenu.classList.add('hidden');
       mobileBtn.setAttribute('aria-label', 'Open menu');
-      mobileBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+      if (btnIcon) btnIcon.className = 'fa-solid fa-bars';
     }
 
     // Burger / X toggle
@@ -879,36 +884,38 @@
       mobileMenu.classList.contains('hidden') ? openMenu() : closeMenu();
     });
 
-    // ── Core fix: capture phase fires BEFORE the deck-nav [data-cell] handler.
-    //    Close the menu first so the header collapses, then navigate once the
-    //    layout has settled — getBoundingClientRect() gives correct positions.
+    // Capture phase — fires before the deck-nav [data-cell] bubble handler.
     mobileMenu.addEventListener('click', e => {
       const link = e.target.closest('a[data-cell]');
       if (!link) return;
       e.preventDefault();
-      e.stopImmediatePropagation(); // block deck-nav handler from running with wrong header height
+      e.stopImmediatePropagation(); // block deck-nav handler entirely
+
       const cellId = link.dataset.cell;
+
+      // Close instantly (no animation) so the header collapses in this same frame.
+      // Without this, we'd have to wait 400 ms for the max-height transition.
+      mobileMenu.style.transition = 'none';
       closeMenu();
-      // Wait for max-height transition (400 ms) + one paint, then scroll
+      void mobileMenu.offsetHeight; // force synchronous reflow → ResizeObserver fires
+
+      // Wait one short tick for --hdr to update, then scroll.
+      // Use cell-index × viewport-height so we never depend on getBoundingClientRect
+      // racing against a shrinking header.
       setTimeout(() => {
-        const el = document.getElementById(cellId);
-        const vp = document.getElementById('deckViewport');
-        if (!el || !vp) return;
-        const r  = el.getBoundingClientRect();
-        const vr = vp.getBoundingClientRect();
-        vp.scrollTo({
-          left: vp.scrollLeft + (r.left - vr.left),
-          top:  vp.scrollTop  + (r.top  - vr.top),
-          behavior: 'smooth'
-        });
-      }, 420);
+        mobileMenu.style.transition = ''; // restore open animation for next time
+        const vp    = document.getElementById('deckViewport');
+        const cells = Array.from(document.querySelectorAll('.deck-cell'));
+        const idx   = cells.indexOf(document.getElementById(cellId));
+        if (!vp || idx < 0) return;
+        vp.scrollTo({ top: idx * vp.clientHeight, behavior: 'smooth' });
+      }, 80);
     }, { capture: true });
 
-    // Tap outside the menu to close it
+    // Tap anywhere outside the header to close the menu
     document.addEventListener('click', e => {
-      if (!mobileMenu.classList.contains('hidden') &&
-          !mobileMenu.contains(e.target) &&
-          !mobileBtn.contains(e.target)) {
+      const header = document.getElementById('siteHeader');
+      if (!mobileMenu.classList.contains('hidden') && header && !header.contains(e.target)) {
         closeMenu();
       }
     });
