@@ -991,7 +991,7 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-y: contain;
-    padding-bottom: 32px;   /* iOS Safari drops padding-bottom on overflow:auto — explicit override */
+    padding-bottom: 48px;
   }
   #cell-plans .section-header          { margin-bottom: 12px; }
   #cell-plans .section-header .h2     { font-size: 1.15rem; }
@@ -1090,7 +1090,7 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
 
   /* Footer — solid distinct block so it reads clearly */
   .deck-footer {
-    padding: 24px 18px 20px;
+    padding: 24px 18px 48px;
     background: #0a0818;
     border-top: 2px solid rgba(196,181,253,.25);
     margin-top: 4px;
