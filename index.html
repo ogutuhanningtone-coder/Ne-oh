@@ -713,7 +713,15 @@
     function scrollToCell(id) {
       const el = document.getElementById(id);
       if (!el || !vp) return;
-      vp.scrollTo({ left: el.offsetLeft, top: el.offsetTop, behavior: 'smooth' });
+      // getBoundingClientRect gives position relative to viewport — reliable for both
+      // the 2-D desktop grid and the mobile flex-column layout.
+      const r  = el.getBoundingClientRect();
+      const vr = vp.getBoundingClientRect();
+      vp.scrollTo({
+        left: vp.scrollLeft + (r.left - vr.left),
+        top:  vp.scrollTop  + (r.top  - vr.top),
+        behavior: 'smooth'
+      });
     }
 
     // Arrow buttons
@@ -729,37 +737,37 @@
       });
     });
 
+    // Find the cell whose centre is nearest to the viewport centre
+    function nearestCell() {
+      const vr = vp.getBoundingClientRect();
+      const cx = vr.left + vr.width  / 2;
+      const cy = vr.top  + vr.height / 2;
+      let nearest = null, minD = Infinity;
+      document.querySelectorAll('.deck-cell').forEach(c => {
+        const r = c.getBoundingClientRect();
+        const d = Math.hypot(r.left + r.width/2 - cx, r.top + r.height/2 - cy);
+        if (d < minD) { minD = d; nearest = c; }
+      });
+      return nearest;
+    }
+
     // Keyboard navigation
     document.addEventListener('keydown', e => {
       if (!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key)) return;
       if (['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)) return;
       e.preventDefault();
-
-      const cx = vp.scrollLeft + vp.clientWidth  / 2;
-      const cy = vp.scrollTop  + vp.clientHeight / 2;
-      let nearest = null, minD = Infinity;
-      document.querySelectorAll('.deck-cell').forEach(c => {
-        const d = Math.hypot(c.offsetLeft + c.offsetWidth/2 - cx, c.offsetTop + c.offsetHeight/2 - cy);
-        if (d < minD) { minD = d; nearest = c; }
-      });
-      if (!nearest) return;
+      const cell = nearestCell();
+      if (!cell) return;
       const map = { ArrowLeft: '.deck-arrow--left', ArrowRight: '.deck-arrow--right', ArrowUp: '.deck-arrow--up', ArrowDown: '.deck-arrow--down' };
-      const btn = nearest.querySelector(map[e.key]);
+      const btn = cell.querySelector(map[e.key]);
       if (btn?.dataset.target) scrollToCell(btn.dataset.target);
     });
 
     // Track active nav link by visible cell
-    const cells = Array.from(document.querySelectorAll('.deck-cell'));
     const navLinks = Array.from(document.querySelectorAll('.nav__link[data-cell]'));
     vp.addEventListener('scroll', () => {
-      const cx = vp.scrollLeft + vp.clientWidth/2;
-      const cy = vp.scrollTop  + vp.clientHeight/2;
-      let nearest = null, minD = Infinity;
-      cells.forEach(c => {
-        const d = Math.hypot(c.offsetLeft + c.offsetWidth/2 - cx, c.offsetTop + c.offsetHeight/2 - cy);
-        if (d < minD) { minD = d; nearest = c; }
-      });
-      navLinks.forEach(l => l.classList.toggle('is-active', l.dataset.cell === nearest?.id));
+      const cell = nearestCell();
+      navLinks.forEach(l => l.classList.toggle('is-active', l.dataset.cell === cell?.id));
     }, { passive: true });
   })();
   </script>
@@ -821,9 +829,18 @@
       }, { passive: true });
     }
 
-    // Nav frosted glass on body scroll
+    // Accurately measure header height and keep --hdr CSS variable in sync
     const header = document.getElementById('siteHeader');
-    window.addEventListener('scroll', () => header?.classList.toggle('is-scrolled', window.scrollY > 10), { passive: true });
+    if (header) {
+      const setHdr = () => document.documentElement.style.setProperty('--hdr', header.offsetHeight + 'px');
+      setHdr();
+      new ResizeObserver(setHdr).observe(header);
+    }
+
+    // Nav frosted glass — driven by deck-viewport scroll (body no longer scrolls)
+    if (vp && header) {
+      vp.addEventListener('scroll', () => header.classList.toggle('is-scrolled', vp.scrollLeft + vp.scrollTop > 20), { passive: true });
+    }
 
     // Skill bars — fire when cell-skills becomes the centred cell
     const skillFills = Array.from(document.querySelectorAll('.skillbar__fill'));
@@ -833,11 +850,11 @@
     if (vp && skillCell) {
       vp.addEventListener('scroll', () => {
         if (fired) return;
-        const cx = vp.scrollLeft + vp.clientWidth/2;
-        const cy = vp.scrollTop  + vp.clientHeight/2;
-        const sx = skillCell.offsetLeft + skillCell.offsetWidth/2;
-        const sy = skillCell.offsetTop  + skillCell.offsetHeight/2;
-        if (Math.abs(cx - sx) < vp.clientWidth * 0.5 && Math.abs(cy - sy) < vp.clientHeight * 0.5) {
+        const vr = vp.getBoundingClientRect();
+        const sr = skillCell.getBoundingClientRect();
+        const overlapX = sr.left < vr.right  && sr.right  > vr.left;
+        const overlapY = sr.top  < vr.bottom && sr.bottom > vr.top;
+        if (overlapX && overlapY) {
           fired = true;
           skillFills.forEach((f, i) => setTimeout(() => {
             f.style.transition = 'width 1.4s cubic-bezier(0.16,1,0.3,1)';
