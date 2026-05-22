@@ -744,23 +744,24 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
 #cell-expertise .service-card__title { font-size: .86rem; margin-bottom: 6px; }
 #cell-expertise .service-card__list  { font-size: .75rem; line-height: 1.5; padding-left: 14px; }
 
-/* ── Projects: horizontal drag-scroll strip (one row, no height overflow) ── */
-#cell-projects .projects-grid {
-  display: flex;
-  flex-flow: row nowrap;
-  overflow-x: auto;
-  overflow-y: hidden;
-  gap: 14px;
-  padding-bottom: 6px;
+/* ── Projects: multi-row grid — all cards visible, scrollable for more ── */
+#cell-projects > .hero-slide {
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
-  scrollbar-color: rgba(124,131,255,.4) transparent;
-  cursor: grab;
+  scrollbar-color: rgba(124,131,255,.35) transparent;
 }
-#cell-projects .projects-grid:active { cursor: grabbing; }
-#cell-projects .projects-grid::-webkit-scrollbar       { height: 4px; }
-#cell-projects .projects-grid::-webkit-scrollbar-track { background: transparent; }
-#cell-projects .projects-grid::-webkit-scrollbar-thumb { background: rgba(124,131,255,.4); border-radius: 999px; }
-#cell-projects .project { flex: 0 0 240px; min-width: 240px; height: 220px; }
+#cell-projects > .hero-slide::-webkit-scrollbar       { width: 4px; }
+#cell-projects > .hero-slide::-webkit-scrollbar-track { background: transparent; }
+#cell-projects > .hero-slide::-webkit-scrollbar-thumb { background: rgba(124,131,255,.4); border-radius: 999px; }
+#cell-projects .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  padding-bottom: 8px;
+}
+#cell-projects .project { height: 200px; }
 
 /* ── Plans: compact pricing cards ── */
 #cell-plans .pricing-grid           { gap: 12px; }

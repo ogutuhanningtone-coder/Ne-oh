@@ -743,7 +743,16 @@
     //    OR any scrollable inner container (so expertise/plans/contact inner scroll works
     //    and the projects horizontal strip can be swiped).
     if (vp) {
-      vp.addEventListener('wheel', e => e.preventDefault(), { passive: false });
+      vp.addEventListener('wheel', e => {
+        // Allow wheel scrolling inside inner overflow-y containers (e.g. projects grid)
+        let el = e.target;
+        while (el && el !== vp) {
+          const s = getComputedStyle(el);
+          if ((s.overflowY === 'auto' || s.overflowY === 'scroll') && el.scrollHeight > el.clientHeight + 1) return;
+          el = el.parentElement;
+        }
+        e.preventDefault();
+      }, { passive: false });
       let _touchOrigin = null;
       vp.addEventListener('touchstart', e => { _touchOrigin = e.target; }, { passive: true });
       vp.addEventListener('touchmove', e => {
