@@ -1022,33 +1022,18 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
   #cell-collaborate .muted        { font-size: .82rem; }
   .collab-testimonials { margin-top: 14px; }
 
-  /* Testimonial slider — full-width card, buttons overlaid on card edges */
+  /* Testimonial slider — full-width card on mobile, hide side buttons, use dots */
   .twrap {
-    display: block;        /* drop the 3-col grid that squashes the card */
-    position: relative;
+    grid-template-columns: 1fr;   /* collapse side columns, card fills full width */
+    gap: 0;
   }
-  .tviewport { border-radius: 14px; }
+  .twrap .tbtn { display: none; } /* hide prev/next — dots handle navigation */
+  .tviewport   { border-radius: 14px; }
 
-  /* Overlay prev/next on the card so the card gets full width */
-  .tbtn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 2;
-    width: 34px;
-    height: 34px;
-    background: rgba(6,4,18,.82);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(196,181,253,.28);
-  }
-  .tbtn--prev { left:  8px; }
-  .tbtn--next { right: 8px; }
-
-  /* Card: full width, good height, flex column so quote expands */
+  /* Card: full width, comfortable height, flex column so quote expands */
   .twrap--mini .tcard {
-    min-height: 190px;
-    padding: 22px 52px 18px;   /* 52px side-padding clears the overlaid buttons */
+    min-height: 175px;
+    padding: 20px 18px 16px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
