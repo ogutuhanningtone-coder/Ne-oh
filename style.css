@@ -431,7 +431,6 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   gap: 16px;
   margin-top: 22px;
@@ -617,7 +616,7 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
 
 /* ─────────────────────  OVERFLOW GUARD  ────────────────── */
 .hero,
-.services-grid, .tools-grid, .projects-grid, .pricing-grid { overflow-x: clip; }
+.services-grid, .projects-grid, .pricing-grid { overflow-x: clip; }
 .terminal, .tcard, .field, .hire__content { min-width: 0; max-width: 100%; }
 .project__img { width: 100%; height: 100%; max-width: none; }
 .hire__img img { width: 100%; height: auto; }
@@ -639,26 +638,4 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
   .skillbar__fill::after { display: none !important; }
   .price--popular { animation: none !important; }
   .hero__left > *, .hero__right { opacity: 1 !important; }
-}
-
-@media (max-width: 600px) {
-  .tools-grid {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    gap: 12px;
-    padding-bottom: 12px;
-    scrollbar-width: none;
-  }
-  .tools-grid::-webkit-scrollbar {
-    display: none;
-  }
-  .skill-card {
-    flex: 0 0 130px;
-    min-width: 130px;
-    scroll-snap-align: start;
-    min-height: 150px;
-  }
 }
