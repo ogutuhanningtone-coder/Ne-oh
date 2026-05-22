@@ -3,11 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ogutu Neville - Web Developer</title>
+  <title>Ogutu Neville | Website Developer &amp; Digital Solutions — Kenya</title>
 
-  <meta name="description" content="website & systems design and consulting portfolio by Ogutu Neville Hanningtone. Specializing in modern web design, branding, and digital consulting.">
-  <meta name="keywords" content="website design, consulting, Systems Designer, Ogutu Neville, portfolio, website developer, UI/UX designer">
+  <meta name="description" content="Professional portfolio of Ogutu Neville Hanningtone — modern website design, branding, and digital solutions for businesses in Kenya.">
+  <meta name="keywords" content="website design Kenya, web developer Kenya, Ogutu Neville, digital solutions, branding, UI/UX, portfolio">
   <meta name="author" content="Ogutu Neville Hanningtone">
+  <meta name="theme-color" content="#0e0c1d">
+
+  <!-- Open Graph — controls how this link looks on WhatsApp, LinkedIn, Facebook -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="Ogutu Neville | Website Developer &amp; Digital Solutions — Kenya">
+  <meta property="og:description" content="Modern website design, branding &amp; digital solutions for businesses in Kenya. View my portfolio.">
+  <meta property="og:image"       content="Gemini_Generated_Image_8kz7t88kz7t88kz7.webp">
+
+  <!-- Twitter / X card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Ogutu Neville | Website Developer in Kenya">
+  <meta name="twitter:description" content="Modern website design, branding &amp; digital solutions for businesses in Kenya.">
+  <meta name="twitter:image"       content="Gemini_Generated_Image_8kz7t88kz7t88kz7.webp">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -20,6 +33,11 @@
   <div class="scroll-progress" id="scrollProgress"></div>
   <div class="cursor-dot"  id="cursorDot"></div>
   <div class="cursor-ring" id="cursorRing"></div>
+  <div class="slide-counter" aria-live="polite" aria-label="Current slide">
+    <span class="slide-counter__num" id="slideNum">01</span>
+    <span class="slide-counter__sep">/</span>
+    <span class="slide-counter__total">08</span>
+  </div>
 
   <!-- ── NAVIGATION ── -->
   <header class="site-header" id="siteHeader">
@@ -1049,6 +1067,39 @@
     grid.addEventListener('touchstart',()=>cancelAnimationFrame(raf),{passive:true});
     grid.addEventListener('touchend',()=>scroll(),{passive:true});
     scroll();
+  })();
+  </script>
+
+  <!-- Slide counter + cell entrance animation -->
+  <script>
+  (() => {
+    const vp    = document.getElementById('deckViewport');
+    const num   = document.getElementById('slideNum');
+    const cells = Array.from(document.querySelectorAll('.deck-cell'));
+    if (!vp || !cells.length) return;
+
+    // ── Slide position counter ──────────────────────────────
+    if (num) {
+      function updateCounter() {
+        const vr = vp.getBoundingClientRect();
+        const cy = vr.top + vr.height / 2;
+        let best = 0, minD = Infinity;
+        cells.forEach((c, i) => {
+          const r = c.getBoundingClientRect();
+          const d = Math.abs(r.top + r.height / 2 - cy);
+          if (d < minD) { minD = d; best = i; }
+        });
+        num.textContent = String(best + 1).padStart(2, '0');
+      }
+      vp.addEventListener('scroll', updateCounter, { passive: true });
+      updateCounter();
+    }
+
+    // ── Cell entrance animation via IntersectionObserver ───
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => e.target.classList.toggle('cell-live', e.isIntersecting));
+    }, { root: vp, threshold: 0.5 });
+    cells.forEach(c => io.observe(c));
   })();
   </script>
 
