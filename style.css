@@ -610,3 +610,25 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
   .price--popular { animation: none !important; }
   .hero__left > *, .hero__right { opacity: 1 !important; }
 }
+
+@media (max-width: 600px) {
+  .tools-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 12px;
+    padding-bottom: 12px;
+    scrollbar-width: none;
+  }
+  .tools-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .skill-card {
+    flex: 0 0 130px;
+    min-width: 130px;
+    scroll-snap-align: start;
+    min-height: 150px;
+  }
+}
