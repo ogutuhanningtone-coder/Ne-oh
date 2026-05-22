@@ -858,11 +858,63 @@
 
   <!-- Mobile menu + footer year -->
   <script>
+  (() => {
     const mobileBtn  = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
-    mobileBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-    mobileMenu?.querySelectorAll('[data-cell]').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+    if (!mobileBtn || !mobileMenu) return;
+
+    function openMenu() {
+      mobileMenu.classList.remove('hidden');
+      mobileBtn.setAttribute('aria-label', 'Close menu');
+      mobileBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+    }
+    function closeMenu() {
+      mobileMenu.classList.add('hidden');
+      mobileBtn.setAttribute('aria-label', 'Open menu');
+      mobileBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+    }
+
+    // Burger / X toggle
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.contains('hidden') ? openMenu() : closeMenu();
+    });
+
+    // ── Core fix: capture phase fires BEFORE the deck-nav [data-cell] handler.
+    //    Close the menu first so the header collapses, then navigate once the
+    //    layout has settled — getBoundingClientRect() gives correct positions.
+    mobileMenu.addEventListener('click', e => {
+      const link = e.target.closest('a[data-cell]');
+      if (!link) return;
+      e.preventDefault();
+      e.stopImmediatePropagation(); // block deck-nav handler from running with wrong header height
+      const cellId = link.dataset.cell;
+      closeMenu();
+      // Wait for max-height transition (400 ms) + one paint, then scroll
+      setTimeout(() => {
+        const el = document.getElementById(cellId);
+        const vp = document.getElementById('deckViewport');
+        if (!el || !vp) return;
+        const r  = el.getBoundingClientRect();
+        const vr = vp.getBoundingClientRect();
+        vp.scrollTo({
+          left: vp.scrollLeft + (r.left - vr.left),
+          top:  vp.scrollTop  + (r.top  - vr.top),
+          behavior: 'smooth'
+        });
+      }, 420);
+    }, { capture: true });
+
+    // Tap outside the menu to close it
+    document.addEventListener('click', e => {
+      if (!mobileMenu.classList.contains('hidden') &&
+          !mobileMenu.contains(e.target) &&
+          !mobileBtn.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
     document.getElementById('year').textContent = new Date().getFullYear();
+  })();
   </script>
 
   <!-- Contact form -->
