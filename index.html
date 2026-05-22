@@ -1151,7 +1151,6 @@ return { w: Math.floor(safeW), h: Math.floor(Math.max(rect.height, vh * 0.85)) }
       requestAnimationFrame(autoScroll);
     }
 
-    // Pause on hover (desktop) and touch (mobile)
     grid.addEventListener('mouseenter', () => { scrolling = false; });
     grid.addEventListener('mouseleave', () => { scrolling = true; autoScroll(); });
     grid.addEventListener('touchstart', () => { scrolling = false; });
