@@ -87,8 +87,8 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
-  overflow-x: clip;
+  overflow: hidden;          /* body must not scroll — deck-viewport owns all scrolling */
+  height: 100%;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -99,8 +99,8 @@ body {
   color        : var(--text);
   background   : var(--bg);
   position     : relative;
-  overflow-x   : hidden;
-  overflow-x   : clip;
+  overflow     : hidden;     /* belt-and-suspenders: no body scroll */
+  height       : 100%;
   line-height  : 1.6;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -660,9 +660,7 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
   margin-top: var(--hdr);
   width: 100vw;
   height: calc(100vh - var(--hdr));
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-type: both mandatory;
+  overflow: auto;             /* auto needed so scrollTo() works programmatically */
   scroll-behavior: smooth;
   scrollbar-width: none;
 }
@@ -689,9 +687,8 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
 .deck-cell {
   width: 100vw;
   height: calc(100vh - var(--hdr));
-  scroll-snap-align: start;
   position: relative;
-  overflow: hidden;         /* hard clip — no scroll ever */
+  overflow: hidden;
 }
 
 /* Hero section fills its cell completely */
@@ -862,7 +859,6 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
   .deck-viewport {
     overflow-x: hidden;
     overflow-y: auto;
-    scroll-snap-type: y mandatory;
   }
 
   .deck-grid {

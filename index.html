@@ -710,6 +710,13 @@
   (() => {
     const vp = document.getElementById('deckViewport');
 
+    // ── Lock the deck: ONLY arrow buttons may navigate.
+    //    Block wheel + touch so the 500vw×400vh grid can't be freely scrolled.
+    if (vp) {
+      vp.addEventListener('wheel',     e => e.preventDefault(), { passive: false });
+      vp.addEventListener('touchmove', e => e.preventDefault(), { passive: false });
+    }
+
     function scrollToCell(id) {
       const el = document.getElementById(id);
       if (!el || !vp) return;
