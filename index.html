@@ -1139,22 +1139,34 @@ return { w: Math.floor(safeW), h: Math.floor(Math.max(rect.height, vh * 0.85)) }
   (() => {
     const grid = document.querySelector('.tools-grid');
     if (!grid) return;
-    let scrolling = true;
-    const speed = 0.6;
+
+    // Clone all cards and append for seamless infinite loop
+    const cards = Array.from(grid.children);
+    cards.forEach(card => {
+      const clone = card.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      grid.appendChild(clone);
+    });
+
+    const speed = 0.8; // px per frame — increase for faster
+    let rafId;
 
     function autoScroll() {
-      if (!scrolling) return;
       grid.scrollLeft += speed;
-      if (grid.scrollLeft >= grid.scrollWidth - grid.clientWidth) {
+      // When we've scrolled through the original set, silently reset
+      if (grid.scrollLeft >= grid.scrollWidth / 2) {
         grid.scrollLeft = 0;
       }
-      requestAnimationFrame(autoScroll);
+      rafId = requestAnimationFrame(autoScroll);
     }
 
-    grid.addEventListener('mouseenter', () => { scrolling = false; });
-    grid.addEventListener('mouseleave', () => { scrolling = true; autoScroll(); });
-    grid.addEventListener('touchstart', () => { scrolling = false; });
-    grid.addEventListener('touchend',   () => { scrolling = true; autoScroll(); });
+    // Pause on hover (desktop)
+    grid.addEventListener('mouseenter', () => cancelAnimationFrame(rafId));
+    grid.addEventListener('mouseleave', () => autoScroll());
+
+    // Pause on touch (mobile)
+    grid.addEventListener('touchstart', () => cancelAnimationFrame(rafId), { passive: true });
+    grid.addEventListener('touchend',   () => autoScroll(), { passive: true });
 
     autoScroll();
   })();
