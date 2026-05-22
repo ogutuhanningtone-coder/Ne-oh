@@ -1020,22 +1020,46 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
   #cell-collaborate .hire__content { gap: 10px; }
   #cell-collaborate .h2           { font-size: 1.2rem; }
   #cell-collaborate .muted        { font-size: .82rem; }
-  .collab-testimonials            { margin-top: 12px; }
-  .tcard                          { padding: 14px 14px; }
-  .tquote                         { font-size: .78rem; line-height: 1.55; }
-  .tname                          { font-size: .82rem; }
-  .trole                          { font-size: .72rem; }
+  .collab-testimonials { margin-top: 14px; }
 
-  /* ───────────────── CONTACT — full scrollable cell (footer included) ───────────────── */
-  /* Override the flex-column closing layout so the whole cell can scroll */
-  .deck-cell--closing {
+  /* Testimonial cards — override the --mini shrink, give them real substance */
+  .twrap--mini .tcard {
+    min-height: 180px;
+    padding: 20px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .twrap--mini .tquote {
+    font-size: .88rem;
+    line-height: 1.7;
+    margin-bottom: 0;
+    padding: 4px 2px;
+    flex: 1;
+  }
+  .twrap--mini .twho  { margin-top: 14px; gap: 10px; }
+  .twrap--mini .tavatar { width: 40px; height: 40px; }
+  .twrap--mini .tname { font-size: .86rem; }
+  .twrap--mini .trole { font-size: .74rem; }
+  .tdots { margin-top: 10px; }
+
+  /* ───────────────── CONTACT — scrollable cell, footer always reachable ───────────────── */
+  /* Use the cell ID (#cell-contact = specificity 1,0,0) to override all class rules cleanly */
+  #cell-contact {
     display: block;
     overflow-y: auto;
+    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-y: contain;
+    /* padding-bottom gives the footer breathing room and clears the viewport edge */
+    padding-bottom: 24px;
   }
-  .deck-cell--closing > #contact {
-    height: auto; min-height: unset; flex: none; overflow: visible;
+  /* Force the hero-slide inside contact to natural height — highest specificity wins */
+  #cell-contact > #contact {
+    height: auto;
+    min-height: 0;
+    flex: none;
+    overflow: visible;
   }
   #cell-contact .section-header      { margin-bottom: 12px; }
   #cell-contact .section-header .h2 { font-size: 1.2rem; }
@@ -1045,28 +1069,30 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
   #cell-contact .field               { padding: 11px 14px; font-size: .84rem; }
   #cell-contact .field--textarea     { min-height: 80px; }
 
-  /* Footer — visually distinct so it reads clearly at the bottom of the contact cell */
+  /* Footer — solid distinct block so it reads clearly */
   .deck-footer {
-    padding: 20px 18px;
-    background: rgba(10,8,24,.95);
-    border-top: 1px solid rgba(196,181,253,.2);
-    margin-top: 8px;
+    padding: 24px 18px 20px;
+    background: #0a0818;
+    border-top: 2px solid rgba(196,181,253,.25);
+    margin-top: 4px;
   }
   .deck-footer .footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
     text-align: center;
   }
   .deck-footer .footer__copy {
-    font-size: .78rem;
-    color: rgba(255,255,255,.55);
+    font-size: .8rem;
+    color: rgba(255,255,255,.6);
+    line-height: 1.5;
   }
   .deck-footer .footer__social {
     display: flex;
     gap: 10px;
     justify-content: center;
+    flex-wrap: wrap;
   }
 }
 
