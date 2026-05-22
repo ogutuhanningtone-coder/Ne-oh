@@ -1022,26 +1022,57 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
   #cell-collaborate .muted        { font-size: .82rem; }
   .collab-testimonials { margin-top: 14px; }
 
-  /* Testimonial cards — override the --mini shrink, give them real substance */
+  /* Testimonial slider — full-width card, buttons overlaid on card edges */
+  .twrap {
+    display: block;        /* drop the 3-col grid that squashes the card */
+    position: relative;
+  }
+  .tviewport { border-radius: 14px; }
+
+  /* Overlay prev/next on the card so the card gets full width */
+  .tbtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 34px;
+    height: 34px;
+    background: rgba(6,4,18,.82);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(196,181,253,.28);
+  }
+  .tbtn--prev { left:  8px; }
+  .tbtn--next { right: 8px; }
+
+  /* Card: full width, good height, flex column so quote expands */
   .twrap--mini .tcard {
-    min-height: 180px;
-    padding: 20px 18px;
+    min-height: 190px;
+    padding: 22px 52px 18px;   /* 52px side-padding clears the overlaid buttons */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
   .twrap--mini .tquote {
-    font-size: .88rem;
-    line-height: 1.7;
+    font-size: .87rem;
+    line-height: 1.72;
     margin-bottom: 0;
-    padding: 4px 2px;
+    padding: 0;
     flex: 1;
+    text-align: left;
   }
-  .twrap--mini .twho  { margin-top: 14px; gap: 10px; }
+  .twrap--mini .twho    { margin-top: 14px; gap: 10px; }
   .twrap--mini .tavatar { width: 40px; height: 40px; }
-  .twrap--mini .tname { font-size: .86rem; }
-  .twrap--mini .trole { font-size: .74rem; }
+  .twrap--mini .tname   { font-size: .86rem; }
+  .twrap--mini .trole   { font-size: .74rem; }
   .tdots { margin-top: 10px; }
+
+  /* Plans CTA button — clearer on dark card background */
+  #cell-plans .btn--clear {
+    border-color: rgba(196,181,253,.5);
+    background: rgba(196,181,253,.08);
+    color: #fff;
+  }
 
   /* ───────────────── CONTACT — scrollable cell, footer always reachable ───────────────── */
   /* Use the cell ID (#cell-contact = specificity 1,0,0) to override all class rules cleanly */
