@@ -660,10 +660,11 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
 .deck-cell {
   width: 100vw; height: 100vh;
   scroll-snap-align: center;
-  position: relative; overflow: hidden; padding: 48px; display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: auto; padding: 0; display: block;
   background: linear-gradient(180deg, rgba(255,255,255,.02), transparent);
 }
-.deck-cell .deck-inner { width: min(1060px, 94%); max-height: calc(100vh - 120px); overflow: auto; padding: 22px; border-radius: 18px; background: rgba(11,8,24,.48); backdrop-filter: blur(8px); }
+.deck-cell .deck-inner { width: 100%; max-height: 100%; overflow: auto; padding: 22px; border-radius: 18px; background: rgba(11,8,24,.48); backdrop-filter: blur(8px); }
+.deck-cell > section { width: 100%; height: 100%; box-sizing: border-box; overflow: auto; }
 .deck-nav { position: absolute; inset: 0; pointer-events: none; }
 .deck-nav .arrow { pointer-events: auto; position: absolute; background: rgba(255,255,255,.06); color: var(--heading); border: 1px solid rgba(255,255,255,.06); padding: 10px 14px; border-radius: 10px; font-weight: 800; font-size: 1.05rem; backdrop-filter: blur(6px); cursor: pointer; }
 .deck-nav .arrow.left  { left: 18px; top: 50%; transform: translateY(-50%); }

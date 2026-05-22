@@ -844,11 +844,19 @@
         { cell: 'cell-platforms', src: '#skills .tools-block' }
       ];
 
-      mappings.forEach(m => {
-        const cell = document.getElementById(m.cell);
-        const srcEl = document.querySelector(m.src);
-        if (cell && srcEl) {
-          cell.querySelector('.deck-inner').innerHTML = srcEl.innerHTML;
+      // Capture original elements first (preserve IDs/anchors), then move them
+      const refs = mappings.map(m => ({ cell: m.cell, el: document.querySelector(m.src) }));
+
+      refs.forEach(item => {
+        const cell = document.getElementById(item.cell);
+        const inner = cell ? cell.querySelector('.deck-inner') : null;
+        if (inner && item.el) {
+          // remove placeholder and move the original element into the deck cell
+          inner.remove();
+          cell.appendChild(item.el);
+        } else if (inner) {
+          // fallback: keep placeholder empty
+          inner.innerHTML = '';
         }
       });
 
