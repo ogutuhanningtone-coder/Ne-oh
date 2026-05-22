@@ -61,6 +61,42 @@
     </div>
   </header>
 
+  <!-- ================= DECK LAYOUT (2D pages) ================= -->
+  <div class="deck-viewport" id="deckViewport" aria-label="Portfolio deck navigation">
+    <div class="deck-grid" id="deckGrid">
+      <section class="deck-cell" id="cell-hero" data-row="1" data-col="1" data-section="#hero">
+        <div class="deck-inner" aria-hidden="false"></div>
+        <div class="deck-nav">
+          <button class="arrow right" data-target="cell-about" aria-label="Go to About">→</button>
+        </div>
+      </section>
+
+      <section class="deck-cell" id="cell-about" data-row="1" data-col="2" data-section="#about">
+        <div class="deck-inner" aria-hidden="false"></div>
+        <div class="deck-nav">
+          <button class="arrow left" data-target="cell-hero" aria-label="Back to Home">←</button>
+          <button class="arrow down" data-target="cell-skills" aria-label="Go to Skills">↓</button>
+        </div>
+      </section>
+
+      <section class="deck-cell" id="cell-skills" data-row="2" data-col="2" data-section="#skills">
+        <div class="deck-inner" aria-hidden="false"></div>
+        <div class="deck-nav">
+          <button class="arrow up" data-target="cell-about" aria-label="Back to About">↑</button>
+          <button class="arrow down" data-target="cell-platforms" aria-label="Go to Platforms">↓</button>
+        </div>
+      </section>
+
+      <section class="deck-cell" id="cell-platforms" data-row="3" data-col="2" data-section="#skills .tools-block">
+        <div class="deck-inner" aria-hidden="false"></div>
+        <div class="deck-nav">
+          <button class="arrow up" data-target="cell-skills" aria-label="Back to Skills">↑</button>
+        </div>
+      </section>
+    </div>
+  </div>
+
+
   <!-- ================= HERO ================= -->
   <section id="hero" class="hero">
     <canvas id="binaryBg" class="binary-canvas" aria-hidden="true"></canvas>
@@ -798,6 +834,58 @@
   </footer>
 
   <!-- ================= SCRIPTS ================= -->
+  <!-- Deck cloning + navigation script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const mappings = [
+        { cell: 'cell-hero', src: '#hero' },
+        { cell: 'cell-about', src: '#about' },
+        { cell: 'cell-skills', src: '#skills' },
+        { cell: 'cell-platforms', src: '#skills .tools-block' }
+      ];
+
+      mappings.forEach(m => {
+        const cell = document.getElementById(m.cell);
+        const srcEl = document.querySelector(m.src);
+        if (cell && srcEl) {
+          cell.querySelector('.deck-inner').innerHTML = srcEl.innerHTML;
+        }
+      });
+
+      const viewport = document.getElementById('deckViewport');
+      function scrollToCell(id) {
+        const el = document.getElementById(id);
+        if (!el || !viewport) return;
+        viewport.scrollTo({ left: el.offsetLeft, top: el.offsetTop, behavior: 'smooth' });
+      }
+
+      document.querySelectorAll('.deck-nav .arrow').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const tgt = btn.dataset.target;
+          if (tgt) scrollToCell(tgt);
+        });
+      });
+
+      document.addEventListener('keydown', (e) => {
+        const keys = ['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'];
+        if (!keys.includes(e.key)) return;
+        e.preventDefault();
+        const cx = viewport.scrollLeft + viewport.clientWidth / 2;
+        const cy = viewport.scrollTop  + viewport.clientHeight / 2;
+        let nearest = null, minD = Infinity;
+        document.querySelectorAll('.deck-cell').forEach(c => {
+          const ox = c.offsetLeft + c.offsetWidth/2;
+          const oy = c.offsetTop  + c.offsetHeight/2;
+          const d = Math.hypot(ox - cx, oy - cy);
+          if (d < minD) { minD = d; nearest = c; }
+        });
+        if (!nearest) return;
+        const map = { ArrowLeft: '.arrow.left', ArrowRight: '.arrow.right', ArrowUp: '.arrow.up', ArrowDown: '.arrow.down' };
+        const btn = nearest.querySelector(map[e.key]);
+        if (btn && btn.dataset.target) scrollToCell(btn.dataset.target);
+      });
+    });
+  </script>
 
   <!-- Mobile menu + footer year -->
   <script>
