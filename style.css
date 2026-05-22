@@ -950,16 +950,17 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-y: contain;
+    padding-bottom: 32px;   /* iOS Safari drops padding-bottom on overflow:auto — explicit override */
   }
   #cell-expertise .section-header        { margin-bottom: 10px; }
   #cell-expertise .section-header .h2   { font-size: 1.15rem; }
-  #cell-expertise .services-grid         { grid-template-columns: 1fr 1fr; gap: 8px; }
-  #cell-expertise .service-card          { padding: 10px 9px; }
-  #cell-expertise .service-card__icon    { font-size: 1.1rem; margin-bottom: 4px; }
+  #cell-expertise .services-grid         { grid-template-columns: 1fr 1fr; gap: 12px; padding-bottom: 8px; }
+  #cell-expertise .service-card          { padding: 12px 10px; }
+  #cell-expertise .service-card__icon    { font-size: 1.1rem; margin-bottom: 5px; }
   #cell-expertise .service-card__kicker  { font-size: .62rem; margin-bottom: 2px; }
-  #cell-expertise .service-card__title   { font-size: .78rem; margin-bottom: 5px; }
-  #cell-expertise .service-card__list    { font-size: .7rem; line-height: 1.45; }
-  #cell-expertise .service-card__list li { margin-bottom: 2px; }
+  #cell-expertise .service-card__title   { font-size: .78rem; margin-bottom: 6px; }
+  #cell-expertise .service-card__list    { font-size: .7rem; line-height: 1.5; }
+  #cell-expertise .service-card__list li { margin-bottom: 3px; }
 
   /* ───────────────── PROJECTS — 2-column scrollable grid ───────────────── */
   #cell-projects > .hero-slide {
@@ -990,6 +991,7 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-y: contain;
+    padding-bottom: 32px;   /* iOS Safari drops padding-bottom on overflow:auto — explicit override */
   }
   #cell-plans .section-header          { margin-bottom: 12px; }
   #cell-plans .section-header .h2     { font-size: 1.15rem; }
@@ -997,17 +999,18 @@ body.cursor-hover .cursor-dot  { transform: translate(-50%, -50%) scale(0); }
   #cell-plans .pricing-grid {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 14px;
+    padding-bottom: 8px;
   }
   #cell-plans .price {
     width: 100%; flex: none; min-width: unset;
-    padding: 16px 14px;
+    padding: 18px 16px;
   }
-  #cell-plans .price h3       { font-size: .97rem; margin-bottom: 2px; }
+  #cell-plans .price h3       { font-size: .97rem; margin-bottom: 3px; }
   #cell-plans .price .muted   { font-size: .74rem; }
-  #cell-plans .price__value   { font-size: 1.35rem; margin: 5px 0 8px; }
-  #cell-plans .price ul       { display: block; font-size: .76rem; line-height: 1.6; margin-bottom: 12px; }
-  #cell-plans .price ul li    { margin-bottom: 2px; }
+  #cell-plans .price__value   { font-size: 1.35rem; margin: 6px 0 10px; }
+  #cell-plans .price ul       { display: block; font-size: .76rem; line-height: 1.65; margin-bottom: 14px; }
+  #cell-plans .price ul li    { margin-bottom: 3px; }
 
   /* ───────────────── COLLABORATE — single col, testimonials visible, scrollable ───────────────── */
   #cell-collaborate > .hero-slide {
