@@ -178,7 +178,8 @@
 
         <div class="tools-block reveal reveal--delay-2">
           <h3 class="h3">Platforms &amp; Tools</h3>
-          <div class="tools-grid" id="toolsGrid">
+          <div class="tools-grid">
+           <div class="tools-track" id="toolsGrid">
             <div class="skill-card"><div class="icon"><img src="https://api.iconify.design/simple-icons/git.svg?color=%23F05032" alt="Git"></div><div class="title">Git &amp; GitHub</div></div>
             <div class="skill-card"><div class="icon"><img src="https://api.iconify.design/simple-icons/windows11.svg?color=%230078D4" alt="Windows"></div><div class="title">Windows</div></div>
             <div class="skill-card"><div class="icon"><img src="https://api.iconify.design/simple-icons/linux.svg?color=%23FCC624" alt="Linux"></div><div class="title">Linux</div></div>
@@ -192,6 +193,7 @@
             <div class="skill-card"><div class="icon"><img src="https://api.iconify.design/simple-icons/figma.svg?color=%23F24E1E" alt="Figma"></div><div class="title">Figma</div></div>
             <div class="skill-card"><div class="icon"><img src="https://api.iconify.design/simple-icons/canva.svg?color=%2300C4CC" alt="Canva"></div><div class="title">Canva</div></div>
             <div class="skill-card"><div class="icon"><img class="is-logo" src="https://api.iconify.design/logos/google.svg" alt="Google Workspace"></div><div class="title">Google Workspace</div></div>
+           </div>
           </div>
         </div>
       </div>
@@ -744,72 +746,72 @@
   </script>
 
 
-  <!-- Testimonial slider -->
+  <!-- Testimonial slider — % translation, swipe support -->
   <script>
   (() => {
     const track = document.getElementById('tTrack');
     const dotsW = document.getElementById('tDots');
     const prev  = document.querySelector('.tbtn--prev');
     const next  = document.querySelector('.tbtn--next');
+    const view  = document.querySelector('.tviewport');
     if (!track || !dotsW) return;
     const cards = Array.from(track.querySelectorAll('.tcard'));
     let idx = 0, timer = null;
     const maxI = () => Math.max(0, cards.length - 1);
-    const step = () => {
-      const c = cards[0]; if (!c) return 0;
-      return c.getBoundingClientRect().width + parseFloat(getComputedStyle(track).gap || 0);
-    };
+
     function buildDots() {
       dotsW.innerHTML = '';
       for (let i = 0; i <= maxI(); i++) {
         const b = document.createElement('button');
         b.className = 'tdot' + (i === idx ? ' is-active' : '');
         b.type = 'button';
+        b.setAttribute('aria-label', 'Testimonial ' + (i + 1));
         b.addEventListener('click', () => { idx = i; apply(); restart(); });
         dotsW.appendChild(b);
       }
     }
     function apply() {
       idx = Math.min(Math.max(idx, 0), maxI());
-      track.style.transform = `translateX(${-step() * idx}px)`;
+      track.style.transform = `translateX(-${idx * 100}%)`;
       dotsW.querySelectorAll('.tdot').forEach((d, i) => d.classList.toggle('is-active', i === idx));
     }
     const goNext = () => { idx = idx >= maxI() ? 0 : idx + 1; apply(); };
     const goPrev = () => { idx = idx <= 0 ? maxI() : idx - 1; apply(); };
     const stop   = () => { clearInterval(timer); timer = null; };
-    const start  = () => { stop(); timer = setInterval(goNext, 4500); };
+    const start  = () => { stop(); timer = setInterval(goNext, 5500); };
     const restart= () => start();
+
     next?.addEventListener('click', () => { goNext(); restart(); });
     prev?.addEventListener('click', () => { goPrev(); restart(); });
-    document.querySelector('.tviewport')?.addEventListener('mouseenter', stop);
-    document.querySelector('.tviewport')?.addEventListener('mouseleave', start);
-    window.addEventListener('resize', () => { idx = Math.min(idx, maxI()); buildDots(); apply(); });
+    view?.addEventListener('mouseenter', stop);
+    view?.addEventListener('mouseleave', start);
+
+    // Touch swipe (mobile)
+    let touchX = null;
+    view?.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; stop(); }, { passive: true });
+    view?.addEventListener('touchend', e => {
+      if (touchX === null) return;
+      const dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 40) (dx < 0 ? goNext : goPrev)();
+      touchX = null;
+      restart();
+    }, { passive: true });
+
     buildDots(); apply(); start();
   })();
   </script>
 
 
-  <!-- Tools grid auto-scroll (infinite ticker) -->
+  <!-- Tools track — duplicate children so the CSS marquee loops seamlessly -->
   <script>
   (() => {
-    const grid = document.getElementById('toolsGrid');
-    if (!grid) return;
-    Array.from(grid.children).forEach(c => {
+    const track = document.getElementById('toolsGrid');
+    if (!track) return;
+    Array.from(track.children).forEach(c => {
       const cl = c.cloneNode(true);
-      cl.setAttribute('aria-hidden','true');
-      grid.appendChild(cl);
+      cl.setAttribute('aria-hidden', 'true');
+      track.appendChild(cl);
     });
-    let raf;
-    function scroll() {
-      grid.scrollLeft += 0.6;
-      if (grid.scrollLeft >= grid.scrollWidth / 2) grid.scrollLeft = 0;
-      raf = requestAnimationFrame(scroll);
-    }
-    grid.addEventListener('mouseenter',  () => cancelAnimationFrame(raf));
-    grid.addEventListener('mouseleave',  () => scroll());
-    grid.addEventListener('touchstart',  () => cancelAnimationFrame(raf), { passive: true });
-    grid.addEventListener('touchend',    () => scroll(), { passive: true });
-    scroll();
   })();
   </script>
 
