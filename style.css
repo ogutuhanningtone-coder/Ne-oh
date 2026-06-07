@@ -133,7 +133,20 @@ ul { list-style: none; }
   position: relative;
 }
 .section--tight { padding-block: calc(var(--sec-py) * .65); }
-.section--alt   { background: var(--bg-elev); }
+/* Soft glow at the centre — no hard bg, sections blend invisibly into each other */
+.section--alt   {
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+.section--alt::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 55% at 50% 50%, rgba(255,255,255,.025) 0%, transparent 75%);
+  pointer-events: none;
+  z-index: -1;
+}
 
 /* ── 4. TYPOGRAPHY ───────────────────────────────────────────── */
 .h1, .h2, .h3, .h4, h1, h2, h3, h4 {
@@ -532,14 +545,106 @@ ul { list-style: none; }
 }
 .hero__cta {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 14px;
-  margin-top: var(--sp-2);
+  margin-top: var(--sp-4);
   opacity: 0;
   transform: translateY(10px);
   transition: opacity .55s var(--ease-out), transform .55s var(--ease-out);
 }
 .hero__cta.is-revealed { opacity: 1; transform: translateY(0); }
+
+/* Lead-in line — techy mono hint above the CTA */
+.cta-lead {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--text-soft);
+  margin-bottom: 4px;
+}
+.cta-lead__arrow {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1.1em;
+}
+.cta-lead__key {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 9px;
+  background: rgba(139,143,245,.12);
+  border: 1px solid var(--accent-strong);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  font-family: var(--font-mono);
+  font-size: .78em;
+  font-weight: 600;
+  color: var(--accent-hover);
+  box-shadow: 0 1px 0 rgba(0,0,0,.4);
+}
+
+/* The terminal-style primary CTA */
+.cta-terminal {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 26px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-md);
+  font-weight: 600;
+  color: var(--text);
+  background: linear-gradient(135deg, rgba(139,143,245,.14), rgba(139,143,245,.04));
+  border: 1px solid var(--accent-strong);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  transition: background .3s, border-color .3s, box-shadow .35s, transform .3s var(--ease-out), color .3s;
+  white-space: nowrap;
+  max-width: 100%;
+}
+/* Soft scan-line that sweeps across on hover */
+.cta-terminal::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  left: -40%;
+  width: 35%;
+  background: linear-gradient(90deg, transparent, rgba(196,181,253,.18), transparent);
+  transform: skewX(-12deg);
+  transition: left .9s var(--ease-out);
+  pointer-events: none;
+}
+.cta-terminal:hover {
+  border-color: var(--accent-hover);
+  background: linear-gradient(135deg, rgba(139,143,245,.26), rgba(139,143,245,.1));
+  box-shadow: 0 0 0 4px rgba(139,143,245,.08), 0 12px 32px -10px var(--accent-glow);
+  color: #fff;
+  transform: translateY(-2px);
+}
+.cta-terminal:hover::before { left: 110%; }
+.cta-terminal__prompt {
+  color: var(--c-green);
+  font-weight: 700;
+}
+.cta-terminal__cmd {
+  color: var(--accent-hover);
+  font-weight: 600;
+}
+.cta-terminal__sep { color: var(--text-muted); }
+.cta-terminal__label { color: inherit; }
+.cta-terminal__arrow {
+  margin-left: 6px;
+  color: var(--accent);
+  font-weight: 700;
+  transition: transform .3s var(--ease-out), color .3s;
+}
+.cta-terminal:hover .cta-terminal__arrow {
+  transform: translateX(6px);
+  color: #fff;
+}
 .social {
   display: flex;
   flex-wrap: wrap;
@@ -552,25 +657,24 @@ ul { list-style: none; }
 .social.is-revealed { opacity: 1; transform: translateY(0); }
 .icon-btn {
   --c: var(--text-soft);
-  width: 44px; height: 44px;
+  width: 48px; height: 48px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.025);
+  border-radius: 12px;
+  border: 0;
+  background: transparent;
   color: var(--c);
-  font-size: 1rem;
-  transition: transform .2s, color .2s, border-color .2s, background .2s, box-shadow .25s;
+  font-size: 1.5rem;
+  transition: transform .25s var(--ease-out), color .25s, filter .25s;
   flex-shrink: 0;
 }
 .icon-btn:hover {
   color: var(--c);
-  border-color: var(--c);
-  background: color-mix(in srgb, var(--c) 14%, transparent);
-  box-shadow: 0 0 18px color-mix(in srgb, var(--c) 35%, transparent);
-  transform: translateY(-3px);
+  transform: translateY(-4px) scale(1.12);
+  filter: drop-shadow(0 4px 12px color-mix(in srgb, var(--c) 60%, transparent));
 }
+.icon-btn:active { transform: translateY(-2px) scale(1.06); }
 /* Official brand colours per icon */
 .icon-btn[aria-label="Email"]    { --c: #EA4335; }   /* Gmail red */
 .icon-btn[aria-label="Call"]     { --c: #34D399; }   /* Phone green */
@@ -799,29 +903,30 @@ ul { list-style: none; }
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 22px;
+  gap: 26px;
 }
+/* No card chrome — projects are just images that sit naturally on the page */
 .project {
   position: relative;
   aspect-ratio: 4 / 3;
   overflow: hidden;
   border-radius: var(--r-md);
-  border: 1px solid var(--border);
-  background: var(--bg-card);
-  transition: transform .35s var(--ease-out), border-color .35s, box-shadow .35s;
+  border: 0;
+  background: transparent;
+  transition: transform .4s var(--ease-out), filter .4s;
   cursor: pointer;
+  filter: saturate(.92);
 }
 .project:hover {
   transform: translateY(-6px);
-  border-color: var(--border-strong);
-  box-shadow: var(--shadow-lg);
+  filter: saturate(1.05);
 }
 .project__img {
   width: 100%; height: 100%;
   object-fit: cover;
   transition: transform .6s var(--ease-out);
 }
-.project:hover .project__img { transform: scale(1.05); }
+.project:hover .project__img { transform: scale(1.06); }
 .project__front {
   position: absolute;
   inset: 0;
@@ -829,7 +934,7 @@ ul { list-style: none; }
   display: flex;
   align-items: flex-end;
   padding: 18px 20px;
-  background: linear-gradient(to top, rgba(0,0,0,.9) 0%, rgba(0,0,0,.4) 40%, transparent 70%);
+  background: linear-gradient(to top, rgba(0,0,0,.85) 0%, rgba(0,0,0,.25) 45%, transparent 70%);
   transition: opacity .3s;
 }
 .project:hover .project__front { opacity: 0; }
@@ -838,18 +943,19 @@ ul { list-style: none; }
   font-size: var(--fs-md);
   font-weight: 700;
   color: #fff;
+  letter-spacing: -.01em;
 }
 .project__overlay {
   position: absolute;
   inset: 0;
   z-index: 3;
-  padding: 24px;
+  padding: 26px 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: rgba(10,10,15,.92);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: linear-gradient(165deg, rgba(10,10,15,.94), rgba(20,20,29,.94));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   opacity: 0;
   transform: translateY(10px);
   transition: opacity .35s, transform .35s var(--ease-out);
@@ -1158,7 +1264,9 @@ ul { list-style: none; }
   transition: border-color .2s, background .2s;
   width: 100%;
 }
-.field::placeholder { color: var(--text-muted); }
+.field::placeholder { color: #b8b8c4; opacity: 1; font-weight: 500; }
+.field::-webkit-input-placeholder { color: #b8b8c4; opacity: 1; font-weight: 500; }
+.field::-moz-placeholder          { color: #b8b8c4; opacity: 1; font-weight: 500; }
 .field:focus {
   outline: none;
   border-color: var(--accent);
@@ -1362,9 +1470,21 @@ body.cursor-hover .cursor-cross::after {
   .hero-status { font-size: var(--fs-xs); line-height: 1.5; align-items: flex-start; }
   .hero-status .status-dot { margin-top: 5px; }
   .hero-term__line { font-size: var(--fs-xs); }
-  .hero__cta { width: 100%; flex-direction: column; gap: 10px; }
-  .hero__cta .btn { width: 100%; padding: 16px 24px; font-size: var(--fs-base); }
-  .hero__cta .btn--soft { padding: 12px 16px; }
+  .hero__cta { width: 100%; gap: 12px; }
+  .cta-lead { font-size: var(--fs-xs); line-height: 1.6; }
+  .cta-terminal {
+    width: 100%;
+    padding: 16px 18px;
+    font-size: var(--fs-sm);
+    white-space: normal;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-start;
+  }
+  .cta-terminal__label { flex: 1 1 100%; padding-left: 22px; line-height: 1.4; }
+  .cta-terminal__sep { display: none; }
+  .cta-terminal__arrow { margin-left: auto; }
+  .hero__cta .btn--soft { padding: 8px 0; align-self: flex-start; }
   .section-header { margin-bottom: 44px; }
 
   .services-grid,

@@ -186,8 +186,20 @@
           <span class="hero-term__caret hero-term__caret--end" id="termEndCaret">▊</span>
 
           <div class="hero__cta" id="heroCta">
-            <a href="#contact"   class="btn btn--gradient">Let's Talk Digital Solutions</a>
-            <a href="#expertise" class="btn btn--soft">My Services →</a>
+            <p class="cta-lead">
+              <span class="cta-lead__arrow">›</span>
+              ready to ship something real? press
+              <kbd class="cta-lead__key">Enter</kbd>
+              or run the command below
+            </p>
+            <a href="#contact" class="cta-terminal" id="heroPrimaryCta">
+              <span class="cta-terminal__prompt">$</span>
+              <span class="cta-terminal__cmd">./connect</span>
+              <span class="cta-terminal__sep">—</span>
+              <span class="cta-terminal__label">Let's Talk Digital Solutions</span>
+              <span class="cta-terminal__arrow">→</span>
+            </a>
+            <a href="#expertise" class="btn btn--soft">browse my services →</a>
           </div>
 
           <div class="social" id="heroSocial">
@@ -855,6 +867,18 @@
       endCaret?.classList.add('is-final');
       show(cta,    100);
       show(social, 240);
+
+      // 5. "Press Enter" actually works — fires the primary CTA once
+      const primary = document.getElementById('heroPrimaryCta');
+      const onEnter = e => {
+        const tag = document.activeElement?.tagName;
+        if (e.key !== 'Enter') return;
+        if (['INPUT','TEXTAREA','SELECT','BUTTON','A'].includes(tag)) return;
+        if (window.scrollY > window.innerHeight * 0.5) return; // only when hero is in view
+        e.preventDefault();
+        primary?.click();
+      };
+      window.addEventListener('keydown', onEnter);
     }
 
     // Defer until next frame so reveal classes attach cleanly
