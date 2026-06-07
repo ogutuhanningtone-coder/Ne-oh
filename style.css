@@ -73,7 +73,7 @@
   --container:    1200px;
   --container-sm: 760px;
   --gutter:       clamp(20px, 5vw, 48px);
-  --sec-py:       clamp(56px, 8vh, 96px);   /* tighter — no wasted space, still premium */
+  --sec-py:       clamp(40px, 5.5vh, 64px);   /* compact — content driven, minimal dead space */
   --hdr-h:        72px;
 
   /* Radii */
@@ -182,7 +182,7 @@ ul { list-style: none; }
 .maxw      { max-width: 60ch; margin-inline: auto; }
 
 /* Section header — tight, unified spacing across every section */
-.section-header { margin-bottom: clamp(32px, 5vh, 52px); }
+.section-header { margin-bottom: clamp(20px, 3vh, 36px); }
 .section-header .kicker { margin-bottom: var(--sp-3); }
 .section-header .h2     { margin-bottom: var(--sp-3); }
 .section-header.center  { display: flex; flex-direction: column; align-items: center; }
@@ -701,18 +701,18 @@ ul { list-style: none; }
 #about .p,
 #about .p--spaced {
   font-size: var(--fs-md);
-  line-height: 1.85;
+  line-height: 1.8;
   color: var(--text-soft);
   text-align: center;
   max-width: 65ch;
-  margin: var(--sp-6) auto 0;
+  margin: var(--sp-4) auto 0;
 }
 
 /* ── 9. SKILLS ──────────────────────────────────────────────── */
-.skills-block { margin-bottom: var(--sp-8); }
+.skills-block { margin-bottom: var(--sp-6); }
 .skills-block .h3 {
   font-size: var(--fs-lg);
-  margin-bottom: var(--sp-5);
+  margin-bottom: var(--sp-4);
   color: var(--text);
 }
 .skillbars { display: grid; gap: 18px; }
@@ -750,10 +750,10 @@ ul { list-style: none; }
   box-shadow: 0 0 14px color-mix(in srgb, var(--c) 55%, transparent);
 }
 
-.tools-block { margin-top: var(--sp-6); }
+.tools-block { margin-top: var(--sp-4); }
 .tools-block .h3 {
   font-size: var(--fs-lg);
-  margin-bottom: var(--sp-5);
+  margin-bottom: var(--sp-4);
   text-align: center;
   color: var(--text);
 }
@@ -1458,8 +1458,8 @@ body.cursor-hover .cursor-cross::after {
 
 /* Tablet — 1024px and down */
 @media (max-width: 1024px) {
-  :root { --sec-py: clamp(48px, 7vh, 80px); }
-  .hire { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+  :root { --sec-py: clamp(36px, 5vh, 52px); }
+  .hire { grid-template-columns: 1fr; gap: 28px; text-align: center; }
   .hire__img { max-width: 320px; margin-inline: auto; aspect-ratio: 1 / 1; }
   .hire__content { align-items: center; }
   .hire__content .muted { max-width: 60ch; }
@@ -1471,7 +1471,7 @@ body.cursor-hover .cursor-cross::after {
   :root {
     --hdr-h: 64px;
     --gutter: 22px;
-    --sec-py: clamp(44px, 6.5vh, 64px);
+    --sec-py: clamp(28px, 4vh, 40px);
   }
   .nav__list--desktop { display: none; }
   .nav__mobile-btn { display: inline-flex; }
@@ -1489,7 +1489,7 @@ body.cursor-hover .cursor-cross::after {
   .cta-big__icon { width: 40px; height: 40px; font-size: 1rem; }
   .cta-big__arrow { width: 30px; height: 30px; }
   .hero__cta .btn--soft { padding: 6px 0; align-self: flex-start; }
-  .section-header { margin-bottom: 28px; }
+  .section-header { margin-bottom: 20px; }
 
   .services-grid,
   .projects-grid,
@@ -1525,14 +1525,14 @@ body.cursor-hover .cursor-cross::after {
 
 /* Small phones — 480px and down */
 @media (max-width: 480px) {
-  :root { --gutter: 18px; --sec-py: clamp(36px, 5.5vh, 52px); }
-  .hero { padding-top: calc(var(--hdr-h) + 20px); padding-bottom: var(--sp-8); }
+  :root { --gutter: 18px; --sec-py: clamp(24px, 3.5vh, 32px); }
+  .hero { padding-top: calc(var(--hdr-h) + 16px); padding-bottom: var(--sp-6); }
   .hero__name { font-size: clamp(2.6rem, 11vw, 3.8rem); }
   .hero__role { font-size: clamp(1.2rem, 5.5vw, 1.6rem); }
   .hero__subtitle { font-size: var(--fs-base); }
   .hero-status { font-size: .72rem; }
   .icon-btn { width: 44px; height: 44px; font-size: 1.25rem; }
-  .section-header { margin-bottom: 24px; }
+  .section-header { margin-bottom: 16px; }
   .h2 { font-size: clamp(1.75rem, 7.5vw, 2.4rem); }
   #about .p { font-size: var(--fs-base); line-height: 1.75; margin-top: var(--sp-4); }
 }
