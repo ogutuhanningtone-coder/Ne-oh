@@ -133,20 +133,10 @@ ul { list-style: none; }
   position: relative;
 }
 .section--tight { padding-block: calc(var(--sec-py) * .65); }
-/* Soft glow at the centre — no hard bg, sections blend invisibly into each other */
-.section--alt   {
-  background: transparent;
-  position: relative;
-  z-index: 1;
-}
-.section--alt::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 70% 55% at 50% 50%, rgba(255,255,255,.025) 0%, transparent 75%);
-  pointer-events: none;
-  z-index: -1;
-}
+/* No visual distinction at all — every section shares the same body bg.
+   Section identity comes from spacing, headers and content layout, not from
+   a different background colour. */
+.section--alt { background: transparent; }
 
 /* ── 4. TYPOGRAPHY ───────────────────────────────────────────── */
 .h1, .h2, .h3, .h4, h1, h2, h3, h4 {
@@ -586,64 +576,87 @@ ul { list-style: none; }
   box-shadow: 0 1px 0 rgba(0,0,0,.4);
 }
 
-/* The terminal-style primary CTA */
-.cta-terminal {
+/* Primary CTA — unmistakably a button. Big, filled, pulsing, with icon + arrow. */
+.cta-big {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 18px 26px;
-  font-family: var(--font-mono);
+  gap: 16px;
+  padding: 16px 22px 16px 16px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+  color: #0a0a0f;
+  border: 0;
+  border-radius: 14px;
+  font-family: var(--font-body);
+  font-weight: 700;
   font-size: var(--fs-md);
-  font-weight: 600;
-  color: var(--text);
-  background: linear-gradient(135deg, rgba(139,143,245,.14), rgba(139,143,245,.04));
-  border: 1px solid var(--accent-strong);
-  border-radius: 8px;
+  letter-spacing: -.01em;
+  text-decoration: none;
   position: relative;
-  overflow: hidden;
-  transition: background .3s, border-color .3s, box-shadow .35s, transform .3s var(--ease-out), color .3s;
-  white-space: nowrap;
+  overflow: visible;
+  transition: transform .3s var(--ease-out), box-shadow .3s;
   max-width: 100%;
+  box-shadow:
+    0 12px 32px -8px var(--accent-glow),
+    inset 0 1px 0 rgba(255,255,255,.35);
+  animation: ctaPulse 2.4s ease-in-out infinite;
 }
-/* Soft scan-line that sweeps across on hover */
-.cta-terminal::before {
-  content: '';
-  position: absolute;
-  top: 0; bottom: 0;
-  left: -40%;
-  width: 35%;
-  background: linear-gradient(90deg, transparent, rgba(196,181,253,.18), transparent);
-  transform: skewX(-12deg);
-  transition: left .9s var(--ease-out);
-  pointer-events: none;
+@keyframes ctaPulse {
+  0%, 100% {
+    box-shadow:
+      0 12px 32px -8px var(--accent-glow),
+      0 0 0 0 rgba(139,143,245,0),
+      inset 0 1px 0 rgba(255,255,255,.35);
+  }
+  50% {
+    box-shadow:
+      0 14px 36px -6px var(--accent-glow),
+      0 0 0 8px rgba(139,143,245,.10),
+      inset 0 1px 0 rgba(255,255,255,.4);
+  }
 }
-.cta-terminal:hover {
-  border-color: var(--accent-hover);
-  background: linear-gradient(135deg, rgba(139,143,245,.26), rgba(139,143,245,.1));
-  box-shadow: 0 0 0 4px rgba(139,143,245,.08), 0 12px 32px -10px var(--accent-glow);
-  color: #fff;
-  transform: translateY(-2px);
+.cta-big:hover {
+  transform: translateY(-3px);
+  animation-play-state: paused;
+  box-shadow:
+    0 18px 44px -10px var(--accent-glow),
+    0 0 0 6px rgba(139,143,245,.15),
+    inset 0 1px 0 rgba(255,255,255,.45);
 }
-.cta-terminal:hover::before { left: 110%; }
-.cta-terminal__prompt {
-  color: var(--c-green);
-  font-weight: 700;
+.cta-big:active { transform: translateY(-1px); }
+.cta-big__icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  background: rgba(10,10,15,.18);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  color: #0a0a0f;
+  flex-shrink: 0;
 }
-.cta-terminal__cmd {
-  color: var(--accent-hover);
-  font-weight: 600;
+.cta-big__label {
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: #0a0a0f;
+  line-height: 1.25;
+  flex: 1 1 auto;
+  min-width: 0;
 }
-.cta-terminal__sep { color: var(--text-muted); }
-.cta-terminal__label { color: inherit; }
-.cta-terminal__arrow {
-  margin-left: 6px;
-  color: var(--accent);
-  font-weight: 700;
-  transition: transform .3s var(--ease-out), color .3s;
+.cta-big__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: rgba(10,10,15,.16);
+  color: #0a0a0f;
+  font-size: .82rem;
+  transition: transform .3s var(--ease-out), background .3s;
+  flex-shrink: 0;
 }
-.cta-terminal:hover .cta-terminal__arrow {
-  transform: translateX(6px);
-  color: #fff;
+.cta-big:hover .cta-big__arrow {
+  transform: translateX(4px);
+  background: rgba(10,10,15,.28);
 }
 .social {
   display: flex;
@@ -1470,20 +1483,11 @@ body.cursor-hover .cursor-cross::after {
   .hero-status { font-size: var(--fs-xs); line-height: 1.5; align-items: flex-start; }
   .hero-status .status-dot { margin-top: 5px; }
   .hero-term__line { font-size: var(--fs-xs); }
-  .hero__cta { width: 100%; gap: 12px; }
+  .hero__cta { width: 100%; gap: 14px; }
   .cta-lead { font-size: var(--fs-xs); line-height: 1.6; }
-  .cta-terminal {
-    width: 100%;
-    padding: 16px 18px;
-    font-size: var(--fs-sm);
-    white-space: normal;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: flex-start;
-  }
-  .cta-terminal__label { flex: 1 1 100%; padding-left: 22px; line-height: 1.4; }
-  .cta-terminal__sep { display: none; }
-  .cta-terminal__arrow { margin-left: auto; }
+  .cta-big { width: 100%; padding: 14px 16px 14px 14px; font-size: var(--fs-base); gap: 12px; }
+  .cta-big__icon { width: 40px; height: 40px; font-size: 1rem; }
+  .cta-big__arrow { width: 30px; height: 30px; }
   .hero__cta .btn--soft { padding: 8px 0; align-self: flex-start; }
   .section-header { margin-bottom: 44px; }
 
