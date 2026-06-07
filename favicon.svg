@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="geometricPrecision">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#8b8ff5"/>
+      <stop offset="55%"  stop-color="#a3a7ff"/>
+      <stop offset="100%" stop-color="#c4b5fd"/>
+    </linearGradient>
+    <linearGradient id="gBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#13131d"/>
+      <stop offset="100%" stop-color="#0a0a0f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Rounded dark tile -->
+  <rect width="64" height="64" rx="14" ry="14" fill="url(#gBg)"/>
+  <rect width="64" height="64" rx="14" ry="14" fill="none" stroke="rgba(139,143,245,.28)" stroke-width="1"/>
+
+  <!-- Bold N monogram in the accent gradient -->
+  <path d="M 18 50 V 14 L 46 50 V 14"
+        stroke="url(#g)"
+        stroke-width="7.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"/>
+
+  <!-- Small online-status dot bottom-right (the same green from the hero status) -->
+  <circle cx="51" cy="51" r="4" fill="#34d399"/>
+  <circle cx="51" cy="51" r="4" fill="none" stroke="#0a0a0f" stroke-width="1.5"/>
+</svg>
