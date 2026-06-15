@@ -1822,6 +1822,75 @@ body.cursor-hover .cursor-cross::after {
 }
 
 /* ══════════════════════════════════════════════════════════════
+   29. SERVICES GRID — 4-column capped layout
+   ══════════════════════════════════════════════════════════════ */
+.services-grid--4 {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   30. PRICING FOOTER
+   ══════════════════════════════════════════════════════════════ */
+.pricing-footer {
+  margin-top: clamp(32px, 5vh, 52px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-6);
+  text-align: center;
+}
+.pricing-footer__note {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  max-width: 60ch;
+  line-height: 1.6;
+}
+.pricing-footer__note i { color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+.pricing-footer__custom {
+  padding: 28px 36px;
+  background: rgba(20,20,29,.7);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-6);
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 700px;
+  width: 100%;
+}
+.pricing-footer__custom p {
+  font-size: var(--fs-md);
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   31. TESTIMONIALS — standalone full-width section
+   ══════════════════════════════════════════════════════════════ */
+.testimonials-wrap { max-width: 860px; margin-inline: auto; }
+.twrap--full {
+  display: grid;
+  grid-template-columns: 44px minmax(0,1fr) 44px;
+  gap: 18px;
+  align-items: center;
+}
+.tlink {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color .2s;
+}
+.tlink:hover { color: var(--accent-hover); }
+
+/* ══════════════════════════════════════════════════════════════
    28. RESPONSIVE — new sections
    ══════════════════════════════════════════════════════════════ */
 @media (max-width: 1024px) {
@@ -1850,12 +1919,18 @@ body.cursor-hover .cursor-cross::after {
   /* Project filters */
   .project-filters { justify-content: flex-start; gap: 8px; }
   .filter-btn  { padding: 8px 14px; font-size: var(--fs-xs); }
-
-  /* Project grid single column already handled above */
   .projects-cta { margin-top: var(--sp-8); }
 
   /* Stat cards */
   .stat-card__num { font-size: clamp(2rem, 7vw, 2.8rem); }
+
+  /* Pricing footer */
+  .pricing-footer__custom { padding: 22px 20px; gap: var(--sp-4); flex-direction: column; text-align: center; }
+
+  /* Testimonials */
+  .twrap--full { grid-template-columns: 1fr; gap: 12px; }
+  .twrap--full .tbtn { display: none; }
+  .testimonials-wrap { max-width: 100%; }
 }
 @media (max-width: 480px) {
   .about-stats { gap: 12px; }
